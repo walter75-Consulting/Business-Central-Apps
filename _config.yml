@@ -29,4 +29,7 @@ exclude:
   - Translations/
   - .ressources/
   - app.json
-  - CHANGELOG.md 
+  - CHANGELOG.md
+  - vendor/
+  - Gemfile
+  - Gemfile.lock 
