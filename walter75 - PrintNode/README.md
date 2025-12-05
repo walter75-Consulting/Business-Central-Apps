@@ -1,67 +1,25 @@
----
-layout: default
-title: PrintNode Integration
----
-
-# 🖨️ walter75 - PrintNode
+﻿#  walter75 - PrintNode
 
 > Print service integration for label printing and thermal printers
 
-## 📋 Overview
+## Quick Info
 
-PrintNode integration enables direct printing to network printers, thermal label printers, and local printers from Business Central. Ideal for automated label printing in warehouse and logistics scenarios without user interaction.
+- **ID Range**: 92700-92799
+- **Dependencies**: None (requires PrintNode account)
+- **Version**: 26.2.0
 
-## ✨ Features
+## Features
 
-- **Cloud Printing**: Print to any printer via PrintNode service
-- **Thermal Printer Support**: Optimized for Zebra, Dymo, and other label printers
-- **Silent Printing**: Background printing without user dialogs
-- **Multiple Printer Support**: Route different document types to specific printers
-- **Label Templates**: Support for ZPL and other label formats
-- **Print Queue Management**: Track print jobs and handle errors
+Cloud printing integration for thermal label printers with silent printing, multiple printer support, ZPL templates, and print queue management via PrintNode service.
 
-## 🔢 Object ID Range
+##  Full Documentation
 
-**ID Range**: 92700-92799
+**[ Complete Documentation](../docs/apps/printnode.md)**
 
-## 📦 Installation
+For detailed information including installation instructions, PrintNode account setup, configuration guide, and usage examples, please refer to the full documentation.
 
-1. Download the latest `.app` file from [Releases](../../releases)
-2. Install via Business Central Extension Management
-3. Sign up for PrintNode account at [printnode.com](https://www.printnode.com)
-4. Configure API credentials in Business Central
+## Links
 
-## 🔗 Dependencies
-
-No dependencies - this is a standalone extension.
-
-## 🛠️ Configuration
-
-After installation:
-1. Create a PrintNode account
-2. Install PrintNode client on your print server
-3. Open **PrintNode Setup** in Business Central
-4. Enter your PrintNode API key
-5. Map printers to document types
-6. Test print functionality
-
-## 📚 Related Documentation
-
-- [PrintNode Official Documentation](https://www.printnode.com/docs)
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
-
-## 🔗 Used By
-
-This extension is used by:
-- walter75 - Packages (for shipping label printing)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [PrintNode Support](https://www.printnode.com/support)
-- [walter75 Consulting](https://www.walter75.de)
+- [PrintNode Website](https://www.printnode.com)
+- [Releases](https://github.com/walter75-Consulting/Business-Central-Apps/releases)
+- [Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)

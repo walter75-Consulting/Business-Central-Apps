@@ -1,74 +1,25 @@
----
-layout: default
-title: Packages Extension
----
-
 # 📦 walter75 - Packages
 
 > Comprehensive packing station solution with barcode scanning, PrintNode and SendCloud integration
 
-## 📋 Overview
+## Quick Info
 
-A complete warehouse packing station system designed for efficient order fulfillment. Features barcode scanning workflows, automated label printing via PrintNode, and shipping integration through SendCloud. Optimized for high-volume packing operations with real-time validation and error handling.
+- **ID Range**: 90700-90799
+- **Dependencies**: PrintNode, SendCloud
+- **Version**: 26.2.0
 
-## ✨ Features
+## Features
 
-- **Barcode Scanning Workflow**: Fast and accurate item scanning with validation
-- **Packing Station Management**: Configure multiple packing stations
-- **PrintNode Integration**: Automatic label printing to thermal printers
-- **SendCloud Integration**: Automated shipping label creation and tracking
-- **Multi-Package Support**: Handle orders with multiple packages
-- **Real-time Validation**: Instant feedback on scanning errors
-- **Custom Actions**: Configurable scan actions per station
-- **Session Management**: Single-instance pattern for shared state
+Complete warehouse packing station system with barcode scanning workflows, automated label printing via PrintNode, SendCloud shipping integration, multi-package support, and real-time validation for high-volume operations.
 
-## 🔢 Object ID Range
+## 📚 Full Documentation
 
-**ID Range**: 90700-90799
+**[→ Complete Documentation](../docs/apps/packages.md)**
 
-## 📦 Installation
+For detailed information including installation instructions, configuration guide, architecture details, and usage examples, please refer to the full documentation.
 
-1. **Prerequisites**: Install dependencies first:
-   - walter75 - PrintNode
-   - walter75 - SendCloud
-2. Download the latest `.app` file from [Releases](../../releases)
-3. Install via Business Central Extension Management
-4. Configure packing stations and scan actions
+## Links
 
-## 🔗 Dependencies
-
-This extension requires:
-- **walter75 - PrintNode** (ID: ca1ab169-0517-4532-a393-46610dd0372c)
-- **walter75 - SendCloud** (ID: 1b3a8485-c38c-4802-9ce8-1f83c8a75f2e)
-
-## 🛠️ Configuration
-
-After installation:
-1. Open **Packing Stations** page
-2. Create a new packing station
-3. Configure scan input field behavior
-4. Set up PrintNode printer association
-5. Configure SendCloud shipping options
-6. Test the scanning workflow
-
-## 📚 Related Documentation
-
-- [User Documentation](USER_DOCUMENTATION.md)
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
-
-## 🏗️ Architecture
-
-- **SEW Packing Card**: Main UI for packing operations
-- **SEW PK Actions Page**: Business logic codeunit
-- **SEW PK Single Instance**: Session-scoped state management
-- **Control Add-ins**: Custom JavaScript components for focus control
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [walter75 Consulting](https://www.walter75.de)
+- [User Guide](USER_DOCUMENTATION.md)
+- [Releases](https://github.com/walter75-Consulting/Business-Central-Apps/releases)
+- [Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)

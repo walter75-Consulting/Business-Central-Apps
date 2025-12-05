@@ -1,68 +1,25 @@
----
-layout: default
-title: SendCloud Integration
----
-
-# 📮 walter75 - Sendcloud
+﻿#  walter75 - Sendcloud
 
 > Shipping carrier integration for automated label creation and tracking
 
-## 📋 Overview
+## Quick Info
 
-SendCloud integration provides seamless connection to multiple shipping carriers through a single API. Automatically create shipping labels, track shipments, and manage returns for various carriers including DHL, DPD, UPS, and more.
+- **ID Range**: 95700-95799
+- **Dependencies**: None (requires SendCloud account)
+- **Version**: 26.2.0
 
-## ✨ Features
+## Features
 
-- **Multi-Carrier Support**: Connect to 80+ shipping carriers
-- **Automatic Label Generation**: Create shipping labels from sales orders
-- **Track & Trace**: Real-time shipment tracking
-- **Return Management**: Handle customer returns
-- **Shipping Rules**: Automatic carrier selection based on rules
-- **Webhook Integration**: Real-time status updates
-- **Address Validation**: Verify shipping addresses
+Multi-carrier shipping integration with 80+ carriers, automatic label generation, track & trace, return management, shipping rules, and webhook integration via SendCloud API.
 
-## 🔢 Object ID Range
+##  Full Documentation
 
-**ID Range**: 95700-95799
+**[ Complete Documentation](../docs/apps/sendcloud.md)**
 
-## 📦 Installation
+For detailed information including installation instructions, SendCloud account setup, configuration guide, and usage examples, please refer to the full documentation.
 
-1. Download the latest `.app` file from [Releases](../../releases)
-2. Install via Business Central Extension Management
-3. Sign up for SendCloud account at [sendcloud.com](https://www.sendcloud.com)
-4. Configure API credentials and shipping rules
+## Links
 
-## 🔗 Dependencies
-
-No dependencies - this is a standalone extension.
-
-## 🛠️ Configuration
-
-After installation:
-1. Create a SendCloud account
-2. Connect your shipping carriers in SendCloud panel
-3. Open **SendCloud Setup** in Business Central
-4. Enter your SendCloud API keys (public and secret key)
-5. Configure shipping rules and default carriers
-6. Test label creation with a sample order
-
-## 📚 Related Documentation
-
-- [SendCloud API Documentation](https://docs.sendcloud.sc/api/v2/)
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
-
-## 🔗 Used By
-
-This extension is used by:
-- walter75 - Packages (for shipping integration)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [SendCloud Support](https://support.sendcloud.com)
-- [walter75 Consulting](https://www.walter75.de)
+- [SendCloud Website](https://www.sendcloud.com)
+- [Releases](https://github.com/walter75-Consulting/Business-Central-Apps/releases)
+- [Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)

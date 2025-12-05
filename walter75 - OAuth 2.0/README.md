@@ -1,56 +1,25 @@
----
-layout: default
-title: OAuth 2.0 Extension
----
-
 # 🔐 walter75 - OAuth 2.0
 
 > OAuth 2.0 authentication framework for external API integrations
 
-## 📋 Overview
+## Quick Info
 
-This extension provides a comprehensive OAuth 2.0 authentication framework for Business Central, enabling secure integration with external APIs and services. It handles token management, refresh flows, and credential storage following OAuth 2.0 best practices.
+- **ID Range**: 90000-90099
+- **Dependencies**: None
+- **Version**: 26.2.0
 
-## ✨ Features
+## Features
 
-- **OAuth 2.0 Token Management**: Secure token storage and automatic refresh
-- **Multiple Provider Support**: Configure multiple OAuth applications
-- **Token Lifecycle**: Automatic token expiry handling and renewal
-- **Secure Credential Storage**: Encrypted storage of client secrets and tokens
-- **API Integration Ready**: Easy integration with external REST APIs
+OAuth 2.0 authentication framework for Business Central with token management, multiple provider support, automatic token refresh, and secure credential storage for external API integrations.
 
-## 🔢 Object ID Range
+## 📚 Full Documentation
 
-**ID Range**: 90000-90099
+**[→ Complete Documentation](../docs/apps/oauth.md)**
 
-## 📦 Installation
+For detailed information including installation instructions, configuration guide, and usage examples, please refer to the full documentation.
 
-1. Download the latest `.app` file from [Releases](../../releases)
-2. Install via Business Central Extension Management
-3. Configure OAuth applications in the setup page
+## Links
 
-## 🔗 Dependencies
-
-No dependencies - this is a standalone extension.
-
-## 🛠️ Configuration
-
-After installation:
-1. Open **OAuth Applications** page
-2. Create a new OAuth application entry
-3. Configure client ID, client secret, authorization URL, and token URL
-4. Save and test the connection
-
-## 📚 Related Documentation
-
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [walter75 Consulting](https://www.walter75.de)
+- [Releases](https://github.com/walter75-Consulting/Business-Central-Apps/releases)
+- [Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
+- [Main Repository](https://github.com/walter75-Consulting/Business-Central-Apps)

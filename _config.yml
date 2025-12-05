@@ -5,16 +5,7 @@ show_downloads: true
 
 # Include subdirectories for rendering
 include:
-  - walter75 - OAuth 2.0
-  - walter75 - BaseApp Basic
-  - walter75 - Packages
-  - walter75 - BDE Terminal
-  - walter75 - Freight Prices
-  - walter75 - PrintNode
-  - walter75 - Sendcloud
-  - walter75 - Color Master
-  - walter75 - Contact Relations
-  - walter75 - XML Import
+  - docs/
 
 # Exclude app build artifacts and source code
 exclude:
