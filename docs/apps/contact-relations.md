@@ -126,5 +126,6 @@ Contact Relations extends Business Central's contact management with advanced re
 
 <div class="footer-info">
   <p><strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
-  <p><strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75 Consulting</a></p>
+  <p><strong>Author:</strong> Sebastian Walter (@walter75) | <strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75.de</a></p>
+  <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project</p>
 </div>

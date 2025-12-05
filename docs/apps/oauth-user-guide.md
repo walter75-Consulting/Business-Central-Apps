@@ -345,3 +345,11 @@ The **walter75 - OAuth 2.0** extension provides a comprehensive OAuth 2.0 authen
   
   <p style="margin-top: 30px;"><strong>Last Updated:</strong> December 2025 | <strong>Version:</strong> 26.2.0</p>
 </div>
+
+---
+
+<div class="footer-info">
+  <p>📄 <strong>License:</strong> MIT License | 👤 <strong>Author:</strong> Sebastian Walter (@walter75)</p>
+  <p>💬 <strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75.de</a></p>
+  <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project - not a commercial service</p>
+</div>

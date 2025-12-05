@@ -51,6 +51,7 @@ This guide provides comprehensive instructions for using the **walter75 - Contac
 ---
 
 <div class="footer-info">
-  <p><strong>Version:</strong> v26.2.0 | <strong>Publisher:</strong> walter75 Consulting</p>
+  <p><strong>Version:</strong> v26.2.0 | <strong>Author:</strong> Sebastian Walter (@walter75)</p>
   <p><strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75.de</a></p>
+  <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project</p>
 </div>

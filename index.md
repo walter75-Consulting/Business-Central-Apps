@@ -5,8 +5,8 @@ title: Home
 
 <div class="hero-section" style="text-align: center;">
   <h1>🚀 walter75 Business Central Apps</h1>
-  <p class="hero-tagline">Professional, open-source extensions for Dynamics 365 Business Central Cloud 27.0</p>
-  <p style="font-size: 1.1em; opacity: 0.9; margin: 20px 0;">Built with AL-Go automation, comprehensive documentation, and community-first approach</p>
+  <p class="hero-tagline">Community-driven, open-source extensions for Dynamics 365 Business Central Cloud 27.0</p>
+  <p style="font-size: 1.1em; opacity: 0.9; margin: 20px 0;">Personal open-source project built with AL-Go automation and comprehensive documentation</p>
   
   <div style="display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap;">
     <a href="https://github.com/walter75-Consulting/Business-Central-Apps" class="btn">📦 View on GitHub</a>

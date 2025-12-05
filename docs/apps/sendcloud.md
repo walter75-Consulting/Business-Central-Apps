@@ -117,4 +117,12 @@ This project is licensed under the MIT License - see the [LICENSE](../../LICENSE
 
 - [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
 - [SendCloud Support](https://support.sendcloud.com)
-- [walter75 Consulting](https://www.walter75.de)
+- [walter75.de](https://www.walter75.de)
+
+---
+
+<div class="footer-info">
+  <p><strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
+  <p><strong>Author:</strong> Sebastian Walter (@walter75) | <strong>Web:</strong> <a href="https://www.walter75.de">walter75.de</a></p>
+  <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project - not a commercial service</p>
+</div>

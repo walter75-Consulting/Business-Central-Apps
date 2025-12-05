@@ -143,7 +143,7 @@ This extension provides a **comprehensive OAuth 2.0 authentication framework** f
   </div>
   <div class="support-item">
     <h4>💡 Need Help?</h4>
-    <p>Visit <a href="https://www.walter75.de">walter75 Consulting</a> for professional support</p>
+    <p>Visit <a href="https://www.walter75.de">walter75.de</a> or open a GitHub Discussion</p>
   </div>
   <div class="support-item">
     <h4>💬 Discuss</h4>
@@ -155,5 +155,6 @@ This extension provides a **comprehensive OAuth 2.0 authentication framework** f
 
 <div class="footer-info">
   <p>📄 <strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
-  <p>🏢 <strong>Maintained by:</strong> <a href="https://www.walter75.de">walter75 Consulting</a></p>
+  <p>👤 <strong>Author:</strong> Sebastian Walter (@walter75) | <a href="https://www.walter75.de">walter75.de</a></p>
+  <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project - not a commercial service</p>
 </div>

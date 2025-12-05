@@ -138,5 +138,7 @@ title: Apps Overview
 
 <div class="footer-info">
   <p><strong>Platform:</strong> Microsoft Dynamics 365 Business Central Cloud 27.0</p>
-  <p><strong>License:</strong> MIT | <strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a></p>
+  <p><strong>Author:</strong> Sebastian Walter (@walter75) | <strong>License:</strong> MIT</p>
+  <p><strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75.de</a></p>
+  <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project - not a commercial service</p>
 </div>
