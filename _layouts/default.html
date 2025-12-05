@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <style>
       .site-nav {
-        background: #159957;
-        background: linear-gradient(120deg, #155799, #159957);
+        background: linear-gradient(120deg, #00838F, #006973);
         padding: 1rem 0;
         margin: -1.5rem -1rem 2rem -1rem;
         border-radius: 0.3rem 0.3rem 0 0;
@@ -45,19 +44,25 @@
         background: white;
         min-width: 200px;
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        z-index: 1;
+        z-index: 1000;
         border-radius: 0.3rem;
-        margin-top: 0.5rem;
+        margin-top: 0;
+        top: 100%;
+        left: 0;
       }
       .site-nav .dropdown-content a {
-        color: #155799;
+        color: #00838F;
         padding: 0.75rem 1rem;
         display: block;
+        white-space: nowrap;
+        transition: all 0.2s ease;
       }
       .site-nav .dropdown-content a:hover {
-        background: #f1f1f1;
+        background: #B2EBF2;
+        color: #006973;
       }
-      .site-nav .dropdown:hover .dropdown-content {
+      .site-nav .dropdown:hover .dropdown-content,
+      .site-nav .dropdown-content:hover {
         display: block;
       }
       @media (max-width: 768px) {
