@@ -4,6 +4,7 @@ description: Open-source Business Central extensions by walter75 Consulting
 show_downloads: true
 url: https://walter75-consulting.github.io
 baseurl: /Business-Central-Apps
+repository: walter75-Consulting/Business-Central-Apps
 
 # Plugins
 plugins:
