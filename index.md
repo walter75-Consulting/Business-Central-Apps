@@ -15,22 +15,22 @@ title: Home
   </div>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; text-align: center;">
-  <div class="info-box info-box-primary">
-    <h2 style="margin: 0; font-size: 2.5em; color: var(--bc-primary);">10+</h2>
-    <p style="margin: 10px 0 0 0; font-weight: 600;">BC Extensions</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 30px auto; max-width: 900px; text-align: center;">
+  <div class="info-box info-box-primary" style="padding: 15px;">
+    <h2 style="margin: 0; font-size: 2em; color: var(--bc-primary);">10+</h2>
+    <p style="margin: 8px 0 0 0; font-weight: 600; font-size: 0.9em;">BC Extensions</p>
   </div>
-  <div class="info-box info-box-primary">
-    <h2 style="margin: 0; font-size: 2.5em; color: var(--bc-primary);">100%</h2>
-    <p style="margin: 10px 0 0 0; font-weight: 600;">Cloud Ready</p>
+  <div class="info-box info-box-primary" style="padding: 15px;">
+    <h2 style="margin: 0; font-size: 2em; color: var(--bc-primary);">100%</h2>
+    <p style="margin: 8px 0 0 0; font-weight: 600; font-size: 0.9em;">Cloud Ready</p>
   </div>
-  <div class="info-box info-box-primary">
-    <h2 style="margin: 0; font-size: 2.5em; color: var(--bc-primary);">MIT</h2>
-    <p style="margin: 10px 0 0 0; font-weight: 600;">Open Source</p>
+  <div class="info-box info-box-primary" style="padding: 15px;">
+    <h2 style="margin: 0; font-size: 2em; color: var(--bc-primary);">MIT</h2>
+    <p style="margin: 8px 0 0 0; font-weight: 600; font-size: 0.9em;">Open Source</p>
   </div>
-  <div class="info-box info-box-primary">
-    <h2 style="margin: 0; font-size: 2.5em; color: var(--bc-primary);">27.0</h2>
-    <p style="margin: 10px 0 0 0; font-weight: 600;">BC Platform</p>
+  <div class="info-box info-box-primary" style="padding: 15px;">
+    <h2 style="margin: 0; font-size: 2em; color: var(--bc-primary);">27.0</h2>
+    <p style="margin: 8px 0 0 0; font-weight: 600; font-size: 0.9em;">BC Platform</p>
   </div>
 </div>
 
