@@ -98,31 +98,60 @@ SendCloud integration provides seamless connection to multiple shipping carriers
   </div>
 </div>
 
-## 📚 Related Documentation
+## 🔗 Integration
 
-- [SendCloud API Documentation](https://docs.sendcloud.sc/api/v2/)
-- [Main Documentation](../../)
-- [Contributing Guidelines](../../CONTRIBUTING.md)
+<div class="info-box info-box-primary">
+  <p><strong>Used By:</strong></p>
+  <ul>
+    <li>walter75 - Packages (for shipping integration)</li>
+  </ul>
+</div>
 
-## 🔗 Used By
+## 📚 Documentation
 
-This extension is used by:
-- walter75 - Packages (for shipping integration)
+<div class="doc-links">
+  <a href="https://docs.sendcloud.sc/api/v2/" class="doc-link">
+    <span class="doc-icon">📖</span>
+    <div>
+      <strong>SendCloud API Docs</strong>
+      <p>Official API and integration documentation</p>
+    </div>
+  </a>
+  <a href="../../index.html" class="doc-link">
+    <span class="doc-icon">🏠</span>
+    <div>
+      <strong>Main Documentation</strong>
+      <p>Repository overview and all extensions</p>
+    </div>
+  </a>
+  <a href="../../CONTRIBUTING.html" class="doc-link">
+    <span class="doc-icon">🤝</span>
+    <div>
+      <strong>Contributing</strong>
+      <p>How to contribute to this project</p>
+    </div>
+  </a>
+</div>
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [SendCloud Support](https://support.sendcloud.com)
-- [walter75.de](https://www.walter75.de)
+<div class="support-box">
+  <div class="support-item">
+    <h4>🐛 Found a Bug?</h4>
+    <p>Report issues on <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a></p>
+  </div>
+  <div class="support-item">
+    <h4>💡 Need Help?</h4>
+    <p>Check <a href="https://support.sendcloud.com">SendCloud Support</a> or <a href="https://www.walter75.de">walter75.de</a></p>
+  </div>
+  <div class="support-item">
+    <h4>💬 Discuss</h4>
+    <p>Join our <a href="https://github.com/walter75-Consulting/Business-Central-Apps/discussions">Community Discussions</a></p>
+  </div>
+</div>
 
 ---
 
 <div class="footer-info">
-  <p><strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
-  <p><strong>Author:</strong> Sebastian Walter (@walter75) | <strong>Web:</strong> <a href="https://www.walter75.de">walter75.de</a></p>
+  <p>📄 <strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
+  <p>👤 <strong>Author:</strong> Sebastian Walter (@walter75) | <a href="https://www.walter75.de">walter75.de</a></p>
   <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project - not a commercial service</p>
 </div>

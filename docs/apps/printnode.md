@@ -98,31 +98,60 @@ PrintNode integration enables direct printing to network printers, thermal label
   </div>
 </div>
 
-## 📚 Related Documentation
+## 🔗 Integration
 
-- [PrintNode Official Documentation](https://www.printnode.com/docs)
-- [Main Documentation](../../)
-- [Contributing Guidelines](../../CONTRIBUTING.md)
+<div class="info-box info-box-primary">
+  <p><strong>Used By:</strong></p>
+  <ul>
+    <li>walter75 - Packages (for shipping label printing)</li>
+  </ul>
+</div>
 
-## 🔗 Used By
+## 📚 Documentation
 
-This extension is used by:
-- walter75 - Packages (for shipping label printing)
+<div class="doc-links">
+  <a href="https://www.printnode.com/docs" class="doc-link">
+    <span class="doc-icon">📖</span>
+    <div>
+      <strong>PrintNode Documentation</strong>
+      <p>Official API and client documentation</p>
+    </div>
+  </a>
+  <a href="../../index.html" class="doc-link">
+    <span class="doc-icon">🏠</span>
+    <div>
+      <strong>Main Documentation</strong>
+      <p>Repository overview and all extensions</p>
+    </div>
+  </a>
+  <a href="../../CONTRIBUTING.html" class="doc-link">
+    <span class="doc-icon">🤝</span>
+    <div>
+      <strong>Contributing</strong>
+      <p>How to contribute to this project</p>
+    </div>
+  </a>
+</div>
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [PrintNode Support](https://www.printnode.com/support)
-- [walter75.de](https://www.walter75.de)
+<div class="support-box">
+  <div class="support-item">
+    <h4>🐛 Found a Bug?</h4>
+    <p>Report issues on <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a></p>
+  </div>
+  <div class="support-item">
+    <h4>💡 Need Help?</h4>
+    <p>Check <a href="https://www.printnode.com/support">PrintNode Support</a> or <a href="https://www.walter75.de">walter75.de</a></p>
+  </div>
+  <div class="support-item">
+    <h4>💬 Discuss</h4>
+    <p>Join our <a href="https://github.com/walter75-Consulting/Business-Central-Apps/discussions">Community Discussions</a></p>
+  </div>
+</div>
 
 ---
 
 <div class="footer-info">
-  <p><strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
-  <p><strong>Author:</strong> Sebastian Walter (@walter75) | <strong>Web:</strong> <a href="https://www.walter75.de">walter75.de</a></p>
+  <p>📄 <strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
+  <p>👤 <strong>Author:</strong> Sebastian Walter (@walter75) | <a href="https://www.walter75.de">walter75.de</a></p>
   <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project - not a commercial service</p>
 </div>
