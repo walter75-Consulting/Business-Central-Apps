@@ -1,0 +1,118 @@
+name: PR Size Labeler
+'on':
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  size-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add size label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            
+            // Get PR files and calculate total changes
+            const files = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number
+            });
+            
+            // Calculate total additions + deletions
+            const totalChanges = files.data.reduce((sum, file) => {
+              return sum + file.additions + file.deletions;
+            }, 0);
+            
+            const fileCount = files.data.length;
+            
+            // Determine size label based on changes
+            let sizeLabel = '';
+            let emoji = '';
+            let description = '';
+            
+            if (totalChanges < 10) {
+              sizeLabel = 'size/XS';
+              emoji = '🔍';
+              description = 'Extra Small PR - Quick review';
+            } else if (totalChanges < 50) {
+              sizeLabel = 'size/S';
+              emoji = '📝';
+              description = 'Small PR - Easy to review';
+            } else if (totalChanges < 250) {
+              sizeLabel = 'size/M';
+              emoji = '📦';
+              description = 'Medium PR - Moderate review effort';
+            } else if (totalChanges < 1000) {
+              sizeLabel = 'size/L';
+              emoji = '📚';
+              description = 'Large PR - Significant review effort';
+            } else {
+              sizeLabel = 'size/XL';
+              emoji = '🏔️';
+              description = 'Extra Large PR - Consider breaking into smaller PRs';
+            }
+            
+            // Remove existing size labels
+            const currentLabels = pr.labels.map(l => l.name);
+            const sizeLabels = currentLabels.filter(l => l.startsWith('size/'));
+            
+            for (const label of sizeLabels) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                name: label
+              });
+            }
+            
+            // Add new size label
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              labels: [sizeLabel]
+            });
+            
+            console.log(`Added label: ${sizeLabel} (${totalChanges} changes, ${fileCount} files)`);
+            
+            // Add comment for XL PRs
+            if (sizeLabel === 'size/XL') {
+              const existingComments = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number
+              });
+              
+              const botComment = existingComments.data.find(
+                comment => comment.user.type === 'Bot' && comment.body.includes('Extra Large PR')
+              );
+              
+              if (!botComment) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  body: `🏔️ **Extra Large PR Detected**\n\nThis PR has **${totalChanges} changes** across **${fileCount} files**.\n\n**Recommendations:**\n- Consider breaking this into smaller, focused PRs for easier review\n- Ensure comprehensive testing has been performed\n- Add detailed description and documentation\n- Be prepared for longer review cycles\n\nIf this PR cannot be split (e.g., large refactoring), please explain why in the PR description.`
+                });
+              }
+            }
+            
+            // Update PR description with size info
+            const sizeInfo = `\n\n---\n\n${emoji} **PR Size:** ${sizeLabel.replace('size/', '')} (${totalChanges} changes, ${fileCount} files) - ${description}`;
+            
+            // Only add if not already present
+            if (!pr.body?.includes('**PR Size:**')) {
+              const newBody = (pr.body || '') + sizeInfo;
+              
+              await github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                body: newBody
+              });
+            }

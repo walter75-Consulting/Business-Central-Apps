@@ -1,0 +1,108 @@
+name: Issue Auto-Labeling
+'on':
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add priority labels based on keywords
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const title = issue.title.toLowerCase();
+            const body = (issue.body || '').toLowerCase();
+            const text = title + ' ' + body;
+            
+            const labels = [];
+            
+            // Priority labeling based on keywords
+            if (text.match(/critical|blocker|blocking|urgent|emergency|production down|data loss/)) {
+              labels.push('priority:critical');
+            } else if (text.match(/important|high priority|asap|needed soon/)) {
+              labels.push('priority:high');
+            } else if (text.match(/low priority|nice to have|enhancement|minor/)) {
+              labels.push('priority:low');
+            } else if (!text.match(/priority/)) {
+              labels.push('priority:medium');
+            }
+            
+            // Status labeling
+            if (text.match(/needs investigation|need to investigate|not sure|unclear/)) {
+              labels.push('status:needs-investigation');
+            }
+            
+            if (text.match(/breaking change|breaking|backward compatibility/)) {
+              labels.push('breaking-change');
+            }
+            
+            // Type-specific detection (if not already labeled by template)
+            const currentLabels = issue.labels.map(l => l.name);
+            
+            if (!currentLabels.includes('bug') && 
+                !currentLabels.includes('enhancement') && 
+                !currentLabels.includes('documentation') && 
+                !currentLabels.includes('question')) {
+              
+              if (text.match(/bug|error|issue|problem|broken|not working|fails|crash/)) {
+                labels.push('bug');
+              } else if (text.match(/feature|enhancement|improvement|add|new/)) {
+                labels.push('enhancement');
+              } else if (text.match(/documentation|docs|readme|guide|tutorial/)) {
+                labels.push('documentation');
+              } else if (text.match(/question|how to|help|support/)) {
+                labels.push('question');
+              }
+            }
+            
+            // Performance-related
+            if (text.match(/performance|slow|timeout|optimization|speed|memory/)) {
+              labels.push('performance');
+            }
+            
+            // Security-related
+            if (text.match(/security|vulnerability|exploit|authentication|authorization|permission/)) {
+              labels.push('security');
+            }
+            
+            // Good first issue detection
+            if (text.match(/good first issue|beginner friendly|easy|simple fix/)) {
+              labels.push('good first issue');
+            }
+            
+            // Help wanted
+            if (text.match(/help wanted|looking for help|need help|assistance needed/)) {
+              labels.push('help wanted');
+            }
+            
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labels
+              });
+              
+              console.log(`Added labels: ${labels.join(', ')}`);
+            }
+
+      - name: Add comment for critical issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const labels = issue.labels.map(l => l.name);
+            
+            if (labels.includes('priority:critical') && context.payload.action === 'opened') {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: '🚨 **Critical Priority Issue**\n\nThis issue has been automatically labeled as critical priority. It will be reviewed as soon as possible.\n\nIf this is not actually critical, please update the priority label accordingly.'
+              });
+            }

@@ -1,0 +1,92 @@
+name: Create GitHub Labels
+'on':
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  issues: write
+
+jobs:
+  create-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or update labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = [
+              // Priority labels
+              { name: 'priority:critical', color: 'b60205', description: 'Critical priority - immediate attention required' },
+              { name: 'priority:high', color: 'd93f0b', description: 'High priority - should be addressed soon' },
+              { name: 'priority:medium', color: 'fbca04', description: 'Medium priority - normal queue' },
+              { name: 'priority:low', color: '0e8a16', description: 'Low priority - nice to have' },
+              
+              // Size labels for PRs
+              { name: 'size/XS', color: '00ff00', description: 'Extra small PR (<10 changes)' },
+              { name: 'size/S', color: '7fff00', description: 'Small PR (<50 changes)' },
+              { name: 'size/M', color: 'ffff00', description: 'Medium PR (<250 changes)' },
+              { name: 'size/L', color: 'ffa500', description: 'Large PR (<1000 changes)' },
+              { name: 'size/XL', color: 'ff0000', description: 'Extra large PR (>1000 changes)' },
+              
+              // Status labels
+              { name: 'status:in-progress', color: '0052cc', description: 'Work in progress' },
+              { name: 'status:blocked', color: 'd73a4a', description: 'Blocked by dependency or issue' },
+              { name: 'status:needs-review', color: '0e8a16', description: 'Needs code review' },
+              { name: 'status:needs-investigation', color: 'fbca04', description: 'Needs investigation before action' },
+              { name: 'status:awaiting-response', color: 'ededed', description: 'Awaiting response from author' },
+              
+              // Type labels (beyond default bug/enhancement)
+              { name: 'performance', color: 'ff6b6b', description: 'Performance improvement or issue' },
+              { name: 'security', color: 'd73a4a', description: 'Security-related' },
+              { name: 'breaking-change', color: 'd93f0b', description: 'Breaking change requiring major version bump' },
+              { name: 'good first issue', color: '7057ff', description: 'Good for newcomers' },
+              { name: 'help wanted', color: '008672', description: 'Extra attention needed' },
+              
+              // App-specific labels (already defined in labeler.yml)
+              { name: 'app:packages', color: '00838F', description: 'walter75 - Packages' },
+              { name: 'app:oauth', color: '00838F', description: 'walter75 - OAuth 2.0' },
+              { name: 'app:baseapp-basic', color: '00838F', description: 'walter75 - BaseApp Basic' },
+              { name: 'app:bde-terminal', color: '00838F', description: 'walter75 - BDE Terminal' },
+              { name: 'app:printnode', color: '00838F', description: 'walter75 - PrintNode' },
+              { name: 'app:sendcloud', color: '00838F', description: 'walter75 - SendCloud' },
+              { name: 'app:freight-prices', color: '00838F', description: 'walter75 - Freight Prices' },
+              { name: 'app:color-master', color: '00838F', description: 'walter75 - Color Master' },
+              { name: 'app:contact-relations', color: '00838F', description: 'walter75 - Contact Relations' },
+              { name: 'app:xml-import', color: '00838F', description: 'walter75 - XML Import' },
+              { name: 'app:data-editor', color: '00838F', description: 'walter75 - Data Editor' },
+              
+              // Additional useful labels
+              { name: 'dependencies', color: '0366d6', description: 'Dependency updates or issues' },
+              { name: 'github', color: '000000', description: 'GitHub-related (workflows, templates, etc.)' },
+              { name: 'website', color: '006b75', description: 'Documentation website changes' },
+              { name: 'idea', color: 'a2eeef', description: 'Idea for discussion' }
+            ];
+            
+            for (const label of labels) {
+              try {
+                // Try to update existing label
+                await github.rest.issues.updateLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label.name,
+                  color: label.color,
+                  description: label.description
+                });
+                console.log(`Updated label: ${label.name}`);
+              } catch (error) {
+                if (error.status === 404) {
+                  // Label doesn't exist, create it
+                  await github.rest.issues.createLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name: label.name,
+                    color: label.color,
+                    description: label.description
+                  });
+                  console.log(`Created label: ${label.name}`);
+                } else {
+                  console.error(`Error processing label ${label.name}:`, error.message);
+                }
+              }
+            }
+            
+            console.log('Label creation/update completed!');
