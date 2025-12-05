@@ -407,7 +407,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## Einkauf
 
-### 12. Lieferantenwarnungen
+### 13. Lieferantenwarnungen
 
 **Funktion:** Zeigen Sie automatische Warnmeldungen an, wenn ein Lieferant in einem Einkaufsbeleg ausgewählt wird.
 
@@ -431,7 +431,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 13. Kreditor Suchbeschreibung
+### 14. Kreditor Suchbeschreibung
 
 **Funktion:** Automatisch generierte Suchbegriffe für schnellere Kreditorensuche.
 
@@ -444,7 +444,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 14. Erweiterter Bestellbericht
+### 15. Erweiterter Bestellbericht
 
 **Funktion:** Professionell gestaltete Bestellberichte mit Unternehmensbranding.
 
@@ -462,7 +462,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## Finanzen
 
-### 15. Sachkontenzweck
+### 16. Sachkontenzweck
 
 **Funktion:** Dokumentieren Sie den Zweck und die Verwendung von Sachkonten.
 
@@ -483,7 +483,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 16. Erweiterter Mahnungsbericht
+### 17. Erweiterter Mahnungsbericht
 
 **Funktion:** Professionell gestaltete Mahnungsberichte mit Unternehmensbranding.
 
@@ -501,7 +501,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## Lager
 
-### 17. Erweiterte Tracking-Felder im Artikel Buch.-Blatt
+### 18. Erweiterte Tracking-Felder im Artikel Buch.-Blatt
 
 **Funktion:** Zusätzliche Felder für detailliertes Tracking von Lagerbeständen.
 
@@ -528,7 +528,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 18. Regalplatzverwaltung
+### 19. Regalplatzverwaltung
 
 **Funktion:** Verwalten Sie Regalplätze für Artikel und zeigen Sie diese auf Lieferscheinen an.
 
@@ -556,7 +556,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 19. Erweiterte Lagerberichte
+### 20. Erweiterte Lagerberichte
 
 **Funktion:** Optimierte Berichte für Lagervorgänge.
 
@@ -578,7 +578,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## Produktion
 
-### 20. Letztes Produktionsdatum (Artikel)
+### 21. Letztes Produktionsdatum (Artikel)
 
 **Funktion:** Zeigt das Datum der letzten Produktion für jeden Artikel an.
 
@@ -598,7 +598,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 21. Automatische Stücklisten- und Arbeitsplanerstellung
+### 22. Automatische Stücklisten- und Arbeitsplanerstellung
 
 **Funktion:** Erstellen Sie automatisch Fertigungsstücklisten und Arbeitspläne beim Umstellen auf "Prod. Auftrag".
 
@@ -624,7 +624,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 22. Arbeitsplatzstatistiken
+### 23. Arbeitsplatzstatistiken
 
 **Funktion:** Zeigen Sie die Anzahl der Arbeitsgänge nach Status direkt in der Arbeitsplatzliste an.
 
@@ -651,7 +651,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 23. Maschinenplatzstatistiken
+### 24. Maschinenplatzstatistiken
 
 **Funktion:** Zeigen Sie die Anzahl der Arbeitsgänge nach Status für Maschinenplätze an.
 
@@ -672,7 +672,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 24. Produktionsarbeitsgangsliste
+### 25. Produktionsarbeitsgangsliste
 
 **Funktion:** Umfassende Übersicht über alle Arbeitsgänge in allen Fertigungsaufträgen.
 
@@ -698,7 +698,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## CRM & Kontakte
 
-### 25. Automatische Gebietszuordnung
+### 26. Automatische Gebietszuordnung
 
 **Funktion:** Weisen Sie Debitoren und Kontakten automatisch Gebiete, Servicezonen und Verkäufer basierend auf Postleitzahl oder Land zu.
 
@@ -763,7 +763,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 26. Massen-Update von Verkäufern in Gebieten
+### 27. Massen-Update von Verkäufern in Gebieten
 
 **Funktion:** Aktualisieren Sie alle Kontakte und Debitoren in einem Gebiet mit einem neuen Verkäufer in einem Vorgang.
 
@@ -792,7 +792,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 27. Fehlende Postleitzahlen aus Kontakten erstellen
+### 28. Fehlende Postleitzahlen aus Kontakten erstellen
 
 **Funktion:** Scannen Sie alle Kontakte und erstellen Sie automatisch fehlende Postleitzahleneinträge.
 
@@ -813,7 +813,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 28. Kontakttitel
+### 29. Kontakttitel
 
 **Funktion:** Erweitern Sie die Standardanrede um individuelle Kontakttitel.
 
@@ -842,7 +842,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 29. Kontakt-Debitor/Kreditor-Verknüpfungen
+### 30. Kontakt-Debitor/Kreditor-Verknüpfungen
 
 **Funktion:** Sehen Sie die verknüpften Debitoren-/Kreditorennummern direkt auf der Kontaktkarte mit Drill-Down.
 
@@ -867,7 +867,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 30. Kontaktpersonen-Schnellerfassung
+### 31. Kontaktpersonen-Schnellerfassung
 
 **Funktion:** Erstellen Sie neue Kontaktpersonen direkt aus der Kontaktkarte (Firma) mit Teilformular.
 
@@ -892,7 +892,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 31. Kontaktsuche nach Nachnamen
+### 32. Kontaktsuche nach Nachnamen
 
 **Funktion:** Optimierte Suchfunktion durch zusätzlichen Index auf Nachname.
 
@@ -906,7 +906,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## Automatische Dimensionen
 
-### 32. Automatische Dimensionsverwaltung
+### 33. Automatische Dimensionsverwaltung
 
 **Funktion:** Erstellen und aktualisieren Sie Dimensionswerte automatisch aus Stammdaten (Debitoren, Gebiete, Artikel, Artikelkategorien, Verkäufer, Kampagnen).
 
@@ -974,7 +974,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## Administration
 
-### 33. Benutzerverwaltung (Übersicht)
+### 34. Benutzerverwaltung (Übersicht)
 
 **Funktion:** Zentrale Übersicht über alle benutzerbezogenen Einrichtungen in einem Fenster.
 
@@ -1003,7 +1003,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 34. Erweiterte Postleitzahlenverwaltung
+### 35. Erweiterte Postleitzahlenverwaltung
 
 **Funktion:** Erweiterte Postleitzahlenseite mit zusätzlichen Feldern für Gebiete und Servicezonen.
 
@@ -1016,7 +1016,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ## Systemeinstellungen
 
-### 35. Toolbox-Einrichtung (Feature-Schalter)
+### 36. Toolbox-Einrichtung (Feature-Schalter)
 
 **Funktion:** Zentrale Steuerung zum Aktivieren/Deaktivieren von Feature-Modulen.
 
@@ -1042,7 +1042,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 36. Erweiterte Unternehmensinformationen
+### 37. Erweiterte Unternehmensinformationen
 
 **Funktion:** Umfangreiche Firmeninformationen für professionelle Berichte und Dokumente.
 
@@ -1120,7 +1120,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 37. Report-Schriftarten (Enumeration)
+### 38. Report-Schriftarten (Enumeration)
 
 **Funktion:** Standardisierte Schriftartenauswahl für alle Berichte.
 
@@ -1148,7 +1148,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 38. Report-Hilfsfunktionen
+### 39. Report-Hilfsfunktionen
 
 **Funktion:** Zentrale Hilfsfunktionen für alle Berichte.
 
@@ -1180,7 +1180,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 39. MwSt.-Geschäftsbuchungsgruppen-Drucksteuerung
+### 40. MwSt.-Geschäftsbuchungsgruppen-Drucksteuerung
 
 **Funktion:** Steuern Sie, ob Zolltarifnummern und Ursprungsländer auf Belegen gedruckt werden.
 
@@ -1208,7 +1208,7 @@ Ein Kunde bestellt 100 Stück Artikel "10001":
 
 ---
 
-### 40. Regalplatz auf Verkaufslieferschein
+### 41. Regalplatz auf Verkaufslieferschein
 
 **Funktion:** Automatisches Kopieren des Artikelregalplatzes auf Verkaufslieferscheinzeilen.
 
