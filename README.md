@@ -1,29 +1,35 @@
 # Business Central Apps by walter75 Consulting
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Business Central](https://img.shields.io/badge/Business%20Central-27.0-blue.svg)](https://dynamics.microsoft.com/business-central/)
+[![Business Central](https://img.shields.io/badge/Business%20Central-27.0-00838F.svg)](https://dynamics.microsoft.com/business-central/)
+[![CI/CD](https://github.com/walter75-Consulting/Business-Central-Apps/actions/workflows/CICD.yaml/badge.svg)](https://github.com/walter75-Consulting/Business-Central-Apps/actions)
+[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-00838F)](https://walter75-consulting.github.io/Business-Central-Apps/)
+[![Contributors](https://img.shields.io/github/contributors/walter75-Consulting/Business-Central-Apps)](https://github.com/walter75-Consulting/Business-Central-Apps/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/walter75-Consulting/Business-Central-Apps)](https://github.com/walter75-Consulting/Business-Central-Apps/commits/main)
+[![Issues](https://img.shields.io/github/issues/walter75-Consulting/Business-Central-Apps)](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
+[![Stars](https://img.shields.io/github/stars/walter75-Consulting/Business-Central-Apps)](https://github.com/walter75-Consulting/Business-Central-Apps/stargazers)
 
-A collection of open-source extensions for Microsoft Dynamics 365 Business Central, developed and maintained by walter75 Consulting.
+A collection of open-source extensions for Microsoft Dynamics 365 Business Central - Production-ready apps for logistics, manufacturing, and business management.
 
-## 📦 Available Apps
+## ✨ Key Features
 
-### Core Extensions
-- **walter75 - OAuth 2.0** - OAuth 2.0 authentication integration
-- **walter75 - BaseApp Basic** - Foundation functionality for walter75 apps
+### 🔗 Core Platform
+- **🔐 OAuth 2.0** - Secure API authentication framework for external integrations
+- **⚙️ BaseApp Basic** - Foundation layer with shared utilities and functionality
 
-### Logistics & Warehouse
-- **walter75 - Packages** - Comprehensive packing station solution with barcode scanning
-- **walter75 - Freight Prices** - Freight pricing management
-- **walter75 - BDE Terminal** - Terminal operations
+### 📦 Logistics & Warehouse
+- **📦 Packages** - Barcode scanning workflow with PrintNode and SendCloud integration
+- **🚚 Freight Prices** - Zone-based pricing with carrier management
+- **🏭 BDE Terminal** - Shop floor data entry with touch-optimized UI
 
-### Integration & Data
-- **walter75 - PrintNode** - Print service integration for label printing
-- **walter75 - Sendcloud** - Shipping carrier integration
-- **walter75 - XML Import** - XML data import functionality
+### 🔌 Integration Extensions
+- **🖨️ PrintNode** - Silent printing to thermal label printers
+- **📮 SendCloud** - 80+ carrier integration with tracking
+- **📄 XML Import** - Flexible data import with transformation
 
-### Business Features
-- **walter75 - Color Master** - Color management system
-- **walter75 - Contact Relations** - Enhanced contact relationship management
+### 💼 Business Management
+- **🎨 Color Master** - Formula management and color matching
+- **👥 Contact Relations** - Relationship mapping and hierarchies
 
 ## 🚀 Getting Started
 
