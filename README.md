@@ -64,6 +64,21 @@ Each app contains detailed documentation:
 - `USER_DOCUMENTATION.md` - End-user guides and features
 - `CHANGELOG.md` - Version history and changes
 
+## 🌐 WordPress Integration
+
+Display these extensions on your WordPress website with the dedicated WordPress plugin:
+
+**[walter75-bc-extensions](https://github.com/walter75-Consulting/WP-Plugins)** - WordPress plugin for showcasing BC Extensions with GitHub stats, releases, and app cards.
+
+Features:
+- Beautiful app cards with BC branding
+- Live GitHub statistics
+- Latest releases display
+- Responsive widgets for sidebars
+- 4 easy-to-use shortcodes
+
+[→ View WordPress Plugin Repository](https://github.com/walter75-Consulting/WP-Plugins)
+
 ## 💬 Community
 
 - **💡 Discussions** - Join our [GitHub Discussions](https://github.com/walter75-Consulting/Business-Central-Apps/discussions) for questions, ideas, and community support
