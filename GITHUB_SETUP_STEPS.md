@@ -68,7 +68,7 @@ Scrolle nach unten und klicke "Save changes"
 
 ---
 
-### 3a. GitHub Pages aktivieren
+### 3a. GitHub Pages aktivieren (AL-Go Integration)
 
 **URL**: https://github.com/walter75-Consulting/Business-Central-Apps/settings/pages
 
@@ -83,6 +83,19 @@ Scrolle nach unten und klicke "Save changes"
 - ✅ Automatisches Deployment via GitHub Actions (`pages.yml`)
 - ✅ Responsive Design mit App-Karten
 - ✅ Verlinkung zu allen Dokumentationen
+- ✅ Integration mit AL-Go Reference Documentation Workflow
+
+**Zwei Dokumentations-Ebenen**:
+1. **Haupt-Website** (Jekyll) - Automatisch bei Push zu `main`
+   - User-Dokumentation, App-Showcase, Contributing Guides
+   - URL: `https://walter75-consulting.github.io/Business-Central-Apps/`
+
+2. **AL Reference Docs** (AL-Go) - Manuell via Workflow
+   - API-Dokumentation für Entwickler aus AL-Code generiert
+   - URL: `https://walter75-consulting.github.io/Business-Central-Apps/reference/`
+   - Workflow: Actions → "Deploy Reference Documentation" → Run workflow
+
+Beide Workflows arbeiten harmonisch zusammen und nutzen dasselbe GitHub Pages Environment.
 
 ---
 
