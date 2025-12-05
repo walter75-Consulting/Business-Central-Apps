@@ -322,7 +322,7 @@ Die **walter75 - BaseApp Basic** ist die Basis-Erweiterung für Microsoft Dynami
 | **Unfavorable** | 🔴 Rot | Nicht ausreichend verfügbar | Verfügbare Menge < 0 |
 | **Favorable** | 🟢 Grün (fett) | Meldebestand unterschritten | Verfügbare Menge < Meldebestand |
 | **AttentionAccent** | 🟠 Orange | Lagerbestand unzureichend | Lagerbestand < Auftragsmenge |
-| **Ambiguous** | ⚫ Grau | Maximalbestand überschritten | Lager + Bestellung - Aufträge > Maximalbestand |
+| **Ambiguous** | ⚫ Grau | Maximalbestand überschritten | Lager + Bestellung - Aufträge > Maximalbestand **UND Artikelnummer beginnt mit '1'** |
 | **None** | ⚪ Standard | Alles in Ordnung | Keine Warnung |
 
 **Priorität der Prüfungen:**
