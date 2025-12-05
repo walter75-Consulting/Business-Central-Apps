@@ -129,16 +129,15 @@
 
 .bc-app-card {
     background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-top: 5px solid var(--bc-primary);
+    border: 2px solid #e8e8e8;
     border-radius: 16px;
     padding: 35px 30px;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .bc-app-card::before {
@@ -146,23 +145,23 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--bc-primary) 0%, var(--bc-accent) 100%);
-    border-radius: 16px 16px 0 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--bc-primary) 0%, var(--bc-accent) 100%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .bc-app-card:hover {
     background: #ffffff;
-    box-shadow: 0 12px 36px rgba(0, 131, 143, 0.25);
-    transform: translateY(-8px);
-    border-top-color: var(--bc-accent);
+    box-shadow: 0 10px 30px rgba(0, 131, 143, 0.2);
+    transform: translateY(-5px);
+    border-color: var(--bc-primary);
 }
 
 .bc-app-card:hover::before {
     opacity: 1;
+    width: 6px;
 }
 
 .bc-app-icon {
@@ -196,73 +195,72 @@
     list-style: none;
     padding: 0;
     margin: 20px 0;
-    background: linear-gradient(135deg, rgba(0, 131, 143, 0.04) 0%, rgba(0, 188, 212, 0.06) 100%);
-    border-radius: 10px;
-    padding: 18px 15px;
-    border-left: 3px solid var(--bc-accent);
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e8e8e8;
 }
 
 .bc-app-features li {
-    padding: 10px 0;
-    color: #444;
+    padding: 12px 0;
+    color: #555;
     font-size: 0.95em;
     display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color 0.2s ease;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.6;
 }
 
 .bc-app-features li:not(:last-child) {
-    border-bottom: 1px solid rgba(0, 131, 143, 0.08);
+    border-bottom: 1px solid #e8e8e8;
 }
 
 .bc-app-features li:before {
     content: "✓";
     color: var(--bc-primary);
     font-weight: bold;
-    font-size: 1.3em;
-    min-width: 20px;
+    font-size: 1.2em;
+    min-width: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2px;
 }
 
 .bc-app-link {
     display: block;
-    color: white;
-    background: linear-gradient(135deg, var(--bc-primary) 0%, var(--bc-secondary) 100%);
-    padding: 14px 28px;
-    border-radius: 10px;
-    text-decoration: none;
+    color: #ffffff !important;
+    background: var(--bc-primary);
+    padding: 16px 30px;
+    border-radius: 12px;
+    text-decoration: none !important;
     font-weight: 700;
     margin-top: 25px;
     transition: all 0.3s ease;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 131, 143, 0.3);
+    box-shadow: 0 3px 10px rgba(0, 131, 143, 0.25);
     font-size: 1.05em;
     position: relative;
     overflow: hidden;
+    border: 2px solid transparent;
 }
 
-.bc-app-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.bc-app-link:hover::before {
-    left: 100%;
+.bc-app-link::after {
+    content: '→';
+    margin-left: 8px;
+    transition: margin-left 0.3s ease;
 }
 
 .bc-app-link:hover {
-    background: linear-gradient(135deg, var(--bc-secondary) 0%, var(--bc-primary) 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 131, 143, 0.5);
+    background: var(--bc-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 131, 143, 0.4);
+    border-color: var(--bc-accent);
+    color: #ffffff !important;
+}
+
+.bc-app-link:hover::after {
+    margin-left: 12px;
 }
 
 /* Footer Info */
@@ -563,14 +561,17 @@
     .bc-app-card {
         background: #ffffff;
         border-color: #d0d0d0;
-        border-top-color: var(--bc-primary);
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
     
     .bc-app-card:hover {
         background: #ffffff;
-        box-shadow: 0 12px 36px rgba(0, 131, 143, 0.5);
-        border-top-color: var(--bc-accent);
+        box-shadow: 0 10px 30px rgba(0, 131, 143, 0.4);
+        border-color: var(--bc-primary);
+    }
+    
+    .bc-app-card:hover::before {
+        opacity: 1;
     }
     
     /* Keep titles dark and readable on light cards */
@@ -583,24 +584,28 @@
     }
     
     .bc-app-features {
-        background: linear-gradient(135deg, rgba(0, 131, 143, 0.06) 0%, rgba(0, 188, 212, 0.08) 100%);
-        border-left-color: var(--bc-accent);
+        background: #f8f9fa;
+        border-color: #d0d0d0;
     }
     
     .bc-app-features li {
-        color: #444;
+        color: #555;
     }
     
     .bc-app-features li:not(:last-child) {
-        border-bottom-color: rgba(0, 131, 143, 0.1);
+        border-bottom-color: #e0e0e0;
     }
     
     .bc-app-link {
+        background: var(--bc-primary);
+        color: #ffffff !important;
         box-shadow: 0 4px 16px rgba(0, 131, 143, 0.4);
     }
     
     .bc-app-link:hover {
+        background: var(--bc-secondary);
         box-shadow: 0 6px 24px rgba(0, 131, 143, 0.6);
+        color: #ffffff !important;
     }
     
     /* Other elements can be dark */
