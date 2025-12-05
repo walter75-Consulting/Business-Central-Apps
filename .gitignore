@@ -27,3 +27,6 @@ _site/
 .jekyll-metadata
 vendor/
 Gemfile.lock
+
+# Internal documentation
+IMPROVEMENT_RECOMMENDATIONS.md
