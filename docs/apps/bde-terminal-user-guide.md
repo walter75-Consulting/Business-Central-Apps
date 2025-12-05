@@ -1,4 +1,4 @@
-# walter75 - BDE Terminal
+﻿# walter75 - BDE Terminal
 ## User Guide
 
 **Version:** 26.2.0  

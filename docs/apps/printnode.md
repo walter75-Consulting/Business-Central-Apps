@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: PrintNode Integration
 ---
@@ -48,8 +48,8 @@ After installation:
 ## 📚 Related Documentation
 
 - [PrintNode Official Documentation](https://www.printnode.com/docs)
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
+- [Main Documentation](../../)
+- [Contributing Guidelines](../../CONTRIBUTING.md)
 
 ## 🔗 Used By
 
@@ -58,7 +58,7 @@ This extension is used by:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
 
 ## 💬 Support
 

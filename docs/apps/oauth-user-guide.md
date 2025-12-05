@@ -1,4 +1,4 @@
-# walter75 - OAuth 2.0
+﻿# walter75 - OAuth 2.0
 ## User Guide
 
 **Version:** 26.2.0  

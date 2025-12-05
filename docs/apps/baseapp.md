@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: BaseApp Basic
 ---
@@ -40,11 +40,11 @@ No dependencies - this is a base-level extension. Other apps depend on this one.
 ### Related Documentation
 - [Main Documentation](../../)
 - [Contributing Guidelines](../../CONTRIBUTING.md)
-- [All Apps](../)
+- [All Apps](../../)
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
 
 ## 💬 Support
 

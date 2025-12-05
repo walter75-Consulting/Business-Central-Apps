@@ -1,4 +1,4 @@
-# walter75 - Color Master
+﻿# walter75 - Color Master
 ## User Guide
 
 **Version:** 26.2.0  

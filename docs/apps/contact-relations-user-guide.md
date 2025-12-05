@@ -1,4 +1,4 @@
-# walter75 - Contact Relations
+﻿# walter75 - Contact Relations
 ## User Guide
 
 **Version:** 26.2.0  

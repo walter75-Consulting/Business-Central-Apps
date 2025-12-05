@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Color Master
 ---
@@ -44,12 +44,12 @@ After installation:
 
 ## 📚 Related Documentation
 
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
+- [Main Documentation](../../)
+- [Contributing Guidelines](../../CONTRIBUTING.md)
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
 
 ## 💬 Support
 

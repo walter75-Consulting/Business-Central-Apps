@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Packages Extension
 ---
@@ -59,7 +59,7 @@ After installation:
 ### Related Documentation
 - [Main Documentation](../../)
 - [Contributing Guidelines](../../CONTRIBUTING.md)
-- [All Apps](../)
+- [All Apps](../../)
 
 ## 🏗️ Architecture
 
@@ -70,7 +70,7 @@ After installation:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
 
 ## 💬 Support
 

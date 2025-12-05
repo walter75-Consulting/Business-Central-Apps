@@ -1,4 +1,4 @@
-# walter75 - Freight Prices
+﻿# walter75 - Freight Prices
 ## User Guide
 
 **Version:** 26.2.0  

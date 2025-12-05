@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: OAuth 2.0 Extension
 ---
@@ -49,7 +49,7 @@ After installation:
 ### Related Documentation
 - [Main Documentation](../../)
 - [Contributing Guidelines](../../CONTRIBUTING.md)
-- [All Apps](../)
+- [All Apps](../../)
 
 ## 📄 License
 
