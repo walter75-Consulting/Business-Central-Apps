@@ -1,0 +1,138 @@
+# Auto-assign labels based on file paths and patterns
+#
+# This labeler configuration automatically applies labels to pull requests
+# based on which files are modified. Labels help organize PRs and trigger
+# appropriate workflows and reviewers.
+
+# App-specific labels
+'app:packages':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - Packages/**/*'
+
+'app:oauth':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - OAuth 2.0/**/*'
+
+'app:baseapp-basic':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - BaseApp Basic/**/*'
+
+'app:bde-terminal':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - BDE Terminal/**/*'
+
+'app:printnode':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - PrintNode/**/*'
+
+'app:sendcloud':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - Sendcloud/**/*'
+
+'app:freight-prices':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - Freight Prices/**/*'
+
+'app:color-master':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - Color Master/**/*'
+
+'app:contact-relations':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - Contact Relations/**/*'
+
+'app:xml-import':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - XML Import/**/*'
+
+'app:data-editor':
+  - changed-files:
+    - any-glob-to-any-file: 'walter75 - Data Editor/**/*'
+
+# Documentation labels
+'documentation':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '**/*.md'
+      - 'docs/**/*'
+      - '**/TECHNICAL_DOCUMENTATION.md'
+      - '**/USER_DOCUMENTATION.md'
+      - '**/CHANGELOG.md'
+
+# Translation labels
+'translation':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '**/Translations/**/*.xlf'
+      - '**/*.xlf'
+
+# Configuration labels
+'configuration':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '**/*.json'
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '.github/**/*'
+      - '.AL-Go/**/*'
+      - '.vscode/**/*'
+
+# Build/CI/CD labels
+'build':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '.github/workflows/**/*'
+      - '.AL-Go/**/*'
+      - '**/.yaml'
+
+# AL Code labels
+'al-code':
+  - changed-files:
+    - any-glob-to-any-file: '**/*.al'
+
+# Test labels
+'tests':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '**/test/**/*'
+      - '**/*.Test.al'
+
+# Dependencies
+'dependencies':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '**/app.json'
+      - '.alpackages/**/*'
+
+# GitHub specific
+'github':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '.github/**/*'
+      - 'CODEOWNERS'
+      - 'SECURITY.md'
+      - 'SUPPORT.md'
+
+# Website/Pages
+'website':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - 'docs/**/*'
+      - '_layouts/**/*'
+      - 'assets/**/*'
+      - '_config.yml'
+
+# Performance
+'performance':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '**/*Performance*.al'
+      - '**/benchmark/**/*'
+
+# Security
+'security':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - 'SECURITY.md'
+      - '**/PermissionSet/**/*'
+      - '**/*Security*.al'

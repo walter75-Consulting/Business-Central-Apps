@@ -1,0 +1,154 @@
+name: ✨ Feature Request
+description: Suggest a new feature or enhancement for a Business Central extension
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please fill out the form below to help us understand and prioritize your request.
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: Target App
+      description: Which extension should have this feature?
+      options:
+        - walter75 - Packages
+        - walter75 - OAuth 2.0
+        - walter75 - BaseApp Basic
+        - walter75 - BDE Terminal
+        - walter75 - PrintNode
+        - walter75 - SendCloud
+        - walter75 - Freight Prices
+        - walter75 - Color Master
+        - walter75 - Contact Relations
+        - walter75 - XML Import
+        - walter75 - Data Editor
+        - New App (please specify in description)
+        - Multiple apps
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: What type of feature is this?
+      options:
+        - New Functionality
+        - Enhancement of Existing Feature
+        - API Integration
+        - UI/UX Improvement
+        - Performance Optimization
+        - Configuration Option
+        - Automation/Workflow
+        - Report/Export Feature
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: A clear and concise description of the feature you'd like to see
+      placeholder: Describe the feature in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Business Use Case
+      description: Describe the business scenario or problem this feature would solve
+      placeholder: |
+        Why do you need this feature?
+        What problem does it solve?
+        Who would benefit from this feature?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this feature to work?
+      placeholder: |
+        Describe how the feature should work from a user perspective:
+        1. User does X...
+        2. System responds with Y...
+        3. Result is Z...
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions or workarounds?
+      placeholder: Describe any alternative approaches you've thought about...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Low - Nice to have
+        - Medium - Would improve workflow
+        - High - Important for business processes
+        - Critical - Blocking current work
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity (if known)
+      description: How complex do you think this feature is to implement?
+      options:
+        - Simple - Small change/addition
+        - Medium - Moderate changes required
+        - Complex - Significant development effort
+        - Not sure
+    validations:
+      required: false
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups / Examples
+      description: Any UI mockups, screenshots from other systems, or reference examples
+      placeholder: Drag and drop images or provide links to similar features in other apps
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context, requirements, or technical considerations
+      placeholder: Add any other relevant information...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to help with this feature?
+      options:
+        - label: I would be willing to test this feature
+          required: false
+        - label: I would be willing to contribute code for this feature
+          required: false
+        - label: I can provide detailed requirements/specifications
+          required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues and feature requests to avoid duplicates
+          required: true
+        - label: I have provided all required information above
+          required: true
+        - label: I have checked the [documentation](https://walter75-consulting.github.io/Business-Central-Apps/) for existing functionality
+          required: false

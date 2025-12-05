@@ -1,0 +1,93 @@
+name: ❓ Question / Support
+description: Ask a question or request help with using the Business Central extensions
+title: "[QUESTION] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about using one of the extensions? Fill out the form below and we'll help you out!
+        
+        **Note:** For bugs, please use the Bug Report template instead.
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: Related App
+      description: Which extension is your question about?
+      options:
+        - General / Multiple apps
+        - walter75 - Packages
+        - walter75 - OAuth 2.0
+        - walter75 - BaseApp Basic
+        - walter75 - BDE Terminal
+        - walter75 - PrintNode
+        - walter75 - SendCloud
+        - walter75 - Freight Prices
+        - walter75 - Color Master
+        - walter75 - Contact Relations
+        - walter75 - XML Import
+        - walter75 - Data Editor
+        - Installation / Setup
+        - AL-Go / CI/CD
+    validations:
+      required: true
+
+  - type: dropdown
+    id: question-type
+    attributes:
+      label: Question Type
+      description: What kind of question is this?
+      options:
+        - How do I...? (Usage question)
+        - Configuration / Setup
+        - Integration with other apps
+        - Best practices
+        - Troubleshooting
+        - Feature clarification
+        - Development / Extension
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: Ask your question in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / Background
+      description: Provide context to help us understand your question better
+      placeholder: |
+        - What are you trying to accomplish?
+        - What have you already tried?
+        - Any relevant configuration or setup details?
+
+  - type: textarea
+    id: bc-environment
+    attributes:
+      label: Business Central Environment
+      description: Tell us about your BC environment (if relevant)
+      placeholder: |
+        - BC Version: 27.0
+        - Environment: Production / Sandbox
+        - App Version: 26.2.0.0
+      render: markdown
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have checked the [documentation](https://walter75-consulting.github.io/Business-Central-Apps/)
+          required: true
+        - label: I have searched existing issues and discussions
+          required: true
+        - label: This is not a bug report (use Bug Report template for bugs)
+          required: true

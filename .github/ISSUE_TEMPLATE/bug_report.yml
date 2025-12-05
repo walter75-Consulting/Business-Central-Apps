@@ -1,0 +1,148 @@
+name: 🐛 Bug Report
+description: Report a bug or issue with a Business Central extension
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the form below to help us investigate and fix the issue.
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: Affected App
+      description: Which extension is affected by this bug?
+      options:
+        - walter75 - Packages
+        - walter75 - OAuth 2.0
+        - walter75 - BaseApp Basic
+        - walter75 - BDE Terminal
+        - walter75 - PrintNode
+        - walter75 - SendCloud
+        - walter75 - Freight Prices
+        - walter75 - Color Master
+        - walter75 - Contact Relations
+        - walter75 - XML Import
+        - walter75 - Data Editor
+        - Multiple apps
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bc-version
+    attributes:
+      label: Business Central Version
+      description: Which BC version are you using?
+      options:
+        - BC 27.x (Current)
+        - BC 26.x
+        - BC 25.x
+        - BC 24.x
+        - Other (please specify in description)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where does the bug occur?
+      options:
+        - Production (BC Online)
+        - Sandbox (BC Online)
+        - Docker Container (Local)
+        - On-Premises
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe the bug in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Enter value '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen?
+      placeholder: Describe what you expected to happen...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happens?
+      placeholder: Describe what actually happens...
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-message
+    attributes:
+      label: Error Message / Stack Trace
+      description: If applicable, paste the complete error message or stack trace
+      placeholder: Paste error message here...
+      render: shell
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem
+      placeholder: Drag and drop images here or paste image URLs
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Low - Minor issue, workaround available
+        - Medium - Affects functionality but not critical
+        - High - Affects core functionality
+        - Critical - System is unusable or data loss possible
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information (app version, dependencies, configuration, etc.)
+      placeholder: Add any other context about the problem here...
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
+        - label: I have provided all required information above
+          required: true
+        - label: I have checked the [documentation](https://walter75-consulting.github.io/Business-Central-Apps/)
+          required: false
+        - label: I am using the latest version of the affected app
+          required: false

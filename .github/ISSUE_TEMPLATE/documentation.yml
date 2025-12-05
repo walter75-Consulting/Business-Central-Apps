@@ -1,0 +1,118 @@
+name: 📖 Documentation Issue
+description: Report an issue with documentation or suggest documentation improvements
+title: "[DOCS] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve the documentation! Please describe the issue or suggestion below.
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation is this about?
+      options:
+        - App Documentation (docs/apps/)
+        - User Guide
+        - Technical Documentation
+        - API Documentation
+        - README / Contributing Guide
+        - GitHub Pages Website
+        - Code Comments
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: Related App (if applicable)
+      description: Which extension is this documentation about?
+      options:
+        - General / Repository-wide
+        - walter75 - Packages
+        - walter75 - OAuth 2.0
+        - walter75 - BaseApp Basic
+        - walter75 - BDE Terminal
+        - walter75 - PrintNode
+        - walter75 - SendCloud
+        - walter75 - Freight Prices
+        - walter75 - Color Master
+        - walter75 - Contact Relations
+        - walter75 - XML Import
+        - walter75 - Data Editor
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What kind of documentation issue is this?
+      options:
+        - Missing information
+        - Incorrect/outdated information
+        - Unclear explanation
+        - Broken link
+        - Typo/grammar
+        - Needs more examples
+        - Needs screenshots/diagrams
+        - Formatting issue
+        - Translation issue
+        - Suggestion for improvement
+    validations:
+      required: true
+
+  - type: input
+    id: page-url
+    attributes:
+      label: Page URL or File Path
+      description: Link to the documentation page or path to the file
+      placeholder: https://walter75-consulting.github.io/Business-Central-Apps/docs/apps/packages.html
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the documentation issue or suggestion
+      placeholder: What's wrong or what could be improved?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-content
+    attributes:
+      label: Expected Content
+      description: What should the documentation say or include?
+      placeholder: Describe what the documentation should contain...
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggested-fix
+    attributes:
+      label: Suggested Fix
+      description: If you have a specific suggestion for how to fix or improve the documentation
+      placeholder: Provide your suggested text, examples, or approach...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I would be willing to submit a PR to fix this documentation issue
+          required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
