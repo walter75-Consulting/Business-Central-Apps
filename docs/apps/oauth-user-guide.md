@@ -1,19 +1,30 @@
-﻿# walter75 - OAuth 2.0
-## User Guide
+﻿---
+layout: default
+title: OAuth 2.0 User Guide
+---
 
-**Version:** 26.2.0  
-**Publisher:** walter75 Consulting  
-**Platform:** Microsoft Dynamics 365 Business Central Cloud
+<div class="hero-section">
+  <h1>🔐 OAuth 2.0 User Guide</h1>
+  <p class="hero-tagline">Complete setup and usage instructions</p>
+  <div class="badge-container">
+    <span class="badge">v26.2.0</span>
+    <span class="badge">walter75 Consulting</span>
+    <span class="badge">BC Cloud</span>
+  </div>
+</div>
 
 ---
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [Setup](#setup)
-3. [Creating an OAuth Application](#creating-an-oauth-application)
-4. [Managing Access Tokens](#managing-access-tokens)
-5. [Troubleshooting](#troubleshooting)
+<div class="info-box info-box-primary">
+  <h3>📚 Quick Navigation</h3>
+  <ul style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#creating-an-oauth-application">Creating an OAuth Application</a></li>
+    <li><a href="#managing-access-tokens">Managing Access Tokens</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ul>
+</div>
 
 ---
 
@@ -21,224 +32,316 @@
 
 The **walter75 - OAuth 2.0** extension provides a comprehensive OAuth 2.0 authentication framework for integrating Microsoft Dynamics 365 Business Central with external APIs and services.
 
-### Key Features
-
-- 🔐 **Secure Authentication**: Industry-standard OAuth 2.0 protocol
-- 🔄 **Automatic Token Refresh**: Handles token expiration automatically
-- 📊 **Token Management**: Track and manage access tokens centrally
-- 🔗 **Multi-Service Support**: Configure multiple API connections
-- 🛡️ **Credential Security**: Encrypted storage of sensitive data
+<div class="feature-grid">
+  <div class="feature-card">
+    <h3>🔐 Secure Authentication</h3>
+    <p>Industry-standard OAuth 2.0 protocol</p>
+  </div>
+  <div class="feature-card">
+    <h3>🔄 Automatic Token Refresh</h3>
+    <p>Handles token expiration automatically</p>
+  </div>
+  <div class="feature-card">
+    <h3>📊 Token Management</h3>
+    <p>Track and manage access tokens centrally</p>
+  </div>
+  <div class="feature-card">
+    <h3>🔗 Multi-Service Support</h3>
+    <p>Configure multiple API connections</p>
+  </div>
+  <div class="feature-card">
+    <h3>🛡️ Credential Security</h3>
+    <p>Encrypted storage of sensitive data</p>
+  </div>
+</div>
 
 ---
 
 ## Setup
 
-### Prerequisites
-
-Before using OAuth 2.0 authentication, you need:
-- API credentials from the external service (Client ID, Client Secret)
-- OAuth endpoints (Authorization URL, Token URL)
-- Required scopes/permissions
+<div class="info-box info-box-warning">
+  <h3>📋 Prerequisites</h3>
+  <p>Before using OAuth 2.0 authentication, you need:</p>
+  <ul>
+    <li>API credentials from the external service (Client ID, Client Secret)</li>
+    <li>OAuth endpoints (Authorization URL, Token URL)</li>
+    <li>Required scopes/permissions</li>
+  </ul>
+</div>
 
 ---
 
 ## Creating an OAuth Application
 
-### Step 1: Open OAuth Applications
+<div class="step-container">
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h4>Open OAuth Applications</h4>
+      <p>Search for <strong>"OAuth Applications"</strong> in Business Central and click <strong>+ New</strong> to create a new application</p>
+    </div>
+  </div>
 
-1. Search for **"OAuth Applications"** in Business Central
-2. Click **+ New** to create a new application
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h4>Configure Basic Settings</h4>
+      <p><strong>General Information:</strong></p>
+      <ul>
+        <li><strong>Code</strong>: Unique identifier (e.g., "SENDCLOUD", "PRINTNODE")</li>
+        <li><strong>Description</strong>: Descriptive name (e.g., "SendCloud Shipping API")</li>
+        <li><strong>Active</strong>: Enable to activate the application</li>
+      </ul>
+    </div>
+  </div>
 
-![Screenshot: OAuth Applications List]
-*Placeholder for screenshot of OAuth Applications list page*
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h4>Configure OAuth Endpoints</h4>
+      <p><strong>Authentication Settings:</strong></p>
+      <ul>
+        <li><strong>Authorization URL</strong>: OAuth authorization endpoint<br>
+        <code>https://api.example.com/oauth/authorize</code></li>
+        <li><strong>Token URL</strong>: Token exchange endpoint<br>
+        <code>https://api.example.com/oauth/token</code></li>
+        <li><strong>Scope</strong>: Required permissions (space-separated)<br>
+        <code>read write shipping</code></li>
+      </ul>
+    </div>
+  </div>
 
-### Step 2: Configure Basic Settings
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h4>Enter Credentials</h4>
+      <p><strong>Client Credentials:</strong></p>
+      <ul>
+        <li><strong>Client ID</strong>: Application client identifier</li>
+        <li><strong>Client Secret</strong>: Secret key (stored encrypted)</li>
+      </ul>
+      <div class="info-box info-box-warning" style="margin-top: 15px;">
+        <p>⚠️ <strong>Security Note:</strong> The Client Secret is stored encrypted. Never share these credentials publicly.</p>
+      </div>
+    </div>
+  </div>
 
-Fill in the following fields:
+  <div class="step">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <h4>Configure Grant Type</h4>
+      <p><strong>Select OAuth 2.0 flow:</strong></p>
+      <ul>
+        <li><strong>Authorization Code</strong>: User-based authentication</li>
+        <li><strong>Client Credentials</strong>: Service-to-service (recommended)</li>
+        <li><strong>Password</strong>: Username/password flow</li>
+        <li><strong>Refresh Token</strong>: Automatic refresh</li>
+      </ul>
+    </div>
+  </div>
 
-**General Information:**
-- **Code**: Unique identifier for this OAuth application (e.g., "SENDCLOUD", "PRINTNODE")
-- **Description**: Descriptive name (e.g., "SendCloud Shipping API")
-- **Active**: Enable this checkbox to activate the application
-
-![Screenshot: OAuth Application Card - General]
-*Placeholder for screenshot showing general fields*
-
-### Step 3: Configure OAuth Endpoints
-
-**Authentication Settings:**
-- **Authorization URL**: The OAuth authorization endpoint from the API provider
-  - Example: `https://api.example.com/oauth/authorize`
-- **Token URL**: The endpoint to exchange authorization codes for access tokens
-  - Example: `https://api.example.com/oauth/token`
-- **Scope**: Required permissions/scopes (space-separated)
-  - Example: `read write shipping`
-
-![Screenshot: OAuth Application Card - Endpoints]
-*Placeholder for screenshot showing endpoint configuration*
-
-### Step 4: Enter Credentials
-
-**Client Credentials:**
-- **Client ID**: Your application's client identifier from the API provider
-- **Client Secret**: Your application's secret key (stored encrypted)
-
-![Screenshot: OAuth Application Card - Credentials]
-*Placeholder for screenshot showing credential fields*
-
-⚠️ **Security Note:** The Client Secret is stored encrypted in the database. Never share these credentials publicly.
-
-### Step 5: Configure Grant Type
-
-**Grant Type**: Select the OAuth 2.0 flow used by the API:
-- **Authorization Code**: User-based authentication (redirects to login page)
-- **Client Credentials**: Service-to-service authentication (recommended for most APIs)
-- **Password**: Username/password flow (less secure, use only if required)
-- **Refresh Token**: Automatically refresh expired tokens
-
-![Screenshot: Grant Type Selection]
-*Placeholder for screenshot showing grant type options*
-
-### Step 6: Save and Test
-
-1. Click **OK** to save the configuration
-2. Use the **"Request Token"** action to test the connection
-3. If successful, an access token will be generated
-
-![Screenshot: Request Token Action]
-*Placeholder for screenshot showing Request Token button*
+  <div class="step">
+    <div class="step-number">6</div>
+    <div class="step-content">
+      <h4>Save and Test</h4>
+      <ol>
+        <li>Click <strong>OK</strong> to save the configuration</li>
+        <li>Use the <strong>"Request Token"</strong> action to test</li>
+        <li>If successful, an access token will be generated</li>
+      </ol>
+    </div>
+  </div>
+</div>
 
 ---
 
 ## Managing Access Tokens
 
-### Viewing Active Tokens
-
-1. Open your **OAuth Application Card**
-2. Navigate to **Related** → **Access Tokens**
-3. View all generated tokens with their expiration times
-
-![Screenshot: Access Tokens List]
-*Placeholder for screenshot of access tokens list*
-
-**Token Information Displayed:**
-- **Token ID**: Unique identifier
-- **Created At**: When the token was issued
-- **Expires At**: Token expiration timestamp
-- **Status**: Active, Expired, Revoked
-- **Scopes**: Granted permissions
+<div class="info-box">
+  <h3>🔑 Viewing Active Tokens</h3>
+  <ol>
+    <li>Open your <strong>OAuth Application Card</strong></li>
+    <li>Navigate to <strong>Related</strong> → <strong>Access Tokens</strong></li>
+    <li>View all generated tokens with their expiration times</li>
+  </ol>
+  
+  <p><strong>Token Information Displayed:</strong></p>
+  <ul>
+    <li><strong>Token ID</strong>: Unique identifier</li>
+    <li><strong>Created At</strong>: When the token was issued</li>
+    <li><strong>Expires At</strong>: Token expiration timestamp</li>
+    <li><strong>Status</strong>: Active, Expired, Revoked</li>
+    <li><strong>Scopes</strong>: Granted permissions</li>
+  </ul>
+</div>
 
 ### Automatic Token Refresh
 
-The system automatically refreshes tokens before they expire if:
-- Refresh tokens are available
-- The OAuth application is configured with "Refresh Token" grant type
-- The API supports token refresh
-
-![Screenshot: Token Refresh Settings]
-*Placeholder for screenshot showing refresh token configuration*
+<div class="info-box info-box-primary">
+  <p>The system automatically refreshes tokens before they expire if:</p>
+  <ul>
+    <li>✅ Refresh tokens are available</li>
+    <li>✅ The OAuth application is configured with "Refresh Token" grant type</li>
+    <li>✅ The API supports token refresh</li>
+  </ul>
+</div>
 
 ### Manual Token Refresh
 
-If automatic refresh fails, you can manually refresh:
-
-1. Open the **OAuth Application Card**
-2. Click **Actions** → **Refresh Token**
-3. The system will request a new token using the refresh token
-
-![Screenshot: Manual Refresh Action]
-*Placeholder for screenshot showing manual refresh option*
+<div class="step-container">
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h4>Open OAuth Application</h4>
+      <p>Navigate to the OAuth Application Card</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h4>Refresh Token</h4>
+      <p>Click <strong>Actions</strong> → <strong>Refresh Token</strong></p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h4>Verify Success</h4>
+      <p>The system will request a new token using the refresh token</p>
+    </div>
+  </div>
+</div>
 
 ### Revoking Tokens
 
-To invalidate a token:
-
-1. Navigate to **Related** → **Access Tokens**
-2. Select the token to revoke
-3. Click **Revoke Token**
-4. Confirm the action
-
-![Screenshot: Revoke Token Confirmation]
-*Placeholder for screenshot of revoke confirmation dialog*
+<div class="info-box info-box-warning">
+  <h4>🚫 To invalidate a token:</h4>
+  <ol>
+    <li>Navigate to <strong>Related</strong> → <strong>Access Tokens</strong></li>
+    <li>Select the token to revoke</li>
+    <li>Click <strong>Revoke Token</strong></li>
+    <li>Confirm the action</li>
+  </ol>
+</div>
 
 ---
 
 ## Troubleshooting
 
-### Common Issues
-
-#### Issue: "Invalid Client Credentials"
-
-**Cause:** Client ID or Client Secret is incorrect
-
-**Solution:**
-1. Verify credentials in the API provider's dashboard
-2. Update the OAuth Application with correct values
-3. Ensure there are no extra spaces in the fields
-
-#### Issue: "Token Expired"
-
-**Cause:** Access token has reached its expiration time
-
-**Solution:**
-- The system should automatically refresh the token
-- If automatic refresh fails, manually refresh the token
-- Check that refresh tokens are enabled
-
-#### Issue: "Invalid Scope"
-
-**Cause:** Requested scopes are not allowed for your application
-
-**Solution:**
-1. Check the API documentation for valid scopes
-2. Request additional scopes from the API provider
-3. Update the Scope field in the OAuth Application
-
-#### Issue: "Authorization Failed"
-
-**Cause:** Multiple possible causes (expired credentials, network issues, API changes)
-
-**Solution:**
-1. Check the **OAuth Log** for detailed error messages
-2. Verify the Authorization URL and Token URL are correct
-3. Test the API connection outside Business Central
-4. Contact the API provider's support
+<div class="feature-grid">
+  <div class="feature-card">
+    <h3>❌ Invalid Client Credentials</h3>
+    <p><strong>Cause:</strong> Client ID or Secret is incorrect</p>
+    <p><strong>Solution:</strong></p>
+    <ul style="text-align: left; font-size: 0.9em;">
+      <li>Verify credentials in API dashboard</li>
+      <li>Update OAuth Application</li>
+      <li>Check for extra spaces</li>
+    </ul>
+  </div>
+  
+  <div class="feature-card">
+    <h3>⏰ Token Expired</h3>
+    <p><strong>Cause:</strong> Access token reached expiration</p>
+    <p><strong>Solution:</strong></p>
+    <ul style="text-align: left; font-size: 0.9em;">
+      <li>System auto-refreshes normally</li>
+      <li>Manually refresh if needed</li>
+      <li>Verify refresh tokens enabled</li>
+    </ul>
+  </div>
+  
+  <div class="feature-card">
+    <h3>🔒 Invalid Scope</h3>
+    <p><strong>Cause:</strong> Requested scopes not allowed</p>
+    <p><strong>Solution:</strong></p>
+    <ul style="text-align: left; font-size: 0.9em;">
+      <li>Check API documentation</li>
+      <li>Request additional scopes</li>
+      <li>Update Scope field</li>
+    </ul>
+  </div>
+  
+  <div class="feature-card">
+    <h3>🚫 Authorization Failed</h3>
+    <p><strong>Cause:</strong> Multiple possible issues</p>
+    <p><strong>Solution:</strong></p>
+    <ul style="text-align: left; font-size: 0.9em;">
+      <li>Check OAuth Log</li>
+      <li>Verify URLs are correct</li>
+      <li>Test API externally</li>
+    </ul>
+  </div>
+</div>
 
 ### Checking OAuth Logs
 
-For detailed troubleshooting:
-
-1. Search for **"OAuth Log Entries"**
-2. Filter by your OAuth Application code
-3. Review error messages and response codes
-4. Use timestamps to correlate with failed requests
-
-![Screenshot: OAuth Log Entries]
-*Placeholder for screenshot of OAuth log entries list*
+<div class="info-box">
+  <h4>📊 Detailed Troubleshooting</h4>
+  <ol>
+    <li>Search for <strong>"OAuth Log Entries"</strong></li>
+    <li>Filter by your OAuth Application code</li>
+    <li>Review error messages and response codes</li>
+    <li>Use timestamps to correlate with failed requests</li>
+  </ol>
+</div>
 
 ### Best Practices
 
-✅ **Do:**
-- Use descriptive codes and descriptions for applications
-- Regularly review and revoke unused tokens
-- Test OAuth connections after API provider updates
-- Keep Client Secrets secure and change them periodically
-- Monitor token expiration times
-
-❌ **Don't:**
-- Share Client Secrets in emails or documentation
-- Use the same OAuth application for multiple unrelated services
-- Ignore token refresh failures
-- Disable error logging (needed for troubleshooting)
+<div class="support-box">
+  <div class="support-item">
+    <h4>✅ Do</h4>
+    <ul style="text-align: left;">
+      <li>Use descriptive codes</li>
+      <li>Review unused tokens</li>
+      <li>Test after API updates</li>
+      <li>Keep secrets secure</li>
+      <li>Monitor expiration</li>
+    </ul>
+  </div>
+  
+  <div class="support-item">
+    <h4>❌ Don't</h4>
+    <ul style="text-align: left;">
+      <li>Share Client Secrets</li>
+      <li>Reuse applications</li>
+      <li>Ignore refresh failures</li>
+      <li>Disable error logging</li>
+    </ul>
+  </div>
+</div>
 
 ---
 
-## Support
-
-For technical support or questions:
-- **Issues**: [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- **Documentation**: [Main Documentation](oauth.md)
-
----
-
-**Last Updated:** December 2025
+<div class="footer-info">
+  <h3>💬 Support & Resources</h3>
+  <div class="doc-links">
+    <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues" class="doc-link">
+      <span class="doc-icon">🐛</span>
+      <div>
+        <strong>GitHub Issues</strong>
+        <p>Report bugs and request features</p>
+      </div>
+    </a>
+    
+    <a href="oauth.html" class="doc-link">
+      <span class="doc-icon">📚</span>
+      <div>
+        <strong>Technical Documentation</strong>
+        <p>Developer reference and API details</p>
+      </div>
+    </a>
+    
+    <a href="../../" class="doc-link">
+      <span class="doc-icon">🏠</span>
+      <div>
+        <strong>All Apps</strong>
+        <p>Browse complete app collection</p>
+      </div>
+    </a>
+  </div>
+  
+  <p style="margin-top: 30px;"><strong>Last Updated:</strong> December 2025 | <strong>Version:</strong> 26.2.0</p>
+</div>
