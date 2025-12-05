@@ -61,12 +61,14 @@ Open-source extensions for Microsoft Dynamics 365 Business Central - Production-
 <div class="app-card">
   <h4>🖨️ walter75 - PrintNode</h4>
   <p>Print service integration for label printing and thermal printers</p>
+  <p><strong>ID Range:</strong> 92700-92799</p>
   <a href="walter75%20-%20PrintNode/TECHNICAL_DOCUMENTATION.html">Technical Docs</a>
 </div>
 
 <div class="app-card">
   <h4>📮 walter75 - Sendcloud</h4>
   <p>Shipping carrier integration for automated label creation and tracking</p>
+  <p><strong>ID Range:</strong> 95700-95799</p>
   <a href="walter75%20-%20Sendcloud/TECHNICAL_DOCUMENTATION.html">Technical Docs</a>
 </div>
 
@@ -89,6 +91,7 @@ Open-source extensions for Microsoft Dynamics 365 Business Central - Production-
 <div class="app-card">
   <h4>📄 walter75 - XML Import</h4>
   <p>XML data import functionality for external system integration</p>
+  <p><strong>ID Range:</strong> 60500-60799</p>
   <a href="walter75%20-%20XML%20Import/TECHNICAL_DOCUMENTATION.html">Technical Docs</a>
 </div>
 

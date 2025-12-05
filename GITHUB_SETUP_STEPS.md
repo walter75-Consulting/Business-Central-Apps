@@ -41,7 +41,7 @@
 - **Topics** (8 Topics empfohlen):
   - `businesscentral`
   - `dynamics365`
-  - ``
+  - `al-language`
   - `erp`
   - `pte`
   - `warehouse`
