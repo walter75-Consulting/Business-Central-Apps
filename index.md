@@ -120,14 +120,36 @@ Each app folder contains its own `app.json` and source code. Review individual a
 
 ## 📖 Documentation
 
-### User Documentation
+### 📚 User Guides
+
+Complete setup and usage instructions for each app:
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+  <a href="docs/apps/oauth-user-guide.html" class="doc-link">🔐 OAuth 2.0 Guide</a>
+  <a href="docs/apps/baseapp-user-guide.html" class="doc-link">⚙️ BaseApp Basic Guide</a>
+  <a href="docs/apps/packages-user-guide.html" class="doc-link">📦 Packages Guide</a>
+  <a href="docs/apps/bde-terminal-user-guide.html" class="doc-link">🏭 BDE Terminal Guide</a>
+  <a href="docs/apps/freight-prices-user-guide.html" class="doc-link">🚚 Freight Prices Guide</a>
+  <a href="docs/apps/printnode-user-guide.html" class="doc-link">🖨️ PrintNode Guide</a>
+  <a href="docs/apps/sendcloud-user-guide.html" class="doc-link">📮 Sendcloud Guide</a>
+  <a href="docs/apps/color-master-user-guide.html" class="doc-link">🎨 Color Master Guide</a>
+  <a href="docs/apps/contact-relations-user-guide.html" class="doc-link">👥 Contact Relations Guide</a>
+  <a href="docs/apps/xml-import-user-guide.html" class="doc-link">📄 XML Import Guide</a>
+</div>
+
+### 📘 Technical Documentation
+
+App overviews and technical details:
+- [All Apps Overview](docs/apps/) - Complete list with technical specs
+- [Changelog](docs/changelog.html) - Release history and version updates
+
+### 📖 Project Documentation
 - [Contributing Guidelines](CONTRIBUTING.html)
 - [Code of Conduct](CODE_OF_CONDUCT.html)
 - [Security Policy](SECURITY.html)
 - [Support](SUPPORT.html)
-- [Release Notes v27.0.0](RELEASE_NOTES_v27.0.0.html)
 
-### Developer Documentation
+### 👨‍💻 Developer Documentation
 - [AL Reference Documentation](reference/) - API documentation for developers (generated via AL-Go)
 
 ---
@@ -226,6 +248,26 @@ Special thanks to:
 
 .btn:hover {
   background: #0256c7;
+  text-decoration: none;
+}
+
+.doc-link {
+  display: block;
+  padding: 1rem;
+  background: white;
+  border: 2px solid #e1e4e8;
+  border-radius: 6px;
+  color: #0366d6 !important;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.doc-link:hover {
+  border-color: #0366d6;
+  box-shadow: 0 4px 8px rgba(3, 102, 214, 0.1);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 </style>

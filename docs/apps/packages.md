@@ -51,11 +51,15 @@ After installation:
 5. Configure SendCloud shipping options
 6. Test the scanning workflow
 
-## 📚 Related Documentation
+## 📚 Documentation
 
-- [User Documentation](USER_DOCUMENTATION.md)
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
+### User Documentation
+- 📖 **[User Guide](packages-user-guide.md)** - Complete setup and usage instructions
+
+### Related Documentation
+- [Main Documentation](../../)
+- [Contributing Guidelines](../../CONTRIBUTING.md)
+- [All Apps](../)
 
 ## 🏗️ Architecture
 

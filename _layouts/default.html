@@ -7,12 +7,113 @@
 
     {% seo %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <style>
+      .site-nav {
+        background: #159957;
+        background: linear-gradient(120deg, #155799, #159957);
+        padding: 1rem 0;
+        margin: -1.5rem -1rem 2rem -1rem;
+        border-radius: 0.3rem 0.3rem 0 0;
+      }
+      .site-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .site-nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        transition: background 0.2s;
+        display: block;
+      }
+      .site-nav a:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .site-nav .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .site-nav .dropdown-content {
+        display: none;
+        position: absolute;
+        background: white;
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 0.3rem;
+        margin-top: 0.5rem;
+      }
+      .site-nav .dropdown-content a {
+        color: #155799;
+        padding: 0.75rem 1rem;
+        display: block;
+      }
+      .site-nav .dropdown-content a:hover {
+        background: #f1f1f1;
+      }
+      .site-nav .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      @media (max-width: 768px) {
+        .site-nav ul {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .site-nav .dropdown-content {
+          position: static;
+          box-shadow: none;
+          background: rgba(255, 255, 255, 0.1);
+          margin-top: 0;
+        }
+        .site-nav .dropdown-content a {
+          color: white;
+          padding-left: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       {% if site.title and site.title != page.title %}
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
+
+      <nav class="site-nav">
+        <ul>
+          <li><a href="{{ "/" | absolute_url }}">🏠 Home</a></li>
+          <li class="dropdown">
+            <a href="{{ "/docs/apps/" | relative_url }}">📦 Apps</a>
+            <div class="dropdown-content">
+              <a href="{{ "/docs/apps/oauth.html" | relative_url }}">🔐 OAuth 2.0</a>
+              <a href="{{ "/docs/apps/baseapp.html" | relative_url }}">⚙️ BaseApp Basic</a>
+              <a href="{{ "/docs/apps/packages.html" | relative_url }}">📦 Packages</a>
+              <a href="{{ "/docs/apps/bde-terminal.html" | relative_url }}">🏭 BDE Terminal</a>
+              <a href="{{ "/docs/apps/freight-prices.html" | relative_url }}">🚚 Freight Prices</a>
+              <a href="{{ "/docs/apps/printnode.html" | relative_url }}">🖨️ PrintNode</a>
+              <a href="{{ "/docs/apps/sendcloud.html" | relative_url }}">📮 Sendcloud</a>
+              <a href="{{ "/docs/apps/color-master.html" | relative_url }}">🎨 Color Master</a>
+              <a href="{{ "/docs/apps/contact-relations.html" | relative_url }}">👥 Contact Relations</a>
+              <a href="{{ "/docs/apps/xml-import.html" | relative_url }}">📄 XML Import</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">📖 Documentation</a>
+            <div class="dropdown-content">
+              <a href="{{ "/docs/changelog.html" | relative_url }}">📝 Changelog</a>
+              <a href="{{ "/docs/versions/" | relative_url }}">📚 Versions</a>
+              <a href="{{ "/reference/" | relative_url }}">👨‍💻 API Reference</a>
+            </div>
+          </li>
+          <li><a href="{{ "/CONTRIBUTING.html" | relative_url }}">🤝 Contributing</a></li>
+          <li><a href="https://github.com/walter75-Consulting/Business-Central-Apps" target="_blank" rel="noopener">⭐ GitHub</a></li>
+        </ul>
+      </nav>
 
       {{ content }}
 

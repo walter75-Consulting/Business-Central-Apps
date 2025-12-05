@@ -41,8 +41,12 @@ After installation:
 3. Configure client ID, client secret, authorization URL, and token URL
 4. Save and test the connection
 
-## 📚 Related Documentation
+## 📚 Documentation
 
+### User Documentation
+- 📖 **[User Guide](oauth-user-guide.md)** - Complete setup and usage instructions
+
+### Related Documentation
 - [Main Documentation](../../)
 - [Contributing Guidelines](../../CONTRIBUTING.md)
 - [All Apps](../)

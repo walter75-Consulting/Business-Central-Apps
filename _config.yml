@@ -2,6 +2,20 @@ theme: jekyll-theme-cayman
 title: Business Central Apps
 description: Open-source Business Central extensions by walter75 Consulting
 show_downloads: true
+url: https://walter75-consulting.github.io
+baseurl: /Business-Central-Apps
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# SEO and metadata
+lang: en
+author:
+  name: walter75 Consulting
+  email: info@walter75.de
 
 # Include subdirectories for rendering
 include:

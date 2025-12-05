@@ -32,11 +32,15 @@ BaseApp Basic serves as the foundation layer for the walter75 Business Central a
 
 No dependencies - this is a base-level extension. Other apps depend on this one.
 
-## 📚 Related Documentation
+## 📚 Documentation
 
-- [User Documentation](USER_DOCUMENTATION.md)
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
+### User Documentation
+- 📖 **[User Guide](baseapp-user-guide.md)** - Complete setup and usage instructions
+
+### Related Documentation
+- [Main Documentation](../../)
+- [Contributing Guidelines](../../CONTRIBUTING.md)
+- [All Apps](../)
 
 ## 📄 License
 
