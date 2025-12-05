@@ -1,0 +1,46 @@
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .AL-Go/
+  - .alpackages/
+  - .github/workflows/
+  - .codeAnalysis/
+  - "*.app"
+  - "*.flf"
+  - "*.g.xlf"
+  - BC-Apps.code-workspace
+
+# Include these files
+include:
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - SECURITY.md
+  - SUPPORT.md
+  - LICENSE
+  - RELEASE_NOTES_v27.0.0.md
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  syntax_highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-github-metadata
+
+# Collections for app documentation
+collections:
+  apps:
+    output: true
+    permalink: /:collection/:name/
