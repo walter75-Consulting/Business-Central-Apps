@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="walter75 - BDE">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 3943491557 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEW BDE Booking</source>
+          <target state="needs-l10n">SEW BDE Buchung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 91473229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BDE Rout. Line Status</source>
+          <target state="needs-l10n">BDE Rout. Linie Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field BDE Rout. Line Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 91473229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BDE Rout. Line Status</source>
+          <target state="needs-l10n">BDE Rout. Linie Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field BDE Rout. Line Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 818351440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BookingID</source>
+          <target state="needs-l10n">BookingID</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field BookingID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 111573461 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment Start</source>
+          <target state="translated">Kommentar Start</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Comment Start - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 111573461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment Start</source>
+          <target state="translated">Kommentar Start</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Comment Start - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 580266701 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment Stop</source>
+          <target state="translated">Kommentar Stop</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Comment Stop - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 580266701 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment Stop</source>
+          <target state="translated">Kommentar Stop</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Comment Stop - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2454085869 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Duration Minutes</source>
+          <target state="needs-l10n">Dauer Minuten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Duration Minutes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2454085869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Duration Minutes</source>
+          <target state="needs-l10n">Dauer Minuten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Duration Minutes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 458406397 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="translated">Enddatum</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Ending Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 458406397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="translated">Enddatum</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Ending Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 155029819 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date/Time</source>
+          <target state="needs-l10n">Datum/Uhrzeit des Endes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Ending Date/Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 155029819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date/Time</source>
+          <target state="needs-l10n">Datum/Uhrzeit des Endes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Ending Date/Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 4160221838 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Time</source>
+          <target state="translated">Endzeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Ending Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 4160221838 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Time</source>
+          <target state="translated">Endzeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Ending Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 293070022 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finished</source>
+          <target state="translated">Beendet</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Finished - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 293070022 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finished</source>
+          <target state="translated">Beendet</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Finished - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Artikelnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Artikelnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="needs-l10n">Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="needs-l10n">Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3162383302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation No.</source>
+          <target state="translated">Arbeitsgangnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Operation No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3162383302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation No.</source>
+          <target state="translated">Arbeitsgangnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Operation No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 176518433 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Line No.</source>
+          <target state="translated">Auftragszeilennr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Order Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 176518433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Line No.</source>
+          <target state="translated">Auftragszeilennr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Order Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2407580048 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output Quantity</source>
+          <target state="translated">Ausgabe Menge</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Output Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2407580048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output Quantity</source>
+          <target state="translated">Ausgabe Menge</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Output Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3208180638 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processed</source>
+          <target state="translated">Verarbeitet</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Processed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3208180638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processed</source>
+          <target state="translated">Verarbeitet</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Processed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 851830778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prod. Order No.</source>
+          <target state="translated">Fertigungsauftragnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Prod. Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 851830778 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prod. Order No.</source>
+          <target state="translated">Fertigungsauftragnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Prod. Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3123169861 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Artikelnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Routing No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3123169861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Artikelnr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Routing No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2542071172 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Routing Reference No.</source>
+          <target state="translated">Arbeitsplanref.-Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Routing Reference No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2542071172 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Routing Reference No.</source>
+          <target state="translated">Arbeitsplanref.-Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Routing Reference No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 1389588618 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scrap Code</source>
+          <target state="translated">Ausschuss Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Scrap Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2188706628 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output Quantity</source>
+          <target state="translated">Fertig gestellte Menge</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Scrap Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2188706628 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output Quantity</source>
+          <target state="translated">Fertig gestellte Menge</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Scrap Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 460889064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Startdatum</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Starting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 460889064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Startdatum</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Starting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2625429122 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date/Time</source>
+          <target state="needs-l10n">Startdatum/Uhrzeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Starting Date/Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2625429122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date/Time</source>
+          <target state="needs-l10n">Startdatum/Uhrzeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Starting Date/Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 980877959 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Time</source>
+          <target state="translated">Startzeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Starting Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 980877959 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Time</source>
+          <target state="translated">Startzeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Starting Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2384299891 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Terminal Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2384299891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Terminal Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capacity Type</source>
+          <target state="needs-l10n">Kapazität Typ</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capacity Type</source>
+          <target state="needs-l10n">Kapazität Typ</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2385270358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure Code</source>
+          <target state="translated">Einheitencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Unit of Measure Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2385270358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure Code</source>
+          <target state="translated">Einheitencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Unit of Measure Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3908933179 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Start</source>
+          <target state="needs-l10n">Benutzer Start</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field User Start - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3908933179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Start</source>
+          <target state="needs-l10n">Benutzer Start</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field User Start - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2922443251 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Stop</source>
+          <target state="needs-l10n">Benutzer Stop</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field User Stop - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 2922443251 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Stop</source>
+          <target state="needs-l10n">Benutzer Stop</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field User Stop - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant Code</source>
+          <target state="translated">Variantencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3943491557 - Field 3450651614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant Code</source>
+          <target state="translated">Variantencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Booking - Field Variant Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEW BDE Terminal</source>
+          <target state="needs-l10n">SEW BDE Terminal</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2718856237 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Call Operator</source>
+          <target state="needs-l10n">Erlauben Sie Anrufe Operator</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Allow Call Operator - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2718856237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Call Operator</source>
+          <target state="needs-l10n">Erlauben Sie Anrufe Operator</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Allow Call Operator - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2485385258 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Fixed User</source>
+          <target state="needs-l10n">Feste Benutzer zulassen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Allow Fixed User - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2485385258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Fixed User</source>
+          <target state="needs-l10n">Feste Benutzer zulassen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Allow Fixed User - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 1182479285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Malfunction</source>
+          <target state="needs-l10n">Fehlfunktion zulassen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Allow Malfunction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 1182479285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Malfunction</source>
+          <target state="needs-l10n">Fehlfunktion zulassen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Allow Malfunction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 1780646972 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current User</source>
+          <target state="translated">Aktueller Benutzer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Current User - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 1780646972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current User</source>
+          <target state="translated">Aktueller Benutzer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Current User - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 1569607130 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Days in Advanced</source>
+          <target state="needs-l10n">Tage im Voraus</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Days in Advanced - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 1569607130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Days in Advanced</source>
+          <target state="needs-l10n">Tage im Voraus</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Days in Advanced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2704330142 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <target state="translated">Buch.-Blatt Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Journal Batch Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <target state="translated">Buch.-Blatt Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 3684440170 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <target state="translated">Buch.-Blattvorlagenname</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Journal Template Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 3684440170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <target state="translated">Buch.-Blattvorlagenname</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 4215953313 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of Work &amp; Machine Centers</source>
+          <target state="needs-l10n">Anzahl der Arbeits- und Maschinenzentren</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Nbr of Centers - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 4215953313 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of Work &amp; Machine Centers</source>
+          <target state="needs-l10n">Anzahl der Arbeits- und Maschinenzentren</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Nbr of Centers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 42430137 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Code Malfunction</source>
+          <target state="needs-l10n">Stop Code Fehlfunktion</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Stop Code Malfunction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 42430137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Code Malfunction</source>
+          <target state="needs-l10n">Stop Code Fehlfunktion</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Stop Code Malfunction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2000365433 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Code Pause</source>
+          <target state="needs-l10n">Stop Code Pause</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Stop Code Pause - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 2000365433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Code Pause</source>
+          <target state="needs-l10n">Stop Code Pause</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Stop Code Pause - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 351413181 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Name</source>
+          <target state="needs-l10n">Terminal Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Terminal Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 351413181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Name</source>
+          <target state="needs-l10n">Terminal Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Terminal Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 184629588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Status</source>
+          <target state="needs-l10n">Terminal Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Terminal Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1476040586 - Field 184629588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Status</source>
+          <target state="needs-l10n">Terminal Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal - Field Terminal Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEW BDE Terminal Center</source>
+          <target state="needs-l10n">SEW BDE Terminal Center</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 2891538263 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="translated">Aktiviert</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Enabled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 2891538263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="translated">Aktiviert</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Enabled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="needs-l10n">Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="needs-l10n">Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 790206201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number Routing Lines Released</source>
+          <target state="needs-l10n">Nummer Routing Lines Freigegeben</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Nbr Routing Released - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 790206201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number Routing Lines Released</source>
+          <target state="needs-l10n">Nummer Routing Lines Freigegeben</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Nbr Routing Released - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 845722127 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number Routing Lines Planned</source>
+          <target state="needs-l10n">Anzahl Routing Lines Geplant</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Nbr Routings Planned - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 845722127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number Routing Lines Planned</source>
+          <target state="translated">Anzahl Routing Lines Geplant</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Nbr Routings Planned - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 2384299891 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Code</source>
+          <target state="translated">Terminal Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Terminal Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 2384299891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Code</source>
+          <target state="translated">Terminal Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Terminal Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target state="translated">Typ</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target state="translated">Typ</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 1286742260 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Work Center Group Code</source>
+          <target state="translated">Arbeitsgruppencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Work Center Group Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3019442751 - Field 1286742260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Work Center Group Code</source>
+          <target state="translated">Arbeitsgruppencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW BDE Terminal Center - Field Work Center Group Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3943491557 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BDE Booking</source>
+          <target state="needs-l10n">BDE Buchung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3943491557 - Action 1692444235 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ins Buchblatt</source>
+          <target state="needs-l10n">ins Buchblatt</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking - Action ActionName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3943491557 - Action 1692444235 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ins Buchblatt</source>
+          <target state="needs-l10n">ins Buchblatt</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking - Action ActionName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3943491557 - View 2876589673 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>not Processed</source>
+          <target state="needs-l10n">nicht verarbeitet</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking - View NotProcessed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start / Stop Task</source>
+          <target state="needs-l10n">Aufgabe starten / stoppen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 2148727944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment</source>
+          <target state="translated">Kommentar</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control GroupComment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 1391554470 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment</source>
+          <target state="translated">Kommentar</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWComment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 1391554470 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment</source>
+          <target state="translated">Kommentar</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWComment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 3422138502 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantities</source>
+          <target state="translated">Mengen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control GroupQuatity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 774349287 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Output</source>
+          <target state="needs-l10n">Menge Ausgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWOutputQuantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 774349287 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Output</source>
+          <target state="needs-l10n">Menge Ausgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWOutputQuantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 1886744409 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scrap Code</source>
+          <target state="translated">Ausschuss Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWScrapCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 1886744409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scrap Code</source>
+          <target state="translated">Ausschuss Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWScrapCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 3458670179 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Scrap</source>
+          <target state="needs-l10n">Menge Schrott</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWScrapQuantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 3458670179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Scrap</source>
+          <target state="needs-l10n">Menge Schrott</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWScrapQuantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 1276346570 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <target state="translated">Benutzer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control GroupUser - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 622088020 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <target state="translated">Benutzer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWUser - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3032155389 - Control 622088020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <target state="translated">Benutzer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Booking Dialog - Control SEWUser - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BDE Terminal Card</source>
+          <target state="needs-l10n">BDE-Terminal-Karte</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 200667535" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Change User</source>
+          <target state="translated">Benutzer wechseln</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnChangeUserLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 1743384900" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Change User</source>
+          <target state="translated">Benutzer wechseln</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnChangeUserToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 214489020" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Malfunction</source>
+          <target state="translated">Start Störung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStartMalfunctionLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 3401767663" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Malfunction for this Task</source>
+          <target state="translated">Start Störung für diese Aufgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStartMalfunctionToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 734941238" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Call Operator</source>
+          <target state="needs-l10n">Call Operator</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStartOperatorLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 3940617337" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Call Operator</source>
+          <target state="needs-l10n">Call Operator</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStartOperatorToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 2487816892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Malfunction</source>
+          <target state="translated">Stop Störung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStopMalfunctionLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 2633145839" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Malfunction for this Task</source>
+          <target state="needs-l10n">Störung für diese Aufgabe beenden</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStopMalfunctionToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 1281172278" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operator here</source>
+          <target state="needs-l10n">Bediener hier</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStopOperatorLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - NamedType 1397598073" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operator is here</source>
+          <target state="needs-l10n">Operator ist hier</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - NamedType btnStopOperatorToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - Control 3512194100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Info</source>
+          <target state="needs-l10n">Terminal-Infos</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - Control GeneralInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - Control 2810200492 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal Status</source>
+          <target state="needs-l10n">Terminal Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - Control TerminalStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - Control 1122163911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terminal User</source>
+          <target state="needs-l10n">Terminal Benutzer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - Control TerminalUser - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - Control 4054271774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tasks</source>
+          <target state="translated">Aufgaben</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - Control SEWBDETerminalCardToDo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3701625806 - Control 3613534181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bookings</source>
+          <target state="translated">Buchungen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card - Control SEWBDETerminalCardBook - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 2848925117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bookings</source>
+          <target state="translated">Buchungen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card Book - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 2848925117 - Control 739346273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bookings</source>
+          <target state="translated">Buchungen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card Book - Control Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ToDo</source>
+          <target state="translated">ToDo</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 668916388" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Call Operator</source>
+          <target state="needs-l10n">Call Operator</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnCallOperatorLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 3118198647" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Call Operator</source>
+          <target state="needs-l10n">Call Operator</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnCallOperatorToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 214489020" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Malfunction</source>
+          <target state="translated">Start Störung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartMalfunctionLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 3401767663" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Malfunction for this Task</source>
+          <target state="translated">Start Störung für diese Aufgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartMalfunctionToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 2619242540" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Pause</source>
+          <target state="needs-l10n">Start Pause</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartPauseLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 3562204799" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Pause for this Task</source>
+          <target state="needs-l10n">Start Pause für diese Aufgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartPauseToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 2669912139" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Production</source>
+          <target state="translated">Start Produktion</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartProductionLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 1043708408" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Production for this Task</source>
+          <target state="needs-l10n">Produktion für diese Aufgabe starten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartProductionToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 3196036743" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Setup</source>
+          <target state="translated">Start Rüsten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartSetupLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 4178216412" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Setup for this Task</source>
+          <target state="translated">Start Rüsten für diese Aufgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStartSetupToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 2487816892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Malfunction</source>
+          <target state="translated">Stop Störung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopMalfunctionLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 2633145839" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Malfunction for this Task</source>
+          <target state="needs-l10n">Störung für diese Aufgabe beenden</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopMalfunctionToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 1430692652" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Pause</source>
+          <target state="needs-l10n">Stopp Pause</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopPauseLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 4194902399" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Pause for this Task</source>
+          <target state="needs-l10n">Stop Pause für diese Aufgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopPauseToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 848077643" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Production</source>
+          <target state="translated">Stop Produktion</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopProductionLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 2341537016" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Production for this Task</source>
+          <target state="needs-l10n">Produktion für diese Aufgabe stoppen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopProductionToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 2007486855" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Setup</source>
+          <target state="translated">Stop Rüsten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopSetupLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 515946716" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Setup for this Task</source>
+          <target state="translated">Rüsten für diese Aufgabe beenden</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnStopSetupToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 2196404214" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tasks in Progress</source>
+          <target state="needs-l10n">Laufende Aufgaben</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnTaksProgressLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 615419321" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Tasks in Progress for this Terminal</source>
+          <target state="needs-l10n">Laufende Aufgaben für dieses Terminal anzeigen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnTaksProgressToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 3556967568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>finish Task</source>
+          <target state="translated">fertig melden</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnTaskFinishLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 4074600619" size-unit="char" translate="yes" xml:space="preserve">
+          <source>finish Task for this Task</source>
+          <target state="translated">fertig melden für diese Aufgabe</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnTaskFinishToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 1885796453" size-unit="char" translate="yes" xml:space="preserve">
+          <source>upcoming Tasks</source>
+          <target state="needs-l10n">kommende Aufgaben</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnTaskUpcomingLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 3116053090" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show upcoming Tasks for this Terminal</source>
+          <target state="needs-l10n">Anstehende Aufgaben für dieses Terminal anzeigen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType btnTaskUpcomingToolTipLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - NamedType 1431034211" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Really want to finish this Task?</source>
+          <target state="needs-l10n">Wollen Sie diese Aufgabe wirklich beenden?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - NamedType xFinishLbl</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 739346273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upcoming Tasks</source>
+          <target state="translated">Anstehende Tasks</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 458406397 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Ending Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 4160221838 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Ending Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 3162383302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Operation No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 851830778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Prod. Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 460889064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Starting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 980877959 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Starting Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2939381574 - Control 4065966391 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminal Card ToDo - Control Work Center No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 2183431351 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BDE Terminals</source>
+          <target state="needs-l10n">BDE-Terminals</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 827783690 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BDE Terminals Center</source>
+          <target state="needs-l10n">BDE Terminals Center</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW BDE Terminals Center - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 1337728062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEW ButtonTestPage</source>
+          <target state="needs-l10n">SEW SchaltflächeTestSeite</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW ButtonTestpage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 1337728062 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1111</source>
+          <target state="needs-l10n">1111</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW ButtonTestpage - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1337728062 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>2222</source>
+          <target state="needs-l10n">2222</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW ButtonTestpage - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Arbeitsgänge Liste</source>
+          <target state="needs-l10n">Arbeitsgänge Liste</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 2929416731 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the concurrent capacity of the operation.</source>
+          <target state="needs-l10n">Gibt die gleichzeitige Kapazität des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Concurrent Capacities - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 458406397 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Ending Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 4160221838 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Ending Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 213747506 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the fixed scrap quantity.</source>
+          <target state="needs-l10n">Gibt die feste Ausschussmenge an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Fixed Scrap Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3433119822 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the lot size.</source>
+          <target state="needs-l10n">Gibt die Losgröße an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Lot Size - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3313353536 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the move time.</source>
+          <target state="needs-l10n">Legt den Zeitpunkt der Verschiebung fest.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Move Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3237493094 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the move time unit of measure.</source>
+          <target state="needs-l10n">Gibt die Maßeinheit für die Bewegungszeit an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Move Time Unit of Meas. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3162383302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Operation No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 851830778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Prod. Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 463590211 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a routing link code.</source>
+          <target state="needs-l10n">Gibt einen Routing Link Code an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Routing Link Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3491367632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the run time of the operation.</source>
+          <target state="needs-l10n">Gibt die Laufzeit der Operation an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Run Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 2645460310 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the run time unit of measure.</source>
+          <target state="needs-l10n">Legt die Maßeinheit für die Laufzeit fest.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Run Time Unit of Meas. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3187018845 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the scrap factor in percent.</source>
+          <target state="needs-l10n">Gibt den Ausschussfaktor in Prozent an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Scrap Factor % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 228148253 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the send-ahead quantity of the operation.</source>
+          <target state="needs-l10n">Gibt die Anzahl der vorausgeschickten Sendungen für die Operation an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Send-Ahead Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 2370624518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Setup Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3132099920 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time unit of measure.</source>
+          <target state="needs-l10n">Legt die Maßeinheit für die Einrichtungszeit fest.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Setup Time Unit of Meas. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 460889064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Starting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 980877959 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Starting Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 104310926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unit cost for this operation if it is different than the unit cost on the work center or machine center card.</source>
+          <target state="needs-l10n">Gibt die Stückkosten für diesen Vorgang an, wenn sie sich von den Stückkosten auf der Arbeitsplatz- oder Maschinenplatzkarte unterscheiden.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Unit Cost per - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 2160426082 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the wait time after processing.</source>
+          <target state="needs-l10n">Gibt die Wartezeit nach der Verarbeitung an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Wait Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 3023704276 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the wait time unit of measure.</source>
+          <target state="needs-l10n">Gibt die Maßeinheit für die Wartezeit an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Wait Time Unit of Meas. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 1286742260 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Work Center Group Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Control 4065966391 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the setup time of the operation.</source>
+          <target state="needs-l10n">Gibt die Einrichtungszeit des Vorgangs an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Control Work Center No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">&amp;Zeilen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 3000180178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or add comments for the record.</source>
+          <target state="needs-l10n">Anzeigen oder Hinzufügen von Kommentaren für den Datensatz.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Co&amp;mments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Co&amp;mments</source>
+          <target state="translated">Bemerkungen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Co&amp;mments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 1973034550 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit information about personnel that applies to operations that represent the standard task.</source>
+          <target state="needs-l10n">Zeigen Sie Informationen über Mitarbeiter an, die für Vorgänge gelten, die die Standardaufgabe darstellen, oder bearbeiten Sie diese.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Personnel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 1973034550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Personnel</source>
+          <target state="translated">Person</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Personnel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 1605766738 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit information about quality measures that apply to operations that represent the standard task.</source>
+          <target state="needs-l10n">Zeigen Sie Informationen zu Qualitätsmaßnahmen an, die für Vorgänge gelten, die die Standardaufgabe darstellen, oder bearbeiten Sie diese.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Quality Measures - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 1605766738 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quality Measures</source>
+          <target state="needs-l10n">Qualitätsmaßnahmen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Quality Measures - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 3587537701 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit information about tools that apply to operations that represent the standard task.</source>
+          <target state="needs-l10n">Zeigen Sie Informationen zu Werkzeugen an, die für Vorgänge gelten, die die Standardaufgabe darstellen, oder bearbeiten Sie diese.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Tools - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 1031095038 - Action 3587537701 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tools</source>
+          <target state="translated">Werkzeuge</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Routing Lines List - Action Tools - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 261600646 - Field 4041295083 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 803582013">
+          <source>BDE Planning Status</source>
+          <target state="needs-l10n">BDE Planungsstatus</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Prod. Order Routing Line - Field SEW BDE Rout. Line Plan Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 261600646 - Field 4041295083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 803582013">
+          <source>BDE Planning Status</source>
+          <target state="needs-l10n">BDE Planungsstatus</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Prod. Order Routing Line - Field SEW BDE Rout. Line Plan Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 261600646 - Field 2839096782 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 803582013">
+          <source>BDE Status</source>
+          <target state="needs-l10n">BDE-Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Prod. Order Routing Line - Field SEW BDE Rout. Line Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 261600646 - Field 2839096782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 803582013">
+          <source>BDE Status</source>
+          <target state="needs-l10n">BDE-Status</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Prod. Order Routing Line - Field SEW BDE Rout. Line Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 261600646 - Field 868857677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 803582013">
+          <source>BDE Enabled</source>
+          <target state="needs-l10n">BDE Aktiviert</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Prod. Order Routing Line - Field SEW BDE Terminal Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 261600646 - Field 868857677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 803582013">
+          <source>BDE Enabled</source>
+          <target state="needs-l10n">BDE Aktiviert</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Prod. Order Routing Line - Field SEW BDE Terminal Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3413715256 - Field 2031244129 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1925528903">
+          <source>BDE Enabled</source>
+          <target state="needs-l10n">BDE Aktiviert</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Work Center Group - Field SEW BDE Enabled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3413715256 - Field 2031244129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1925528903">
+          <source>BDE Enabled</source>
+          <target state="needs-l10n">BDE Aktiviert</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Work Center Group - Field SEW BDE Enabled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4041295083 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Empty</source>
+          <target state="translated">Leer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Plan Status - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4041295083 - EnumValue 3457821846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>in Time</source>
+          <target state="needs-l10n">in der Zeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Plan Status - EnumValue in Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4041295083 - EnumValue 3448150408 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Late</source>
+          <target state="translated">Late</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Plan Status - EnumValue Late - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 1178809860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Done</source>
+          <target state="translated">Erledigt</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Done - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 2080777672 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>not Started</source>
+          <target state="needs-l10n">nicht gestartet</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue not Started - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 1176084718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Malfunction</source>
+          <target state="translated">Start Störung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Start Malfunction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 2539852894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Pause</source>
+          <target state="needs-l10n">Start Pause</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Start Pause - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 3704415797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Production</source>
+          <target state="translated">Start Produktion</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Start Production - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 415555793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Setup</source>
+          <target state="translated">Start Rüsten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Start Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 1362006414 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Malfunction</source>
+          <target state="translated">Stop Störung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Stop Malfunction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 1584956414 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Pause</source>
+          <target state="needs-l10n">Stopp Pause</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Stop Pause - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 1702417045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Production</source>
+          <target state="translated">Stop Produktion</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Stop Production - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2839096782 - EnumValue 351953009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stop Setup</source>
+          <target state="translated">Stop Rüsten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Rout. Line Status - EnumValue Stop Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1420425246 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Empty</source>
+          <target state="translated">Leer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Terminal Status - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1420425246 - EnumValue 3457821846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>in Time</source>
+          <target state="needs-l10n">in der Zeit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Terminal Status - EnumValue in Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1420425246 - EnumValue 3448150408 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Late</source>
+          <target state="translated">Late</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Terminal Status - EnumValue Late - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1420425246 - EnumValue 3828413406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Malfunction</source>
+          <target state="translated">Fehlfunktion</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Terminal Status - EnumValue Malfunction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1420425246 - EnumValue 1328215638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operator Call</source>
+          <target state="needs-l10n">Anruf der Telefonistin</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW BDE Terminal Status - EnumValue Operator Call - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

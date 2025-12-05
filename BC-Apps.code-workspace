@@ -1,0 +1,230 @@
+{
+  "folders": [
+    {
+      "name": "BC-walter75-Apps",
+      "path": "."
+    },
+    {
+      "name": ".AL-Go",
+      "path": ".AL-Go"
+    },
+    {
+      "name": ".alpackages",
+      "path": ".alpackages"
+    },
+    {
+      "name": ".github",
+      "path": ".github"
+    },
+    {
+      "name": ".codeAnalysis",
+      "path": ".codeAnalysis"
+    },
+    {
+      "name": "docs",
+      "path": "docs"
+    },
+    {
+      "name": "walter75 - OAuth 2.0",
+      "path": "walter75 - OAuth 2.0"
+    },
+    {
+      "name": "walter75 - BDE Terminal",
+      "path": "walter75 - BDE Terminal"
+    },
+    {
+      "name": "walter75 - Color Master",
+      "path": "walter75 - Color Master"
+    },
+    {
+      "name": "walter75 - Contact Relations",
+      "path": "walter75 - Contact Relations"
+    },
+    {
+      "name": "walter75 - Freight Prices",
+      "path": "walter75 - Freight Prices"
+    },
+    {
+      "name": "walter75 - PrintNode",
+      "path": "walter75 - PrintNode"
+    },
+    {
+      "name": "walter75 - Sendcloud",
+      "path": "walter75 - Sendcloud"
+    },
+    {
+      "name": "walter75 - Packages",
+      "path": "walter75 - Packages"
+    },
+    {
+      "name": "walter75 - XML Import",
+      "path": "walter75 - XML Import"
+    },
+    {
+      "name": "walter75 - BaseApp Basic",
+      "path": "walter75 - BaseApp Basic"
+    },
+    {
+      "name": "walter75 - Data Editor",
+      "path": "walter75 - Data Editor"
+    }
+  ],
+  "settings": {
+    "al.ruleSetPath": "./../.codeAnalysis/Main.ruleset.json",
+    "al.enableCodeAnalysis": true,
+    "al.packageCachePath": "./../.alpackages",
+    "al.codeAnalyzers": [
+      "${CodeCop}",
+      "${UICop}",
+      "${PerTenantExtensionCop}",
+      "${analyzerFolder}BusinessCentral.LinterCop.dll"
+    ],
+    "al.enableCodeActions": true,
+    "al.backgroundCodeAnalysis": "Project",
+    "CRS.AlSubFolderName": "src",
+    "CRS.DisableDefaultAlSnippets": true,
+    "CRS.ObjectNamePrefix": "SEW ",
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.ExtensionObjectNamePattern": "<Prefix><ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.OnSaveAlFileAction": "Rename",
+    "CRS.RemovePrefixFromFilename": true,
+    "al.publisher": "walter75 Consulting",
+    "linterCop.autoDownload": true,
+    "linterCop.repositories": [
+      {
+        "url": "https://github.com/StefanMaron/BusinessCentral.LinterCop",
+        "shortName": "BcLntr",
+        "fileName": "BusinessCentral.LinterCop.dll"
+      }
+    ],
+    "powershell.cwd": ".AL-Go"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-dynamics-smb.al",
+      "waldo.crs-al-language-extension",
+      "andrzejzwierzchowski.al-code-outline",
+      "davidfeldhoff.al-codeactions",
+      "jamespearson.al-test-runner",
+      "vjeko.vjeko-al-objid",
+      "wbrakowski.al-navigator",
+      "rasmus.al-var-helper",
+      "stefanmaron.businesscentral-lintercop",
+      "nwallace.createguid",
+      "aar.xlf-editor",
+      "rvanbekkum.xliff-sync"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "walter75 Sandbox 01",
+        "request": "launch",
+        "type": "al",
+        "environmentType": "Sandbox",
+        "environmentName": "Sandbox01",
+        "startupObjectId": 9006,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "enableLongRunningSqlStatements": true,
+        "enableSqlInformationDebugger": true,
+        "tenant": "d6cf2228-7483-4ae6-b949-639a7527b12f",
+        "schemaUpdateMode": "ForceSync"
+      },
+      {
+        "name": "walter75 Sandbox 02",
+        "request": "launch",
+        "type": "al",
+        "environmentType": "Sandbox",
+        "environmentName": "Sandbox02",
+        "startupObjectId": 9006,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "enableLongRunningSqlStatements": true,
+        "enableSqlInformationDebugger": true,
+        "tenant": "d6cf2228-7483-4ae6-b949-639a7527b12f",
+        "schemaUpdateMode": "ForceSync"
+      },
+      {
+        "name": "walter75 Sandbox 03",
+        "request": "launch",
+        "type": "al",
+        "environmentType": "Sandbox",
+        "environmentName": "Sandbox03",
+        "startupObjectId": 9006,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "enableLongRunningSqlStatements": true,
+        "enableSqlInformationDebugger": true,
+        "tenant": "d6cf2228-7483-4ae6-b949-639a7527b12f",
+        "schemaUpdateMode": "ForceSync"
+      },
+      {
+        "name": "local Sandbox (bc27dev01)",
+        "request": "launch",
+        "type": "al",
+        "server": "https://bc27dev01",
+        "serverInstance": "BC",
+        "port": 7049,
+        "tenant": "default",
+        "authentication": "UserPassword",
+        "startupObjectId": 9006,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "schemaUpdateMode": "ForceSync"
+      },
+      {
+        "name": "local Sandbox (bcdev01)",
+        "request": "launch",
+        "type": "al",
+        "server": "https://bcdev01",
+        "serverInstance": "BC",
+        "port": 7049,
+        "tenant": "default",
+        "authentication": "UserPassword",
+        "startupObjectId": 9006,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "schemaUpdateMode": "ForceSync"
+      },
+      {
+        "name": "local Sandbox (bcdev02)",
+        "request": "launch",
+        "type": "al",
+        "server": "https://bcdev02",
+        "serverInstance": "BC",
+        "port": 7049,
+        "tenant": "default",
+        "authentication": "UserPassword",
+        "startupObjectId": 9006,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "schemaUpdateMode": "ForceSync"
+      },
+      {
+        "name": "local Sandbox (bcdev03)",
+        "request": "launch",
+        "type": "al",
+        "server": "https://bcdev03",
+        "serverInstance": "BC",
+        "port": 7049,
+        "tenant": "default",
+        "authentication": "UserPassword",
+        "startupObjectId": 9006,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "schemaUpdateMode": "ForceSync"
+      }
+    ]
+  }
+}

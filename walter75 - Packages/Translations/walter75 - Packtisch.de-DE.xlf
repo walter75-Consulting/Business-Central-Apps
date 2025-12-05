@@ -1,0 +1,1497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="walter75 - Packtisch">
+    <body>
+      <group id="body">
+        <trans-unit id="Report 3140463613 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEW Packing Scan Commands</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 1407869219" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Document</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdDocClearLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 3818694410" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Close Document</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdDocCloseLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 212527646" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post and Print Documents</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdDocPostAndPrintLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 3305755868" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Document</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdDocPostLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 2881792240" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Delivery Note</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdDocPrintDelNoteLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 922803140" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Invoice</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdDocPrintInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 1552318001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Document</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdDocScanLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 990812848" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Down</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdLineDownLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 913893513" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pack Line</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdLinePackLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 743382136" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unpack Line</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdLineUnpackLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 1490850325" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Up</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdLineUpLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 1246475637" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackageClearLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 2882323541" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackageDeleteLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 606740850" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackageNewLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 1857963484" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post and Print Package Documents</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackagePostAndPrintLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 2117550398" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackagePostLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 808283634" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Delivery Note</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackagePrintDelNoteLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 3631372959" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Package Label</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackagePrintLabelLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 1750724676" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Packing List</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdPackagePrintPackingListLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - NamedType 2718228046" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Item ...</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - NamedType CmdScanItemLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - ReportLayout 375759206 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEW Packscan Befehle (RDLC)</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - ReportLayout SEW Packing Scan Commands01 - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 3140463613 - ReportLayout 375759206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEW Packing Scan Commands (RDLC)</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEW Packing Scan Commands - ReportLayout SEW Packing Scan Commands01 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1557662060 - EnumValue 2740600674 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Scan Action - EnumValue Create Package - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1557662060 - EnumValue 661860884 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Document ...</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Scan Action - EnumValue Scan Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1557662060 - EnumValue 1588036782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Item ...</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Scan Action - EnumValue Scan Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1557662060 - EnumValue 544066114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Package Material ...</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Scan Action - EnumValue Scan Package Material - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Material</source>
+          <target state="needs-adaptation">SEW-Paket Material</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the package material.</source>
+          <target state="needs-adaptation">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 943448278 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cubage of the package material in cubic centimeters.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Cubage cm3 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 943448278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cubage cm3</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Cubage cm3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description for the package material.</source>
+          <target state="needs-adaptation">Beschreibung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beschreibung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 4071986731 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the height of the package material in centimeters.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Height cm - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 4071986731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Height cm</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Height cm - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 1826346118 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the length of the package material in centimeters.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Length cm - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 1826346118 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Length cm</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Length cm - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 2681017240 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the weight of the package material in kilograms.</source>
+          <target state="needs-adaptation">Gewicht in kg</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Weight kg - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 2681017240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Weight in kg</source>
+          <target state="needs-l10n">Gewicht in kg</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Weight kg - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 1295753212 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the width of the package material in centimeters.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Width cm - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2577357132 - Field 1295753212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Width cm</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Material - Field Width cm - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3678078256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Setup</source>
+          <target state="needs-adaptation">SEW-Paket einrichten</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3678078256 - Field 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code.</source>
+          <target state="needs-adaptation">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Setup - Field Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3678078256 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Package Setup - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing Station</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3816955114 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the user currently operating this packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Cur. User ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3816955114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current User ID</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Cur. User ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 803740167 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current warehouse activity at this packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Cur. Warehouse Activity No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 803740167 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Warehouse Activity</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Cur. Warehouse Activity No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 407078248 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the current warehouse activity at this packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Cur. Warenhouse Activity Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 407078248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Warehouse Activity Type</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Cur. Warenhouse Activity Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 2613156679 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the full name of the user currently operating this packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Full User Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 2613156679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Full User Name</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Full User Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 2209782823 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Printer ID for the label printer associated with this packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Label PrinterID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 2209782823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Label PrinterID</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Label PrinterID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 1497502272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last invoice number processed at this packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Last Invoice No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 1497502272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Invoice No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Last Invoice No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3350551815 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last shipment number processed at this packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Last Shipment No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3350551815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Shipment No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Last Shipment No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3800563369 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether packing is currently active at this station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Packing is Active - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3800563369 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing is Active</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Packing is Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3578913219 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the scan action.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field SEW Current Scan Action - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3578913219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Action</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field SEW Current Scan Action - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3061756722 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the display text for the user.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field SEW Text Display - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3061756722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Display Text</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field SEW Text Display - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3191257723 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last scan input.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field SEW Text Last Scan - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 3191257723 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Scan</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field SEW Text Last Scan - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 1598096543 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Station Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 1598096543 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Station Name</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field Station Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 1425612321 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier for the packing station.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field stationID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3103951662 - Field 1425612321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>stationID</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Packing Station - Field stationID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4148430417 - Method 2751316170 - NamedType 3477147771" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ungültiger Scan: %1</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">Invalicd Scan: %1</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Actions Page - Method ActionScanDocument - NamedType TextInvalidScanLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4148430417 - Method 3437338703 - NamedType 3017722252" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer not found.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Actions Page - Method CheckCustomerSendingProfile - NamedType ErrCustomerNotFoundLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4148430417 - Method 2349085124 - NamedType 2420886059" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventory Setup not found.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Actions Page - Method GetNoSeriesPickOrders - NamedType ErrInventorySetupNotFoundLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1033370926 - Method 2332113984 - NamedType 1891465516" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This document is assigned to another user.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Single Instance - Method GetWarehouseHeader - NamedType ErrHeaderAssignedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1033370926 - Method 3808744853 - NamedType 2194944961" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ready. Please scan new document.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Single Instance - Method StartPackingStation - NamedType MsgPickCompletedLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1424719198 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Material</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Package Material List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3678078256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Setup</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Package Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3678078256 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Package Setup - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 739346273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line description.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 47657272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the second line description.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Description 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item number.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line number.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 1482668068 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the lot number.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Lot No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the warehouse activity line.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 1207051292 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity outstanding.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Qty. Outstanding - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 1575501669 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity to handle.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Qty. to Handle - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 4014789258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packvorgang</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control PackHeader - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pickorder</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the location where the warehouse activity is performed.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 1550682938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the warehouse activity line.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control No.1 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 1954934809 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unpacked lines.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEW unpacked Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 1954934809 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>unpacked Lines</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEW unpacked Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3459574770 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unpacked quantity.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEW unpacked Qty - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3459574770 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>unpacked Qty</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEW unpacked Qty - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 1125257739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Action</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control ScanAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3217335743 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current item number.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control CurrentItemNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3217335743 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Item No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control CurrentItemNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3650234459 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the input text.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control ScanInput - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3650234459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Input</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control ScanInput - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 367702475 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current package material.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEWCurrentPackageMaterial - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 367702475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Package Material</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEWCurrentPackageMaterial - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 476602692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current shipment order number.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEWCurrentParcelNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 476602692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Shipment Order No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEWCurrentParcelNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 2323140927 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current shipment order status.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEWCurrentParcelStatus - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 2323140927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Shipment Order Status</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control SEWCurrentParcelStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3730824793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the display text.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control TextDisplay - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 3730824793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Display</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control TextDisplay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 2244524788 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last scan time.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control TextLastScan - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Control 2244524788 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Scan</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Control TextLastScan - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3887928477 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Move current line down.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Move Down - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3887928477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Move Down</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Move Down - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3931973280 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Move current line up.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Move Up - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3931973280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Move Up</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Move Up - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 1478166410 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Commands.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintCommand - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 1478166410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Commands</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintCommand - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 4272945399 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Delivery Note.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintDeliveryNote - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 4272945399 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Delivery Note</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintDeliveryNote - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 2001391996 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Invoice.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintInvoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 2001391996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Invoice</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintInvoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3288048129 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Label.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintLabel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3288048129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Label</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintLabel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 1719733358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Packing List.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintPackingList - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 1719733358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Packing List</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PrintPackingList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 553486231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select package from list.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Select Parcel from List - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 553486231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select Package from List</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Select Parcel from List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 142888704 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pack the selected line.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action ItemPack - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 142888704 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pack Selected Item</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action ItemPack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 1191831993 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unpack the selected line.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action ItemUnpack - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 1191831993 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unpack Selected</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action ItemUnpack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3429693037 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear the selected package.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackageClear - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3429693037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackageClear - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 457784733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the selected package.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackageDelete - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 457784733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackageDelete - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3365644722 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a new package.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackageNew - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 3365644722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackageNew - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 2467819342 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post the selected package.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackagePost - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 2467819342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action PackagePost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 477925417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Home</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Home - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 2907923339 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Packing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3021273992 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capture Item Quantity</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 798164097 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capture Quantity</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control CaptureQuantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 3059545697 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control WorklogDateFrom - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 3059545697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control WorklogDateFrom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 3276313895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Item</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item number.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 4112877437 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item description.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control ItemDescription - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 4112877437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control ItemDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 2305667011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity to pack.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control ItemQty - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2304877812 - Control 2305667011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty to Pack</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Qty - Control ItemQty - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capture Package Weight</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 2132509328 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capture Weight</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control CaptureWeight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 362141111 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Package Weight.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control DlgPackageWeight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 362141111 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Weight</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control DlgPackageWeight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 3276313895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Package</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 3284308386 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current shipment order number.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control CurrentShipmentOrderNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 3284308386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Shipment Order No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control CurrentShipmentOrderNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 3142529029 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current shipment order status.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control CurrentShipmentOrderStatus - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 3142529029 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Shipment Order Status</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control CurrentShipmentOrderStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 2305667011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current package material.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control ItemQty - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2707723760 - Control 2305667011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Package Material</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card Dialog Weight - Control ItemQty - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Details</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3040929904 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Destination</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Destination - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2680873021 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number or the code of the customer or vendor that the line is linked to.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Destination No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 130381996 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the inventory picks used for these outbound source documents: sales orders, purchase return orders, and outbound transfer orders.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control DestinationEntityName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 130381996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control DestinationEntityName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3097346278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Shipping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2205104606 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the delivery conditions of the related shipment.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Shipment Method Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 4045368290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which shipping agent is used to transport the products.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Shipping Agent Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2730811709 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code that represents the default shipping agent service.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Shipping Agent Service Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2613905139 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Address</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control ShipTo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3168444338 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the address that products on the document will be shipped to.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Address - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3168444338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 179365352 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies additional address information.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Address2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 179365352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address 2</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Address2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 714791889 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the address.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 714791889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3993128796 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the address that products on the document will be shipped to.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3993128796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3660640596 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country or region.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control CountryRegion - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3660640596 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control CountryRegion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name that products on the document will be shipped to.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 1713889359 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies additional name information.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Name2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 1713889359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name 2</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Name2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2272340397 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for delivery address.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Number - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2272340397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Code</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3374398455 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control PostCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 3374398455 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control PostCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 2397723431 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Source - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 1045917230 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of document that the warehouse activity line is created for.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Source Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1392390918 - Control 1882905478 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the document that the warehouse activity line is created for.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Details - Control Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4248250707 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parcel List</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Card FB Parcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2901163244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing Station List</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Packing Station List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1040118043 - Action 2505824100 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2920024700">
+          <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Inventory Picks - Action SEW Print - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1040118043 - Action 2505824100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2920024700">
+          <source>&amp;Print</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Inventory Picks - Action SEW Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1967185323 - Control 3081631333 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1192289348">
+          <source>Specifies the quantity that has been packed.</source>
+          <target state="needs-l10n">Gibt die Menge an, die verpackt wurde.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Invt. Pick Subform - Control SEW Qty. Packed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1967185323 - Control 3081631333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1192289348">
+          <source>Qty. Packed</source>
+          <target state="translated">Menge verpackt</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Invt. Pick Subform - Control SEW Qty. Packed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1967185323 - Control 265328683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1192289348">
+          <source>Specifies the quantity to be packed.</source>
+          <target state="needs-l10n">Gibt die zu verpackende Menge an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Invt. Pick Subform - Control SEW Qty. to Pack - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1967185323 - Control 265328683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1192289348">
+          <source>Qty. to Pack</source>
+          <target state="needs-l10n">Menge zum Verpacken</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Invt. Pick Subform - Control SEW Qty. to Pack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 3185419838 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Specifies the gross weight of the item in kg.</source>
+          <target state="needs-adaptation">Bruttogewicht Artikel in kg</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Gross Weight Item kg - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 3185419838 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Gross Weight Item in kg</source>
+          <target state="translated">Bruttogewicht Artikel in kg</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Gross Weight Item kg - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 2356139625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Specifies the Shipment No.</source>
+          <target state="needs-adaptation">Paket Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Parcel No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 2356139625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Shipment No.</source>
+          <target state="needs-adaptation">Paket Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Parcel No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 2835515840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Specifies the Shipmentorder Status.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Parcel Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 2835515840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Shipmentorder Status</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Parcel Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 1447017187 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Specifies the Status ID.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Parcel Status ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 903518664 - Field 1447017187 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4161077999">
+          <source>Status ID</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Posted Invt. Pick Line - Field SEW Parcel Status ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3749439707 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the current package material.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Package Material - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3749439707 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Package Material</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Package Material - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3385736778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the Parcel No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Parcel No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3385736778 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Parcel No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Parcel No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 1519000695 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the Parcel Status.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Parcel Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 1519000695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Parcel Status</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Parcel Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3578913219 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the scan action.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Scan Action - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3578913219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Scan Action</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Current Scan Action - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 896852099 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the current package material description.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Package Material Desc - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 896852099 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Package Material Description</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Package Material Desc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 1447017187 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the Status ID.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Parcel Status ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 1447017187 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Status ID</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Parcel Status ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3061756722 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the display text for the user.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Text Display - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3061756722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Display Text</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Text Display - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3191257723 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the last scan input.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Text Last Scan - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 3191257723 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Last Scan</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Text Last Scan - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 956622465 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the count of items unpacked.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Unpacked Count Items - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 956622465 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Count Items Unpacked</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Unpacked Count Items - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 821825384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Specifies the count of lines unpacked.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Unpacked Count Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1137306994 - Field 821825384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Count Lines Unpacked</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Header - Field SEW Unpacked Count Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 3185419838 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Specifies the gross weight of the item in kg.</source>
+          <target state="needs-adaptation">Bruttogewicht Artikel in kg</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Gross Weight Item kg - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 3185419838 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Gross Weight Item in kg</source>
+          <target state="translated">Bruttogewicht Artikel in kg</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Gross Weight Item kg - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 2356139625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Specifies the Shipment No.</source>
+          <target state="needs-adaptation">Paket Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Parcel No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 2356139625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Shipment No.</source>
+          <target state="needs-adaptation">Paket Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Parcel No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 2835515840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Specifies the Shipmentorder Status.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Parcel Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 2835515840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Shipmentorder Status</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Parcel Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 1447017187 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Specifies the Status ID.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Parcel Status ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 1447017187 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Status ID</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Parcel Status ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 3081631333 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Specifies the quantity packed.</source>
+          <target state="needs-adaptation">Menge verpackt</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Qty. Packed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 3081631333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Qty. Packed</source>
+          <target state="translated">Menge verpackt</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Qty. Packed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 265328683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Specifies the quantity to pack.</source>
+          <target state="needs-adaptation">Menge zum Verpacken</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Qty. to Pack - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1289333529 - Field 265328683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
+          <source>Qty. to Pack</source>
+          <target state="needs-l10n">Menge zum Verpacken</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Warehouse Activity Line - Field SEW Qty. to Pack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 2379686798 - Property 2879900210" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packauftrag</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SEW Packauftrag - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2216989174 - ReportLayout 1051120477 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 1184708157">
+          <source>SEW Kommissionierauftrag (RDLC)</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension SEW Picking List - ReportLayout SEW Picking List01 - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2216989174 - ReportLayout 1051120477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 1184708157">
+          <source>SEW Picking List (RDLC)</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension SEW Picking List - ReportLayout SEW Picking List01 - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

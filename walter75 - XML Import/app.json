@@ -1,0 +1,39 @@
+{
+  "id": "adbf6422-1730-42dd-9d4b-4676b9d60542",
+  "name": "walter75 - XML Import",
+  "version": "26.2.0.0",
+  "publisher": "walter75 - München",
+  "brief": "walter75 - XML Import",
+  "description": "walter75 - XML Import",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+  "logo": ".ressources/images/bc-logo.png",
+  "screenshots": [],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "resourceFolders": [
+    ".ressources"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith",
+    "GenerateCaptions",
+    "TranslationFile"
+  ],
+  "idRanges": [
+    {
+      "from": 60500,
+      "to": 60799
+    }
+  ],
+  "dependencies": []
+}

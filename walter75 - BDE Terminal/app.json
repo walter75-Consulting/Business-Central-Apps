@@ -1,0 +1,39 @@
+{
+  "id": "dc3c2bd2-1626-45ed-9e40-acf0c7136b58",
+  "name": "walter75 - BDE Terminal",
+  "version": "26.2.0.0",
+  "publisher": "walter75 - München",
+  "brief": "walter75 - BDE Terminal",
+  "description": "walter75 - BDE Terminal",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+  "logo": ".ressources/images/bc-logo.png",
+  "screenshots": [],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "resourceFolders": [
+    ".ressources"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith",
+    "GenerateCaptions",
+    "TranslationFile"
+  ],
+  "idRanges": [
+    {
+      "from": 90600,
+      "to": 90699
+    }
+  ],
+  "dependencies": []
+}

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="walter75 - Freight Prices">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 3810169048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Freight Prices</source>
+          <target state="needs-l10n">Frachtpreise</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1877908421 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Price</source>
+          <target state="translated">Festpreis</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Fixed Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1877908421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Price</source>
+          <target state="translated">Festpreis</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Fixed Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 2702998682 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Discount %</source>
+          <target state="translated">Zeilenrabatt %</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Line Discount % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 2702998682 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Discount %</source>
+          <target state="translated">Zeilenrabatt %</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Line Discount % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 3261267911 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Markup %</source>
+          <target state="needs-l10n">Aufschlag %</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Markup % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 3261267911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Markup %</source>
+          <target state="needs-l10n">Aufschlag %</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Markup % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1881386224 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Markup Amount</source>
+          <target state="needs-l10n">Markup-Betrag</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Markup Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1881386224 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Markup Amount</source>
+          <target state="needs-l10n">Markup-Betrag</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Markup Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1937389958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Maximum Rate</source>
+          <target state="translated">Stundensatz (maximal)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Maximum Rate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1937389958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Maximum Rate</source>
+          <target state="translated">Stundensatz (maximal)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Maximum Rate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 3556130182 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum Order Total</source>
+          <target state="needs-l10n">Mindestbestellmenge</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Minimum Order Total - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 3556130182 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum Order Total</source>
+          <target state="needs-l10n">Mindestbestellmenge</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Minimum Order Total - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 912595895 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rate Handling</source>
+          <target state="needs-l10n">Handhabung von Tarifen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Rate Handling - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 912595895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rate Handling</source>
+          <target state="needs-l10n">Handhabung von Tarifen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Rate Handling - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 2556434784 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rounding Precision</source>
+          <target state="needs-l10n">Präzision beim Runden</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Rounding Precision - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 2556434784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rounding Precision</source>
+          <target state="needs-l10n">Präzision beim Runden</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Rounding Precision - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 231418639 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code that belongs to the Sales Type.</source>
+          <target state="needs-l10n">Gibt den Code an, der zur Verkaufsart gehört.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Sales Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 231418639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Code</source>
+          <target state="translated">Verkaufscode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Sales Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1270813206 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Code Name</source>
+          <target state="needs-l10n">Verkaufscode Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Sales Code Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1270813206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Code Name</source>
+          <target state="needs-l10n">Verkaufscode Name</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Sales Code Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1406664548 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sales price type, which defines whether the price is for an individual, group, all customers, or a campaign.</source>
+          <target state="needs-l10n">Gibt den Verkaufspreistyp an, der definiert, ob der Preis für eine Person, eine Gruppe, alle Kunden oder eine Kampagne gilt.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Sales Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 1406664548 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Type</source>
+          <target state="translated">Verkaufsart</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Sales Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 4045368290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Agent Code</source>
+          <target state="translated">Zustellercode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Shipping Agent Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 4045368290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Agent Code</source>
+          <target state="translated">Zustellercode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Shipping Agent Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 2730811709 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Agent Service Code</source>
+          <target state="translated">Zusteller Transportartencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Shipping Agent Service Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3810169048 - Field 2730811709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Agent Service Code</source>
+          <target state="translated">Zusteller Transportartencode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Freight Prices - Field Shipping Agent Service Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Freight Prices</source>
+          <target state="needs-l10n">Frachtpreise</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - NamedType 1327832897" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All Customers</source>
+          <target state="translated">Alle Kunden</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - NamedType Text000Lbl</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - NamedType 1196336482" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No %1 within the filter %2.</source>
+          <target state="needs-l10n">Kein %1 innerhalb des Filters %2.</target>
+          <note from="Developer" annotates="general" priority="2">No %1 Idea %2</note>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - NamedType Text001Lbl</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 284195533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filters</source>
+          <target state="translated">Filter</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control Filters - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 2086453362 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a filter for which sales prices to display.</source>
+          <target state="needs-l10n">Gibt einen Filter für die anzuzeigenden Verkaufspreise an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control FilterDescription - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated">Allgemein</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 3233965480 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a filter for which sales prices to display.</source>
+          <target state="needs-l10n">Gibt einen Filter für die anzuzeigenden Verkaufspreise an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control SalesCodeFilterCtrl - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 3233965480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Code Filter</source>
+          <target state="needs-l10n">Verkaufscode-Filter</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control SalesCodeFilterCtrl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 2888032116 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a filter for which sales prices to display.</source>
+          <target state="needs-l10n">Gibt einen Filter für die anzuzeigenden Verkaufspreise an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control SalesTypeFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 2888032116 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Type Filter</source>
+          <target state="needs-l10n">Verkaufsart-Filter</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control SalesTypeFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Control 2888032116 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer,Customer Price Group,All Customers,Campaign,None</source>
+          <target state="needs-l10n">Kunde,Kundenpreisgruppe,Alle Kunden,Kampagne,Keine</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Control SalesTypeFilter - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Action 1553741435 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear filter.</source>
+          <target state="needs-l10n">Filter löschen.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Action ClearFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Action 1553741435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Filter</source>
+          <target state="translated">Filter zurücksetzen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Action ClearFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Action 1772553762 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Apply the filter.</source>
+          <target state="needs-l10n">Wenden Sie den Filter an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Action SalesPricesFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Action 1772553762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filter</source>
+          <target state="translated">Filter</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Action SalesPricesFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="page 3810169048 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Prozess</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">page SEW Freight Prices - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4019773890 - Field 1043011343 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Freight manually</source>
+          <target state="needs-l10n">Fracht manuell</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Sales Header - Field SEW Freight manually - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4019773890 - Field 1043011343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Freight manually</source>
+          <target state="needs-l10n">Fracht manuell</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Sales Header - Field SEW Freight manually - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1969063830 - Field 1121906602 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271291437">
+          <source>Freight Billing No.</source>
+          <target state="needs-l10n">Frachtabrechnungs-Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Shipping Agent - Field SEW Freight Billing No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1969063830 - Field 1121906602 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271291437">
+          <source>Freight Billing No.</source>
+          <target state="needs-l10n">Frachtabrechnungs-Nr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Shipping Agent - Field SEW Freight Billing No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1969063830 - Field 1586141931 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271291437">
+          <source>Freight Billing Type</source>
+          <target state="needs-l10n">Frachtabrechnungsart</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Shipping Agent - Field SEW Freight Billing Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1969063830 - Field 1586141931 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271291437">
+          <source>Freight Billing Type</source>
+          <target state="needs-l10n">Frachtabrechnungsart</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Shipping Agent - Field SEW Freight Billing Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4091124232 - Field 901112660 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4577671">
+          <source>Freight Charge</source>
+          <target state="translated">Frachtgebühr</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Shipping Agent Services - Field SEW Freight Charge - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4091124232 - Field 901112660 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4577671">
+          <source>Freight Charge</source>
+          <target state="translated">Frachtgebühr</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Shipping Agent Services - Field SEW Freight Charge - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035047801 - EnumValue 754710754 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Actual Freight Charge</source>
+          <target state="needs-l10n">Tatsächliche Frachtkosten hinzufügen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Freight Rate Handling - EnumValue Add Actual Freight Charge - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035047801 - EnumValue 3433587712 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Combined Markup</source>
+          <target state="needs-l10n">Kombiniertes Markup hinzufügen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Freight Rate Handling - EnumValue Add Combined Markup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035047801 - EnumValue 2535428973 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Fixed Price Freight Charge</source>
+          <target state="needs-l10n">Festpreis-Frachtkosten hinzufügen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Freight Rate Handling - EnumValue Add Fixed Price Freight Charge - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035047801 - EnumValue 720855963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Markup Percentage</source>
+          <target state="needs-l10n">Aufschlagsprozentsatz hinzufügen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Freight Rate Handling - EnumValue Add Markup Percentage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035047801 - EnumValue 3065292266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Don't Add Freight Charge</source>
+          <target state="needs-l10n">Keine Frachtkosten hinzufügen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Freight Rate Handling - EnumValue Don't Add Freight Charge - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 3810169048 - Property 2879900210" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Freight Prices</source>
+          <target state="needs-l10n">Frachtpreise</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SEW Freight Prices - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

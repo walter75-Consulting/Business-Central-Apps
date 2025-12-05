@@ -1,1 +1,9 @@
-* @microsoft/dynamics-smb-engineering-systems
+# Default owners for everything in the repo
+* @walter75-Consulting
+
+# App-specific owners
+/walter75*/ @walter75-Consulting
+
+# GitHub workflows and AL-Go configuration
+/.github/ @walter75-Consulting
+/.AL-Go/ @walter75-Consulting

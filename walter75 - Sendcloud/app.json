@@ -1,0 +1,46 @@
+{
+    "id": "1b3a8485-c38c-4802-9ce8-1f83c8a75f2e",
+    "name": "walter75 - SendCloud",
+    "version": "26.2.0.0",
+    "publisher": "walter75 - München",
+    "brief": "walter75 - SendCloud",
+    "description": "walter75 - SendCloud",
+    "contextSensitiveHelpUrl": "https://www.walter75.de",
+    "privacyStatement": "https://www.walter75.de",
+    "EULA": "https://www.walter75.de",
+    "help": "https://www.walter75.de",
+    "url": "https://www.walter75.de",
+    "logo": ".ressources/images/bc-logo.png",
+    "screenshots": [],
+    "platform": "27.0.0.0",
+    "application": "27.0.0.0",
+    "resourceFolders": [
+        ".ressources"
+    ],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": false,
+        "includeSourceInSymbolFile": false
+    },
+    "runtime": "16.0",
+    "target": "Cloud",
+    "features": [
+        "NoImplicitWith",
+        "GenerateCaptions",
+        "TranslationFile"
+    ],
+    "idRanges": [
+        {
+            "from": 95700,
+            "to": 95799
+        }
+    ],
+    "dependencies": [
+    {
+      "id": "ca1ab169-0517-4532-a393-46610dd0372c",
+      "name": "walter75 - PrintNode",
+      "publisher": "walter75 - München",
+      "version": "26.0.0.0"
+    }
+    ]
+}

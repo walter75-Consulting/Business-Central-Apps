@@ -1,0 +1,39 @@
+{
+  "id": "ca1ab169-0517-4532-a393-46610dd0372c",
+  "name": "walter75 - PrintNode",
+  "version": "26.2.0.999",
+  "publisher": "walter75 - München",
+  "brief": "walter75 - PrintNode",
+  "description": "walter75 - PrintNode",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+  "logo": ".ressources/images/bc-logo.png",
+  "screenshots": [],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "resourceFolders": [
+    ".ressources"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith",
+    "GenerateCaptions",
+    "TranslationFile"
+  ],
+  "idRanges": [
+    {
+      "from": 92700,
+      "to": 92799
+    }
+  ],
+  "dependencies": []
+}

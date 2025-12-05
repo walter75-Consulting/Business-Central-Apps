@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="walter75 - Color Master">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 3579706030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Colors</source>
+          <target state="translated">Artikel Farben</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Item Colors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3579706030 - Field 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the color code.</source>
+          <target state="translated">Gibt den Farbcode an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Item Colors - Field Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3579706030 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Item Colors - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3579706030 - Field 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of the color.</source>
+          <target state="translated">Gibt die Beschreibung der Farbe an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Item Colors - Field Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3579706030 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beschreibung</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SEW Item Colors - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 363529556 - Method 2754458764 - NamedType 1373878560" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BOM %1 not found.</source>
+          <target state="translated">Stückliste %1 nicht gefunden.</target>
+          <note from="Developer" annotates="general" priority="2">BOM %1 not found.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Copy Item Color Master - Method CopyItemBOM - NamedType ErrBOMNotFoundLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2083177077 - NamedType 1628405030" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item %1 is not a Color Template Item.</source>
+          <target state="translated">Artikel %1 ist kein Farbvorlagenartikel.</target>
+          <note from="Developer" annotates="general" priority="2">Error message when the item %1 is not a color template.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Event Table - NamedType ErrItemNotColorTemplateLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2083177077 - NamedType 2054104027" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item %1 not found.</source>
+          <target state="translated">Artikel %1 nicht gefunden.</target>
+          <note from="Developer" annotates="general" priority="2">Error message when the item %1 is not found.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SEW Event Table - NamedType ErrItemNotFoundLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 3579706030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Colors</source>
+          <target state="translated">Artikel Farben</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Item Colors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3162993764 - Action 641705359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Color Master Management</source>
+          <target state="translated">Farbmaster-Management</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Item Card - Action SEW ColorMasterActions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3162993764 - Action 1338484450 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Create Color Items based on the Color Template Item.</source>
+          <target state="translated">Erstellen Sie Farbartikel auf der Grundlage der Farbvorlage Artikel.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Item Card - Action SEW Create Color Items - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3162993764 - Action 1338484450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Create Color Items</source>
+          <target state="translated">Farbige Artikel erstellen</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Item Card - Action SEW Create Color Items - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3162993764 - Action 1338484450 - Method 1377591017 - NamedType 3764383116" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 3162993764">
+          <source>Create Sub Items from from this Item?</source>
+          <target state="translated">Unterartikel aus diesem Artikel erstellen?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Item Card - Action SEW Create Color Items - Method OnAction - NamedType ConfirmLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3162993764 - Action 1338484450 - Method 1377591017 - NamedType 3941846598" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 3162993764">
+          <source>This is not an Color Template Item</source>
+          <target state="translated">Dies ist kein Farbvorlagenartikel</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Item Card - Action SEW Create Color Items - Method OnAction - NamedType ErrorLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3162993764 - Control 2232828452 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Color Master Management</source>
+          <target state="translated">Farbmaster-Management</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SEW Item Card - Control SEW Color Master - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 452617200 - Field 3632085283 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Specifies the color code for the item.</source>
+          <target state="translated">Gibt den Farbcode für den Artikel an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Item - Field SEW Item Color - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 452617200 - Field 3632085283 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Color Code</source>
+          <target state="translated">Farbcode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Item - Field SEW Item Color - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 452617200 - Field 3783331743 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Specifies the color master for the item.</source>
+          <target state="translated">Gibt die Farbvorlage für den Artikel an.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Item - Field SEW Item Color Master - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 452617200 - Field 3783331743 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Color Master</source>
+          <target state="translated">Color Master</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Item - Field SEW Item Color Master - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 452617200 - Field 1843103467 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Specifies if the item is a color template.</source>
+          <target state="translated">Gibt an, ob das Element eine Farbvorlage ist.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Item - Field SEW Item Color Template - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 452617200 - Field 1843103467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Color Template</source>
+          <target state="translated">Farbvorlage</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Item - Field SEW Item Color Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4001298304 - Field 1843103467 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624288207">
+          <source>Specifies whether this line is part of a color template.</source>
+          <target state="translated">Gibt an, ob diese Zeile Teil einer Farbvorlage ist.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Production BOM Line - Field SEW Item Color Template - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4001298304 - Field 1843103467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624288207">
+          <source>Color Template</source>
+          <target state="translated">Farbvorlage</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SEW Production BOM Line - Field SEW Item Color Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 3620639363 - Property 2879900210" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Color Master</source>
+          <target state="translated">Color Master</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SEW Coilor Master - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

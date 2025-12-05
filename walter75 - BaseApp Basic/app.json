@@ -1,0 +1,39 @@
+{
+  "id": "8bf020b9-1c3a-4763-80ee-eced9fdac94b",
+  "name": "walter75 - BaseApp NEW",
+  "version": "26.2.0.0",
+  "publisher": "walter75 - München",
+  "brief": "walter75 - München",
+  "description": "walter75 - München",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+  "logo": ".ressources/images/bc-logo.png",
+  "screenshots": [],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "resourceFolders": [
+    ".ressources"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith",
+    "GenerateCaptions",
+    "TranslationFile"
+  ],
+  "idRanges": [
+    {
+      "from": 80000,
+      "to": 80099
+    }
+  ],
+  "dependencies": []
+}
