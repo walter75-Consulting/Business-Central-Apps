@@ -41,7 +41,7 @@
 - **Topics** (8 Topics empfohlen):
   - `businesscentral`
   - `dynamics365`
-  - `al-language`
+  - ``
   - `erp`
   - `pte`
   - `warehouse`
@@ -65,6 +65,24 @@
 - ✅ **Discussions** (empfohlen für Community-Fragen)
 
 Scrolle nach unten und klicke "Save changes"
+
+---
+
+### 3a. GitHub Pages aktivieren
+
+**URL**: https://github.com/walter75-Consulting/Business-Central-Apps/settings/pages
+
+**Schritte**:
+1. **Source**: Wähle "GitHub Actions"
+2. Nach dem nächsten Push wird automatisch deployed
+3. Deine Website wird verfügbar sein unter: `https://walter75-consulting.github.io/Business-Central-Apps/`
+
+**Was wurde vorbereitet**:
+- ✅ Jekyll Konfiguration (`_config.yml`)
+- ✅ Professionelle Landing Page (`index.md`)
+- ✅ Automatisches Deployment via GitHub Actions (`pages.yml`)
+- ✅ Responsive Design mit App-Karten
+- ✅ Verlinkung zu allen Dokumentationen
 
 ---
 

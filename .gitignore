@@ -19,3 +19,11 @@ rad.json
 .snapshots/
 cache_*
 ~$*
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
