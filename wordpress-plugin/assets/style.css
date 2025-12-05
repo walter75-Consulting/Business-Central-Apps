@@ -505,18 +505,39 @@
     }
 }
 
-/* Dark Mode Support */
+/* Dark Mode Support - Keep cards light and friendly */
 @media (prefers-color-scheme: dark) {
+    /* Keep app cards bright and welcoming even in dark mode */
     .bc-app-card {
-        background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-        border-color: #444;
-        border-left-color: var(--bc-accent);
+        background: linear-gradient(135deg, #f8f9fa 0%, #e8e9ea 100%);
+        border-color: #d0d0d0;
+        border-left-color: var(--bc-primary);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
     
     .bc-app-card:hover {
-        background: linear-gradient(135deg, #2a2a2a 0%, #1e3a3c 100%);
+        background: linear-gradient(135deg, #ffffff 0%, rgba(178, 235, 242, 0.3) 100%);
+        box-shadow: 0 12px 32px rgba(0, 131, 143, 0.4);
     }
     
+    /* Keep titles dark and readable on light cards */
+    .bc-app-title {
+        color: var(--bc-dark);
+    }
+    
+    .bc-app-description {
+        color: #444;
+    }
+    
+    .bc-app-features {
+        background: rgba(0, 131, 143, 0.08);
+    }
+    
+    .bc-app-features li {
+        color: #333;
+    }
+    
+    /* Other elements can be dark */
     .github-repo-card,
     .github-releases,
     .stat-box {
@@ -524,25 +545,15 @@
         border-color: #444;
     }
     
-    .bc-app-title,
     .repo-header h3,
     .releases-title,
     .release-name {
         color: #e0e0e0;
     }
     
-    .bc-app-description,
     .repo-description,
     .release-notes {
         color: #b0b0b0;
-    }
-    
-    .bc-app-features {
-        background: rgba(0, 188, 212, 0.1);
-    }
-    
-    .bc-app-features li {
-        color: #d0d0d0;
     }
     
     .bc-footer-info {
