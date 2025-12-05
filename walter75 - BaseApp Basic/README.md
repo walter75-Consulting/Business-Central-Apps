@@ -20,6 +20,6 @@ For detailed information including installation instructions, configuration guid
 
 ## Links
 
-- [User Guide](USER_DOCUMENTATION.md)
+- [→ User Guide (vollständige Dokumentation)](../../docs/apps/baseapp-user-guide.md)
 - [Releases](https://github.com/walter75-Consulting/Business-Central-Apps/releases)
 - [Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
