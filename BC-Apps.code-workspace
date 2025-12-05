@@ -25,8 +25,24 @@
       "path": "docs"
     },
     {
+      "name": "walter75 - BaseApp Basic",
+      "path": "walter75 - BaseApp Basic"
+    },
+    {
       "name": "walter75 - OAuth 2.0",
       "path": "walter75 - OAuth 2.0"
+    },
+    {
+      "name": "walter75 - PrintNode",
+      "path": "walter75 - PrintNode"
+    },
+    {
+      "name": "walter75 - Sendcloud",
+      "path": "walter75 - Sendcloud"
+    },
+    {
+      "name": "walter75 - Packages",
+      "path": "walter75 - Packages"
     },
     {
       "name": "walter75 - BDE Terminal",
@@ -45,28 +61,8 @@
       "path": "walter75 - Freight Prices"
     },
     {
-      "name": "walter75 - PrintNode",
-      "path": "walter75 - PrintNode"
-    },
-    {
-      "name": "walter75 - Sendcloud",
-      "path": "walter75 - Sendcloud"
-    },
-    {
-      "name": "walter75 - Packages",
-      "path": "walter75 - Packages"
-    },
-    {
       "name": "walter75 - XML Import",
       "path": "walter75 - XML Import"
-    },
-    {
-      "name": "walter75 - BaseApp Basic",
-      "path": "walter75 - BaseApp Basic"
-    },
-    {
-      "name": "walter75 - Data Editor",
-      "path": "walter75 - Data Editor"
     }
   ],
   "settings": {
