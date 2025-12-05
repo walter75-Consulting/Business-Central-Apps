@@ -226,13 +226,13 @@ class Walter75_GitHub_Integration {
                     <p class="bc-app-description"><?php echo esc_html($app['description']); ?></p>
                     <ul class="bc-app-features">
                         <?php foreach ($app['features'] as $feature): ?>
-                        <li>✓ <?php echo esc_html($feature); ?></li>
+                        <li><?php echo esc_html($feature); ?></li>
                         <?php endforeach; ?>
                     </ul>
                     <a href="<?php echo esc_url($app['doc_url']); ?>" 
                        class="bc-app-link"
                        target="_blank">
-                        Learn More →
+                        📖 Learn More
                     </a>
                 </div>
                 <?php endforeach; ?>
