@@ -121,20 +121,49 @@ Hier sind fertige Seiten-Templates, die du direkt in WordPress verwenden kannst.
 
 **URL:** Sidebar Widget oder Footer
 
+### Variante A: Nur Stats (sehr kompakt)
+
 ```html
 <!-- WordPress Widget: Custom HTML -->
 
-<div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-  <h3 style="margin-top: 0; color: #00838F;">
+<div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3 style="margin-top: 0; margin-bottom: 15px; color: #00838F; font-size: 1.1em;">
     📦 BC Extensions
   </h3>
   
   [github_stats]
   
-  <div style="margin-top: 20px; text-align: center;">
-    <a href="/projekte" 
-       style="display: inline-block; padding: 10px 20px; background: #00838F; color: white; text-decoration: none; border-radius: 6px; font-size: 0.9em;">
+  <div style="margin-top: 15px; text-align: center;">
+    <a href="/business-central-apps" 
+       style="display: inline-block; padding: 8px 16px; background: #00838F; color: white; text-decoration: none; border-radius: 6px; font-size: 0.85em; font-weight: 600;">
       Mehr erfahren →
+    </a>
+  </div>
+</div>
+```
+
+### Variante B: Stats + Neueste Releases (kompakt)
+
+```html
+<!-- WordPress Widget: Custom HTML -->
+
+<div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3 style="margin-top: 0; margin-bottom: 15px; color: #00838F; font-size: 1.1em;">
+    📦 BC Extensions
+  </h3>
+  
+  [github_stats]
+  
+  <h4 style="margin: 20px 0 10px 0; color: #004D56; font-size: 0.95em; border-left: 3px solid #00838F; padding-left: 8px;">
+    🆕 Neueste Releases
+  </h4>
+  
+  [github_releases limit="2"]
+  
+  <div style="margin-top: 15px; text-align: center;">
+    <a href="/business-central-apps" 
+       style="display: inline-block; padding: 8px 16px; background: #00838F; color: white; text-decoration: none; border-radius: 6px; font-size: 0.85em; font-weight: 600;">
+      Alle Extensions ansehen →
     </a>
   </div>
 </div>

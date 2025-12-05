@@ -547,6 +547,97 @@
     font-weight: 600;
 }
 
+/* Widget-specific compact styles */
+.widget .github-releases,
+aside .github-releases,
+[class*="sidebar"] .github-releases {
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 15px 0;
+}
+
+.widget .releases-title,
+aside .releases-title,
+[class*="sidebar"] .releases-title {
+    display: none;
+}
+
+.widget .release-item,
+aside .release-item,
+[class*="sidebar"] .release-item {
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
+}
+
+.widget .release-name,
+aside .release-name,
+[class*="sidebar"] .release-name {
+    font-size: 0.95em;
+    flex-wrap: nowrap;
+}
+
+.widget .release-tag,
+aside .release-tag,
+[class*="sidebar"] .release-tag {
+    padding: 3px 8px;
+    font-size: 0.7em;
+}
+
+.widget .release-notes,
+aside .release-notes,
+[class*="sidebar"] .release-notes {
+    display: none;
+}
+
+.widget .release-meta,
+aside .release-meta,
+[class*="sidebar"] .release-meta {
+    margin-top: 8px;
+    padding-top: 8px;
+    gap: 10px;
+}
+
+.widget .release-meta span,
+aside .release-meta span,
+[class*="sidebar"] .release-meta span {
+    font-size: 0.8em;
+}
+
+.widget .release-link,
+aside .release-link,
+[class*="sidebar"] .release-link {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+.widget .github-stats-widget,
+aside .github-stats-widget,
+[class*="sidebar"] .github-stats-widget {
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.widget .stat-box,
+aside .stat-box,
+[class*="sidebar"] .stat-box {
+    padding: 12px 10px;
+}
+
+.widget .stat-box .stat-value,
+aside .stat-box .stat-value,
+[class*="sidebar"] .stat-box .stat-value {
+    font-size: 1.5em;
+}
+
+.widget .stat-box .stat-label,
+aside .stat-box .stat-label,
+[class*="sidebar"] .stat-box .stat-label {
+    font-size: 0.75em;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .bc-hero {
