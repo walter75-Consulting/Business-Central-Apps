@@ -9,6 +9,7 @@ permissionset 80011 "SEW Area Sales"
         codeunit "SEW AS Event Subs" = X,
         codeunit "SEW AS Functions" = X,
         codeunit "SEW Report Functions" = X,
+        codeunit "SEW Sales Line Avail Mgt." = X,
         page "SEW Customer Group List" = X,
         page "SEW FB Item SellOut History" = X,
         page "SEW Ship-to Address List" = X,
