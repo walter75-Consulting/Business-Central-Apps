@@ -611,6 +611,15 @@ aside .release-link,
 [class*="sidebar"] .release-link {
     padding: 5px 10px;
     font-size: 0.8em;
+    color: white !important;
+    background: var(--bc-primary);
+}
+
+.widget .release-link:hover,
+aside .release-link:hover,
+[class*="sidebar"] .release-link:hover {
+    background: var(--bc-secondary);
+    color: white !important;
 }
 
 .widget .github-stats-widget,
