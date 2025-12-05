@@ -325,16 +325,17 @@ Die **walter75 - BaseApp Basic** ist die Basis-Erweiterung für Microsoft Dynami
 | **Ambiguous** | ⚫ Grau | Maximalbestand überschritten | Lager + Bestellung - Aufträge > Maximalbestand **UND Artikelnummer beginnt mit '1'** |
 | **None** | ⚪ Standard | Alles in Ordnung | Keine Warnung |
 
-**Priorität der Prüfungen:**
+**Priorität und tatsächliches Verhalten der Prüfungen:**
 
-Die Prüfungen erfolgen in folgender Reihenfolge (erste Treffer gewinnt):
+Die Prüfungen werden wie folgt durchgeführt:
 
-1. **ROT**: Negative Verfügbarkeit → Artikel nicht lieferbar
-2. **GRÜN**: Meldebestand unterschritten → Nachbestellung erforderlich
-3. **ORANGE**: Aktueller Lagerbestand < benötigte Menge → Teillieferung möglich
-4. **GRAU**: Maximalbestand würde überschritten → Überbestand-Warnung
-5. **STANDARD**: Keine Probleme
+1. **ROT**: Negative Verfügbarkeit → Artikel nicht lieferbar (wird sofort angewendet und beendet die Prüfung)
+2. **GRÜN**: Meldebestand unterschritten → Nachbestellung erforderlich (wird immer angewendet, wenn die Bedingung erfüllt ist, auch wenn andere Warnungen wie ORANGE zutreffen würden)
+3. **ORANGE**: Aktueller Lagerbestand < benötigte Menge → Teillieferung möglich (wird nur angewendet, wenn noch kein Stil gesetzt wurde)
+4. **GRAU**: Maximalbestand würde überschritten → Überbestand-Warnung (wird nur angewendet, wenn noch kein Stil gesetzt wurde)
+5. **STANDARD**: Keine Probleme (wenn keine der obigen Bedingungen zutrifft)
 
+**Hinweis:** In der tatsächlichen Implementierung überschreibt die GRÜN-Prüfung (Meldebestand unterschritten) andere Warnungen wie ORANGE oder GRAU, falls ihre Bedingung erfüllt ist. Das bedeutet, dass z.B. bei gleichzeitigem Unterschreiten des Meldebestands und unzureichendem Lagerbestand immer GRÜN angezeigt wird.
 **Automatische Aktualisierung:**
 
 - Beim Laden der Verkaufszeilen
