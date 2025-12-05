@@ -3,48 +3,100 @@ layout: default
 title: SendCloud Integration
 ---
 
-# 📮 walter75 - Sendcloud
+<div class="hero-section">
+  <h1>📮 walter75 - SendCloud</h1>
+  <p class="hero-tagline">Multi-carrier shipping integration with automated label creation</p>
+  <div class="badge-container">
+    <span class="badge">Integration</span>
+    <span class="badge">Shipping</span>
+    <span class="badge">Multi-Carrier</span>
+  </div>
+</div>
 
-> Shipping carrier integration for automated label creation and tracking
+---
 
 ## 📋 Overview
 
 SendCloud integration provides seamless connection to multiple shipping carriers through a single API. Automatically create shipping labels, track shipments, and manage returns for various carriers including DHL, DPD, UPS, and more.
 
-## ✨ Features
+<div class="feature-grid">
+  <div class="feature-card">
+    <h3>🌐 Multi-Carrier</h3>
+    <p>Connect to 80+ shipping carriers worldwide</p>
+  </div>
+  <div class="feature-card">
+    <h3>🏷️ Auto Labels</h3>
+    <p>Create shipping labels from sales orders</p>
+  </div>
+  <div class="feature-card">
+    <h3>📍 Track & Trace</h3>
+    <p>Real-time shipment tracking</p>
+  </div>
+  <div class="feature-card">
+    <h3>↩️ Return Management</h3>
+    <p>Handle customer returns efficiently</p>
+  </div>
+  <div class="feature-card">
+    <h3>⚙️ Shipping Rules</h3>
+    <p>Automatic carrier selection based on rules</p>
+  </div>
+  <div class="feature-card">
+    <h3>✉️ Address Validation</h3>
+    <p>Verify shipping addresses before shipping</p>
+  </div>
+</div>
 
-- **Multi-Carrier Support**: Connect to 80+ shipping carriers
-- **Automatic Label Generation**: Create shipping labels from sales orders
-- **Track & Trace**: Real-time shipment tracking
-- **Return Management**: Handle customer returns
-- **Shipping Rules**: Automatic carrier selection based on rules
-- **Webhook Integration**: Real-time status updates
-- **Address Validation**: Verify shipping addresses
+## 🔢 Technical Details
 
-## 🔢 Object ID Range
-
-**ID Range**: 95700-95799
+<div class="info-box info-box-primary">
+  <p><strong>Object ID Range:</strong> 95700-95799</p>
+  <p><strong>Dependencies:</strong> None (standalone extension)</p>
+  <p><strong>External Service:</strong> <a href="https://www.sendcloud.com">SendCloud</a></p>
+</div>
 
 ## 📦 Installation
 
-1. Download the latest `.app` file from [Releases](../../releases)
-2. Install via Business Central Extension Management
-3. Sign up for SendCloud account at [sendcloud.com](https://www.sendcloud.com)
-4. Configure API credentials and shipping rules
-
-## 🔗 Dependencies
-
-No dependencies - this is a standalone extension.
-
-## 🛠️ Configuration
-
-After installation:
-1. Create a SendCloud account
-2. Connect your shipping carriers in SendCloud panel
-3. Open **SendCloud Setup** in Business Central
-4. Enter your SendCloud API keys (public and secret key)
-5. Configure shipping rules and default carriers
-6. Test label creation with a sample order
+<div class="step-container">
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h4>Sign up for SendCloud</h4>
+      <p>Create account at <a href="https://www.sendcloud.com">sendcloud.com</a></p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h4>Connect Carriers</h4>
+      <p>Connect your shipping carriers in SendCloud panel</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h4>Install Extension</h4>
+      <p>Download and install via Extension Management</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h4>Configure API Keys</h4>
+      <p>Enter your SendCloud API keys in <strong>SendCloud Setup</strong></p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <h4>Test & Go Live</h4>
+      <p>Configure shipping rules and test with sample order</p>
+    </div>
+  </div>
+</div>
 
 ## 📚 Related Documentation
 

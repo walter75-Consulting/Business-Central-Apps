@@ -1,56 +1,130 @@
-﻿---
+---
 layout: default
 title: Contact Relations
 ---
 
-# 👥 walter75 - Contact Relations
+<div class="hero-section">
+  <h1>👥 walter75 - Contact Relations</h1>
+  <p class="hero-tagline">Enhanced relationship management with hierarchies and decision-maker tracking</p>
+  <div class="badge-container">
+    <span class="badge">CRM</span>
+    <span class="badge">Contacts</span>
+    <span class="badge">Relationships</span>
+  </div>
+</div>
 
-> Enhanced contact relationship management
+---
 
 ## 📋 Overview
 
 Contact Relations extends Business Central's contact management with advanced relationship tracking, hierarchies, and interaction history. Build detailed maps of business relationships and decision-maker networks.
 
-## ✨ Features
+<div class="feature-grid">
+  <div class="feature-card">
+    <h3>🔗 Relationship Mapping</h3>
+    <p>Track connections between contacts</p>
+  </div>
+  <div class="feature-card">
+    <h3>🏢 Contact Hierarchies</h3>
+    <p>Define organizational structures</p>
+  </div>
+  <div class="feature-card">
+    <h3>⭐ Decision Makers</h3>
+    <p>Identify key stakeholders</p>
+  </div>
+  <div class="feature-card">
+    <h3>📅 Interaction History</h3>
+    <p>Complete timeline of contact interactions</p>
+  </div>
+  <div class="feature-card">
+    <h3>🏷️ Relationship Types</h3>
+    <p>Categorize relationships (parent, subsidiary, partner)</p>
+  </div>
+  <div class="feature-card">
+    <h3>🌐 Contact Networks</h3>
+    <p>Visualize business networks</p>
+  </div>
+</div>
 
-- **Relationship Mapping**: Track connections between contacts
-- **Contact Hierarchies**: Define organizational structures
-- **Decision Maker Tracking**: Identify key stakeholders
-- **Interaction History**: Complete timeline of contact interactions
-- **Relationship Types**: Categorize relationships (parent company, subsidiary, partner, etc.)
-- **Contact Networks**: Visualize business networks
+## 🔢 Technical Details
 
-## 🔢 Object ID Range
-
-**ID Range**: 91300-91399
+<div class="info-box info-box-primary">
+  <p><strong>Object ID Range:</strong> 91300-91399</p>
+  <p><strong>Dependencies:</strong> None (standalone extension)</p>
+  <p><strong>Integration Points:</strong> Marketing, CRM, Contact Management</p>
+</div>
 
 ## 📦 Installation
 
-1. Download the latest `.app` file from [Releases](../../releases)
-2. Install via Business Central Extension Management
-3. Configure relationship types
-
-## 🔗 Dependencies
-
-No dependencies - this is a standalone extension.
+<div class="step-container">
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h4>Install Extension</h4>
+      <p>Download and install the <code>.app</code> file via Extension Management</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h4>Define Types</h4>
+      <p>Configure relationship types (parent, subsidiary, partner, etc.)</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h4>Set Up Categories</h4>
+      <p>Define interaction categories for tracking</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h4>Map Relationships</h4>
+      <p>Start mapping contact relationships in your system</p>
+    </div>
+  </div>
+</div>
 
 ## 🛠️ Configuration
 
-After installation:
-1. Define relationship types (parent, subsidiary, partner, etc.)
-2. Set up interaction categories
-3. Start mapping contact relationships
+<div class="info-box">
+  <p><strong>Quick Setup Guide:</strong></p>
+  <ol>
+    <li>Define relationship types (parent company, subsidiary, partner, competitor)</li>
+    <li>Set up interaction categories (meeting, call, email, presentation)</li>
+    <li>Configure decision-maker roles and responsibilities</li>
+    <li>Start building contact hierarchy for key customers</li>
+    <li>Track interactions and maintain relationship history</li>
+  </ol>
+</div>
 
-## 📚 Related Documentation
+## 📚 Documentation
 
-- [Main Documentation](../../)
-- [Contributing Guidelines](../../CONTRIBUTING.md)
+<div class="doc-links">
+  <a href="../../" class="doc-link">
+    <span class="doc-icon">📖</span>
+    <div>
+      <strong>Main Documentation</strong>
+      <p>Repository overview and all extensions</p>
+    </div>
+  </a>
+  <a href="../../CONTRIBUTING.html" class="doc-link">
+    <span class="doc-icon">🤝</span>
+    <div>
+      <strong>Contributing</strong>
+      <p>How to contribute to this project</p>
+    </div>
+  </a>
+</div>
 
-## 📄 License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [walter75 Consulting](https://www.walter75.de)
+<div class="footer-info">
+  <p><strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
+  <p><strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75 Consulting</a></p>
+</div>

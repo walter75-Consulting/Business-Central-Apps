@@ -1,58 +1,138 @@
-﻿---
+---
 layout: default
 title: Freight Prices
 ---
 
-# 🚚 walter75 - Freight Prices
+<div class="hero-section">
+  <h1>🚚 walter75 - Freight Prices</h1>
+  <p class="hero-tagline">Advanced freight pricing with zone-based rules and automatic calculation</p>
+  <div class="badge-container">
+    <span class="badge">Freight</span>
+    <span class="badge">Pricing</span>
+    <span class="badge">Logistics</span>
+  </div>
+</div>
 
-> Advanced freight pricing management
+---
 
 ## 📋 Overview
 
 Freight Prices extension provides comprehensive freight cost calculation and management. Supports complex pricing rules based on weight, volume, destination zones, and carrier-specific rates.
 
-## ✨ Features
+<div class="feature-grid">
+  <div class="feature-card">
+    <h3>📊 Flexible Rules</h3>
+    <p>Define rates by weight, volume, or dimensions</p>
+  </div>
+  <div class="feature-card">
+    <h3>🌍 Zone-Based</h3>
+    <p>Configure destination zones with different rates</p>
+  </div>
+  <div class="feature-card">
+    <h3>🚚 Multi-Carrier</h3>
+    <p>Support multiple freight carriers</p>
+  </div>
+  <div class="feature-card">
+    <h3>⚡ Auto-Calculation</h3>
+    <p>Real-time freight cost calculation on orders</p>
+  </div>
+  <div class="feature-card">
+    <h3>📋 Rate Tables</h3>
+    <p>Import and maintain carrier rate tables</p>
+  </div>
+  <div class="feature-card">
+    <h3>💰 Surcharges</h3>
+    <p>Handle fuel surcharges and special fees</p>
+  </div>
+</div>
 
-- **Flexible Pricing Rules**: Define rates by weight, volume, or dimensions
-- **Zone-Based Pricing**: Configure destination zones with different rates
-- **Carrier Management**: Support multiple freight carriers
-- **Automatic Calculation**: Real-time freight cost calculation on orders
-- **Price Tables**: Import and maintain carrier rate tables
-- **Surcharge Support**: Handle fuel surcharges and special fees
+## 🔢 Technical Details
 
-## 🔢 Object ID Range
-
-**ID Range**: 91400-91499
+<div class="info-box info-box-primary">
+  <p><strong>Object ID Range:</strong> 91400-91499</p>
+  <p><strong>Dependencies:</strong> None (standalone extension)</p>
+  <p><strong>Integration Points:</strong> Sales & Receivables, Warehouse</p>
+</div>
 
 ## 📦 Installation
 
-1. Download the latest `.app` file from [Releases](../../releases)
-2. Install via Business Central Extension Management
-3. Configure freight zones and pricing tables
-4. Set up carrier rates
-
-## 🔗 Dependencies
-
-No dependencies - this is a standalone extension.
+<div class="step-container">
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h4>Install Extension</h4>
+      <p>Download and install the <code>.app</code> file via Extension Management</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h4>Define Zones</h4>
+      <p>Open <strong>Freight Zones</strong> to define geographical zones</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h4>Configure Carriers</h4>
+      <p>Set up <strong>Carrier Rates</strong> for each shipping provider</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h4>Set Up Pricing</h4>
+      <p>Configure <strong>Weight/Volume Breaks</strong> for tiered pricing</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <h4>Test Calculation</h4>
+      <p>Test freight calculation on sample orders</p>
+    </div>
+  </div>
+</div>
 
 ## 🛠️ Configuration
 
-After installation:
-1. Open **Freight Zones** to define geographical zones
-2. Configure **Carrier Rates** for each shipping provider
-3. Set up **Weight/Volume Breaks** for tiered pricing
-4. Test calculation on sample orders
+<div class="info-box">
+  <p><strong>Quick Setup Guide:</strong></p>
+  <ol>
+    <li>Define geographical freight zones (domestic, EU, international)</li>
+    <li>Import carrier rate tables or enter rates manually</li>
+    <li>Set up weight/volume break points for tiered pricing</li>
+    <li>Configure surcharges (fuel, hazmat, remote areas)</li>
+    <li>Enable automatic calculation on sales documents</li>
+  </ol>
+</div>
 
-## 📚 Related Documentation
+## 📚 Documentation
 
-- [Main Documentation](../../)
-- [Contributing Guidelines](../../CONTRIBUTING.md)
+<div class="doc-links">
+  <a href="../../" class="doc-link">
+    <span class="doc-icon">📖</span>
+    <div>
+      <strong>Main Documentation</strong>
+      <p>Repository overview and all extensions</p>
+    </div>
+  </a>
+  <a href="../../CONTRIBUTING.html" class="doc-link">
+    <span class="doc-icon">🤝</span>
+    <div>
+      <strong>Contributing</strong>
+      <p>How to contribute to this project</p>
+    </div>
+  </a>
+</div>
 
-## 📄 License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [walter75 Consulting](https://www.walter75.de)
+<div class="footer-info">
+  <p><strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
+  <p><strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75 Consulting</a></p>
+</div>
