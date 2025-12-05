@@ -21,14 +21,14 @@ Open-source extensions for Microsoft Dynamics 365 Business Central - Production-
   <h4>🔐 walter75 - OAuth 2.0</h4>
   <p>OAuth 2.0 authentication framework for external API integrations</p>
   <p><strong>ID Range:</strong> 90000-90099</p>
-  <a href="walter75%20-%20OAuth%202.0/">Learn More →</a>
+  <a href="docs/apps/oauth/">Learn More →</a>
 </div>
 
 <div class="app-card">
   <h4>⚙️ walter75 - BaseApp Basic</h4>
   <p>Foundation app with shared functionality across multiple business areas</p>
   <p><strong>ID Range:</strong> 80000-80099</p>
-  <a href="walter75%20-%20BaseApp%20Basic/">Learn More →</a> | 
+  <a href="docs/apps/baseapp/">Learn More →</a> | 
   <a href="walter75%20-%20BaseApp%20Basic/USER_DOCUMENTATION.html">User Guide</a>
 </div>
 
@@ -38,7 +38,7 @@ Open-source extensions for Microsoft Dynamics 365 Business Central - Production-
   <h4>📦 walter75 - Packages</h4>
   <p>Comprehensive packing station solution with barcode scanning, PrintNode and SendCloud integration</p>
   <p><strong>ID Range:</strong> 90700-90799</p>
-  <a href="walter75%20-%20Packages/">Learn More →</a> | 
+  <a href="docs/apps/packages/">Learn More →</a> | 
   <a href="walter75%20-%20Packages/USER_DOCUMENTATION.html">User Guide</a>
 </div>
 
@@ -46,14 +46,14 @@ Open-source extensions for Microsoft Dynamics 365 Business Central - Production-
   <h4>🏭 walter75 - BDE Terminal</h4>
   <p>Manufacturing data entry terminals with custom button controls</p>
   <p><strong>ID Range:</strong> 90600-90699</p>
-  <a href="walter75%20-%20BDE%20Terminal/">Learn More →</a>
+  <a href="docs/apps/bde-terminal/">Learn More →</a>
 </div>
 
 <div class="app-card">
   <h4>🚚 walter75 - Freight Prices</h4>
   <p>Advanced freight pricing management</p>
   <p><strong>ID Range:</strong> 91400-91499</p>
-  <a href="walter75%20-%20Freight%20Prices/">Learn More →</a>
+  <a href="docs/apps/freight-prices/">Learn More →</a>
 </div>
 
 ### Integration Extensions
@@ -62,14 +62,14 @@ Open-source extensions for Microsoft Dynamics 365 Business Central - Production-
   <h4>🖨️ walter75 - PrintNode</h4>
   <p>Print service integration for label printing and thermal printers</p>
   <p><strong>ID Range:</strong> 92700-92799</p>
-  <a href="walter75%20-%20PrintNode/">Learn More →</a>
+  <a href="docs/apps/printnode/">Learn More →</a>
 </div>
 
 <div class="app-card">
   <h4>📮 walter75 - Sendcloud</h4>
   <p>Shipping carrier integration for automated label creation and tracking</p>
   <p><strong>ID Range:</strong> 95700-95799</p>
-  <a href="walter75%20-%20Sendcloud/">Learn More →</a>
+  <a href="docs/apps/sendcloud/">Learn More →</a>
 </div>
 
 ### Business Features
@@ -78,21 +78,21 @@ Open-source extensions for Microsoft Dynamics 365 Business Central - Production-
   <h4>🎨 walter75 - Color Master</h4>
   <p>Color management system for manufacturing</p>
   <p><strong>ID Range:</strong> 91600-91699</p>
-  <a href="walter75%20-%20Color%20Master/">Learn More →</a>
+  <a href="docs/apps/color-master/">Learn More →</a>
 </div>
 
 <div class="app-card">
   <h4>👥 walter75 - Contact Relations</h4>
   <p>Enhanced contact relationship management</p>
   <p><strong>ID Range:</strong> 91300-91399</p>
-  <a href="walter75%20-%20Contact%20Relations/">Learn More →</a>
+  <a href="docs/apps/contact-relations/">Learn More →</a>
 </div>
 
 <div class="app-card">
   <h4>📄 walter75 - XML Import</h4>
   <p>XML data import functionality for external system integration</p>
   <p><strong>ID Range:</strong> 60500-60799</p>
-  <a href="walter75%20-%20XML%20Import/">Learn More →</a>
+  <a href="docs/apps/xml-import/">Learn More →</a>
 </div>
 
 ---
@@ -120,14 +120,36 @@ Each app folder contains its own `app.json` and source code. Review individual a
 
 ## 📖 Documentation
 
-### User Documentation
+### 📚 User Guides
+
+Complete setup and usage instructions for each app:
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+  <a href="docs/apps/oauth-user-guide.html" class="doc-link">🔐 OAuth 2.0 Guide</a>
+  <a href="docs/apps/baseapp-user-guide.html" class="doc-link">⚙️ BaseApp Basic Guide</a>
+  <a href="docs/apps/packages-user-guide.html" class="doc-link">📦 Packages Guide</a>
+  <a href="docs/apps/bde-terminal-user-guide.html" class="doc-link">🏭 BDE Terminal Guide</a>
+  <a href="docs/apps/freight-prices-user-guide.html" class="doc-link">🚚 Freight Prices Guide</a>
+  <a href="docs/apps/printnode-user-guide.html" class="doc-link">🖨️ PrintNode Guide</a>
+  <a href="docs/apps/sendcloud-user-guide.html" class="doc-link">📮 Sendcloud Guide</a>
+  <a href="docs/apps/color-master-user-guide.html" class="doc-link">🎨 Color Master Guide</a>
+  <a href="docs/apps/contact-relations-user-guide.html" class="doc-link">👥 Contact Relations Guide</a>
+  <a href="docs/apps/xml-import-user-guide.html" class="doc-link">📄 XML Import Guide</a>
+</div>
+
+### 📘 Technical Documentation
+
+App overviews and technical details:
+- [All Apps Overview](docs/apps/) - Complete list with technical specs
+- [Changelog](docs/changelog.html) - Release history and version updates
+
+### 📖 Project Documentation
 - [Contributing Guidelines](CONTRIBUTING.html)
 - [Code of Conduct](CODE_OF_CONDUCT.html)
 - [Security Policy](SECURITY.html)
 - [Support](SUPPORT.html)
-- [Release Notes v27.0.0](RELEASE_NOTES_v27.0.0.html)
 
-### Developer Documentation
+### 👨‍💻 Developer Documentation
 - [AL Reference Documentation](reference/) - API documentation for developers (generated via AL-Go)
 
 ---
@@ -226,6 +248,26 @@ Special thanks to:
 
 .btn:hover {
   background: #0256c7;
+  text-decoration: none;
+}
+
+.doc-link {
+  display: block;
+  padding: 1rem;
+  background: white;
+  border: 2px solid #e1e4e8;
+  border-radius: 6px;
+  color: #0366d6 !important;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.doc-link:hover {
+  border-color: #0366d6;
+  box-shadow: 0 4px 8px rgba(3, 102, 214, 0.1);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 </style>

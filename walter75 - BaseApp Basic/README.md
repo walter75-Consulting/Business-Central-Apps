@@ -1,48 +1,25 @@
----
-layout: default
-title: BaseApp Basic
----
-
 # ⚙️ walter75 - BaseApp Basic
 
 > Foundation app with shared functionality across multiple business areas
 
-## 📋 Overview
+## Quick Info
 
-BaseApp Basic serves as the foundation layer for the walter75 Business Central app ecosystem. It provides shared functionality, common utilities, and base configurations used by other extensions in the suite.
+- **ID Range**: 80000-80099
+- **Dependencies**: None (other apps depend on this)
+- **Version**: 26.2.0
 
-## ✨ Features
+## Features
 
-- **Shared Utilities**: Common functions used across multiple apps
-- **Base Configurations**: Centralized setup and configuration management
-- **Foundation Layer**: Core functionality for dependent apps
-- **Extensibility Framework**: Enables consistent extension patterns
+Foundation layer for the walter75 app ecosystem with shared utilities, base configurations, and core functionality. **Install this first** before other walter75 extensions.
 
-## 🔢 Object ID Range
+## 📚 Full Documentation
 
-**ID Range**: 80000-80099
+**[→ Complete Documentation](../docs/apps/baseapp.md)**
 
-## 📦 Installation
+For detailed information including installation instructions, configuration guide, and usage examples, please refer to the full documentation.
 
-1. Download the latest `.app` file from [Releases](../../releases)
-2. Install via Business Central Extension Management
-3. **Important**: Install this app **before** other walter75 extensions that depend on it
+## Links
 
-## 🔗 Dependencies
-
-No dependencies - this is a base-level extension. Other apps depend on this one.
-
-## 📚 Related Documentation
-
-- [User Documentation](USER_DOCUMENTATION.md)
-- [Main Documentation](../)
-- [Contributing Guidelines](../CONTRIBUTING.md)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
-
-## 💬 Support
-
-- [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
-- [walter75 Consulting](https://www.walter75.de)
+- [User Guide](USER_DOCUMENTATION.md)
+- [Releases](https://github.com/walter75-Consulting/Business-Central-Apps/releases)
+- [Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
