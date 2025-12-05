@@ -36,6 +36,24 @@ jobs:
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      
+      - name: Create reference docs placeholder
+        run: |
+          mkdir -p _site/reference
+          cat > _site/reference/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="refresh" content="0; url=..">
+            <title>AL Reference Documentation</title>
+          </head>
+          <body>
+            <p>AL Reference Documentation will be available here after running the "Deploy Reference Documentation" workflow.</p>
+            <p>Redirecting to main page...</p>
+          </body>
+          </html>
+          EOF
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

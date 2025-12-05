@@ -120,11 +120,15 @@ Each app folder contains its own `app.json` and source code. Review individual a
 
 ## 📖 Documentation
 
+### User Documentation
 - [Contributing Guidelines](CONTRIBUTING.html)
 - [Code of Conduct](CODE_OF_CONDUCT.html)
 - [Security Policy](SECURITY.html)
 - [Support](SUPPORT.html)
 - [Release Notes v27.0.0](RELEASE_NOTES_v27.0.0.html)
+
+### Developer Documentation
+- [AL Reference Documentation](reference/) - API documentation for developers (generated via AL-Go)
 
 ---
 
