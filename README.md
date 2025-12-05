@@ -64,6 +64,12 @@ Each app contains detailed documentation:
 - `USER_DOCUMENTATION.md` - End-user guides and features
 - `CHANGELOG.md` - Version history and changes
 
+## 💬 Community
+
+- **💡 Discussions** - Join our [GitHub Discussions](https://github.com/walter75-Consulting/Business-Central-Apps/discussions) for questions, ideas, and community support
+- **🐛 Issues** - Report bugs or request features via [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)
+- **❤️ Sponsor** - Support this project via [GitHub Sponsors](https://github.com/sponsors/walter75-Consulting)
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
