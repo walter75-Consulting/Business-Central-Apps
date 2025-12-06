@@ -207,6 +207,7 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcHeader.Init();
         SEWCalcHeader."No." := 'CALC-TEST-' + Format(Random(9999));
         SEWCalcHeader.Description := 'Test Calculation';
+        SEWCalcHeader."Calculation Date" := WorkDate(); // Set calculation date for variable lookup
         SEWCalcHeader.Status := SEWCalcHeader.Status::Draft;
         SEWCalcHeader.Insert(true);
     end;
