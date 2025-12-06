@@ -268,5 +268,26 @@ page 90831 "SEW Calc Card"
                 end;
             }
         }
+
+        area(Reporting)
+        {
+            action(PrintCalculation)
+            {
+                ApplicationArea = All;
+                Caption = 'Print Calculation';
+                ToolTip = 'Print the calculation report.';
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Report;
+
+                trigger OnAction()
+                var
+                    CalcHeader: Record "SEW Calc Header";
+                begin
+                    CalcHeader.SetRange("No.", Rec."No.");
+                    Report.Run(Report::"SEW Calculation Report", true, false, CalcHeader);
+                end;
+            }
+        }
     }
 }
