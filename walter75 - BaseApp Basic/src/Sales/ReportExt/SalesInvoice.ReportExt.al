@@ -358,7 +358,6 @@ reportextension 80015 "SEW Sales Invoice" extends "Standard Sales - Invoice"
         GeneralLedgerSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         Currency: Record Currency;
-        VATBusinessPostingGroup: Record "VAT Business Posting Group";
         SEWReportFunctions: Codeunit "SEW Report Functions";
         SEWCalculatedExchRate: Decimal;
         SEWExchangeRateText: Text;

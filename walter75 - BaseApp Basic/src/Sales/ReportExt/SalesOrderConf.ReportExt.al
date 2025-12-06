@@ -322,7 +322,6 @@ reportextension 80016 "SEW Sales - Order Conf." extends "Standard Sales - Order 
         GeneralLedgerSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         Currency: Record Currency;
-        VATBusinessPostingGroup: Record "VAT Business Posting Group";
         SEWReportFunctions: Codeunit "SEW Report Functions";
         SEWCalculatedExchRate: Decimal;
         SEWExchangeRateText: Text;
@@ -356,10 +355,6 @@ reportextension 80016 "SEW Sales - Order Conf." extends "Standard Sales - Order 
         SEWExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
 
         //Region "Doc" - alles allgemein Beleg bezogenes
-        SEW_DocTitleRechnungLbl: Label 'Rechnung';
-        SEW_DocTitleRechnungVorkasseLbl: Label 'Vorkasse-Rechnung';
-        SEW_DocTitleGutschriftLbl: Label 'Gutschrift';
-        SEW_DocTitleGutschriftVorkasseLbl: Label 'Vorkasse-Gutschrift';
         SEW_DocTitleRechnungskorrekturLbl: Label 'Rechnungskorrektur';
         SEW_DocTitleLieferscheinLbl: Label 'Lieferschein';
         SEW_DocTitleAuftragsbestaetigungLbl: Label 'Auftragsbestätigung';

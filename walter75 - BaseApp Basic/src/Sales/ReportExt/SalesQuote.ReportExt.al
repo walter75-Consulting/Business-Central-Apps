@@ -352,7 +352,6 @@ reportextension 80017 "SEW Sales - Quote" extends "Standard Sales - Quote"
         GeneralLedgerSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         Currency: Record Currency;
-        VATBusinessPostingGroup: Record "VAT Business Posting Group";
         SEWReportFunctions: Codeunit "SEW Report Functions";
         SEWCalculatedExchRate: Decimal;
         SEWExchangeRateText: Text;
@@ -361,7 +360,6 @@ reportextension 80017 "SEW Sales - Quote" extends "Standard Sales - Quote"
         SEWPrintTariffNo: Boolean;
         SEWPrintCountryOfOrigin: Boolean;
         SEWisShipAddressEqual: Boolean;
-        SEWShipmentNo: Code[20];
 
         SEW_DocTextSalesHeader: Text;
         SEW_DocTextSalesFooter: Text;
@@ -386,10 +384,6 @@ reportextension 80017 "SEW Sales - Quote" extends "Standard Sales - Quote"
         SEWExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
 
         //Region "Doc" - alles allgemein Beleg bezogenes
-        SEW_DocTitleRechnungLbl: Label 'Invoice';
-        SEW_DocTitleRechnungVorkasseLbl: Label 'Advance payment-Invoice';
-        SEW_DocTitleGutschriftLbl: Label 'Credit Memo';
-        SEW_DocTitleGutschriftVorkasseLbl: Label 'Advance payment-Credit Memo';
         SEW_DocTitleRechnungskorrekturLbl: Label 'Invoice correction';
         SEW_DocTitleLieferscheinLbl: Label 'delivery note';
         SEW_DocTitleAuftragsbestaetigungLbl: Label 'Orderconfirmation';

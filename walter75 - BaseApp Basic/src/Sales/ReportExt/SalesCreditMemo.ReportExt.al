@@ -361,7 +361,6 @@ reportextension 80014 "SEW Sales Credit Memo" extends "Standard Sales - Credit M
         GeneralLedgerSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         Currency: Record Currency;
-        VATBusinessPostingGroup: Record "VAT Business Posting Group";
         SEWReportFunctions: Codeunit "SEW Report Functions";
         SEWCalculatedExchRate: Decimal;
         SEWExchangeRateText: Text;
