@@ -5,7 +5,45 @@ codeunit 90970 "SEW Calc Test Helper"
     /// All test data is created with TEST prefix for easy identification and cleanup.
     /// </summary>
 
+    /// <summary>
+    /// Initializes test environment by setting up required configuration.
+    /// </summary>
+    procedure InitializeSetup()
+    var
+        SalesSetup: Record "Sales & Receivables Setup";
+        NoSeries: Record "No. Series";
+        NoSeriesLine: Record "No. Series Line";
+    begin
+        if not SalesSetup.Get() then
+            SalesSetup.Insert(true);
 
+        if SalesSetup."SEW Calc Nos." = '' then begin
+            // Create Number Series if it doesn't exist
+            if not NoSeries.Get('CALC-TEST') then begin
+                NoSeries.Init();
+                NoSeries.Code := 'CALC-TEST';
+                NoSeries.Description := 'Test Calculation Numbers';
+                NoSeries."Default Nos." := true;
+                NoSeries."Manual Nos." := false;
+                NoSeries.Insert(true);
+            end;
+
+            // Create Number Series Line
+            if not NoSeriesLine.Get('CALC-TEST', 10000) then begin
+                NoSeriesLine.Init();
+                NoSeriesLine."Series Code" := 'CALC-TEST';
+                NoSeriesLine."Line No." := 10000;
+                NoSeriesLine."Starting No." := 'CALC-T-000001';
+                NoSeriesLine."Ending No." := 'CALC-T-999999';
+                NoSeriesLine."Increment-by No." := 1;
+                NoSeriesLine.Insert(true);
+            end;
+
+            // Set in Sales Setup
+            SalesSetup."SEW Calc Nos." := 'CALC-TEST';
+            SalesSetup.Modify(true);
+        end;
+    end;
 
     /// <summary>
     /// Creates a test item with Production BOM and Routing for calculation testing.
@@ -108,7 +146,37 @@ codeunit 90970 "SEW Calc Test Helper"
         Item."Unit Cost" := UnitCost;
         Item."Last Direct Cost" := UnitCost;
         Item."Standard Cost" := UnitCost;
+        Item."Gen. Prod. Posting Group" := GetOrCreateGenProdPostingGroup();
+        Item."Inventory Posting Group" := GetOrCreateInvtPostingGroup();
         Item.Insert(true);
+    end;
+
+    local procedure GetOrCreateGenProdPostingGroup(): Code[20]
+    var
+        GenProdPostingGroup: Record "Gen. Product Posting Group";
+    begin
+        if GenProdPostingGroup.Get('TEST') then
+            exit('TEST');
+
+        GenProdPostingGroup.Init();
+        GenProdPostingGroup.Code := 'TEST';
+        GenProdPostingGroup.Description := 'Test Posting Group';
+        GenProdPostingGroup.Insert(true);
+        exit('TEST');
+    end;
+
+    local procedure GetOrCreateInvtPostingGroup(): Code[20]
+    var
+        InvtPostingGroup: Record "Inventory Posting Group";
+    begin
+        if InvtPostingGroup.Get('TEST') then
+            exit('TEST');
+
+        InvtPostingGroup.Init();
+        InvtPostingGroup.Code := 'TEST';
+        InvtPostingGroup.Description := 'Test Inventory Posting Group';
+        InvtPostingGroup.Insert(true);
+        exit('TEST');
     end;
 
     /// <summary>
@@ -208,7 +276,23 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcTemplateLine."Show in Report" := true;
         SEWCalcTemplateLine.Insert(true);
 
+        // Set template to Released status so it can be used
+        SEWCalcTemplate.Status := SEWCalcTemplate.Status::Released;
+        SEWCalcTemplate.Modify(true);
+
         exit(SEWCalcTemplate.Code);
+    end;
+
+    /// <summary>
+    /// Creates a test customer for sales documents.
+    /// </summary>
+    procedure CreateTestCustomer(var Customer: Record Customer): Code[20]
+    begin
+        Customer.Init();
+        Customer."No." := 'CUST-TEST-' + Format(Random(999));
+        Customer.Name := 'Test Customer';
+        Customer.Insert(true);
+        exit(Customer."No.");
     end;
 
     /// <summary>
@@ -291,5 +375,64 @@ codeunit 90970 "SEW Calc Test Helper"
     procedure GetRandomDecimal(MinValue: Decimal; MaxValue: Decimal): Decimal
     begin
         exit(MinValue + (Random(100) / 100 * (MaxValue - MinValue)));
+    end;
+
+    /// <summary>
+    /// Creates a test calculation with specific cost components for sales integration tests.
+    /// </summary>
+    procedure CreateTestCalcWithCosts(MaterialCost: Decimal; LaborCost: Decimal; OverheadCost: Decimal): Record "SEW Calc Header"
+    var
+        SEWCalcHeader: Record "SEW Calc Header";
+    begin
+        CreateTestCalculation(SEWCalcHeader);
+        SEWCalcHeader."Total Material Cost" := MaterialCost;
+        SEWCalcHeader."Total Labor Cost" := LaborCost;
+        SEWCalcHeader."Total Overhead Cost" := OverheadCost;
+        SEWCalcHeader."Total Cost" := MaterialCost + LaborCost + OverheadCost;
+        SEWCalcHeader.Modify();
+        exit(SEWCalcHeader);
+    end;
+
+    /// <summary>
+    /// Creates a test item with simple BOM for sales integration tests.
+    /// </summary>
+    procedure CreateItemWithSimpleBOM(): Record Item
+    var
+        Item: Record Item;
+        ProductionBOMHeader: Record "Production BOM Header";
+        ProductionBOMLine: Record "Production BOM Line";
+        ComponentItem: Record Item;
+    begin
+        // Create component item
+        CreateTestItem(ComponentItem, 'COMP-SIMPLE-' + Format(Random(999)), 50.00);
+
+        // Create simple BOM
+        ProductionBOMHeader.Init();
+        ProductionBOMHeader."No." := 'BOM-SIMPLE-' + Format(Random(999));
+        ProductionBOMHeader.Description := 'Simple BOM for Sales Test';
+        ProductionBOMHeader."Unit of Measure Code" := 'PCS';
+        ProductionBOMHeader.Insert(true);
+
+        // BOM Line: 1 unit of component
+        ProductionBOMLine.Init();
+        ProductionBOMLine."Production BOM No." := ProductionBOMHeader."No.";
+        ProductionBOMLine."Line No." := 10000;
+        ProductionBOMLine.Type := ProductionBOMLine.Type::Item;
+        ProductionBOMLine."No." := ComponentItem."No.";
+        ProductionBOMLine."Quantity per" := 1;
+        ProductionBOMLine.Insert(true);
+
+        // Create main item
+        Item.Init();
+        Item."No." := 'TEST-SALES-' + Format(Random(9999));
+        Item.Description := 'Test Item for Sales Integration';
+        Item."Replenishment System" := Item."Replenishment System"::"Prod. Order";
+        Item."Production BOM No." := ProductionBOMHeader."No.";
+        Item."Unit Cost" := 0;
+        Item."Gen. Prod. Posting Group" := GetOrCreateGenProdPostingGroup();
+        Item."Inventory Posting Group" := GetOrCreateInvtPostingGroup();
+        Item.Insert(true);
+
+        exit(Item);
     end;
 }

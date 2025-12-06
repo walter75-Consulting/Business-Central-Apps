@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Sales Integration Tests (90956)** - 8 comprehensive tests for Phase 2 Sales Quote Integration (#10)
+  - TestSalesHeaderExtensionFields - Validates template and auto-calc storage
+  - TestSalesLineExtensionFields - Tests calculation linking and cost fields
+  - TestMarginCalculation - Verifies 25% margin calculation accuracy
+  - TestCalculateSalesLinePrice - Tests manual calculation with number series
+  - TestAutoCalculateOnItemSelection - Validates EventSubscriber auto-calculation trigger
+  - TestValidateMarginAboveTarget - Tests margin validation above 15% threshold
+  - TestValidateMarginBelowTarget - Tests margin validation below threshold
+  - TestCostBreakdownFlowFields - Validates cost component FlowField calculations
 - Complete test automation framework for Calculation app (#19)
 - Test Helper Codeunit (90970) for shared test utilities and data creation (#19)
 - Formula Parser Tests (90950) - 16 tests for arithmetic operations and precedence (#19)
@@ -18,10 +27,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integration Tests (90955) - 11 tests for end-to-end scenarios (#19)
 - Test Assert Codeunit (90971) for test validation utilities (#19)
 
+### Changed
+- CalcTestHelper enhanced with InitializeSetup() for automatic number series configuration (#10)
+- CalcTestHelper now creates test customers with both Sell-to and Bill-to assignments for BC27 compatibility (#10)
+- CalcTestHelper now assigns Gen. Product Posting Group and Inventory Posting Group to test items (#10)
+- Test templates now created with Status::Released for TableRelation compatibility (#10)
+- TestAssert enhanced with AreNotEqual() and AreNearlyEqual() methods for decimal comparison (#10)
+
+### Fixed
+- Tests now use Validate() instead of direct field assignment to trigger EventSubscribers (#10)
+- Number series setup now creates both No. Series record and No. Series Line (#10)
+- Test items now include all required posting groups for BC27 Sales Line validation (#10)
+
 ### Technical Details
-- Total Tests: 52 (100% pass rate achieved)
+- Total Tests: 60 (100% pass rate achieved)
+- Sales Integration Tests: 8 (added in Phase 2)
 - Object ID Range: 90950-90999
-- Test Execution Time: ~0.7 seconds for full suite
+- Test Execution Time: ~1.0 seconds for full suite
 - Container: BC27dev01 (HTTP, BC 27.0.38460.43154 DE)
 - Test Framework: CAL Test Tool, AL Test Runner 10.15.2
 - Dependencies: walter75 - Calculation 26.1.0.99999
@@ -37,6 +59,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ✅ Status workflow (Draft → Released → Archived)
 - ✅ Item card integration
 - ✅ End-to-end calculation scenarios
+- ✅ **Sales Quote integration with auto-calculation**
+- ✅ **Margin calculation and validation (25% target, 15% minimum)**
+- ✅ **Cost breakdown FlowFields**
 
 ---
 
