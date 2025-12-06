@@ -212,4 +212,5 @@ codeunit 90853 "SEW Calc Template Management"
         CalcHeader.Status := CalcHeader.Status::Draft;
         CalcHeader.Modify(true);
     end;
+
 }
