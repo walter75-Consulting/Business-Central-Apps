@@ -1,0 +1,54 @@
+{
+  "id": "a8f3c2e1-9d45-4b7a-8e21-5c3f7a8b9d12",
+  "name": "walter75 - Calculation.Test",
+  "version": "27.0.0.0",
+  "publisher": "walter75 - München",
+  "brief": "Automated tests for walter75 - Calculation app",
+  "description": "Test framework with comprehensive coverage for calculation engine, formula parser, BOM/Routing integration, and templates. Includes unit tests, integration tests, and test helpers.",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+
+  "screenshots": [],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith"
+  ],
+  "idRanges": [
+    {
+      "from": 90950,
+      "to": 90999
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "911a7e75-e915-4b0f-916b-4ac181c02ac7",
+      "name": "walter75 - Calculation",
+      "publisher": "walter75 - München",
+      "version": "26.1.0.0"
+    },
+    {
+      "id": "e7320ebb-08b3-4406-b1ec-b4927d3e280b",
+      "name": "Any",
+      "publisher": "Microsoft",
+      "version": "27.0.0.0"
+    },
+    {
+      "id": "9856ae4f-d1a7-46ef-89bb-6ef056398228",
+      "name": "Library Assert",
+      "publisher": "Microsoft",
+      "version": "27.0.0.0"
+    },
+    {
+      "id": "5095f467-0a01-4b99-99d1-9ff1237d286f",
+      "name": "Library - Lower Permissions",
+      "publisher": "Microsoft",
+      "version": "27.0.0.0"
+    }
+  ]
+}
