@@ -279,20 +279,4 @@ codeunit 90970 "SEW Calc Test Helper"
     begin
         exit(MinValue + (Random(100) / 100 * (MaxValue - MinValue)));
     end;
-
-    /// <summary>
-    /// Creates a test variable for formula parser testing.
-    /// </summary>
-    procedure CreateTestVariable(var CalcVariable: Record "SEW Calc Variable"; VarCode: Code[20]; VarType: Enum "SEW Calc Variable Type"; VarValue: Decimal)
-    begin
-        CalcVariable.Init();
-        CalcVariable.Code := VarCode;
-        CalcVariable."Valid From Date" := WorkDate(); // Valid from today
-        CalcVariable."Valid To Date" := CalcDate('<1Y>', WorkDate()); // Valid for one year
-        CalcVariable.Type := VarType;
-        CalcVariable.Value := VarValue;
-        CalcVariable.Description := 'Test Variable ' + VarCode;
-        CalcVariable.Global := true;
-        CalcVariable.Insert(true);
-    end;
 }
