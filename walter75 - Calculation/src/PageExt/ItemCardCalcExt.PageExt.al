@@ -31,12 +31,12 @@ pageextension 90896 "SEW Item Card Calc Ext" extends "Item Card"
     {
         addafter(Approve)
         {
-            group(SEWCalculation)
+            group("SEW SEWCalculation")
             {
                 Caption = 'Calculation';
                 Image = CalculateLines;
 
-                action(SEWNewCalculation)
+                action("SEW SEWNewCalculation")
                 {
                     ApplicationArea = All;
                     Caption = 'New Calculation';
@@ -67,7 +67,7 @@ pageextension 90896 "SEW Item Card Calc Ext" extends "Item Card"
                     end;
                 }
 
-                action(SEWCalculations)
+                action("SEW SEWCalculations")
                 {
                     ApplicationArea = All;
                     Caption = 'Calculations';
@@ -77,7 +77,7 @@ pageextension 90896 "SEW Item Card Calc Ext" extends "Item Card"
                     RunPageLink = "Item No." = field("No.");
                 }
 
-                action(SEWLastCalculation)
+                action("SEW SEWLastCalculation")
                 {
                     ApplicationArea = All;
                     Caption = 'Last Calculation';

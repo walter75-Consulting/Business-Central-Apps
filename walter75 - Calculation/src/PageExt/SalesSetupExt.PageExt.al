@@ -4,7 +4,7 @@ pageextension 90895 "SEW Sales Setup Ext" extends "Sales & Receivables Setup"
     {
         addafter("Number Series")
         {
-            group(SEWCalculation)
+            group("SEW SEWCalculation")
             {
                 Caption = 'SEW Calculation';
 
