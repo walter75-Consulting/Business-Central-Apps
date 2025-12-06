@@ -5,8 +5,7 @@ codeunit 90970 "SEW Calc Test Helper"
     /// All test data is created with TEST prefix for easy identification and cleanup.
     /// </summary>
 
-    var
-        LibraryRandom: Codeunit "Library - Random";
+
 
     /// <summary>
     /// Creates a test item with Production BOM and Routing for calculation testing.
@@ -25,7 +24,7 @@ codeunit 90970 "SEW Calc Test Helper"
 
         // Create Production BOM
         ProductionBOMHeader.Init();
-        ProductionBOMHeader."No." := 'BOM-TEST-' + Format(LibraryRandom.RandInt(9999));
+        ProductionBOMHeader."No." := 'BOM-TEST-' + Format(Random(9999));
         ProductionBOMHeader.Description := 'Test BOM for Calculation';
         ProductionBOMHeader."Unit of Measure Code" := 'PCS';
         ProductionBOMHeader.Insert(true);
@@ -58,7 +57,7 @@ codeunit 90970 "SEW Calc Test Helper"
 
         // Create Routing
         RoutingHeader.Init();
-        RoutingHeader."No." := 'RTG-TEST-' + Format(LibraryRandom.RandInt(9999));
+        RoutingHeader."No." := 'RTG-TEST-' + Format(Random(9999));
         RoutingHeader.Description := 'Test Routing for Calculation';
         RoutingHeader.Insert(true);
 
@@ -88,7 +87,7 @@ codeunit 90970 "SEW Calc Test Helper"
 
         // Create main item with BOM and Routing
         Item.Init();
-        Item."No." := 'TEST-CALC-' + Format(LibraryRandom.RandInt(9999));
+        Item."No." := 'TEST-CALC-' + Format(Random(9999));
         Item.Description := 'Test Item for Calculation';
         Item."Replenishment System" := Item."Replenishment System"::"Prod. Order";
         Item."Production BOM No." := ProductionBOMHeader."No.";
@@ -120,7 +119,7 @@ codeunit 90970 "SEW Calc Test Helper"
     local procedure CreateTestWorkCenter(var WorkCenter: Record "Work Center"; DirectUnitCost: Decimal)
     begin
         WorkCenter.Init();
-        WorkCenter."No." := 'WC-TEST-' + Format(LibraryRandom.RandInt(999));
+        WorkCenter."No." := 'WC-TEST-' + Format(Random(999));
         WorkCenter.Name := 'Test Work Center';
         WorkCenter."Direct Unit Cost" := DirectUnitCost;
         WorkCenter."Indirect Cost %" := 20; // 20% overhead
@@ -134,7 +133,7 @@ codeunit 90970 "SEW Calc Test Helper"
     local procedure CreateTestMachineCenter(var MachineCenter: Record "Machine Center"; WorkCenterNo: Code[20]; DirectUnitCost: Decimal)
     begin
         MachineCenter.Init();
-        MachineCenter."No." := 'MC-TEST-' + Format(LibraryRandom.RandInt(999));
+        MachineCenter."No." := 'MC-TEST-' + Format(Random(999));
         MachineCenter.Name := 'Test Machine Center';
         MachineCenter."Work Center No." := WorkCenterNo;
         MachineCenter."Direct Unit Cost" := DirectUnitCost;
@@ -167,7 +166,7 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcTemplateLine: Record "SEW Calc Template Line";
     begin
         SEWCalcTemplate.Init();
-        SEWCalcTemplate.Code := 'TPL-TEST-' + Format(LibraryRandom.RandInt(999));
+        SEWCalcTemplate.Code := 'TPL-TEST-' + Format(Random(999));
         SEWCalcTemplate.Description := 'Test Template';
         SEWCalcTemplate.Insert(true);
 
@@ -208,7 +207,7 @@ codeunit 90970 "SEW Calc Test Helper"
     procedure CreateTestCalculation(var SEWCalcHeader: Record "SEW Calc Header")
     begin
         SEWCalcHeader.Init();
-        SEWCalcHeader."No." := 'CALC-TEST-' + Format(LibraryRandom.RandInt(9999));
+        SEWCalcHeader."No." := 'CALC-TEST-' + Format(Random(9999));
         SEWCalcHeader.Description := 'Test Calculation';
         SEWCalcHeader.Status := SEWCalcHeader.Status::Draft;
         SEWCalcHeader.Insert(true);
@@ -280,6 +279,6 @@ codeunit 90970 "SEW Calc Test Helper"
     /// </summary>
     procedure GetRandomDecimal(MinValue: Decimal; MaxValue: Decimal): Decimal
     begin
-        exit(MinValue + (LibraryRandom.RandDec(100, 2) / 100 * (MaxValue - MinValue)));
+        exit(MinValue + (Random(100) / 100 * (MaxValue - MinValue)));
     end;
 }

@@ -37,18 +37,6 @@
       "name": "Any",
       "publisher": "Microsoft",
       "version": "27.0.0.0"
-    },
-    {
-      "id": "9856ae4f-d1a7-46ef-89bb-6ef056398228",
-      "name": "Library Assert",
-      "publisher": "Microsoft",
-      "version": "27.0.0.0"
-    },
-    {
-      "id": "5095f467-0a01-4b99-99d1-9ff1237d286f",
-      "name": "Library - Lower Permissions",
-      "publisher": "Microsoft",
-      "version": "27.0.0.0"
     }
   ]
 }

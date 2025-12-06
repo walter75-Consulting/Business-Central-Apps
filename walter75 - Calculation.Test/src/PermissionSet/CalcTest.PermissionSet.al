@@ -5,5 +5,6 @@ permissionset 90999 "SEW CALC TEST"
 
     Permissions =
         codeunit "SEW Calc Formula Parser Test" = X,
-        codeunit "SEW Calc Test Helper" = X;
+        codeunit "SEW Calc Test Helper" = X,
+        codeunit "SEW Test Assert" = X;
 }
