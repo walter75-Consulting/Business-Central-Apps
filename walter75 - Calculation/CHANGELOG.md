@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Phase 2: Sales Quote Integration** (#10)
+  - Sales Header Extension (TableExt 90891) with template assignment and auto-calculation toggle
+  - Sales Line Extension (TableExt 90892) with calculation linking and margin analysis
+  - Cost Breakdown FactBox (Page 90836) for visual cost component display
+  - Sales Quote Page Extension (PageExt 90897) with calculation actions
+  - Sales Setup Extension (TableExt 90893) with calculation number series configuration
+  - Integration Management Codeunit (Codeunit 90855) with automatic calculation triggers
+  - EventSubscriber for automatic margin updates on price changes
+  - Comprehensive test suite with 8 Sales Integration tests (100% pass rate)
 - Comprehensive test automation support with dedicated test app (#19)
 - Three-tier variable lookup strategy for date-based variable handling (#19)
 - ValidFromDate parameter support in variable creation (#19)
@@ -18,16 +27,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced CalcFormulaParser with improved Code filter maintenance using Reset+SetRange pattern (#19)
 
 ### Fixed
+- Sales Line margin calculation now updates correctly via EventSubscriber on Unit Price validation (#10)
+- CalcFields corrected from FlowField to regular fields for cost components (Material, Labor, Overhead, Total) (#10)
 - System variable name conflicts in formula parser (MATERIAL, LABOR, OVERHEAD, TOTALCOST) (#19)
 - SetRange clearing Code filter during variable lookup - now preserves filter correctly (#19)
 - CalcDate error when handling 0D dates in variable validation (#19)
 - "Unhandled UI" errors by removing Message() display in template validation (#19)
 
 ### Technical Details
-- Test Framework: 52 automated tests across 6 test codeunits (100% pass rate)
+- Test Framework: 60 automated tests across 7 test codeunits (100% pass rate)
+- Sales Integration Tests: 8 tests covering header/line extensions, margin calculation, auto-calc, validation
+- Object ID Range Main App: 90800-90899
 - Object ID Range Tests: 90950-90999
 - Platform: Business Central Cloud 27.0
-- Test Execution Time: ~0.7 seconds for full suite
+- Test Execution Time: ~1.0 seconds for full suite
 
 ---
 

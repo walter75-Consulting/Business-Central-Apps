@@ -58,14 +58,14 @@ codeunit 90851 "SEW Calc Formula Parser"
                 // Find variable - try with date filter first, then fallback to any match
                 CalcVariable.Reset();
                 CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
-                
+
                 VariableFound := false;
                 if CalcHeader."Calculation Date" <> 0D then begin
                     // First try: Find variables with 0D (always valid) - keep Code filter!
                     CalcVariable.SetRange("Valid From Date", 0D);
                     CalcVariable.SetRange("Valid To Date", 0D);
                     VariableFound := CalcVariable.FindLast();
-                    
+
                     if not VariableFound then begin
                         // Second try: Find variables within date range - restore Code filter
                         CalcVariable.Reset();
@@ -74,7 +74,7 @@ codeunit 90851 "SEW Calc Formula Parser"
                         CalcVariable.SetFilter("Valid To Date", '%1|>=%2', 0D, CalcHeader."Calculation Date");
                         VariableFound := CalcVariable.FindLast();
                     end;
-                    
+
                     if not VariableFound then begin
                         // Fallback: try without any date filter - restore Code filter
                         CalcVariable.Reset();

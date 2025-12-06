@@ -10,6 +10,7 @@ permissionset 90999 "SEW CALC TEST"
         codeunit "SEW Calc Template Test" = X,
         codeunit "SEW Calc Engine Test" = X,
         codeunit "SEW Calc Integration Test" = X,
+        codeunit "SEW Calc Sales Integ. Test" = X,
         codeunit "SEW Calc Test Helper" = X,
         codeunit "SEW Test Assert" = X;
 }

@@ -27,6 +27,7 @@ permissionset 90899 "SEW Calc"
         codeunit "SEW Calc Formula Parser" = X,
         codeunit "SEW Calc Price Management" = X,
         codeunit "SEW Calc Template Management" = X,
+        codeunit "SEW Calc Integration Mgt." = X,
         // Report
         report "SEW Calculation Report" = X;
 }
