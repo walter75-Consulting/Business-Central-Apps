@@ -1,0 +1,186 @@
+codeunit 90852 "SEW Calc Price Management"
+{
+    /// <summary>
+    /// Gets the purchase price for an item based on the price source setting.
+    /// </summary>
+    procedure GetItemPrice(ItemNo: Code[20]; PriceSource: Enum "SEW Calc Price Source"): Decimal
+    var
+        Item: Record Item;
+        PurchasePrice: Decimal;
+    begin
+        if ItemNo = '' then
+            exit(0);
+
+        if not Item.Get(ItemNo) then
+            exit(0);
+
+        case PriceSource of
+            PriceSource::"Unit Cost":
+                exit(Item."Unit Cost");
+            PriceSource::"Last Direct Cost":
+                exit(Item."Last Direct Cost");
+            PriceSource::"Standard Cost":
+                exit(Item."Standard Cost");
+            else
+                exit(Item."Unit Cost");
+        end;
+    end;
+
+    /// <summary>
+    /// Gets the capacity cost for a work center or machine center.
+    /// </summary>
+    procedure GetCapacityCost(CapacityType: Option "Work Center","Machine Center"; CapacityNo: Code[20]; PriceSource: Enum "SEW Calc Price Source"): Decimal
+    var
+        WorkCenter: Record "Work Center";
+        MachineCenter: Record "Machine Center";
+    begin
+        case CapacityType of
+            CapacityType::"Work Center":
+                begin
+                    if not WorkCenter.Get(CapacityNo) then
+                        exit(0);
+                    exit(GetWorkCenterCost(WorkCenter, PriceSource));
+                end;
+            CapacityType::"Machine Center":
+                begin
+                    if not MachineCenter.Get(CapacityNo) then
+                        exit(0);
+                    exit(GetMachineCenterCost(MachineCenter, PriceSource));
+                end;
+        end;
+    end;
+
+    local procedure GetWorkCenterCost(var WorkCenter: Record "Work Center"; PriceSource: Enum "SEW Calc Price Source"): Decimal
+    begin
+        case PriceSource of
+            PriceSource::"Work Center Direct Cost":
+                exit(WorkCenter."Direct Unit Cost");
+            PriceSource::"Work Center Indirect Cost":
+                exit(WorkCenter."Indirect Cost %");
+            else
+                exit(WorkCenter."Unit Cost");
+        end;
+    end;
+
+    local procedure GetMachineCenterCost(var MachineCenter: Record "Machine Center"; PriceSource: Enum "SEW Calc Price Source"): Decimal
+    begin
+        case PriceSource of
+            PriceSource::"Machine Center Direct Cost":
+                exit(MachineCenter."Direct Unit Cost");
+            PriceSource::"Machine Center Indirect Cost":
+                exit(MachineCenter."Indirect Cost %");
+            else
+                exit(MachineCenter."Unit Cost");
+        end;
+    end;
+
+    /// <summary>
+    /// Calculates the total material cost from a Production BOM.
+    /// </summary>
+    procedure GetBOMCost(ProductionBOMNo: Code[20]; ProductionBOMVersion: Code[20]; Quantity: Decimal; PriceSource: Enum "SEW Calc Price Source"): Decimal
+    var
+        ProdBOMLine: Record "Production BOM Line";
+        ProdBOMHeader: Record "Production BOM Header";
+        TotalCost: Decimal;
+        LineCost: Decimal;
+        QuantityPer: Decimal;
+    begin
+        if ProductionBOMNo = '' then
+            exit(0);
+
+        if not ProdBOMHeader.Get(ProductionBOMNo) then
+            exit(0);
+
+        TotalCost := 0;
+
+        ProdBOMLine.SetRange("Production BOM No.", ProductionBOMNo);
+        if ProductionBOMVersion <> '' then
+            ProdBOMLine.SetRange("Version Code", ProductionBOMVersion);
+
+        if ProdBOMLine.FindSet() then
+            repeat
+                if ProdBOMLine.Type = ProdBOMLine.Type::Item then begin
+                    QuantityPer := ProdBOMLine."Quantity per";
+                    if QuantityPer = 0 then
+                        QuantityPer := 1;
+
+                    LineCost := GetItemPrice(ProdBOMLine."No.", PriceSource) * QuantityPer * Quantity;
+                    TotalCost += LineCost;
+                end;
+            until ProdBOMLine.Next() = 0;
+
+        exit(TotalCost);
+    end;
+
+    /// <summary>
+    /// Calculates the total labor cost from a Routing.
+    /// </summary>
+    procedure GetRoutingCost(RoutingNo: Code[20]; RoutingVersion: Code[20]; Quantity: Decimal; PriceSource: Enum "SEW Calc Price Source"): Decimal
+    var
+        RoutingLine: Record "Routing Line";
+        RoutingHeader: Record "Routing Header";
+        TotalCost: Decimal;
+        LineCost: Decimal;
+        SetupTime: Decimal;
+        RunTime: Decimal;
+    begin
+        if RoutingNo = '' then
+            exit(0);
+
+        if not RoutingHeader.Get(RoutingNo) then
+            exit(0);
+
+        TotalCost := 0;
+
+        RoutingLine.SetRange("Routing No.", RoutingNo);
+        if RoutingVersion <> '' then
+            RoutingLine.SetRange("Version Code", RoutingVersion);
+
+        if RoutingLine.FindSet() then
+            repeat
+                SetupTime := RoutingLine."Setup Time";
+                RunTime := RoutingLine."Run Time" * Quantity;
+
+                case RoutingLine.Type of
+                    RoutingLine.Type::"Work Center":
+                        LineCost := GetCapacityCost(0, RoutingLine."No.", PriceSource) * (SetupTime + RunTime) / 60;
+                    RoutingLine.Type::"Machine Center":
+                        LineCost := GetCapacityCost(1, RoutingLine."No.", PriceSource) * (SetupTime + RunTime) / 60;
+                end;
+
+                TotalCost += LineCost;
+            until RoutingLine.Next() = 0;
+
+        exit(TotalCost);
+    end;
+
+    /// <summary>
+    /// Calculates overhead costs based on a base value and percentage.
+    /// </summary>
+    procedure CalculateOverhead(BaseAmount: Decimal; OverheadPercent: Decimal): Decimal
+    begin
+        exit(BaseAmount * OverheadPercent / 100);
+    end;
+
+    /// <summary>
+    /// Calculates the target sales price based on cost and margin percentage.
+    /// </summary>
+    procedure CalculateTargetPrice(TotalCost: Decimal; MarginPercent: Decimal): Decimal
+    begin
+        if MarginPercent >= 100 then
+            exit(0);
+
+        exit(TotalCost / (1 - MarginPercent / 100));
+    end;
+
+    /// <summary>
+    /// Calculates the margin percentage from cost and sales price.
+    /// </summary>
+    procedure CalculateMargin(TotalCost: Decimal; SalesPrice: Decimal): Decimal
+    begin
+        if SalesPrice = 0 then
+            exit(0);
+
+        exit((SalesPrice - TotalCost) / SalesPrice * 100);
+    end;
+}

@@ -21,5 +21,10 @@ permissionset 90899 "SEW Calc"
         page "SEW Calc Variables" = X,
         page "SEW Calc Headers" = X,
         page "SEW Calc Card" = X,
-        page "SEW Calc Lines" = X;
+        page "SEW Calc Lines" = X,
+        // Codeunits
+        codeunit "SEW Calc Engine" = X,
+        codeunit "SEW Calc Formula Parser" = X,
+        codeunit "SEW Calc Price Management" = X,
+        codeunit "SEW Calc Template Management" = X;
 }

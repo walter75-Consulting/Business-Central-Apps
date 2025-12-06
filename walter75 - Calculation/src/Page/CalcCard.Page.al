@@ -157,14 +157,54 @@ page 90831 "SEW Calc Card"
             {
                 ApplicationArea = All;
                 Caption = 'Calculate from Template';
-                ToolTip = 'Apply the template and calculate costs';
+                ToolTip = 'Apply the template and calculate costs.';
                 Image = Calculate;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+
+                trigger OnAction()
+                var
+                    CalcEngine: Codeunit "SEW Calc Engine";
+                begin
+                    CalcEngine.CalculateFromTemplate(Rec);
+                    CurrPage.Update(false);
+                end;
+            }
+
+            action(Recalculate)
+            {
+                ApplicationArea = All;
+                Caption = 'Recalculate';
+                ToolTip = 'Recalculate all formulas and update totals.';
+                Image = Refresh;
                 Promoted = true;
                 PromotedCategory = Process;
 
                 trigger OnAction()
+                var
+                    CalcEngine: Codeunit "SEW Calc Engine";
                 begin
-                    Message('Template calculation will be implemented in Phase 1.');
+                    CalcEngine.Calculate(Rec);
+                    CurrPage.Update(false);
+                end;
+            }
+
+            action(TransferToItem)
+            {
+                ApplicationArea = All;
+                Caption = 'Transfer to Item';
+                ToolTip = 'Transfer calculation results to the item card.';
+                Image = TransferToLines;
+                Promoted = true;
+                PromotedCategory = Process;
+                Enabled = Rec.Status = Rec.Status::Released;
+
+                trigger OnAction()
+                var
+                    CalcEngine: Codeunit "SEW Calc Engine";
+                begin
+                    CalcEngine.TransferToItem(Rec);
                 end;
             }
 
@@ -172,16 +212,21 @@ page 90831 "SEW Calc Card"
             {
                 ApplicationArea = All;
                 Caption = 'Release';
-                ToolTip = 'Release the calculation';
+                ToolTip = 'Release the calculation.';
                 Image = ReleaseDoc;
                 Promoted = true;
                 PromotedCategory = Process;
+                Enabled = Rec.Status = Rec.Status::Draft;
 
                 trigger OnAction()
+                var
+                    CalcEngine: Codeunit "SEW Calc Engine";
+                    TemplateManagement: Codeunit "SEW Calc Template Management";
                 begin
-                    Rec.Status := Rec.Status::Released;
-                    Rec.Modify(true);
-                    Message('Calculation has been released.');
+                    if CalcEngine.ValidateCalculation(Rec) then begin
+                        TemplateManagement.ReleaseCalculation(Rec);
+                        CurrPage.Update(false);
+                    end;
                 end;
             }
 
@@ -189,16 +234,37 @@ page 90831 "SEW Calc Card"
             {
                 ApplicationArea = All;
                 Caption = 'Reopen';
-                ToolTip = 'Reopen the calculation for editing';
+                ToolTip = 'Reopen the calculation for editing.';
                 Image = ReOpen;
                 Promoted = true;
                 PromotedCategory = Process;
+                Enabled = Rec.Status = Rec.Status::Released;
 
                 trigger OnAction()
+                var
+                    TemplateManagement: Codeunit "SEW Calc Template Management";
                 begin
-                    Rec.Status := Rec.Status::Draft;
-                    Rec.Modify(true);
-                    Message('Calculation has been reopened.');
+                    TemplateManagement.ReopenCalculation(Rec);
+                    CurrPage.Update(false);
+                end;
+            }
+
+            action(Archive)
+            {
+                ApplicationArea = All;
+                Caption = 'Archive';
+                ToolTip = 'Archive this calculation.';
+                Image = Archive;
+                Promoted = true;
+                PromotedCategory = Process;
+                Enabled = Rec.Status = Rec.Status::Released;
+
+                trigger OnAction()
+                var
+                    TemplateManagement: Codeunit "SEW Calc Template Management";
+                begin
+                    TemplateManagement.ArchiveCalculation(Rec);
+                    CurrPage.Update(false);
                 end;
             }
         }
