@@ -77,4 +77,14 @@ table 90802 "SEW Calc Variable"
         {
         }
     }
+
+    trigger OnDelete()
+    var
+        SEWCalcTemplateLine: Record "SEW Calc Template Line";
+        CannotDeleteErr: Label 'Cannot delete variable %1 because it is used in one or more template lines.', Comment = '%1 = Variable Code';
+    begin
+        SEWCalcTemplateLine.SetRange("Variable Code", Rec.Code);
+        if not SEWCalcTemplateLine.IsEmpty() then
+            Error(CannotDeleteErr, Rec.Code);
+    end;
 }

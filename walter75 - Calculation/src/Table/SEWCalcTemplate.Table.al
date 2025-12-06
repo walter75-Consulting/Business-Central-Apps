@@ -102,4 +102,14 @@ table 90800 "SEW Calc Template"
     begin
         Rec."Last Modified Date" := Today();
     end;
+
+    trigger OnDelete()
+    var
+        SEWCalcHeader: Record "SEW Calc Header";
+        CannotDeleteErr: Label 'Cannot delete template %1 because it is used by one or more calculations.', Comment = '%1 = Template Code';
+    begin
+        SEWCalcHeader.SetRange("Template Code", Rec.Code);
+        if not SEWCalcHeader.IsEmpty() then
+            Error(CannotDeleteErr, Rec.Code);
+    end;
 }
