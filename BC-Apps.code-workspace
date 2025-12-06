@@ -80,8 +80,7 @@
     "al.codeAnalyzers": [
       "${CodeCop}",
       "${UICop}",
-      "${PerTenantExtensionCop}",
-      "${analyzerFolder}BusinessCentral.LinterCop.dll"
+      "${PerTenantExtensionCop}"
     ],
     "al.enableCodeActions": true,
     "al.backgroundCodeAnalysis": "Project",

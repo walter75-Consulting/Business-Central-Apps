@@ -304,8 +304,49 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcHeader."No." := 'CALC-TEST-' + Format(Random(9999));
         SEWCalcHeader.Description := 'Test Calculation';
         SEWCalcHeader."Calculation Date" := WorkDate(); // Set calculation date for variable lookup
+        SEWCalcHeader."Lot Size" := 100; // Default lot size for tests
         SEWCalcHeader.Status := SEWCalcHeader.Status::Draft;
         SEWCalcHeader.Insert(true);
+    end;
+
+    /// <summary>
+    /// Creates a test calculation header and returns it.
+    /// </summary>
+    procedure CreateTestCalculation(): Record "SEW Calc Header"
+    var
+        SEWCalcHeader: Record "SEW Calc Header";
+    begin
+        CreateTestCalculation(SEWCalcHeader);
+        exit(SEWCalcHeader);
+    end;
+
+    /// <summary>
+    /// Adds a BOM line simulation to a calculation by setting material cost.
+    /// </summary>
+    procedure AddBOMLine(CalcNo: Code[20]; Description: Text[50]; TotalCost: Decimal; Quantity: Decimal)
+    var
+        CalcHeader: Record "SEW Calc Header";
+    begin
+        if CalcHeader.Get(CalcNo) then begin
+            CalcHeader."Total Material Cost" += TotalCost;
+            CalcHeader."Total Cost" += TotalCost;
+            CalcHeader."Lot Size" := Quantity;
+            CalcHeader.Modify();
+        end;
+    end;
+
+    /// <summary>
+    /// Adds a Routing line simulation to a calculation by setting labor cost.
+    /// </summary>
+    procedure AddRoutingLine(CalcNo: Code[20]; Description: Text[50]; TotalCost: Decimal; SetupTime: Decimal)
+    var
+        CalcHeader: Record "SEW Calc Header";
+    begin
+        if CalcHeader.Get(CalcNo) then begin
+            CalcHeader."Total Labor Cost" += TotalCost;
+            CalcHeader."Total Cost" += TotalCost;
+            CalcHeader.Modify();
+        end;
     end;
 
     /// <summary>
