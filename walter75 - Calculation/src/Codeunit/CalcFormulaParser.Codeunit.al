@@ -36,6 +36,9 @@ codeunit 90851 "SEW Calc Formula Parser"
         CalcVariable: Record "SEW Calc Variable";
         CalcTemplateLine: Record "SEW Calc Template Line";
         VariableValue: Decimal;
+        StartPos: Integer;
+        EndPos: Integer;
+        VariableCode: Text;
     begin
         Result := FormulaText;
 
@@ -45,13 +48,29 @@ codeunit 90851 "SEW Calc Formula Parser"
         Result := Result.Replace('OVERHEAD', Format(CalcHeader."Total Overhead Cost", 0, 9));
         Result := Result.Replace('TOTALCOST', Format(CalcHeader."Total Cost", 0, 9));
 
+        // Replace variables in {VARNAME} syntax
+        StartPos := StrPos(Result, '{');
+        while StartPos > 0 do begin
+            EndPos := StrPos(CopyStr(Result, StartPos), '}');
+            if EndPos > 0 then begin
+                VariableCode := CopyStr(Result, StartPos + 1, EndPos - 2);
+                if CalcVariable.Get(CopyStr(VariableCode, 1, 20), 0D) then begin
+                    VariableValue := GetVariableValue(CalcVariable, CalcHeader."Calculation Date");
+                    Result := Result.Replace('{' + VariableCode + '}', Format(VariableValue, 0, 9));
+                end;
+            end;
+            StartPos := StrPos(CopyStr(Result, StartPos + EndPos), '{');
+            if StartPos > 0 then
+                StartPos := StartPos + StartPos + EndPos - 1;
+        end;
+
         // Replace custom variables from template
         if CalcHeader."Template Code" <> '' then begin
             CalcTemplateLine.SetRange("Template Code", CalcHeader."Template Code");
             CalcTemplateLine.SetFilter("Variable Code", '<>%1', '');
             if CalcTemplateLine.FindSet() then
                 repeat
-                    if CalcVariable.Get(CalcTemplateLine."Variable Code") then begin
+                    if CalcVariable.Get(CalcTemplateLine."Variable Code", 0D) then begin
                         VariableValue := GetVariableValue(CalcVariable, CalcHeader."Calculation Date");
                         Result := Result.Replace(CalcVariable.Code, Format(VariableValue, 0, 9));
                     end;
