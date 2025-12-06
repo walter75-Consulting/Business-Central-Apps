@@ -99,7 +99,7 @@ codeunit 90970 "SEW Calc Test Helper"
     /// <summary>
     /// Creates a simple test item with specified cost.
     /// </summary>
-    local procedure CreateTestItem(var Item: Record Item; ItemNo: Code[20]; UnitCost: Decimal)
+    procedure CreateTestItem(var Item: Record Item; ItemNo: Code[20]; UnitCost: Decimal)
     begin
         if Item.Get(ItemNo) then
             exit;
