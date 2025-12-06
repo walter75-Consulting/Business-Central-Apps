@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "local Sandbox (BC27dev01)",
+            "request": "launch",
+            "type": "al",
+            "server": "http://BC27dev01",
+            "serverInstance": "BC",
+            "port": 7049,
+            "tenant": "default",
+            "authentication": "UserPassword",
+            "startupObjectId": 130401,
+            "startupObjectType": "Page",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "schemaUpdateMode": "ForceSync"
+        }
+    ]
+}

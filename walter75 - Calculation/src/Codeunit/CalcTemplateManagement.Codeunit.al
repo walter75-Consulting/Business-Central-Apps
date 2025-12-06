@@ -5,6 +5,14 @@ codeunit 90853 "SEW Calc Template Management"
     /// Creates new calculation lines based on the template.
     /// </summary>
     procedure CopyTemplateToCalc(var CalcHeader: Record "SEW Calc Header")
+    begin
+        CopyTemplateToCalc(CalcHeader, false);
+    end;
+
+    /// <summary>
+    /// Copies template lines to a calculation header with optional confirmation skip.
+    /// </summary>
+    procedure CopyTemplateToCalc(var CalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
         CalcTemplateLine: Record "SEW Calc Template Line";
         CalcLine: Record "SEW Calc Line";
@@ -19,8 +27,9 @@ codeunit 90853 "SEW Calc Template Management"
         // Check if lines already exist
         CalcLine.SetRange("Calc No.", CalcHeader."No.");
         if not CalcLine.IsEmpty() then
-            if not Confirm(CopyLinesQst, false) then
-                exit;
+            if not SkipConfirmation then
+                if not Confirm(CopyLinesQst, false) then
+                    exit;
 
         // Delete existing lines
         CalcLine.DeleteAll(true);
@@ -50,7 +59,8 @@ codeunit 90853 "SEW Calc Template Management"
             LineNo += 10000;
         until CalcTemplateLine.Next() = 0;
 
-        Message(TemplateCopiedMsg, CalcLine.Count);
+        if not SkipConfirmation then
+            Message(TemplateCopiedMsg, CalcLine.Count);
     end;
 
     /// <summary>
@@ -60,28 +70,15 @@ codeunit 90853 "SEW Calc Template Management"
     var
         CalcTemplateLine: Record "SEW Calc Template Line";
         FormulaParser: Codeunit "SEW Calc Formula Parser";
-        ValidationErrors: Text;
-        LineNo: Integer;
-        InvalidFormulaMsg: Label 'Line %1: Invalid formula - %2', Comment = 'DE="Zeile %1: Ungültige Formel - %2"';
     begin
-        ValidationErrors := '';
-
         CalcTemplateLine.SetRange("Template Code", TemplateCode);
         if CalcTemplateLine.FindSet() then
             repeat
                 if CalcTemplateLine.Formula <> '' then begin
-                    if not FormulaParser.TestFormula(CalcTemplateLine.Formula) then begin
-                        if ValidationErrors <> '' then
-                            ValidationErrors += '\';
-                        ValidationErrors += StrSubstNo(InvalidFormulaMsg, CalcTemplateLine."Line No.", CalcTemplateLine.Formula);
-                    end;
+                    if not FormulaParser.TestFormula(CalcTemplateLine.Formula) then
+                        exit(false);
                 end;
             until CalcTemplateLine.Next() = 0;
-
-        if ValidationErrors <> '' then begin
-            Message(ValidationErrors);
-            exit(false);
-        end;
 
         exit(true);
     end;
@@ -138,11 +135,20 @@ codeunit 90853 "SEW Calc Template Management"
     /// Archives a calculation by changing its status.
     /// </summary>
     procedure ArchiveCalculation(var CalcHeader: Record "SEW Calc Header")
+    begin
+        ArchiveCalculation(CalcHeader, false);
+    end;
+
+    /// <summary>
+    /// Archives a calculation by changing its status with optional confirmation skip.
+    /// </summary>
+    procedure ArchiveCalculation(var CalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
         ArchiveQst: Label 'Do you want to archive this calculation?', Comment = 'DE="Möchten Sie diese Kalkulation archivieren?"';
     begin
-        if not Confirm(ArchiveQst, false) then
-            exit;
+        if not SkipConfirmation then
+            if not Confirm(ArchiveQst, false) then
+                exit;
 
         CalcHeader.Status := CalcHeader.Status::Archived;
         CalcHeader.Modify(true);
@@ -152,11 +158,20 @@ codeunit 90853 "SEW Calc Template Management"
     /// Releases a calculation for use.
     /// </summary>
     procedure ReleaseCalculation(var CalcHeader: Record "SEW Calc Header")
+    begin
+        ReleaseCalculation(CalcHeader, false);
+    end;
+
+    /// <summary>
+    /// Releases a calculation for use with optional confirmation skip.
+    /// </summary>
+    procedure ReleaseCalculation(var CalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
         ReleaseQst: Label 'Do you want to release this calculation?', Comment = 'DE="Möchten Sie diese Kalkulation freigeben?"';
     begin
-        if not Confirm(ReleaseQst, false) then
-            exit;
+        if not SkipConfirmation then
+            if not Confirm(ReleaseQst, false) then
+                exit;
 
         CalcHeader.Status := CalcHeader.Status::Released;
         CalcHeader.Modify(true);
@@ -166,13 +181,23 @@ codeunit 90853 "SEW Calc Template Management"
     /// Reopens a released calculation for editing.
     /// </summary>
     procedure ReopenCalculation(var CalcHeader: Record "SEW Calc Header")
+    begin
+        ReopenCalculation(CalcHeader, false);
+    end;
+
+    /// <summary>
+    /// Reopens a released calculation for editing with optional confirmation skip.
+    /// </summary>
+    procedure ReopenCalculation(var CalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
         ReopenQst: Label 'Do you want to reopen this calculation for editing?', Comment = 'DE="Möchten Sie diese Kalkulation zum Bearbeiten wieder öffnen?"';
     begin
-        if not Confirm(ReopenQst, false) then
-            exit;
+        if not SkipConfirmation then
+            if not Confirm(ReopenQst, false) then
+                exit;
 
         CalcHeader.Status := CalcHeader.Status::Draft;
         CalcHeader.Modify(true);
     end;
+
 }

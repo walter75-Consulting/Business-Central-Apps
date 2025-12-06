@@ -49,6 +49,10 @@
       "path": "walter75 - Calculation"
     },
     {
+      "name": "walter75 - Calculation.Test",
+      "path": "walter75 - Calculation.Test"
+    },
+    {
       "name": "walter75 - BDE Terminal",
       "path": "walter75 - BDE Terminal"
     },
@@ -166,10 +170,10 @@
         "schemaUpdateMode": "ForceSync"
       },
       {
-        "name": "local Sandbox (bc27dev01)",
+        "name": "local Sandbox (BC27dev01)",
         "request": "launch",
         "type": "al",
-        "server": "https://bc27dev01",
+        "server": "http://BC27dev01",
         "serverInstance": "BC",
         "port": 7049,
         "tenant": "default",
