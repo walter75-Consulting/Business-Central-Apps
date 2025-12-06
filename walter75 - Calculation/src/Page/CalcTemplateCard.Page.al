@@ -39,6 +39,7 @@ page 90821 "SEW Calc Template Card"
             group(Settings)
             {
                 Caption = 'Settings';
+                Editable = Rec.Status = Rec.Status::Draft;
 
                 field("Price Source Item"; Rec."Price Source Item")
                 {
@@ -72,7 +73,8 @@ page 90821 "SEW Calc Template Card"
                 ApplicationArea = All;
                 Caption = 'Template Lines';
                 SubPageLink = "Template Code" = field(Code);
-                //UpdatePropagation = Both;
+                Editable = Rec.Status = Rec.Status::Draft;
+                UpdatePropagation = Both;
             }
         }
     }
@@ -94,6 +96,7 @@ page 90821 "SEW Calc Template Card"
                 begin
                     Rec.Status := Rec.Status::Released;
                     Rec.Modify(true);
+                    CurrPage.Update(false);
                     Message('Template has been released.');
                 end;
             }
@@ -111,6 +114,7 @@ page 90821 "SEW Calc Template Card"
                 begin
                     Rec.Status := Rec.Status::Draft;
                     Rec.Modify(true);
+                    CurrPage.Update(false);
                     Message('Template has been reopened.');
                 end;
             }
