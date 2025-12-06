@@ -144,6 +144,7 @@ page 90831 "SEW Calc Card"
                 ApplicationArea = All;
                 Caption = 'Calculation Lines';
                 SubPageLink = "Calc No." = field("No.");
+                UpdatePropagation = Both;
             }
         }
     }

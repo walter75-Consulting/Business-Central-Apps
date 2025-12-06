@@ -72,6 +72,7 @@ page 90821 "SEW Calc Template Card"
                 ApplicationArea = All;
                 Caption = 'Template Lines';
                 SubPageLink = "Template Code" = field(Code);
+                UpdatePropagation = Both;
             }
         }
     }

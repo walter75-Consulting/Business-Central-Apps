@@ -15,6 +15,12 @@ page 90832 "SEW Calc Lines"
                 IndentationColumn = Rec.Indentation;
                 ShowAsTree = true;
 
+                field("Line No."; Rec."Line No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the line number';
+                    Visible = false;
+                }
                 field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
