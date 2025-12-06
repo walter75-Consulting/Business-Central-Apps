@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
+  <Body>
+    <Height>2in</Height>
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <PageHeight>11in</PageHeight>
+    <PageWidth>8.5in</PageWidth>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+  </Page>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="CalcNo">
+          <DataField>CalcNo</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Description2">
+          <DataField>Description2</DataField>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+        </Field>
+        <Field Name="CalculationDate">
+          <DataField>CalculationDate</DataField>
+        </Field>
+        <Field Name="TemplateCode">
+          <DataField>TemplateCode</DataField>
+        </Field>
+        <Field Name="LotSize">
+          <DataField>LotSize</DataField>
+        </Field>
+        <Field Name="LotSizeFormat">
+          <DataField>LotSizeFormat</DataField>
+        </Field>
+        <Field Name="BaseUnitOfMeasure">
+          <DataField>BaseUnitOfMeasure</DataField>
+        </Field>
+        <Field Name="ProductionBOMNo">
+          <DataField>ProductionBOMNo</DataField>
+        </Field>
+        <Field Name="RoutingNo">
+          <DataField>RoutingNo</DataField>
+        </Field>
+        <Field Name="TotalMaterialCost">
+          <DataField>TotalMaterialCost</DataField>
+        </Field>
+        <Field Name="TotalMaterialCostFormat">
+          <DataField>TotalMaterialCostFormat</DataField>
+        </Field>
+        <Field Name="TotalLaborCost">
+          <DataField>TotalLaborCost</DataField>
+        </Field>
+        <Field Name="TotalLaborCostFormat">
+          <DataField>TotalLaborCostFormat</DataField>
+        </Field>
+        <Field Name="TotalOverheadCost">
+          <DataField>TotalOverheadCost</DataField>
+        </Field>
+        <Field Name="TotalOverheadCostFormat">
+          <DataField>TotalOverheadCostFormat</DataField>
+        </Field>
+        <Field Name="TotalCost">
+          <DataField>TotalCost</DataField>
+        </Field>
+        <Field Name="TotalCostFormat">
+          <DataField>TotalCostFormat</DataField>
+        </Field>
+        <Field Name="TargetSalesPrice">
+          <DataField>TargetSalesPrice</DataField>
+        </Field>
+        <Field Name="TargetSalesPriceFormat">
+          <DataField>TargetSalesPriceFormat</DataField>
+        </Field>
+        <Field Name="MarginPercent">
+          <DataField>MarginPercent</DataField>
+        </Field>
+        <Field Name="MarginPercentFormat">
+          <DataField>MarginPercentFormat</DataField>
+        </Field>
+        <Field Name="LineNo">
+          <DataField>LineNo</DataField>
+        </Field>
+        <Field Name="LineType">
+          <DataField>LineType</DataField>
+        </Field>
+        <Field Name="LineDescription">
+          <DataField>LineDescription</DataField>
+        </Field>
+        <Field Name="Indentation">
+          <DataField>Indentation</DataField>
+        </Field>
+        <Field Name="Formula">
+          <DataField>Formula</DataField>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+        </Field>
+        <Field Name="AmountFormat">
+          <DataField>AmountFormat</DataField>
+        </Field>
+        <Field Name="Bold">
+          <DataField>Bold</DataField>
+        </Field>
+        <Field Name="ShowInReport">
+          <DataField>ShowInReport</DataField>
+        </Field>
+        <Field Name="SourceType">
+          <DataField>SourceType</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="ReportTitle">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReportTitle</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReportTitle</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CalcNoLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CalcNoLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CalcNoLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ItemNoLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ItemNoLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ItemNoLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DescriptionLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DescriptionLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DescriptionLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StatusLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>StatusLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>StatusLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DateLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DateLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TemplateLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TemplateLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TemplateLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LotSizeLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LotSizeLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LotSizeLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CostBreakdownLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CostBreakdownLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CostBreakdownLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MaterialCostLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>MaterialCostLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>MaterialCostLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LaborCostLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LaborCostLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LaborCostLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OverheadCostLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>OverheadCostLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>OverheadCostLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TotalCostLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TotalCostLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TotalCostLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PricingLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PricingLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PricingLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TargetPriceLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TargetPriceLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TargetPriceLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MarginLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>MarginLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>MarginLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CalculationLinesLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CalculationLinesLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CalculationLinesLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LineDescLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LineDescLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LineDescLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FormulaLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FormulaLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FormulaLabel</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AmountLabel">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AmountLabel</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AmountLabel</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+</Report>
