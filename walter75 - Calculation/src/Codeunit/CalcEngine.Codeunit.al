@@ -7,6 +7,14 @@ codeunit 90850 "SEW Calc Engine"
     /// 3. Updates totals
     /// </summary>
     procedure Calculate(var CalcHeader: Record "SEW Calc Header")
+    begin
+        Calculate(CalcHeader, false);
+    end;
+
+    /// <summary>
+    /// Main calculation procedure with option to skip UI messages.
+    /// </summary>
+    procedure Calculate(var CalcHeader: Record "SEW Calc Header"; SkipMessages: Boolean)
     var
         CalcLine: Record "SEW Calc Line";
         PriceManagement: Codeunit "SEW Calc Price Management";
@@ -15,7 +23,8 @@ codeunit 90850 "SEW Calc Engine"
         CalculationStartedMsg: Label 'Calculation started...', Comment = 'DE="Kalkulation gestartet..."';
         CalculationCompletedMsg: Label 'Calculation completed. Total Cost: %1', Comment = 'DE="Kalkulation abgeschlossen. Gesamtkosten: %1"';
     begin
-        Message(CalculationStartedMsg);
+        if not SkipMessages then
+            Message(CalculationStartedMsg);
 
         // Step 1: Get BOM and Routing costs if template specifies
         if CalcHeader."Template Code" <> '' then
@@ -44,7 +53,8 @@ codeunit 90850 "SEW Calc Engine"
         // Step 3: Update totals
         UpdateTotals(CalcHeader);
 
-        Message(CalculationCompletedMsg, CalcHeader."Total Cost");
+        if not SkipMessages then
+            Message(CalculationCompletedMsg, CalcHeader."Total Cost");
     end;
 
     /// <summary>
@@ -152,8 +162,8 @@ codeunit 90850 "SEW Calc Engine"
         // Copy template lines to calculation (skip UI for automated testing)
         TemplateManagement.CopyTemplateToCalc(CalcHeader, true);
 
-        // Execute calculation
-        Calculate(CalcHeader);
+        // Execute calculation (skip messages for automated testing)
+        Calculate(CalcHeader, true);
     end;
 
     /// <summary>
