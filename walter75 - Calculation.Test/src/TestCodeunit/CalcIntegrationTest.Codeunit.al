@@ -75,7 +75,7 @@ codeunit 90955 "SEW Calc Integration Test"
         SEWCalcLine.Insert(true);
 
         // [WHEN] Releasing calculation
-        SEWCalcTemplateManagement.ReleaseCalculation(SEWCalcHeader);
+        SEWCalcTemplateManagement.ReleaseCalculation(SEWCalcHeader, true);
 
         // [THEN] Status should be Released
         SEWCalcHeader.Get(SEWCalcHeader."No.");
@@ -117,10 +117,10 @@ codeunit 90955 "SEW Calc Integration Test"
         SEWCalcLine.Insert(true);
 
         // Release first
-        SEWCalcTemplateManagement.ReleaseCalculation(SEWCalcHeader);
+        SEWCalcTemplateManagement.ReleaseCalculation(SEWCalcHeader, true);
 
         // [WHEN] Reopening calculation
-        SEWCalcTemplateManagement.ReopenCalculation(SEWCalcHeader);
+        SEWCalcTemplateManagement.ReopenCalculation(SEWCalcHeader, true);
 
         // [THEN] Status should be back to Draft
         SEWCalcHeader.Get(SEWCalcHeader."No.");
@@ -162,10 +162,10 @@ codeunit 90955 "SEW Calc Integration Test"
         SEWCalcLine.Insert(true);
 
         // Release first
-        SEWCalcTemplateManagement.ReleaseCalculation(SEWCalcHeader);
+        SEWCalcTemplateManagement.ReleaseCalculation(SEWCalcHeader, true);
 
         // [WHEN] Archiving calculation
-        SEWCalcTemplateManagement.ArchiveCalculation(SEWCalcHeader);
+        SEWCalcTemplateManagement.ArchiveCalculation(SEWCalcHeader, true);
 
         // [THEN] Status should be Archived
         SEWCalcHeader.Get(SEWCalcHeader."No.");
@@ -210,7 +210,7 @@ codeunit 90955 "SEW Calc Integration Test"
     begin
         // [GIVEN] Source template with lines
         FromCode := SEWCalcTestHelper.CreateTestTemplate(FromSEWCalcTemplate);
-        
+
         // Count source lines
         FromSEWCalcTemplateLine.SetRange("Template Code", FromCode);
         LineCount := FromSEWCalcTemplateLine.Count;

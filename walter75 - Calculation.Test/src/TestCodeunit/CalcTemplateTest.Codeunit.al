@@ -31,7 +31,7 @@ codeunit 90953 "SEW Calc Template Test"
         SEWCalcHeader."Template Code" := TemplateCode;
         SEWCalcHeader.Modify(true);
 
-        SEWCalcTemplateManagement.CopyTemplateToCalc(SEWCalcHeader);
+        SEWCalcTemplateManagement.CopyTemplateToCalc(SEWCalcHeader, true);
 
         SEWCalcLine.SetRange("Calc No.", SEWCalcHeader."No.");
         SEWTestAssert.IsFalse(SEWCalcLine.IsEmpty(), 'Template lines should be copied');

@@ -211,7 +211,7 @@ codeunit 90954 "SEW Calc Engine Test"
         // [GIVEN] Item and calculation with total cost
         SEWCalcTestHelper.CreateTestItem(Item, 'TEST-TRF', 10);
         OriginalUnitCost := Item."Unit Cost";
-        
+
         SEWCalcTestHelper.CreateTestCalculation(SEWCalcHeader);
         SEWCalcHeader."Item No." := Item."No.";
         SEWCalcHeader."Total Cost" := 125.50;
@@ -259,7 +259,7 @@ codeunit 90954 "SEW Calc Engine Test"
         SEWTestAssert.IsTrue(SEWCalcHeader."Total Labor Cost" > 0, 'Labor cost calculated');
         SEWTestAssert.IsTrue(SEWCalcHeader."Total Overhead Cost" > 0, 'Overhead cost calculated');
         SEWTestAssert.IsTrue(SEWCalcHeader."Total Cost" > 0, 'Total cost calculated');
-        
+
         // Total should equal sum of parts
         SEWTestAssert.AreEqual(
             SEWCalcHeader."Total Material Cost" + SEWCalcHeader."Total Labor Cost" + SEWCalcHeader."Total Overhead Cost",

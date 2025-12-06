@@ -149,8 +149,8 @@ codeunit 90850 "SEW Calc Engine"
         if CalcHeader."Template Code" = '' then
             Error(NoTemplateErr);
 
-        // Copy template lines to calculation
-        TemplateManagement.CopyTemplateToCalc(CalcHeader);
+        // Copy template lines to calculation (skip UI for automated testing)
+        TemplateManagement.CopyTemplateToCalc(CalcHeader, true);
 
         // Execute calculation
         Calculate(CalcHeader);
