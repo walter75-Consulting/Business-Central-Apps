@@ -15,6 +15,12 @@ page 90822 "SEW Calc Template Lines"
                 IndentationColumn = Rec.Indentation;
                 ShowAsTree = true;
 
+                field("Template Code"; Rec."Template Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the template code this line belongs to';
+                    Visible = false;
+                }
                 field("Line No."; Rec."Line No.")
                 {
                     ApplicationArea = All;
