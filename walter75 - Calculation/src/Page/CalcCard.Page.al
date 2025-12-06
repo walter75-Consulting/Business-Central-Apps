@@ -267,6 +267,32 @@ page 90831 "SEW Calc Card"
                     CurrPage.Update(false);
                 end;
             }
+
+            action(SimulateLotSizes)
+            {
+                ApplicationArea = All;
+                Caption = 'Simulate Lot Sizes';
+                ToolTip = 'Create a new lot size simulation to compare different production quantities';
+                Image = Worksheet;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Enabled = Rec.Status = Rec.Status::Released;
+
+                trigger OnAction()
+                var
+                    SimHeader: Record "SEW Calc Simulation Header";
+                    SimCard: Page "SEW Calc Simulation Card";
+                begin
+                    SimHeader.Init();
+                    SimHeader."Calc No." := Rec."No.";
+                    SimHeader.Validate("Calc No.");
+                    SimHeader.Insert(true);
+
+                    SimCard.SetRecord(SimHeader);
+                    SimCard.Run();
+                end;
+            }
         }
 
         area(Reporting)

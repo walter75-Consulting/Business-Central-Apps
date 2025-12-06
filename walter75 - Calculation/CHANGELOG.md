@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Phase 3: Lot Size Simulation & Optimization** (#12)
+  - Simulation Header Table (Table 90805) for simulation management
+  - Simulation Line Table (Table 90806) for scenario comparison
+  - Simulation Management Codeunit (Codeunit 90854) with calculation and recommendation algorithms
+  - Simulation Card Page (Page 90833) with wizard-style interface
+  - Simulation Subform Page (Page 90835) for scenario matrix view
+  - Simulation List Page (Page 90834) for historical simulations
+  - Simulation FactBox (Page 90837) showing recommended scenario
+  - "Simulate Lot Sizes" action integrated into Calc Card
+  - Break-even quantity calculation for each scenario
+  - Automatic recommendation based on margin, unit cost, and target quantity
+  - Comprehensive test suite with 9 Simulation tests (CalcSimulationTest 90957)
 - **Phase 2: Sales Quote Integration** (#10)
   - Sales Header Extension (TableExt 90891) with template assignment and auto-calculation toggle
   - Sales Line Extension (TableExt 90892) with calculation linking and margin analysis

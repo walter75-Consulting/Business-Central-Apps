@@ -16,10 +16,9 @@ codeunit 90850 "SEW Calc Engine"
     /// </summary>
     procedure Calculate(var CalcHeader: Record "SEW Calc Header"; SkipMessages: Boolean)
     var
-        CalcLine: Record "SEW Calc Line";
-        PriceManagement: Codeunit "SEW Calc Price Management";
-        FormulaParser: Codeunit "SEW Calc Formula Parser";
-        Template: Record "SEW Calc Template";
+        CalcLineRec: Record "SEW Calc Line";
+        CalcTemplateRec: Record "SEW Calc Template";
+        FormulaParserCU: Codeunit "SEW Calc Formula Parser";
         CalculationStartedMsg: Label 'Calculation started...', Comment = 'DE="Kalkulation gestartet..."';
         CalculationCompletedMsg: Label 'Calculation completed. Total Cost: %1', Comment = 'DE="Kalkulation abgeschlossen. Gesamtkosten: %1"';
     begin
@@ -28,27 +27,27 @@ codeunit 90850 "SEW Calc Engine"
 
         // Step 1: Get BOM and Routing costs if template specifies
         if CalcHeader."Template Code" <> '' then
-            if Template.Get(CalcHeader."Template Code") then begin
-                if Template."Include Material" then
-                    GetBOMCost(CalcHeader, Template."Price Source Item");
+            if CalcTemplateRec.Get(CalcHeader."Template Code") then begin
+                if CalcTemplateRec."Include Material" then
+                    GetBOMCost(CalcHeader, CalcTemplateRec."Price Source Item");
 
-                if Template."Include Labor" then
-                    GetRoutingCost(CalcHeader, Template."Price Source Capacity");
+                if CalcTemplateRec."Include Labor" then
+                    GetRoutingCost(CalcHeader, CalcTemplateRec."Price Source Capacity");
 
-                if Template."Include Overhead" then
+                if CalcTemplateRec."Include Overhead" then
                     ApplySurcharges(CalcHeader);
             end;
 
         // Step 2: Evaluate all formulas in calculation lines
-        CalcLine.SetRange("Calc No.", CalcHeader."No.");
-        CalcLine.SetCurrentKey("Calc No.", "Line No.");
-        if CalcLine.FindSet() then
+        CalcLineRec.SetRange("Calc No.", CalcHeader."No.");
+        CalcLineRec.SetCurrentKey("Calc No.", "Line No.");
+        if CalcLineRec.FindSet() then
             repeat
-                if CalcLine.Formula <> '' then begin
-                    CalcLine.Amount := FormulaParser.EvaluateFormula(CalcLine.Formula, CalcHeader);
-                    CalcLine.Modify(true);
+                if CalcLineRec.Formula <> '' then begin
+                    CalcLineRec.Amount := FormulaParserCU.EvaluateFormula(CalcLineRec.Formula, CalcHeader);
+                    CalcLineRec.Modify(true);
                 end;
-            until CalcLine.Next() = 0;
+            until CalcLineRec.Next() = 0;
 
         // Step 3: Update totals
         UpdateTotals(CalcHeader);
@@ -177,17 +176,13 @@ codeunit 90850 "SEW Calc Engine"
         NoItemErr: Label 'Item No. must be specified', Comment = 'DE="Artikelnummer muss angegeben werden"';
     begin
         // Check if item is specified
-        if CalcHeader."Item No." = '' then begin
+        if CalcHeader."Item No." = '' then
             Error(NoItemErr);
-            exit(false);
-        end;
 
         // Check if lines exist
         CalcLine.SetRange("Calc No.", CalcHeader."No.");
-        if CalcLine.IsEmpty() then begin
+        if CalcLine.IsEmpty() then
             Error(NoLinesErr);
-            exit(false);
-        end;
 
         exit(true);
     end;

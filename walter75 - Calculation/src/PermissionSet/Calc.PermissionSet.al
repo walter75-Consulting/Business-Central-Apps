@@ -14,6 +14,10 @@ permissionset 90899 "SEW Calc"
         tabledata "SEW Calc Header" = RMID,
         table "SEW Calc Line" = X,
         tabledata "SEW Calc Line" = RMID,
+        table "SEW Calc Simulation Header" = X,
+        tabledata "SEW Calc Simulation Header" = RMID,
+        table "SEW Calc Simulation Line" = X,
+        tabledata "SEW Calc Simulation Line" = RMID,
         // Pages
         page "SEW Calc Templates" = X,
         page "SEW Calc Template Card" = X,
@@ -22,12 +26,18 @@ permissionset 90899 "SEW Calc"
         page "SEW Calc Headers" = X,
         page "SEW Calc Card" = X,
         page "SEW Calc Lines" = X,
+        page "SEW Calc Simulation Card" = X,
+        page "SEW Calc Simulation List" = X,
+        page "SEW Calc Simulation Subform" = X,
+        page "SEW Calc Simulation FactBox" = X,
+        page "SEW Calc Cost Breakdown FB" = X,
         // Codeunits
         codeunit "SEW Calc Engine" = X,
         codeunit "SEW Calc Formula Parser" = X,
         codeunit "SEW Calc Price Management" = X,
         codeunit "SEW Calc Template Management" = X,
         codeunit "SEW Calc Integration Mgt." = X,
+        codeunit "SEW Calc Simulation Mgt." = X,
         // Report
         report "SEW Calculation Report" = X;
 }
