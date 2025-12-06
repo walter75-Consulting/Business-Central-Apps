@@ -293,6 +293,77 @@ page 90831 "SEW Calc Card"
                     SimCard.Run();
                 end;
             }
+
+            action(ExportToExcel)
+            {
+                ApplicationArea = All;
+                Caption = 'Export to Excel';
+                ToolTip = 'Export this calculation to an Excel file';
+                Image = ExportToExcel;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                var
+                    ExportMgt: Codeunit "SEW Calc Export Management";
+                begin
+                    ExportMgt.ExportCalculationToExcel(Rec."No.");
+                end;
+            }
+
+            action(ShowHistory)
+            {
+                ApplicationArea = All;
+                Caption = 'Show History';
+                ToolTip = 'View the history of changes for this calculation';
+                Image = History;
+                Promoted = true;
+                PromotedCategory = Category4;
+
+                trigger OnAction()
+                var
+                    CalcHistory: Record "SEW Calc History Entry";
+                    HistoryPage: Page "SEW Calc History List";
+                begin
+                    CalcHistory.SetRange("Calculation No.", Rec."No.");
+                    HistoryPage.SetTableView(CalcHistory);
+                    HistoryPage.Run();
+                end;
+            }
+
+            action(CreatePostCalc)
+            {
+                ApplicationArea = All;
+                Caption = 'Create Post-Calculation';
+                ToolTip = 'Create a post-calculation from a finished production order';
+                Image = PostDocument;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                var
+                    ProdOrder: Record "Production Order";
+                    PostCalc: Codeunit "SEW Calc Post-Calculation";
+                    ProdOrderNo: Code[20];
+                    NewCalcNo: Code[20];
+                begin
+                    // Find production orders linked to this calculation
+                    ProdOrder.SetRange("SEW Calc No.", Rec."No.");
+                    ProdOrder.SetRange(Status, ProdOrder.Status::Finished);
+                    if ProdOrder.FindFirst() then
+                        ProdOrderNo := ProdOrder."No."
+                    else begin
+                        Message('No finished production order found linked to this calculation');
+                        exit;
+                    end;
+
+                    NewCalcNo := PostCalc.CreatePostCalc(ProdOrderNo);
+                    if NewCalcNo <> '' then begin
+                        Rec.Get(NewCalcNo);
+                        CurrPage.Update(false);
+                    end;
+                end;
+            }
         }
 
         area(Reporting)

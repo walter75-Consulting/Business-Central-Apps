@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Phase 4: Advanced Features** (#13)
+  - History Entry Table (Table 90807) for change tracking and audit trail
+  - Calc Change Type Enum (Enum 90886) for history categorization
+  - History List Page (Page 90838) with filtering and comparison features
+  - Production Order Extension (TableExt 90898) with calculation link and cost tracking
+  - Production Integration Codeunit (Codeunit 90856) with real-time cost monitoring and alerts
+  - Post-Calculation Codeunit (Codeunit 90857) for actual vs. planned cost analysis
+  - Export Management Codeunit (Codeunit 90858) for Excel export functionality
+  - Event subscribers for automatic cost tracking on capacity and item ledger entries
+  - Cost variance alerts when actual costs exceed planned by threshold percentage
+  - Post-calculation creation from finished production orders
+  - Excel export for calculations, simulations, and templates
+  - History tracking with restore and compare functionality
+  - Comprehensive test suite with 3 Phase 4 tests (CalcPhase4Test 90958)
 - **Phase 3: Lot Size Simulation & Optimization** (#12)
   - Simulation Header Table (Table 90805) for simulation management
   - Simulation Line Table (Table 90806) for scenario comparison
