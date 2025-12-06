@@ -142,8 +142,17 @@ codeunit 90970 "SEW Calc Test Helper"
 
     /// <summary>
     /// Creates a test variable with specified type and value.
+    /// Uses WorkDate() for Valid From Date by default.
     /// </summary>
     procedure CreateTestVariable(var SEWCalcVariable: Record "SEW Calc Variable"; VariableCode: Code[20]; VariableType: Enum "SEW Calc Variable Type"; Value: Decimal)
+    begin
+        CreateTestVariable(SEWCalcVariable, VariableCode, VariableType, Value, WorkDate());
+    end;
+
+    /// <summary>
+    /// Creates a test variable with specified type, value, and valid from date.
+    /// </summary>
+    procedure CreateTestVariable(var SEWCalcVariable: Record "SEW Calc Variable"; VariableCode: Code[20]; VariableType: Enum "SEW Calc Variable Type"; Value: Decimal; ValidFromDate: Date)
     begin
         SEWCalcVariable.Init();
         SEWCalcVariable.Code := VariableCode;
@@ -151,8 +160,11 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcVariable.Type := VariableType;
         SEWCalcVariable.Value := Value;
         SEWCalcVariable.Global := true;
-        SEWCalcVariable."Valid From Date" := WorkDate();
-        SEWCalcVariable."Valid To Date" := CalcDate('<1Y>', WorkDate());
+        SEWCalcVariable."Valid From Date" := ValidFromDate;
+        if ValidFromDate <> 0D then
+            SEWCalcVariable."Valid To Date" := CalcDate('<1Y>', ValidFromDate)
+        else
+            SEWCalcVariable."Valid To Date" := 0D;  // No date calculation for 0D
         SEWCalcVariable.Insert(true);
     end;
 
@@ -168,21 +180,21 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcTemplate.Description := 'Test Template';
         SEWCalcTemplate.Insert(true);
 
-        // Line 1: Material
+        // Line 1: Cost A
         SEWCalcTemplateLine.Init();
         SEWCalcTemplateLine."Template Code" := SEWCalcTemplate.Code;
         SEWCalcTemplateLine."Line No." := 10000;
-        SEWCalcTemplateLine.Description := 'Material Cost';
-        SEWCalcTemplateLine.Formula := '{MATERIAL}';
+        SEWCalcTemplateLine.Description := 'Cost A';
+        SEWCalcTemplateLine.Formula := '{COST-A}';
         SEWCalcTemplateLine."Show in Report" := true;
         SEWCalcTemplateLine.Insert(true);
 
-        // Line 2: Labor
+        // Line 2: Cost B
         SEWCalcTemplateLine.Init();
         SEWCalcTemplateLine."Template Code" := SEWCalcTemplate.Code;
         SEWCalcTemplateLine."Line No." := 20000;
-        SEWCalcTemplateLine.Description := 'Labor Cost';
-        SEWCalcTemplateLine.Formula := '{LABOR}';
+        SEWCalcTemplateLine.Description := 'Cost B';
+        SEWCalcTemplateLine.Formula := '{COST-B}';
         SEWCalcTemplateLine."Show in Report" := true;
         SEWCalcTemplateLine.Insert(true);
 
@@ -191,7 +203,7 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcTemplateLine."Template Code" := SEWCalcTemplate.Code;
         SEWCalcTemplateLine."Line No." := 30000;
         SEWCalcTemplateLine.Description := 'Total Cost';
-        SEWCalcTemplateLine.Formula := '{MATERIAL} + {LABOR}';
+        SEWCalcTemplateLine.Formula := '{COST-A} + {COST-B}';
         SEWCalcTemplateLine.Bold := true;
         SEWCalcTemplateLine."Show in Report" := true;
         SEWCalcTemplateLine.Insert(true);

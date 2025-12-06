@@ -210,15 +210,15 @@ codeunit 90950 "SEW Calc Formula Parser Test"
         SEWCalcVariable: Record "SEW Calc Variable";
         Result: Decimal;
     begin
-        // [GIVEN] Variable OVERHEAD = 20% and formula "100 * {OVERHEAD}"
+        // [GIVEN] Variable MARGIN-1 = 20% and formula "100 * {MARGIN-1}"
         SEWCalcTestHelper.CreateTestCalculation(SEWCalcHeader);
-        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable, 'OVERHEAD', SEWCalcVariable.Type::Percentage, 20);
+        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable, 'MARGIN-1', SEWCalcVariable.Type::Percentage, 20, SEWCalcHeader."Calculation Date");
 
         // [WHEN] Evaluating formula
-        Result := SEWCalcFormulaParser.EvaluateFormula('100 * {OVERHEAD}', SEWCalcHeader);
+        Result := SEWCalcFormulaParser.EvaluateFormula('100 * {MARGIN-1}', SEWCalcHeader);
 
         // [THEN] Result should be 20 (100 * 0.20)
-        SEWTestAssert.AreEqual(20, Result, 'Percentage variable: 100 * {OVERHEAD} should equal 20');
+        SEWTestAssert.AreEqual(20, Result, 'Percentage variable: 100 * {MARGIN-1} should equal 20');
 
         // [CLEANUP]
         SEWCalcHeader.Delete(true);
@@ -234,7 +234,7 @@ codeunit 90950 "SEW Calc Formula Parser Test"
     begin
         // [GIVEN] Variable SETUP-FEE = 50.00 (absolute) and formula "100 + {SETUP-FEE}"
         SEWCalcTestHelper.CreateTestCalculation(SEWCalcHeader);
-        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable, 'SETUP-FEE', SEWCalcVariable.Type::"Absolute Value", 50);
+        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable, 'SETUP-FEE', SEWCalcVariable.Type::"Absolute Value", 50, SEWCalcHeader."Calculation Date");
 
         // [WHEN] Evaluating formula
         Result := SEWCalcFormulaParser.EvaluateFormula('100 + {SETUP-FEE}', SEWCalcHeader);
@@ -256,7 +256,7 @@ codeunit 90950 "SEW Calc Formula Parser Test"
     begin
         // [GIVEN] Variable MULTIPLIER = 1.5 (factor) and formula "100 * {MULTIPLIER}"
         SEWCalcTestHelper.CreateTestCalculation(SEWCalcHeader);
-        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable, 'MULTIPLIER', SEWCalcVariable.Type::Factor, 1.5);
+        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable, 'MULTIPLIER', SEWCalcVariable.Type::Factor, 1.5, SEWCalcHeader."Calculation Date");
 
         // [WHEN] Evaluating formula
         Result := SEWCalcFormulaParser.EvaluateFormula('100 * {MULTIPLIER}', SEWCalcHeader);
@@ -280,8 +280,8 @@ codeunit 90950 "SEW Calc Formula Parser Test"
         // [GIVEN] Variable VAR1 = 10 (absolute) and VAR2 = 20% (percentage)
         // [GIVEN] Formula "100 + {VAR1} * {VAR2}"
         SEWCalcTestHelper.CreateTestCalculation(SEWCalcHeader);
-        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable1, 'VAR1', SEWCalcVariable1.Type::"Absolute Value", 10);
-        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable2, 'VAR2', SEWCalcVariable2.Type::Percentage, 20);
+        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable1, 'VAR1', SEWCalcVariable1.Type::"Absolute Value", 10, SEWCalcHeader."Calculation Date");
+        SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable2, 'VAR2', SEWCalcVariable2.Type::Percentage, 20, SEWCalcHeader."Calculation Date");
 
         // [WHEN] Evaluating formula
         Result := SEWCalcFormulaParser.EvaluateFormula('100 + {VAR1} * {VAR2}', SEWCalcHeader);

@@ -70,28 +70,15 @@ codeunit 90853 "SEW Calc Template Management"
     var
         CalcTemplateLine: Record "SEW Calc Template Line";
         FormulaParser: Codeunit "SEW Calc Formula Parser";
-        ValidationErrors: Text;
-        LineNo: Integer;
-        InvalidFormulaMsg: Label 'Line %1: Invalid formula - %2', Comment = 'DE="Zeile %1: Ungültige Formel - %2"';
     begin
-        ValidationErrors := '';
-
         CalcTemplateLine.SetRange("Template Code", TemplateCode);
         if CalcTemplateLine.FindSet() then
             repeat
                 if CalcTemplateLine.Formula <> '' then begin
-                    if not FormulaParser.TestFormula(CalcTemplateLine.Formula) then begin
-                        if ValidationErrors <> '' then
-                            ValidationErrors += '\';
-                        ValidationErrors += StrSubstNo(InvalidFormulaMsg, CalcTemplateLine."Line No.", CalcTemplateLine.Formula);
-                    end;
+                    if not FormulaParser.TestFormula(CalcTemplateLine.Formula) then
+                        exit(false);
                 end;
             until CalcTemplateLine.Next() = 0;
-
-        if ValidationErrors <> '' then begin
-            Message(ValidationErrors);
-            exit(false);
-        end;
 
         exit(true);
     end;

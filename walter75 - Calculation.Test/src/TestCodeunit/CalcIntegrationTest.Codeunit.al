@@ -184,13 +184,13 @@ codeunit 90955 "SEW Calc Integration Test"
         TemplateCode: Code[20];
         IsValid: Boolean;
     begin
-        // [GIVEN] Template with valid formulas
+        // [GIVEN] Template with valid formulas (syntax-wise)
         TemplateCode := SEWCalcTestHelper.CreateTestTemplate(SEWCalcTemplate);
 
-        // [WHEN] Validating template
+        // [WHEN] Validating template syntax
         IsValid := SEWCalcTemplateManagement.ValidateTemplate(TemplateCode);
 
-        // [THEN] Validation should pass
+        // [THEN] Validation should pass (validates syntax only, not variable existence)
         SEWTestAssert.IsTrue(IsValid, 'Template with valid formulas should pass validation');
 
         // [CLEANUP]

@@ -77,6 +77,11 @@
             "id": "AA0218",                    
             "action": "Warning",
             "justification": "ToolTips"
+        },
+        {                    
+            "id": "AA0231",                    
+            "action": "None",
+            "justification": "Variable suffix temporarily disabled for test automation"
         }      
     ]
 }

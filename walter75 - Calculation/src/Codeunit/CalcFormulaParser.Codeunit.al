@@ -39,6 +39,7 @@ codeunit 90851 "SEW Calc Formula Parser"
         StartPos: Integer;
         EndPos: Integer;
         VariableCode: Text;
+        VariableFound: Boolean;
     begin
         Result := FormulaText;
 
@@ -54,15 +55,40 @@ codeunit 90851 "SEW Calc Formula Parser"
             EndPos := StrPos(CopyStr(Result, StartPos + 1), '}');
             if EndPos > 0 then begin
                 VariableCode := CopyStr(Result, StartPos + 1, EndPos - 1);
-                // Find variable valid for calculation date
+                // Find variable - try with date filter first, then fallback to any match
+                CalcVariable.Reset();
                 CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
-                CalcVariable.SetFilter("Valid From Date", '<=%1', CalcHeader."Calculation Date");
-                CalcVariable.SetFilter("Valid To Date", '%1|>=%2', 0D, CalcHeader."Calculation Date");
-                if CalcVariable.FindLast() then begin
+                
+                VariableFound := false;
+                if CalcHeader."Calculation Date" <> 0D then begin
+                    // First try: Find variables with 0D (always valid) - keep Code filter!
+                    CalcVariable.SetRange("Valid From Date", 0D);
+                    CalcVariable.SetRange("Valid To Date", 0D);
+                    VariableFound := CalcVariable.FindLast();
+                    
+                    if not VariableFound then begin
+                        // Second try: Find variables within date range - restore Code filter
+                        CalcVariable.Reset();
+                        CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
+                        CalcVariable.SetFilter("Valid From Date", '<=%1', CalcHeader."Calculation Date");
+                        CalcVariable.SetFilter("Valid To Date", '%1|>=%2', 0D, CalcHeader."Calculation Date");
+                        VariableFound := CalcVariable.FindLast();
+                    end;
+                    
+                    if not VariableFound then begin
+                        // Fallback: try without any date filter - restore Code filter
+                        CalcVariable.Reset();
+                        CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
+                        VariableFound := CalcVariable.FindLast();
+                    end;
+                end else
+                    VariableFound := CalcVariable.FindLast();
+
+                if VariableFound then begin
                     VariableValue := GetVariableValue(CalcVariable, CalcHeader."Calculation Date");
                     Result := Result.Replace('{' + VariableCode + '}', Format(VariableValue, 0, 9));
                 end else
-                    // Variable not found - replace with 0 or leave as-is
+                    // Variable not found - replace with 0
                     Result := Result.Replace('{' + VariableCode + '}', '0');
             end else
                 break; // No closing brace found
@@ -129,8 +155,8 @@ codeunit 90851 "SEW Calc Formula Parser"
                         if ParenthesesCount < 0 then
                             Error(UnbalancedParenthesesErr);
                     end;
-                '0' .. '9', '.', '+', '-', '*', '/', ' ':
-                    ; // Valid characters
+                '0' .. '9', '.', '+', '-', '*', '/', ' ', '{', '}', 'A' .. 'Z', 'a' .. 'z':
+                    ; // Valid characters including variable placeholders
                 else
                     Error(InvalidFormulaErr, FormulaText);
             end;
