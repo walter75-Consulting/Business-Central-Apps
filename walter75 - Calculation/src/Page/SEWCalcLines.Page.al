@@ -72,6 +72,12 @@ page 90832 "SEW Calc Lines"
                     ToolTip = 'Specifies the calculated result value';
                     StyleExpr = StyleTxt;
                 }
+                field(Amount; Rec.Amount)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the amount for this line';
+                    StyleExpr = StyleTxt;
+                }
                 field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;

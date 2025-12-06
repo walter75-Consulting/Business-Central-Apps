@@ -85,6 +85,13 @@ table 90804 "SEW Calc Line"
             DataClassification = CustomerContent;
             DecimalPlaces = 2 : 5;
         }
+        field(33; Amount; Decimal)
+        {
+            Caption = 'Amount';
+            ToolTip = 'Specifies the amount for this line';
+            DataClassification = CustomerContent;
+            DecimalPlaces = 2 : 5;
+        }
         field(40; Quantity; Decimal)
         {
             Caption = 'Quantity';
