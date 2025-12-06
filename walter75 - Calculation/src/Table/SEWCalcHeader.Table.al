@@ -232,13 +232,14 @@ table 90803 "SEW Calc Header"
     procedure AssistEdit(OldSEWCalcHeader: Record "SEW Calc Header"): Boolean
     var
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
-        NoSeriesCU: Codeunit "No. Series";
     begin
         SalesReceivablesSetup.Get();
         SalesReceivablesSetup.TestField("SEW Calc Nos.");
-        if NoSeriesCU.AreRelated(SalesReceivablesSetup."SEW Calc Nos.", OldSEWCalcHeader."No. Series") then
-            Rec."No. Series" := OldSEWCalcHeader."No. Series";
-        NoSeriesCU.TestManual(Rec."No. Series");
+        
+        if Rec."No." <> '' then
+            exit(false);
+            
+        Rec."No. Series" := SalesReceivablesSetup."SEW Calc Nos.";
         exit(true);
     end;
 }
