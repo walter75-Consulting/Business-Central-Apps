@@ -72,7 +72,7 @@ codeunit 90851 "SEW Calc Formula Parser"
         case CalcVariable.Type of
             CalcVariable.Type::Percentage:
                 exit(CalcVariable.Value / 100);
-            CalcVariable.Type::Absolute:
+            CalcVariable.Type::"Absolute Value":
                 exit(CalcVariable.Value);
             CalcVariable.Type::Factor:
                 exit(CalcVariable.Value);
