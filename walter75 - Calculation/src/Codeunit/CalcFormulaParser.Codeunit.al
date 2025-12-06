@@ -49,19 +49,19 @@ codeunit 90851 "SEW Calc Formula Parser"
         Result := Result.Replace('TOTALCOST', Format(CalcHeader."Total Cost", 0, 9));
 
         // Replace variables in {VARNAME} syntax
-        StartPos := StrPos(Result, '{');
-        while StartPos > 0 do begin
-            EndPos := StrPos(CopyStr(Result, StartPos), '}');
+        while StrPos(Result, '{') > 0 do begin
+            StartPos := StrPos(Result, '{');
+            EndPos := StrPos(CopyStr(Result, StartPos + 1), '}');
             if EndPos > 0 then begin
-                VariableCode := CopyStr(Result, StartPos + 1, EndPos - 2);
+                VariableCode := CopyStr(Result, StartPos + 1, EndPos - 1);
                 if CalcVariable.Get(CopyStr(VariableCode, 1, 20), 0D) then begin
                     VariableValue := GetVariableValue(CalcVariable, CalcHeader."Calculation Date");
                     Result := Result.Replace('{' + VariableCode + '}', Format(VariableValue, 0, 9));
-                end;
-            end;
-            StartPos := StrPos(CopyStr(Result, StartPos + EndPos), '{');
-            if StartPos > 0 then
-                StartPos := StartPos + StartPos + EndPos - 1;
+                end else
+                    // Variable not found - replace with 0 or leave as-is
+                    Result := Result.Replace('{' + VariableCode + '}', '0');
+            end else
+                break; // No closing brace found
         end;
 
         // Replace custom variables from template

@@ -170,10 +170,10 @@
         "schemaUpdateMode": "ForceSync"
       },
       {
-        "name": "local Sandbox (bc27dev01)",
+        "name": "local Sandbox (BC27dev01)",
         "request": "launch",
         "type": "al",
-        "server": "https://bc27dev01",
+        "server": "https://BC27dev01",
         "serverInstance": "BC",
         "port": 7049,
         "tenant": "default",
