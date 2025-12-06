@@ -1,0 +1,38 @@
+{
+  "id": "911a7e75-e915-4b0f-916b-4ac181c02ac7",
+  "name": "walter75 - Calculation",
+  "version": "26.1.0.99999",
+  "publisher": "walter75 - München",
+  "brief": "walter75 - Calculation",
+  "description": "walter75 - Calculation",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+  "logo": ".ressources/images/bc-logo.png",
+
+  "screenshots": [ ],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "resourceFolders": [".ressources"],
+  "resourceExposurePolicy": {
+      "allowDebugging": true,
+      "allowDownloadingSource": false,
+      "includeSourceInSymbolFile": false
+  },
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+      "NoImplicitWith",
+      "GenerateCaptions",
+      "TranslationFile"
+  ],	
+  "idRanges": [
+      {
+          "from": 90800,
+          "to": 90899
+      }
+  ],
+	"dependencies": [ ]
+}
