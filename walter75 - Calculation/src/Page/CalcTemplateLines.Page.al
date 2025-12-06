@@ -42,6 +42,11 @@ page 90822 "SEW Calc Template Lines"
                     ToolTip = 'Specifies the description of the calculation line';
                     StyleExpr = StyleTxt;
                 }
+                field(Indentation; Rec.Indentation)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the indentation level (0-10)';
+                }
                 field(Formula; Rec.Formula)
                 {
                     ApplicationArea = All;
