@@ -11,7 +11,7 @@ pageextension 90895 "SEW Sales Setup Ext" extends "Sales & Receivables Setup"
                 field("SEW Calc Nos."; Rec."SEW Calc Nos.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the number series for calculations';
+                    ToolTip = 'Specifies the number series for calculations.';
                 }
             }
         }

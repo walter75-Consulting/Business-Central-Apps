@@ -22,50 +22,50 @@ page 90822 "SEW Calc Template Lines"
                 field("Template Code"; Rec."Template Code")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the template code this line belongs to';
+                    ToolTip = 'Specifies the template code this line belongs to.';
                     Visible = false;
                 }
                 field("Line No."; Rec."Line No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the line number';
+                    ToolTip = 'Specifies the line number.';
                     Visible = false;
                 }
                 field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the type of calculation line';
+                    ToolTip = 'Specifies the type of calculation line.';
                 }
                 field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the description of the calculation line';
+                    ToolTip = 'Specifies the description of the calculation line.';
                     StyleExpr = StyleTxt;
                 }
                 field(Indentation; Rec.Indentation)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the indentation level (0-10)';
+                    ToolTip = 'Specifies the indentation level (0-10).';
                 }
                 field(Formula; Rec.Formula)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the formula for calculation';
+                    ToolTip = 'Specifies the formula for calculation.';
                 }
                 field("Variable Code"; Rec."Variable Code")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the variable code used in the formula';
+                    ToolTip = 'Specifies the variable code used in the formula.';
                 }
                 field(Bold; Rec.Bold)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies whether to display the line in bold';
+                    ToolTip = 'Specifies whether to display the line in bold.';
                 }
                 field("Show in Report"; Rec."Show in Report")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies whether to show this line in reports';
+                    ToolTip = 'Specifies whether to show this line in reports.';
                 }
             }
         }
