@@ -17,7 +17,6 @@ page 90822 "SEW Calc Template Lines"
             repeater(Group)
             {
                 IndentationColumn = Rec.Indentation;
-                ShowAsTree = true;
 
                 field("Template Code"; Rec."Template Code")
                 {

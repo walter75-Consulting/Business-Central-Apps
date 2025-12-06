@@ -17,7 +17,6 @@ page 90832 "SEW Calc Lines"
             repeater(Group)
             {
                 IndentationColumn = Rec.Indentation;
-                ShowAsTree = true;
 
                 field("Calc No."; Rec."Calc No.")
                 {
