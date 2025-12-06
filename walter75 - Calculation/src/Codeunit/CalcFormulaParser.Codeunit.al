@@ -54,7 +54,11 @@ codeunit 90851 "SEW Calc Formula Parser"
             EndPos := StrPos(CopyStr(Result, StartPos + 1), '}');
             if EndPos > 0 then begin
                 VariableCode := CopyStr(Result, StartPos + 1, EndPos - 1);
-                if CalcVariable.Get(CopyStr(VariableCode, 1, 20), 0D) then begin
+                // Find variable valid for calculation date
+                CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
+                CalcVariable.SetFilter("Valid From Date", '<=%1', CalcHeader."Calculation Date");
+                CalcVariable.SetFilter("Valid To Date", '%1|>=%2', 0D, CalcHeader."Calculation Date");
+                if CalcVariable.FindLast() then begin
                     VariableValue := GetVariableValue(CalcVariable, CalcHeader."Calculation Date");
                     Result := Result.Replace('{' + VariableCode + '}', Format(VariableValue, 0, 9));
                 end else
