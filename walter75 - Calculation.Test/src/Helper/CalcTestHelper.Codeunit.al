@@ -287,8 +287,8 @@ codeunit 90970 "SEW Calc Test Helper"
     begin
         CalcVariable.Init();
         CalcVariable.Code := VarCode;
-        CalcVariable."Valid From Date" := 0D; // Valid from beginning of time
-        CalcVariable."Valid To Date" := 0D;   // Valid forever
+        CalcVariable."Valid From Date" := WorkDate(); // Valid from today
+        CalcVariable."Valid To Date" := CalcDate('<1Y>', WorkDate()); // Valid for one year
         CalcVariable.Type := VarType;
         CalcVariable.Value := VarValue;
         CalcVariable.Description := 'Test Variable ' + VarCode;

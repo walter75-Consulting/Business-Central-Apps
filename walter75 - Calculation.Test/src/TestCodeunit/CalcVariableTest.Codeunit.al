@@ -121,9 +121,9 @@ codeunit 90951 "SEW Calc Variable Test"
         SEWCalcTestHelper.CreateTestVariable(SEWCalcVariable3, 'MARGIN-3', SEWCalcVariable3.Type::Percentage, 20);
 
         // [THEN] All variables should exist independently
-        SEWTestAssert.IsTrue(SEWCalcVariable1.Get('MARGIN-1', 0D), 'MARGIN-1 should exist');
-        SEWTestAssert.IsTrue(SEWCalcVariable2.Get('MARGIN-2', 0D), 'MARGIN-2 should exist');
-        SEWTestAssert.IsTrue(SEWCalcVariable3.Get('MARGIN-3', 0D), 'MARGIN-3 should exist');
+        SEWTestAssert.IsTrue(SEWCalcVariable1.Get('MARGIN-1', WorkDate()), 'MARGIN-1 should exist');
+        SEWTestAssert.IsTrue(SEWCalcVariable2.Get('MARGIN-2', WorkDate()), 'MARGIN-2 should exist');
+        SEWTestAssert.IsTrue(SEWCalcVariable3.Get('MARGIN-3', WorkDate()), 'MARGIN-3 should exist');
 
         // [CLEANUP]
         SEWCalcVariable1.Delete(true);
