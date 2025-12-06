@@ -55,7 +55,7 @@ codeunit 90852 "SEW Calc Price Management"
         case PriceSource of
             PriceSource::"Work Center Direct Cost":
                 exit(WorkCenter."Direct Unit Cost");
-            PriceSource::"Work Center Indirect Cost":
+            PriceSource::"Work Center Overhead Rate":
                 exit(WorkCenter."Indirect Cost %");
             else
                 exit(WorkCenter."Unit Cost");
@@ -67,7 +67,7 @@ codeunit 90852 "SEW Calc Price Management"
         case PriceSource of
             PriceSource::"Machine Center Direct Cost":
                 exit(MachineCenter."Direct Unit Cost");
-            PriceSource::"Machine Center Indirect Cost":
+            PriceSource::"Machine Center Overhead Rate":
                 exit(MachineCenter."Indirect Cost %");
             else
                 exit(MachineCenter."Unit Cost");

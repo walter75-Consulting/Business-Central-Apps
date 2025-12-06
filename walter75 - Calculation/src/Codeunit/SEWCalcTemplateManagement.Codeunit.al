@@ -44,7 +44,7 @@ codeunit 90853 "SEW Calc Template Management"
             CalcLine."Show in Report" := CalcTemplateLine."Show in Report";
             CalcLine.Formula := CalcTemplateLine.Formula;
             CalcLine."Variable Code" := CalcTemplateLine."Variable Code";
-            CalcLine."Source Type" := CalcLine."Source Type"::Template;
+            CalcLine."Source Type" := CalcLine."Source Type"::Formula;
             CalcLine.Insert(true);
 
             LineNo += 10000;

@@ -69,13 +69,13 @@ codeunit 90851 "SEW Calc Formula Parser"
     begin
         // For now, return the base value
         // Future enhancement: Date-based variable values
-        case CalcVariable."Variable Type" of
-            CalcVariable."Variable Type"::Percentage:
-                exit(CalcVariable."Value %" / 100);
-            CalcVariable."Variable Type"::Absolute:
-                exit(CalcVariable."Value Absolute");
-            CalcVariable."Variable Type"::Factor:
-                exit(CalcVariable."Value Factor");
+        case CalcVariable.Type of
+            CalcVariable.Type::Percentage:
+                exit(CalcVariable.Value / 100);
+            CalcVariable.Type::Absolute:
+                exit(CalcVariable.Value);
+            CalcVariable.Type::Factor:
+                exit(CalcVariable.Value);
             else
                 exit(0);
         end;
