@@ -47,9 +47,8 @@ codeunit 90970 "SEW Calc Test Helper"
         ProductionBOMLine."Quantity per" := 1;
         ProductionBOMLine.Insert(true);
 
-        // Certify BOM
-        ProductionBOMHeader.Status := ProductionBOMHeader.Status::Certified;
-        ProductionBOMHeader.Modify(true);
+        // Note: Keep BOM in "Under Development" status for test cleanup
+        // Setting to Certified prevents deletion in test cleanup
 
         // Create Work Center and Machine Center
         CreateTestWorkCenter(WorkCenter, 50.00); // 50 EUR/hour
@@ -81,9 +80,8 @@ codeunit 90970 "SEW Calc Test Helper"
         RoutingLine."Run Time" := 3;    // 3 minutes per piece
         RoutingLine.Insert(true);
 
-        // Certify Routing
-        RoutingHeader.Status := RoutingHeader.Status::Certified;
-        RoutingHeader.Modify(true);
+        // Note: Keep Routing in "Under Development" status for test cleanup
+        // Setting to Certified prevents deletion in test cleanup
 
         // Create main item with BOM and Routing
         Item.Init();
