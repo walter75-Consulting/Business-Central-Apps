@@ -5,6 +5,10 @@ page 90832 "SEW Calc Lines"
     ApplicationArea = All;
     SourceTable = "SEW Calc Line";
     AutoSplitKey = true;
+    DelayedInsert = true;
+    InsertAllowed = true;
+    DeleteAllowed = true;
+    ModifyAllowed = true;
 
     layout
     {
