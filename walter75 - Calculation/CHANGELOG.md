@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Post-calculation creation from finished production orders
   - Excel export for calculations, simulations, and templates
   - History tracking with restore and compare functionality
-  - Comprehensive test suite with 3 Phase 4 tests (CalcPhase4Test 90958)
+  - Comprehensive test suite with 17 Phase 4 tests (CalcPhase4Test 90958)
 - **Phase 3: Lot Size Simulation & Optimization** (#12)
   - Simulation Header Table (Table 90805) for simulation management
   - Simulation Line Table (Table 90806) for scenario comparison
