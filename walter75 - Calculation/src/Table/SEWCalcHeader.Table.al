@@ -227,4 +227,17 @@ table 90803 "SEW Calc Header"
         if Rec."Calculation Date" = 0D then
             Rec."Calculation Date" := WorkDate();
     end;
+
+    procedure AssistEdit(OldCalcHeader: Record "SEW Calc Header"): Boolean
+    var
+        SalesSetup: Record "Sales & Receivables Setup";
+        NoSeriesMgt: Codeunit "No. Series";
+    begin
+        SalesSetup.Get();
+        SalesSetup.TestField("SEW Calc Nos.");
+        if NoSeriesMgt.SelectSeries(SalesSetup."SEW Calc Nos.", OldCalcHeader."No. Series", Rec."No. Series") then begin
+            Rec."No." := NoSeriesMgt.GetNextNo(Rec."No. Series", WorkDate(), true);
+            exit(true);
+        end;
+    end;
 }
