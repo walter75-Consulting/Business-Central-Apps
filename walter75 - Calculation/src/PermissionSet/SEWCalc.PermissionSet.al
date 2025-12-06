@@ -1,6 +1,6 @@
-permissionset 90899 "SEW CALC"
+permissionset 90899 "SEW Calc"
 {
-    Caption = 'SEW Calculation';
+    Caption = 'SEW Calc', MaxLength = 30;
     Assignable = true;
     Permissions =
         // Tables

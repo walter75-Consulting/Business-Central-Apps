@@ -3,6 +3,7 @@ page 90831 "SEW Calc Card"
     Caption = 'Calculation Card';
     PageType = Document;
     ApplicationArea = All;
+    UsageCategory = None;
     SourceTable = "SEW Calc Header";
 
     layout
@@ -12,16 +13,13 @@ page 90831 "SEW Calc Card"
             group(General)
             {
                 Caption = 'General';
-                
+
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the unique number for the calculation';
 
                     trigger OnAssistEdit()
-                    var
-                        SalesSetup: Record "Sales & Receivables Setup";
-                        NoSeriesMgt: Codeunit "No. Series";
                     begin
                         if Rec.AssistEdit(xRec) then
                             CurrPage.Update();

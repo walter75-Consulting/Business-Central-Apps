@@ -9,6 +9,7 @@ table 90803 "SEW Calc Header"
     {
         field(1; "No."; Code[20])
         {
+            NotBlank = true;
             Caption = 'No.';
             ToolTip = 'Specifies the unique number for the calculation';
             DataClassification = CustomerContent;
@@ -214,30 +215,30 @@ table 90803 "SEW Calc Header"
 
     trigger OnInsert()
     var
-        SalesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit "No. Series";
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
+        NoSeriesCU: Codeunit "No. Series";
     begin
         if Rec."No." = '' then begin
-            SalesSetup.Get();
-            SalesSetup.TestField("SEW Calc Nos.");
-            Rec."No." := NoSeriesMgt.GetNextNo(SalesSetup."SEW Calc Nos.", WorkDate(), true);
-            Rec."No. Series" := SalesSetup."SEW Calc Nos.";
+            SalesReceivablesSetup.Get();
+            SalesReceivablesSetup.TestField("SEW Calc Nos.");
+            Rec."No." := NoSeriesCU.GetNextNo(SalesReceivablesSetup."SEW Calc Nos.", WorkDate(), true);
+            Rec."No. Series" := SalesReceivablesSetup."SEW Calc Nos.";
         end;
 
         if Rec."Calculation Date" = 0D then
             Rec."Calculation Date" := WorkDate();
     end;
 
-    procedure AssistEdit(OldCalcHeader: Record "SEW Calc Header"): Boolean
+    procedure AssistEdit(OldSEWCalcHeader: Record "SEW Calc Header"): Boolean
     var
-        SalesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit "No. Series";
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
+        NoSeriesCU: Codeunit "No. Series";
     begin
-        SalesSetup.Get();
-        SalesSetup.TestField("SEW Calc Nos.");
-        if NoSeriesMgt.SelectSeries(SalesSetup."SEW Calc Nos.", OldCalcHeader."No. Series", Rec."No. Series") then begin
-            Rec."No." := NoSeriesMgt.GetNextNo(Rec."No. Series", WorkDate(), true);
-            exit(true);
-        end;
+        SalesReceivablesSetup.Get();
+        SalesReceivablesSetup.TestField("SEW Calc Nos.");
+        if NoSeriesCU.AreRelated(SalesReceivablesSetup."SEW Calc Nos.", OldSEWCalcHeader."No. Series") then
+            Rec."No. Series" := OldSEWCalcHeader."No. Series";
+        NoSeriesCU.TestManual(Rec."No. Series");
+        exit(true);
     end;
 }

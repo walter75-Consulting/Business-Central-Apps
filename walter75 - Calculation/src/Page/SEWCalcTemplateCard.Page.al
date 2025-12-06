@@ -3,6 +3,7 @@ page 90821 "SEW Calc Template Card"
     Caption = 'Calculation Template Card';
     PageType = Card;
     ApplicationArea = All;
+    UsageCategory = None;
     SourceTable = "SEW Calc Template";
 
     layout
@@ -12,7 +13,7 @@ page 90821 "SEW Calc Template Card"
             group(General)
             {
                 Caption = 'General';
-                
+
                 field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
