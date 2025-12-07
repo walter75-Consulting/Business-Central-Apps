@@ -350,21 +350,21 @@ title: Home
 ---
 
 <div class="footer-info" style="background: linear-gradient(135deg, #00838F 0%, #006973 100%); color: white; border-top: none;">
-  <h3 style="color: white; margin-top: 0;">🚀 Personal Open-Source Project</h3>
-  <p style="opacity: 0.9; margin: 10px 0 20px 0;">Community-driven Business Central extensions by Sebastian Walter</p>
+  <h3 style="color: white !important; margin-top: 0; font-weight: 600;">🚀 Personal Open-Source Project</h3>
+  <p style="color: white !important; margin: 10px 0 20px 0; font-size: 1.05em;">Community-driven Business Central extensions by Sebastian Walter</p>
   
   <div style="display: flex; justify-content: center; gap: 30px; margin: 25px 0; flex-wrap: wrap;">
-    <a href="https://github.com/walter75-Consulting" style="color: white; text-decoration: none; font-weight: 500;">
+    <a href="https://github.com/walter75-Consulting" style="color: white !important; text-decoration: none; font-weight: 600; font-size: 1.05em;">
       <span style="font-size: 1.2em;">💻</span> GitHub
     </a>
-    <a href="mailto:sebastian@walter75.de" style="color: white; text-decoration: none; font-weight: 500;">
+    <a href="mailto:sebastian@walter75.de" style="color: white !important; text-decoration: none; font-weight: 600; font-size: 1.05em;">
       <span style="font-size: 1.2em;">📧</span> Personal Contact
     </a>
-    <a href="LICENSE" style="color: white; text-decoration: none; font-weight: 500;">
+    <a href="LICENSE" style="color: white !important; text-decoration: none; font-weight: 600; font-size: 1.05em;">
       <span style="font-size: 1.2em;">⚖️</span> MIT License
     </a>
   </div>
   
-  <p style="margin: 20px 0 0 0; opacity: 0.9; font-size: 0.9em;">MIT Licensed - Free to use, modify, and distribute</p>
-  <p style="margin: 5px 0 0 0; opacity: 0.8; font-size: 0.85em;">No commercial support • Community contributions welcome</p>
+  <p style="color: white !important; margin: 20px 0 0 0; font-size: 1em; font-weight: 500;">MIT Licensed - Free to use, modify, and distribute</p>
+  <p style="color: white !important; margin: 8px 0 0 0; font-size: 0.95em; font-weight: 500;">No commercial support • Community contributions welcome</p>
 </div>
