@@ -37,7 +37,6 @@ permissionset 90899 "SEW Calc"
         page "SEW Calc Cost Breakdown FB" = X,
         page "SEW Calc History List" = X,
         page "SEW Calc Activities" = X,
-        pageextension "SEW Order Processor RC Ext" = X,
         // Codeunits
         codeunit "SEW Calc Engine" = X,
         codeunit "SEW Calc Formula Parser" = X,
