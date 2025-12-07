@@ -4,7 +4,7 @@ enum 90883 "SEW Calc Price Source"
 
     value(0; " ")
     {
-        Caption = 'Empty';
+        Caption = ' ', Locked = true;
     }
     value(1; "Unit Cost")
     {

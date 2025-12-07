@@ -1,9 +1,11 @@
-page 90836 "SEW Calc Cost Breakdown FB"
+﻿page 90836 "SEW Calc Cost Breakdown FB"
 {
     Caption = 'Cost Calculation';
     PageType = CardPart;
     SourceTable = "Sales Line";
     Editable = false;
+    ApplicationArea = All;
+    Permissions = tabledata "SEW Calc Header" = r;
 
     layout
     {
@@ -16,9 +18,6 @@ page 90836 "SEW Calc Cost Breakdown FB"
 
                 field("SEW Calc No."; Rec."SEW Calc No.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Calc No.';
-                    ToolTip = 'Specifies the calculation number linked to this line';
 
                     trigger OnDrillDown()
                     var
@@ -40,33 +39,26 @@ page 90836 "SEW Calc Cost Breakdown FB"
 
                 field("Material Cost"; MaterialCost)
                 {
-                    ApplicationArea = All;
                     Caption = 'Material Cost';
-                    ToolTip = 'Specifies the material cost component';
-                    StyleExpr = 'Standard';
+                    ToolTip = 'Specifies the material cost component from the calculation.';
                 }
 
                 field("Labor Cost"; LaborCost)
                 {
-                    ApplicationArea = All;
                     Caption = 'Labor Cost';
-                    ToolTip = 'Specifies the labor cost component';
-                    StyleExpr = 'Standard';
+                    ToolTip = 'Specifies the labor cost component from the calculation.';
                 }
 
                 field("Overhead Cost"; OverheadCost)
                 {
-                    ApplicationArea = All;
                     Caption = 'Overhead Cost';
-                    ToolTip = 'Specifies the overhead cost component';
-                    StyleExpr = 'Standard';
+                    ToolTip = 'Specifies the overhead cost component from the calculation.';
                 }
 
                 field("Total Cost"; Rec."SEW Calculated Cost")
                 {
-                    ApplicationArea = All;
                     Caption = 'Total Cost';
-                    ToolTip = 'Specifies the total calculated cost';
+                    ToolTip = 'Specifies the total calculated cost from the linked calculation.';
                     Style = Strong;
                 }
             }
@@ -78,40 +70,31 @@ page 90836 "SEW Calc Cost Breakdown FB"
 
                 field("Unit Price"; Rec."Unit Price")
                 {
-                    ApplicationArea = All;
                     Caption = 'Unit Price';
-                    ToolTip = 'Specifies the unit price';
+                    ToolTip = 'Specifies the unit price for the sales line.';
                 }
 
                 field("Target Price"; Rec."SEW Target Price")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Target Price';
-                    ToolTip = 'Specifies the suggested target price';
                     Style = Attention;
                 }
 
                 field("Margin %"; Rec."SEW Calculated Margin %")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Margin %';
-                    ToolTip = 'Specifies the calculated margin percentage';
                     StyleExpr = MarginStyle;
                 }
 
                 field("Target Margin"; TargetMargin)
                 {
-                    ApplicationArea = All;
                     Caption = 'Target Margin %';
-                    ToolTip = 'Specifies the target margin percentage';
+                    ToolTip = 'Specifies the target margin percentage for this calculation.';
                     Editable = false;
                 }
 
                 field(MarginStatus; MarginStatusText)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Status';
-                    ToolTip = 'Specifies whether the margin meets the target';
+                    Caption = 'Margin Status';
+                    ToolTip = 'Specifies whether the calculated margin meets the target margin.';
                     StyleExpr = MarginStatusStyle;
                     ShowCaption = false;
                 }
@@ -158,24 +141,25 @@ page 90836 "SEW Calc Cost Breakdown FB"
 
         if not CalcExists then begin
             MarginStatusText := 'No calculation';
-            MarginStatusStyle := 'Standard';
-            MarginStyle := 'Standard';
+            MarginStatusStyle := Format(PageStyle::Standard);
+            MarginStyle := Format(PageStyle::Standard);
             exit;
         end;
 
         if Rec."SEW Calculated Margin %" >= TargetMargin then begin
             MarginStatusText := '✓ Above Target';
-            MarginStatusStyle := 'Favorable';
-            MarginStyle := 'Favorable';
+            MarginStatusStyle := Format(PageStyle::Favorable);
+            MarginStyle := Format(PageStyle::Favorable);
         end else
             if Rec."SEW Calculated Margin %" >= 15.0 then begin
                 MarginStatusText := '⚠ Below Target';
-                MarginStatusStyle := 'Attention';
-                MarginStyle := 'Attention';
+                MarginStatusStyle := Format(PageStyle::Attention);
+                MarginStyle := Format(PageStyle::Attention);
             end else begin
                 MarginStatusText := '⚠ Critical';
-                MarginStatusStyle := 'Unfavorable';
-                MarginStyle := 'Unfavorable';
+                MarginStatusStyle := Format(PageStyle::Unfavorable);
+                MarginStyle := Format(PageStyle::Unfavorable);
             end;
+
     end;
 }

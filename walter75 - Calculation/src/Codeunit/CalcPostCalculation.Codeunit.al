@@ -11,6 +11,8 @@ codeunit 90857 "SEW Calc Post-Calculation"
         NoLinkedCalcErr: Label 'No calculation is linked to production order %1', Comment = 'DE="Fertigungsauftrag %1 hat keine verknüpfte Kalkulation"';
         ProdOrderNotFinishedErr: Label 'Production order %1 is not finished', Comment = 'DE="Fertigungsauftrag %1 ist nicht abgeschlossen"';
         PostCalcCreatedMsg: Label 'Post-calculation %1 created from production order %2', Comment = 'DE="Nachkalkulation %1 erstellt von Fertigungsauftrag %2"';
+        PreCalcNotFoundErr: Label 'Pre-calculation %1 not found', Comment = 'DE="Vorkalkulation %1 nicht gefunden"';
+        PostCalcNotFoundErr: Label 'Post-calculation %1 not found', Comment = 'DE="Nachkalkulation %1 nicht gefunden"';
 
     procedure CreatePostCalc(ProdOrderNo: Code[20]): Code[20]
     var
@@ -29,7 +31,7 @@ codeunit 90857 "SEW Calc Post-Calculation"
 
         // Get pre-calculation
         if not SEWCalcHeaderPre.Get(ProductionOrder."SEW Calc No.") then
-            Error('Pre-calculation %1 not found', ProductionOrder."SEW Calc No.");
+            Error(PreCalcNotFoundErr, ProductionOrder."SEW Calc No.");
 
         // Create post-calculation header
         NewCalcNo := GetNextPostCalcNo(ProductionOrder."SEW Calc No.");
@@ -119,10 +121,10 @@ codeunit 90857 "SEW Calc Post-Calculation"
         TotalVar: Decimal;
     begin
         if not SEWCalcHeaderPre.Get(PreCalcNo) then
-            Error('Pre-calculation %1 not found', PreCalcNo);
+            Error(PreCalcNotFoundErr, PreCalcNo);
 
         if not SEWCalcHeaderPost.Get(PostCalcNo) then
-            Error('Post-calculation %1 not found', PostCalcNo);
+            Error(PostCalcNotFoundErr, PostCalcNo);
 
         // Total Cost fields are regular fields, not FlowFields
         MaterialVar := SEWCalcHeaderPost."Total Material Cost" - SEWCalcHeaderPre."Total Material Cost";

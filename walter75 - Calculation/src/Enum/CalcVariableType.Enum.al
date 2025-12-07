@@ -4,7 +4,7 @@ enum 90881 "SEW Calc Variable Type"
 
     value(0; " ")
     {
-        Caption = 'Empty';
+        Caption = ' ', Locked = true;
     }
     value(1; Percentage)
     {

@@ -1,19 +1,27 @@
 codeunit 90850 "SEW Calc Engine"
 {
+    Permissions = tabledata "SEW Calc Header" = rm,
+                  tabledata "SEW Calc Line" = rm,
+                  tabledata "SEW Calc Template" = r,
+                  tabledata Item = rm;
+
     /// <summary>
     /// Main calculation procedure. Executes the full calculation workflow.
     /// 1. Gets BOM/Routing costs
     /// 2. Evaluates all formulas
     /// 3. Updates totals
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record to process.</param>
     procedure Calculate(var SEWCalcHeader: Record "SEW Calc Header")
     begin
         Calculate(SEWCalcHeader, false);
     end;
 
     /// <summary>
-    /// Main calculation procedure with option to skip UI messages.
+    /// Main calculation procedure with option to skip messages.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record to process.</param>
+    /// <param name="SkipMessages">If true, suppresses user messages during calculation.</param>
     procedure Calculate(var SEWCalcHeader: Record "SEW Calc Header"; SkipMessages: Boolean)
     var
         SEWCalcLine: Record "SEW Calc Line";
@@ -60,6 +68,8 @@ codeunit 90850 "SEW Calc Engine"
     /// Retrieves material costs from Production BOM.
     /// Updates the Total Material Cost in the header.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="PriceSource">The price source to use for material costs.</param>
     procedure GetBOMCost(var SEWCalcHeader: Record "SEW Calc Header"; PriceSource: Enum "SEW Calc Price Source")
     var
         SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
@@ -82,6 +92,8 @@ codeunit 90850 "SEW Calc Engine"
     /// Retrieves labor costs from Routing.
     /// Updates the Total Labor Cost in the header.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="PriceSource">The price source to use for labor costs.</param>
     procedure GetRoutingCost(var SEWCalcHeader: Record "SEW Calc Header"; PriceSource: Enum "SEW Calc Price Source")
     var
         SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
@@ -104,6 +116,7 @@ codeunit 90850 "SEW Calc Engine"
     /// Applies overhead surcharges based on material and labor costs.
     /// This is a placeholder - actual overhead logic will be enhanced in Phase 2.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure ApplySurcharges(var SEWCalcHeader: Record "SEW Calc Header")
     var
         SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
@@ -127,6 +140,7 @@ codeunit 90850 "SEW Calc Engine"
     /// Sums up Material, Labor, and Overhead costs.
     /// Calculates margin if target sales price is set.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure UpdateTotals(var SEWCalcHeader: Record "SEW Calc Header")
     var
         SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
@@ -150,6 +164,7 @@ codeunit 90850 "SEW Calc Engine"
     /// Calculates from template - main entry point for template-based calculations.
     /// Creates calculation lines from template and executes calculation.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure CalculateFromTemplate(var SEWCalcHeader: Record "SEW Calc Header")
     var
         SEWCalcTemplateManagement: Codeunit "SEW Calc Template Management";
@@ -169,6 +184,8 @@ codeunit 90850 "SEW Calc Engine"
     /// Validates a calculation before release.
     /// Checks for required data and valid totals.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record to validate.</param>
+    /// <returns>True if validation passes.</returns>
     procedure ValidateCalculation(var SEWCalcHeader: Record "SEW Calc Header"): Boolean
     var
         SEWCalcLine: Record "SEW Calc Line";
@@ -191,9 +208,11 @@ codeunit 90850 "SEW Calc Engine"
     /// Transfers calculation results to the Item card.
     /// Updates Unit Cost and Last Direct Cost on the item.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure TransferToItem(var SEWCalcHeader: Record "SEW Calc Header")
     var
         Item: Record Item;
+        ConfirmManagement: Codeunit "Confirm Management";
         TransferQst: Label 'Do you want to transfer the calculation results to Item %1?\Total Cost: %2', Comment = 'DE="Möchten Sie die Kalkulationsergebnisse auf Artikel %1 übertragen?\Gesamtkosten: %2"';
         TransferredMsg: Label 'Calculation results transferred to Item %1', Comment = 'DE="Kalkulationsergebnisse auf Artikel %1 übertragen"';
     begin
@@ -203,7 +222,7 @@ codeunit 90850 "SEW Calc Engine"
         if not Item.Get(SEWCalcHeader."Item No.") then
             exit;
 
-        if not Confirm(StrSubstNo(TransferQst, Item."No.", SEWCalcHeader."Total Cost"), false) then
+        if not ConfirmManagement.GetResponseOrDefault(StrSubstNo(TransferQst, Item."No.", SEWCalcHeader."Total Cost"), false) then
             exit;
 
         Item."Unit Cost" := SEWCalcHeader."Total Cost";

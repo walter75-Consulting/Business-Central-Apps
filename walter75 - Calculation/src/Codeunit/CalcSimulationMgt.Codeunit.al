@@ -4,7 +4,8 @@ codeunit 90854 "SEW Calc Simulation Mgt."
                   tabledata "SEW Calc Simulation Line" = rimd,
                   tabledata "SEW Calc Header" = r;
 
-
+    var
+        CalcNotFoundErr: Label 'Calculation %1 not found', Comment = 'DE="Kalkulation %1 nicht gefunden"';
 
     procedure CreateSimulation(CalcNo: Code[20]; LotSizes: List of [Decimal]; TargetSalesPrice: Decimal; TargetMargin: Decimal): Code[20]
     var
@@ -15,7 +16,7 @@ codeunit 90854 "SEW Calc Simulation Mgt."
         LotSize: Decimal;
     begin
         if not SEWCalcHeader.Get(CalcNo) then
-            Error('Calculation %1 not found', CalcNo);
+            Error(CalcNotFoundErr, CalcNo);
 
         // Create simulation header
         SEWCalcSimulationHeader.Init();
@@ -163,7 +164,7 @@ codeunit 90854 "SEW Calc Simulation Mgt."
                 CurrentScore += (1000 / SEWCalcSimulationLine."Unit Cost");
 
             SEWCalcSimulationLine."Recommendation Score" := CurrentScore;
-            SEWCalcSimulationLine.Modify();
+            SEWCalcSimulationLine.Modify(false);
 
             if CurrentScore > BestScore then begin
                 BestScore := CurrentScore;
@@ -174,17 +175,17 @@ codeunit 90854 "SEW Calc Simulation Mgt."
         // Mark the best scenario as recommended
         if SEWCalcSimulationLineBest."Line No." > 0 then begin
             SEWCalcSimulationLine.SetRange("Simulation No.", SimulationNo);
-            SEWCalcSimulationLine.ModifyAll("Is Recommended", false);
+            SEWCalcSimulationLine.ModifyAll("Is Recommended", false, false);
 
             // Reload BestLine to ensure database connection
             if SEWCalcSimulationLine.Get(SEWCalcSimulationLineBest."Simulation No.", SEWCalcSimulationLineBest."Line No.") then begin
                 SEWCalcSimulationLine."Is Recommended" := true;
-                SEWCalcSimulationLine.Modify();
+                SEWCalcSimulationLine.Modify(false);
             end;
 
             if SEWCalcSimulationHeader.Get(SimulationNo) then begin
                 SEWCalcSimulationHeader."Recommended Scenario Code" := SEWCalcSimulationLineBest."Scenario Code";
-                SEWCalcSimulationHeader.Modify();
+                SEWCalcSimulationHeader.Modify(false);
             end;
         end;
     end;

@@ -117,6 +117,56 @@ Rec."Item No."  // ✅ Correct
 ### Extensibility
 Objects marked `Extensible = true;` allow other extensions to extend them (common pattern)
 
+### Code Quality Rules (LinterCop)
+**Follow BusinessCentral.LinterCop rules for all code:** https://github.com/StefanMaron/BusinessCentral.LinterCop/wiki
+
+**Key Rules to Follow:**
+- **LC0019**: All fields must have `DataClassification` property
+- **LC0020**: Page fields need `ApplicationArea` property
+- **LC0026**: All `ToolTip` properties must end with a period (.)
+- **LC0035**: Fields not on pages need `AllowInCustomizations = AsReadOnly;`
+- **LC0048**: Use `Error()` with Label variables, not inline strings (for telemetry)
+- **LC0021**: Use `Confirm Management` codeunit instead of direct `Confirm()` calls
+- **LC0068**: Declare explicit `Permissions` in objects accessing table data
+- **LC0086**: Use `Format(PageStyle::Standard)` instead of string literals for StyleExpr
+- **LC0045**: Enums should reserve value 0 for Empty
+- **LC0084**: Check return value of `Get()` method with `if Get() then`
+- **AW0011**: Use modern `actionref` pattern in `area(Promoted)` instead of deprecated `Promoted = true` properties
+
+**Permissions Declaration Pattern:**
+```al
+codeunit 90850 "SEW Calc Engine"
+{
+    Permissions = tabledata "SEW Calc Header" = rm,
+                  tabledata "SEW Calc Line" = r,
+                  tabledata Item = r;
+    // r=read, i=insert, m=modify, d=delete
+}
+```
+
+**Modern Action Promotion Pattern:**
+```al
+actions
+{
+    area(Processing)
+    {
+        action(MyAction)
+        {
+            Caption = 'My Action';
+            Image = Action;
+            // NO Promoted = true here!
+        }
+    }
+    area(Promoted)
+    {
+        group(Category_Process)
+        {
+            actionref(MyAction_Promoted; MyAction) { }
+        }
+    }
+}
+```
+
 ## Common Patterns
 
 ### Single Instance Codeunits

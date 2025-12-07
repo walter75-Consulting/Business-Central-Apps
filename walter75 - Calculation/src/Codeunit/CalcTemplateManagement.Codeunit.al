@@ -1,9 +1,15 @@
 codeunit 90853 "SEW Calc Template Management"
 {
+    Permissions = tabledata "SEW Calc Header" = rm,
+                  tabledata "SEW Calc Line" = rimd,
+                  tabledata "SEW Calc Template" = ri,
+                  tabledata "SEW Calc Template Line" = ri;
+
     /// <summary>
     /// Copies template lines to a calculation header.
     /// Creates new calculation lines based on the template.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure CopyTemplateToCalc(var SEWCalcHeader: Record "SEW Calc Header")
     begin
         CopyTemplateToCalc(SEWCalcHeader, false);
@@ -12,10 +18,13 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Copies template lines to a calculation header with optional confirmation skip.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="SkipConfirmation">If true, skips confirmation dialogs.</param>
     procedure CopyTemplateToCalc(var SEWCalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
         SEWCalcTemplateLine: Record "SEW Calc Template Line";
         SEWCalcLine: Record "SEW Calc Line";
+        ConfirmManagement: Codeunit "Confirm Management";
         LineNo: Integer;
         CopyLinesQst: Label 'Do you want to copy template lines to this calculation?', Comment = 'DE="Möchten Sie die Vorlagenzeilen in diese Kalkulation kopieren?"';
         TemplateCopiedMsg: Label 'Template lines copied successfully. %1 lines created.', Comment = 'DE="Vorlagenzeilen erfolgreich kopiert. %1 Zeilen erstellt."';
@@ -28,7 +37,7 @@ codeunit 90853 "SEW Calc Template Management"
         SEWCalcLine.SetRange("Calc No.", SEWCalcHeader."No.");
         if not SEWCalcLine.IsEmpty() then
             if not SkipConfirmation then
-                if not Confirm(CopyLinesQst, false) then
+                if not ConfirmManagement.GetResponseOrDefault(CopyLinesQst, false) then
                     exit;
 
         // Delete existing lines
@@ -60,12 +69,14 @@ codeunit 90853 "SEW Calc Template Management"
         until SEWCalcTemplateLine.Next() = 0;
 
         if not SkipConfirmation then
-            Message(TemplateCopiedMsg, SEWCalcLine.Count);
+            Message(TemplateCopiedMsg, SEWCalcLine.Count());
     end;
 
     /// <summary>
     /// Validates a template for circular references and invalid formulas.
     /// </summary>
+    /// <param name="TemplateCode">The template code to validate.</param>
+    /// <returns>True if valid, false otherwise.</returns>
     procedure ValidateTemplate(TemplateCode: Code[20]): Boolean
     var
         SEWCalcTemplateLine: Record "SEW Calc Template Line";
@@ -85,6 +96,9 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Creates a new template based on an existing one (template copy).
     /// </summary>
+    /// <param name="FromTemplateCode">The source template code to copy from.</param>
+    /// <param name="ToTemplateCode">The target template code to create.</param>
+    /// <param name="ToDescription">The description for the new template.</param>
     procedure CopyTemplate(FromTemplateCode: Code[20]; ToTemplateCode: Code[20]; ToDescription: Text[100])
     var
         SEWCalcTemplateFrom: Record "SEW Calc Template";
@@ -133,6 +147,7 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Archives a calculation by changing its status.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure ArchiveCalculation(var SEWCalcHeader: Record "SEW Calc Header")
     begin
         ArchiveCalculation(SEWCalcHeader, false);
@@ -141,12 +156,15 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Archives a calculation by changing its status with optional confirmation skip.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="SkipConfirmation">If true, skips confirmation dialogs.</param>
     procedure ArchiveCalculation(var SEWCalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
+        ConfirmManagement: Codeunit "Confirm Management";
         ArchiveQst: Label 'Do you want to archive this calculation?', Comment = 'DE="Möchten Sie diese Kalkulation archivieren?"';
     begin
         if not SkipConfirmation then
-            if not Confirm(ArchiveQst, false) then
+            if not ConfirmManagement.GetResponseOrDefault(ArchiveQst, false) then
                 exit;
 
         SEWCalcHeader.Status := SEWCalcHeader.Status::Archived;
@@ -156,6 +174,7 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Releases a calculation for use.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure ReleaseCalculation(var SEWCalcHeader: Record "SEW Calc Header")
     begin
         ReleaseCalculation(SEWCalcHeader, false);
@@ -164,12 +183,15 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Releases a calculation for use with optional confirmation skip.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="SkipConfirmation">If true, skips confirmation dialogs.</param>
     procedure ReleaseCalculation(var SEWCalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
+        ConfirmManagement: Codeunit "Confirm Management";
         ReleaseQst: Label 'Do you want to release this calculation?', Comment = 'DE="Möchten Sie diese Kalkulation freigeben?"';
     begin
         if not SkipConfirmation then
-            if not Confirm(ReleaseQst, false) then
+            if not ConfirmManagement.GetResponseOrDefault(ReleaseQst, false) then
                 exit;
 
         SEWCalcHeader.Status := SEWCalcHeader.Status::Released;
@@ -179,6 +201,7 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Reopens a released calculation for editing.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
     procedure ReopenCalculation(var SEWCalcHeader: Record "SEW Calc Header")
     begin
         ReopenCalculation(SEWCalcHeader, false);
@@ -187,12 +210,15 @@ codeunit 90853 "SEW Calc Template Management"
     /// <summary>
     /// Reopens a released calculation for editing with optional confirmation skip.
     /// </summary>
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="SkipConfirmation">If true, skips confirmation dialogs.</param>
     procedure ReopenCalculation(var SEWCalcHeader: Record "SEW Calc Header"; SkipConfirmation: Boolean)
     var
+        ConfirmManagement: Codeunit "Confirm Management";
         ReopenQst: Label 'Do you want to reopen this calculation for editing?', Comment = 'DE="Möchten Sie diese Kalkulation zum Bearbeiten wieder öffnen?"';
     begin
         if not SkipConfirmation then
-            if not Confirm(ReopenQst, false) then
+            if not ConfirmManagement.GetResponseOrDefault(ReopenQst, false) then
                 exit;
 
         SEWCalcHeader.Status := SEWCalcHeader.Status::Draft;

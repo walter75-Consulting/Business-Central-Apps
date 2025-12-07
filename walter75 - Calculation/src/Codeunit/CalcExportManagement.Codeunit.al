@@ -13,6 +13,9 @@ codeunit 90858 "SEW Calc Export Management"
         TemplateFileNameTxt: Label 'Template_%1.xlsx', Comment = 'DE="Vorlage_%1.xlsx"';
         ExportSuccessMsg: Label 'Excel file exported successfully', Comment = 'DE="Excel-Datei erfolgreich exportiert"';
         NoLinesErr: Label 'No lines to export for %1', Comment = 'DE="Keine Zeilen zum Exportieren für %1"';
+        CalcNotFoundErr: Label 'Calculation %1 not found', Comment = 'DE="Kalkulation %1 nicht gefunden"';
+        SimulationNotFoundErr: Label 'Simulation %1 not found', Comment = 'DE="Simulation %1 nicht gefunden"';
+        TemplateNotFoundErr: Label 'Template %1 not found', Comment = 'DE="Vorlage %1 nicht gefunden"';
 
     procedure ExportCalculationToExcel(CalcNo: Code[20])
     var
@@ -23,13 +26,13 @@ codeunit 90858 "SEW Calc Export Management"
         RowNo: Integer;
     begin
         if not SEWCalcHeader.Get(CalcNo) then
-            Error('Calculation %1 not found', CalcNo);
+            Error(CalcNotFoundErr, CalcNo);
 
         SEWCalcLine.SetRange("Calc No.", CalcNo);
         if not SEWCalcLine.FindSet() then
             Error(NoLinesErr, CalcNo);
 
-        TempExcelBuffer.DeleteAll();
+        TempExcelBuffer.DeleteAll(false);
         RowNo := 1;
 
         // Add header information
@@ -83,13 +86,13 @@ codeunit 90858 "SEW Calc Export Management"
         RowNo: Integer;
     begin
         if not SEWCalcSimulationHeader.Get(SimulationNo) then
-            Error('Simulation %1 not found', SimulationNo);
+            Error(SimulationNotFoundErr, SimulationNo);
 
         SEWCalcSimulationLine.SetRange("Simulation No.", SimulationNo);
         if not SEWCalcSimulationLine.FindSet() then
             Error(NoLinesErr, SimulationNo);
 
-        TempExcelBuffer.DeleteAll();
+        TempExcelBuffer.DeleteAll(false);
         RowNo := 1;
 
         // Add simulation header
@@ -141,13 +144,13 @@ codeunit 90858 "SEW Calc Export Management"
         RowNo: Integer;
     begin
         if not SEWCalcTemplate.Get(TemplateCode) then
-            Error('Template %1 not found', TemplateCode);
+            Error(TemplateNotFoundErr, TemplateCode);
 
         SEWCalcTemplateLine.SetRange("Template Code", TemplateCode);
         if not SEWCalcTemplateLine.FindSet() then
             Error(NoLinesErr, TemplateCode);
 
-        TempExcelBuffer.DeleteAll();
+        TempExcelBuffer.DeleteAll(false);
         RowNo := 1;
 
         // Add template header

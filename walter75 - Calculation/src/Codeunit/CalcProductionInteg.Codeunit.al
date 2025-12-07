@@ -9,6 +9,8 @@ codeunit 90856 "SEW Calc Production Integ"
     var
         AlertMsg: Label 'Production Order %1: Actual costs (%2) exceed planned costs (%3) by %4%', Comment = 'DE="Fertigungsauftrag %1: Istkosten (%2) überschreiten Plankosten (%3) um %4%"';
         NoCalcLinkedErr: Label 'No calculation is linked to this production order', Comment = 'DE="Diesem Fertigungsauftrag ist keine Kalkulation zugeordnet"';
+        CalcNotFoundErr: Label 'Calculation %1 not found', Comment = 'DE="Kalkulation %1 nicht gefunden"';
+        ProdOrderNotFoundErr: Label 'Production Order %1 not found', Comment = 'DE="Fertigungsauftrag %1 nicht gefunden"';
 
     [EventSubscriber(ObjectType::Table, Database::"Capacity Ledger Entry", OnAfterInsertEvent, '', false, false)]
     local procedure OnCapacityLedgerEntryInsert(var Rec: Record "Capacity Ledger Entry")
@@ -176,7 +178,7 @@ codeunit 90856 "SEW Calc Production Integ"
         SEWCalcHistoryEntry: Record "SEW Calc History Entry";
     begin
         if not SEWCalcHeader.Get(CalcNo) then
-            Error('Calculation %1 not found', CalcNo);
+            Error(CalcNotFoundErr, CalcNo);
 
         ProductionOrder.Validate("SEW Calc No.", CalcNo);
         ProductionOrder.Modify(true);
@@ -197,7 +199,7 @@ codeunit 90856 "SEW Calc Production Integ"
     begin
         if not ProductionOrder.Get(ProductionOrder.Status::Released, ProdOrderNo) then
             if not ProductionOrder.Get(ProductionOrder.Status::"Firm Planned", ProdOrderNo) then
-                Error('Production Order %1 not found', ProdOrderNo);
+                Error(ProdOrderNotFoundErr, ProdOrderNo);
 
         if ProductionOrder."SEW Calc No." = '' then
             Error(NoCalcLinkedErr);

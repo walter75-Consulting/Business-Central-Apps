@@ -1,4 +1,4 @@
-tableextension 90890 "SEW Item Calc Ext" extends Item
+﻿tableextension 90890 "SEW Item Calc Ext" extends Item
 {
     fields
     {
@@ -6,7 +6,6 @@ tableextension 90890 "SEW Item Calc Ext" extends Item
         {
             Caption = 'Last Calculation No.';
             ToolTip = 'Specifies the most recent calculation for this item.';
-            DataClassification = CustomerContent;
             TableRelation = "SEW Calc Header"."No." where("Item No." = field("No."));
             Editable = false;
         }
@@ -14,7 +13,6 @@ tableextension 90890 "SEW Item Calc Ext" extends Item
         {
             Caption = 'Default Calculation Template';
             ToolTip = 'Specifies the default calculation template for this item.';
-            DataClassification = CustomerContent;
             TableRelation = "SEW Calc Template".Code where(Status = const(Released));
         }
     }

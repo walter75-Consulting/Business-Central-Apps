@@ -3,14 +3,15 @@ codeunit 90855 "SEW Calc Integration Mgt."
     Permissions = tabledata "Sales Header" = rm,
                   tabledata "Sales Line" = rm,
                   tabledata "SEW Calc Header" = rim,
-                  tabledata "SEW Calc Line" = rim;
+                  tabledata "SEW Calc Line" = rim,
+                  tabledata "Sales & Receivables Setup" = r;
 
-    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnAfterValidateEvent, "No.", false, false)]
     local procedure OnAfterValidateSalesLineNo(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
     var
         SalesHeaderRec: Record "Sales Header";
     begin
-        if Rec.IsTemporary then
+        if Rec.IsTemporary() then
             exit;
 
         if Rec."Document Type" <> Rec."Document Type"::Quote then
@@ -31,10 +32,10 @@ codeunit 90855 "SEW Calc Integration Mgt."
         CreateCalculationForLine(Rec, SalesHeaderRec);
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'Unit Price', false, false)]
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnAfterValidateEvent, "Unit Price", false, false)]
     local procedure OnAfterValidateSalesLineUnitPrice(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
     begin
-        if Rec.IsTemporary then
+        if Rec.IsTemporary() then
             exit;
 
         if Rec."SEW Calc No." = '' then

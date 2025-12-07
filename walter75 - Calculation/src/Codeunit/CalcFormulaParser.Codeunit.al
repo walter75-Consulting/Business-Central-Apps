@@ -1,10 +1,19 @@
 codeunit 90851 "SEW Calc Formula Parser"
 {
+    Permissions = tabledata "SEW Calc Variable" = r,
+                  tabledata "SEW Calc Template Line" = r;
+
+    var
+        MissingClosingParenthesisErr: Label 'Missing closing parenthesis', Comment = 'DE="Schließende Klammer fehlt"';
+        ExpectedNumberErr: Label 'Expected number in expression', Comment = 'DE="Zahl im Ausdruck erwartet"';
     /// <summary>
     /// Evaluates a formula string and returns the calculated result.
     /// Supports basic math operators: +, -, *, /, ()
     /// Replaces variables before evaluation.
     /// </summary>
+    /// <param name="FormulaText">The formula text to evaluate.</param>
+    /// <param name="SEWCalcHeader">The calculation header record for variable context.</param>
+    /// <returns>The calculated result.</returns>
     procedure EvaluateFormula(FormulaText: Text; var SEWCalcHeader: Record "SEW Calc Header"): Decimal
     var
         ProcessedFormula: Text;
@@ -30,6 +39,9 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// System variables: MATERIAL, LABOR, OVERHEAD, TOTALCOST
     /// Custom variables: VAR001, VAR002, etc.
     /// </summary>
+    /// <param name="FormulaText">The formula text containing variables.</param>
+    /// <param name="SEWCalcHeader">The calculation header record for variable context.</param>
+    /// <returns>The formula text with variables replaced by values.</returns>
     local procedure ReplaceVariables(FormulaText: Text; var SEWCalcHeader: Record "SEW Calc Header"): Text
     var
         SEWCalcVariable: Record "SEW Calc Variable";
@@ -113,6 +125,8 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// <summary>
     /// Gets the value of a variable.
     /// </summary>
+    /// <param name="SEWCalcVariable">The variable record.</param>
+    /// <returns>The variable value.</returns>
     local procedure GetVariableValue(var SEWCalcVariable: Record "SEW Calc Variable"): Decimal
     begin
         // For now, return the base value
@@ -133,6 +147,7 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// Validates a formula for correct syntax.
     /// Checks for balanced parentheses and valid characters.
     /// </summary>
+    /// <param name="FormulaText">The formula text to validate.</param>
     local procedure ValidateFormula(FormulaText: Text)
     var
         i: Integer;
@@ -170,6 +185,8 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// Supports: +, -, *, /, ()
     /// Respects operator precedence.
     /// </summary>
+    /// <param name="Expression">The mathematical expression to evaluate.</param>
+    /// <returns>The calculated result.</returns>
     local procedure EvaluateMathExpression(Expression: Text): Decimal
     var
         Result: Decimal;
@@ -182,6 +199,8 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// <summary>
     /// Parses and evaluates addition and subtraction.
     /// </summary>
+    /// <param name="Expression">The expression to parse.</param>
+    /// <returns>The parsed result.</returns>
     local procedure ParseExpression(var Expression: Text): Decimal
     var
         Result: Decimal;
@@ -207,6 +226,8 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// <summary>
     /// Parses and evaluates multiplication and division.
     /// </summary>
+    /// <param name="Expression">The expression to parse.</param>
+    /// <returns>The parsed result.</returns>
     local procedure ParseTerm(var Expression: Text): Decimal
     var
         Result: Decimal;
@@ -232,6 +253,8 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// <summary>
     /// Parses and evaluates numbers and parenthesized expressions.
     /// </summary>
+    /// <param name="Expression">The expression to parse.</param>
+    /// <returns>The parsed result.</returns>
     local procedure ParseFactor(var Expression: Text): Decimal
     var
         Result: Decimal;
@@ -252,7 +275,7 @@ codeunit 90851 "SEW Calc Formula Parser"
             if (StrLen(Expression) > 0) and (Expression[1] = ')') then
                 Expression := CopyStr(Expression, 2) // Remove closing )
             else
-                Error('Missing closing parenthesis');
+                Error(MissingClosingParenthesisErr);
         end else begin
             // Parse number
             NumberText := '';
@@ -264,7 +287,7 @@ codeunit 90851 "SEW Calc Formula Parser"
             end;
 
             if NumberText = '' then
-                Error('Expected number in expression');
+                Error(ExpectedNumberErr);
 
             Expression := CopyStr(Expression, i);
             Evaluate(Result, NumberText);
@@ -280,6 +303,8 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// Tests if a formula is valid without evaluating it.
     /// Returns true if valid, false otherwise.
     /// </summary>
+    /// <param name="FormulaText">The formula text to test.</param>
+    /// <returns>True if valid, false otherwise.</returns>
     procedure TestFormula(FormulaText: Text): Boolean
     begin
         if FormulaText = '' then

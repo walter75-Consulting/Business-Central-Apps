@@ -1,61 +1,54 @@
-table 90802 "SEW Calc Variable"
+﻿table 90801 "SEW Calc Variable"
 {
     Caption = 'Calculation Variable';
     DataClassification = CustomerContent;
     LookupPageId = "SEW Calc Variables";
     DrillDownPageId = "SEW Calc Variables";
+    Permissions = tabledata "SEW Calc Template Line" = r;
 
     fields
     {
         field(1; "Code"; Code[20])
         {
             Caption = 'Code';
-            ToolTip = 'Specifies the unique code for the variable (e.g., VAR001, OVERHEAD)';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies the unique code for the variable (e.g., VAR001, OVERHEAD).';
             NotBlank = true;
         }
         field(2; "Valid From Date"; Date)
         {
             Caption = 'Valid From Date';
-            ToolTip = 'Specifies from which date this variable value is valid';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies from which date this variable value is valid.';
         }
         field(10; Description; Text[100])
         {
             Caption = 'Description';
-            ToolTip = 'Specifies the description of the variable';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies the description of the variable.';
         }
         field(20; Type; Enum "SEW Calc Variable Type")
         {
             Caption = 'Type';
-            ToolTip = 'Specifies the type of variable (Percentage, Absolute Value, Factor)';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies the type of variable (Percentage, Absolute Value, Factor).';
         }
         field(21; Value; Decimal)
         {
             Caption = 'Value';
-            ToolTip = 'Specifies the value of the variable';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies the value of the variable.';
             DecimalPlaces = 2 : 5;
         }
         field(22; Base; Enum "SEW Calc Variable Base")
         {
             Caption = 'Base';
-            ToolTip = 'Specifies what the variable is based on (Material, Labor, Overhead, Total Cost)';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies what the variable is based on (Material, Labor, Overhead, Total Cost).';
         }
         field(30; "Valid To Date"; Date)
         {
             Caption = 'Valid To Date';
-            ToolTip = 'Specifies until which date this variable value is valid';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies until which date this variable value is valid.';
         }
         field(31; Global; Boolean)
         {
             Caption = 'Global';
-            ToolTip = 'Specifies whether this variable is globally available for all templates';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies whether this variable is globally available for all templates.';
             InitValue = true;
         }
     }

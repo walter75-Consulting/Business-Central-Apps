@@ -1,10 +1,12 @@
-page 90831 "SEW Calc Card"
+﻿page 90831 "SEW Calc Card"
 {
     Caption = 'Calculation Card';
     PageType = Document;
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = "SEW Calc Header";
+    Permissions = tabledata "SEW Calc Simulation Header" = i,
+                  tabledata "Production Order" = r;
 
     layout
     {
@@ -16,8 +18,6 @@ page 90831 "SEW Calc Card"
 
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the unique number for the calculation';
 
                     trigger OnAssistEdit()
                     begin
@@ -27,33 +27,21 @@ page 90831 "SEW Calc Card"
                 }
                 field("Template Code"; Rec."Template Code")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the template used for this calculation';
                 }
                 field("Item No."; Rec."Item No.")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the item number for this calculation';
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the description';
                 }
                 field("Description 2"; Rec."Description 2")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies additional description';
                 }
                 field(Status; Rec.Status)
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the status of the calculation';
                 }
                 field("Calculation Date"; Rec."Calculation Date")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the calculation date';
                 }
             }
 
@@ -63,33 +51,21 @@ page 90831 "SEW Calc Card"
 
                 field("Lot Size"; Rec."Lot Size")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the lot size for the calculation';
                 }
                 field("Base Unit of Measure"; Rec."Base Unit of Measure")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the base unit of measure';
                 }
                 field("Production BOM No."; Rec."Production BOM No.")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the production BOM number';
                 }
                 field("Production BOM Version"; Rec."Production BOM Version")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the production BOM version';
                 }
                 field("Routing No."; Rec."Routing No.")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the routing number';
                 }
                 field("Routing Version"; Rec."Routing Version")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the routing version';
                 }
             }
 
@@ -99,26 +75,18 @@ page 90831 "SEW Calc Card"
 
                 field("Total Material Cost"; Rec."Total Material Cost")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the total material cost';
                     Style = Strong;
                 }
                 field("Total Labor Cost"; Rec."Total Labor Cost")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the total labor cost';
                     Style = Strong;
                 }
                 field("Total Overhead Cost"; Rec."Total Overhead Cost")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the total overhead cost';
                     Style = Strong;
                 }
                 field("Total Cost"; Rec."Total Cost")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the total cost';
                     Style = StrongAccent;
                 }
             }
@@ -129,19 +97,14 @@ page 90831 "SEW Calc Card"
 
                 field("Target Sales Price"; Rec."Target Sales Price")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the target sales price';
                 }
                 field("Margin %"; Rec."Margin %")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the margin percentage';
                 }
             }
 
             part(Lines; "SEW Calc Lines")
             {
-                ApplicationArea = All;
                 Caption = 'Calculation Lines';
                 SubPageLink = "Calc No." = field("No.");
                 UpdatePropagation = Both;
@@ -159,9 +122,6 @@ page 90831 "SEW Calc Card"
                 Caption = 'Calculate from Template';
                 ToolTip = 'Apply the template and calculate costs.';
                 Image = Calculate;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
 
                 trigger OnAction()
                 var
@@ -178,8 +138,6 @@ page 90831 "SEW Calc Card"
                 Caption = 'Recalculate';
                 ToolTip = 'Recalculate all formulas and update totals.';
                 Image = Refresh;
-                Promoted = true;
-                PromotedCategory = Process;
 
                 trigger OnAction()
                 var
@@ -196,8 +154,6 @@ page 90831 "SEW Calc Card"
                 Caption = 'Transfer to Item';
                 ToolTip = 'Transfer calculation results to the item card.';
                 Image = TransferToLines;
-                Promoted = true;
-                PromotedCategory = Process;
                 Enabled = Rec.Status = Rec.Status::Released;
 
                 trigger OnAction()
@@ -214,8 +170,6 @@ page 90831 "SEW Calc Card"
                 Caption = 'Release';
                 ToolTip = 'Release the calculation.';
                 Image = ReleaseDoc;
-                Promoted = true;
-                PromotedCategory = Process;
                 Enabled = Rec.Status = Rec.Status::Draft;
 
                 trigger OnAction()
@@ -236,8 +190,6 @@ page 90831 "SEW Calc Card"
                 Caption = 'Reopen';
                 ToolTip = 'Reopen the calculation for editing.';
                 Image = ReOpen;
-                Promoted = true;
-                PromotedCategory = Process;
                 Enabled = Rec.Status = Rec.Status::Released;
 
                 trigger OnAction()
@@ -255,8 +207,6 @@ page 90831 "SEW Calc Card"
                 Caption = 'Archive';
                 ToolTip = 'Archive this calculation.';
                 Image = Archive;
-                Promoted = true;
-                PromotedCategory = Process;
                 Enabled = Rec.Status = Rec.Status::Released;
 
                 trigger OnAction()
@@ -272,11 +222,8 @@ page 90831 "SEW Calc Card"
             {
                 ApplicationArea = All;
                 Caption = 'Simulate Lot Sizes';
-                ToolTip = 'Create a new lot size simulation to compare different production quantities';
+                ToolTip = 'Create a new lot size simulation to compare different production quantities.';
                 Image = Worksheet;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
                 Enabled = Rec.Status = Rec.Status::Released;
 
                 trigger OnAction()
@@ -298,10 +245,8 @@ page 90831 "SEW Calc Card"
             {
                 ApplicationArea = All;
                 Caption = 'Export to Excel';
-                ToolTip = 'Export this calculation to an Excel file';
+                ToolTip = 'Export this calculation to an Excel file.';
                 Image = ExportToExcel;
-                Promoted = true;
-                PromotedCategory = Process;
 
                 trigger OnAction()
                 var
@@ -315,10 +260,8 @@ page 90831 "SEW Calc Card"
             {
                 ApplicationArea = All;
                 Caption = 'Show History';
-                ToolTip = 'View the history of changes for this calculation';
+                ToolTip = 'View the history of changes for this calculation.';
                 Image = History;
-                Promoted = true;
-                PromotedCategory = Category4;
 
                 trigger OnAction()
                 var
@@ -335,10 +278,8 @@ page 90831 "SEW Calc Card"
             {
                 ApplicationArea = All;
                 Caption = 'Create Post-Calculation';
-                ToolTip = 'Create a post-calculation from a finished production order';
+                ToolTip = 'Create a post-calculation from a finished production order.';
                 Image = PostDocument;
-                Promoted = true;
-                PromotedCategory = Process;
 
                 trigger OnAction()
                 var
@@ -374,8 +315,6 @@ page 90831 "SEW Calc Card"
                 Caption = 'Print Calculation';
                 ToolTip = 'Print the calculation report.';
                 Image = Print;
-                Promoted = true;
-                PromotedCategory = Report;
 
                 trigger OnAction()
                 var
@@ -384,6 +323,58 @@ page 90831 "SEW Calc Card"
                     CalcHeader.SetRange("No.", Rec."No.");
                     Report.Run(Report::"SEW Calculation Report", true, false, CalcHeader);
                 end;
+            }
+        }
+
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+
+                actionref(CalculateFromTemplate_Promoted; CalculateFromTemplate)
+                {
+                }
+                actionref(Recalculate_Promoted; Recalculate)
+                {
+                }
+                actionref(TransferToItem_Promoted; TransferToItem)
+                {
+                }
+                actionref(Release_Promoted; Release)
+                {
+                }
+                actionref(Reopen_Promoted; Reopen)
+                {
+                }
+                actionref(Archive_Promoted; Archive)
+                {
+                }
+                actionref(SimulateLotSizes_Promoted; SimulateLotSizes)
+                {
+                }
+                actionref(ExportToExcel_Promoted; ExportToExcel)
+                {
+                }
+                actionref(CreatePostCalc_Promoted; CreatePostCalc)
+                {
+                }
+            }
+            group(Category_Report)
+            {
+                Caption = 'Report';
+
+                actionref(PrintCalculation_Promoted; PrintCalculation)
+                {
+                }
+            }
+            group(Category_Category4)
+            {
+                Caption = 'Navigate';
+
+                actionref(ShowHistory_Promoted; ShowHistory)
+                {
+                }
             }
         }
     }

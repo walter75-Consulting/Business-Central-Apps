@@ -4,7 +4,7 @@ enum 90880 "SEW Calc Line Type"
 
     value(0; " ")
     {
-        Caption = 'Empty';
+        Caption = ' ', Locked = true;
     }
     value(1; Header)
     {

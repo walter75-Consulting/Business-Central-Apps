@@ -1,13 +1,13 @@
-tableextension 90898 "SEW Prod Order Calc Ext" extends "Production Order"
+﻿tableextension 90898 "SEW Prod Order Calc Ext" extends "Production Order"
 {
     fields
     {
         field(90800; "SEW Calc No."; Code[20])
         {
             Caption = 'Calculation No.';
-            DataClassification = CustomerContent;
             TableRelation = "SEW Calc Header";
-            ToolTip = 'Specifies the calculation number linked to this production order';
+            ToolTip = 'Specifies the calculation number linked to this production order.';
+            AllowInCustomizations = AsReadOnly;
 
             trigger OnValidate()
             var
@@ -25,10 +25,10 @@ tableextension 90898 "SEW Prod Order Calc Ext" extends "Production Order"
         field(90801; "SEW Planned Cost"; Decimal)
         {
             Caption = 'Planned Cost';
-            DataClassification = CustomerContent;
             Editable = false;
-            ToolTip = 'Specifies the planned cost from the pre-calculation';
+            ToolTip = 'Specifies the planned cost from the pre-calculation.';
             DecimalPlaces = 2 : 5;
+            AllowInCustomizations = AsReadOnly;
         }
         field(90802; "SEW Actual Cost to Date"; Decimal)
         {
@@ -36,8 +36,9 @@ tableextension 90898 "SEW Prod Order Calc Ext" extends "Production Order"
             FieldClass = FlowField;
             CalcFormula = sum("Capacity Ledger Entry"."Direct Cost" where("Order No." = field("No."), "Order Type" = const(Production)));
             Editable = false;
-            ToolTip = 'Specifies the actual costs accumulated to date';
+            ToolTip = 'Specifies the actual costs accumulated to date.';
             DecimalPlaces = 2 : 5;
+            AllowInCustomizations = AsReadOnly;
         }
         field(90803; "SEW Cost Variance"; Decimal)
         {
@@ -45,24 +46,25 @@ tableextension 90898 "SEW Prod Order Calc Ext" extends "Production Order"
             FieldClass = FlowField;
             CalcFormula = sum("Capacity Ledger Entry"."Direct Cost" where("Order No." = field("No."), "Order Type" = const(Production)));
             Editable = false;
-            ToolTip = 'Specifies the variance between planned and actual costs';
+            ToolTip = 'Specifies the variance between planned and actual costs.';
             DecimalPlaces = 2 : 5;
+            AllowInCustomizations = AsReadOnly;
         }
         field(90804; "SEW Cost Variance %"; Decimal)
         {
             Caption = 'Cost Variance %';
-            DataClassification = CustomerContent;
             Editable = false;
-            ToolTip = 'Specifies the cost variance as a percentage of planned cost';
+            ToolTip = 'Specifies the cost variance as a percentage of planned cost.';
             DecimalPlaces = 0 : 2;
+            AllowInCustomizations = AsReadOnly;
         }
         field(90805; "SEW Alert Threshold %"; Decimal)
         {
             Caption = 'Alert Threshold %';
-            DataClassification = CustomerContent;
-            ToolTip = 'Specifies the variance threshold for alerts (default 10%)';
+            ToolTip = 'Specifies the variance threshold for alerts (default 10%).';
             InitValue = 10;
             DecimalPlaces = 0 : 2;
+            AllowInCustomizations = AsReadOnly;
 
             trigger OnValidate()
             begin
@@ -73,9 +75,9 @@ tableextension 90898 "SEW Prod Order Calc Ext" extends "Production Order"
         field(90806; "SEW Cost Alert"; Boolean)
         {
             Caption = 'Cost Alert';
-            DataClassification = CustomerContent;
             Editable = false;
-            ToolTip = 'Specifies if actual costs exceed the alert threshold';
+            ToolTip = 'Specifies if actual costs exceed the alert threshold.';
+            AllowInCustomizations = AsReadOnly;
         }
     }
 

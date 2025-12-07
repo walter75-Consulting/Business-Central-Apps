@@ -1,4 +1,4 @@
-page 90834 "SEW Calc Simulation List"
+﻿page 90834 "SEW Calc Simulation List"
 {
     PageType = List;
     ApplicationArea = All;
@@ -8,6 +8,7 @@ page 90834 "SEW Calc Simulation List"
     CardPageId = "SEW Calc Simulation Card";
     Editable = false;
     Extensible = true;
+    Permissions = tabledata "SEW Calc Header" = r;
 
     layout
     {
@@ -17,59 +18,32 @@ page 90834 "SEW Calc Simulation List"
             {
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Simulation No.';
-                    ToolTip = 'Specifies the simulation number';
                 }
                 field("Calc No."; Rec."Calc No.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Calculation No.';
-                    ToolTip = 'Specifies the calculation this simulation is based on';
                 }
                 field("Item No."; Rec."Item No.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Item No.';
-                    ToolTip = 'Specifies the item number';
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Description';
-                    ToolTip = 'Specifies the description';
                 }
                 field("Simulation Date"; Rec."Simulation Date")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Simulation Date';
-                    ToolTip = 'Specifies when this simulation was created';
                 }
                 field("No. of Scenarios"; Rec."No. of Scenarios")
                 {
-                    ApplicationArea = All;
-                    Caption = 'No. of Scenarios';
-                    ToolTip = 'Specifies the number of scenarios in this simulation';
                 }
                 field("Recommended Scenario Code"; Rec."Recommended Scenario Code")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Recommended Scenario';
-                    ToolTip = 'Specifies the recommended scenario code';
                     Style = Favorable;
                     StyleExpr = Rec."Recommended Scenario Code" <> '';
                 }
                 field("Target Sales Price"; Rec."Target Sales Price")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Target Sales Price';
-                    ToolTip = 'Specifies the target sales price';
                 }
                 field("Target Margin %"; Rec."Target Margin %")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Target Margin %';
-                    ToolTip = 'Specifies the target margin percentage';
                 }
             }
         }
@@ -77,7 +51,6 @@ page 90834 "SEW Calc Simulation List"
         {
             part(SimulationFactBox; "SEW Calc Simulation FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Simulation No." = field("No.");
             }
         }
@@ -91,11 +64,8 @@ page 90834 "SEW Calc Simulation List"
             {
                 ApplicationArea = All;
                 Caption = 'Open';
-                ToolTip = 'Open the simulation card';
+                ToolTip = 'Open the simulation card.';
                 Image = Card;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
 
                 trigger OnAction()
                 begin
@@ -106,10 +76,8 @@ page 90834 "SEW Calc Simulation List"
             {
                 ApplicationArea = All;
                 Caption = 'Open Calculation';
-                ToolTip = 'Open the source calculation';
+                ToolTip = 'Open the source calculation.';
                 Image = Card;
-                Promoted = true;
-                PromotedCategory = Category4;
 
                 trigger OnAction()
                 var
@@ -123,16 +91,40 @@ page 90834 "SEW Calc Simulation List"
             {
                 ApplicationArea = All;
                 Caption = 'Delete';
-                ToolTip = 'Delete this simulation';
+                ToolTip = 'Delete this simulation.';
                 Image = Delete;
-                Promoted = true;
-                PromotedCategory = Process;
 
                 trigger OnAction()
+                var
+                    ConfirmManagement: Codeunit "Confirm Management";
+                    DeleteSimulationQst: Label 'Delete simulation %1?', Comment = 'DE="Simulation %1 löschen?"';
                 begin
-                    if Confirm('Delete simulation %1?', false, Rec."No.") then
+                    if ConfirmManagement.GetResponseOrDefault(StrSubstNo(DeleteSimulationQst, Rec."No."), false) then
                         Rec.Delete(true);
                 end;
+            }
+        }
+
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+
+                actionref(OpenCard_Promoted; OpenCard)
+                {
+                }
+                actionref(Delete_Promoted; "Delete")
+                {
+                }
+            }
+            group(Category_Category4)
+            {
+                Caption = 'Navigate';
+
+                actionref(OpenCalculation_Promoted; OpenCalculation)
+                {
+                }
             }
         }
     }

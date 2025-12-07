@@ -4,7 +4,7 @@ enum 90886 "SEW Calc Change Type"
 
     value(0; " ")
     {
-        Caption = ' ';
+        Caption = ' ', Locked = true;
     }
     value(1; Created)
     {

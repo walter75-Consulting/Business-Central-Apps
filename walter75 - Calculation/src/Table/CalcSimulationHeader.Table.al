@@ -1,9 +1,9 @@
-table 90805 "SEW Calc Simulation Header"
+﻿table 90805 "SEW Calc Simulation Header"
 {
     Caption = 'Calculation Simulation Header';
-    DataClassification = CustomerContent;
     LookupPageId = "SEW Calc Simulation List";
     DrillDownPageId = "SEW Calc Simulation List";
+    Permissions = tabledata "SEW Calc Header" = r;
 
     fields
     {
@@ -11,15 +11,13 @@ table 90805 "SEW Calc Simulation Header"
         {
             NotBlank = true;
             Caption = 'No.';
-            DataClassification = CustomerContent;
-            ToolTip = 'Specifies the unique identifier for the simulation';
+            ToolTip = 'Specifies the unique identifier for the simulation.';
         }
         field(2; "Calc No."; Code[20])
         {
             Caption = 'Calc No.';
-            DataClassification = CustomerContent;
             TableRelation = "SEW Calc Header"."No.";
-            ToolTip = 'Specifies the calculation that this simulation is based on';
+            ToolTip = 'Specifies the calculation that this simulation is based on.';
 
             trigger OnValidate()
             var
@@ -35,28 +33,25 @@ table 90805 "SEW Calc Simulation Header"
         field(3; "Item No."; Code[20])
         {
             Caption = 'Item No.';
-            DataClassification = CustomerContent;
             TableRelation = Item."No.";
-            ToolTip = 'Specifies the item for which the simulation is run';
+            ToolTip = 'Specifies the item for which the simulation is run.';
         }
         field(4; "Template Code"; Code[20])
         {
             Caption = 'Template Code';
-            DataClassification = CustomerContent;
             TableRelation = "SEW Calc Template".Code where(Status = const(Released));
-            ToolTip = 'Specifies the template used for calculations';
+            ToolTip = 'Specifies the template used for calculations.';
+            AllowInCustomizations = AsReadOnly;
         }
         field(10; Description; Text[100])
         {
             Caption = 'Description';
-            DataClassification = CustomerContent;
-            ToolTip = 'Specifies a description for the simulation';
+            ToolTip = 'Specifies a description for the simulation.';
         }
         field(11; "Simulation Date"; Date)
         {
             Caption = 'Simulation Date';
-            DataClassification = CustomerContent;
-            ToolTip = 'Specifies when the simulation was run';
+            ToolTip = 'Specifies when the simulation was run.';
         }
         field(12; "No. of Scenarios"; Integer)
         {
@@ -64,29 +59,26 @@ table 90805 "SEW Calc Simulation Header"
             FieldClass = FlowField;
             CalcFormula = count("SEW Calc Simulation Line" where("Simulation No." = field("No.")));
             Editable = false;
-            ToolTip = 'Specifies how many scenarios are in this simulation';
+            ToolTip = 'Specifies how many scenarios are in this simulation.';
         }
         field(13; "Recommended Scenario Code"; Code[20])
         {
             Caption = 'Recommended Scenario Code';
-            DataClassification = CustomerContent;
             TableRelation = "SEW Calc Simulation Line"."Scenario Code" where("Simulation No." = field("No."));
-            ToolTip = 'Specifies which scenario is recommended';
+            ToolTip = 'Specifies which scenario is recommended.';
         }
         field(20; "Target Sales Price"; Decimal)
         {
             Caption = 'Target Sales Price';
-            DataClassification = CustomerContent;
             MinValue = 0;
-            ToolTip = 'Specifies the target sales price used for margin calculations';
+            ToolTip = 'Specifies the target sales price used for margin calculations.';
         }
         field(21; "Target Margin %"; Decimal)
         {
             Caption = 'Target Margin %';
-            DataClassification = CustomerContent;
             MinValue = 0;
             MaxValue = 100;
-            ToolTip = 'Specifies the target margin percentage';
+            ToolTip = 'Specifies the target margin percentage.';
         }
     }
 
@@ -100,6 +92,16 @@ table 90805 "SEW Calc Simulation Header"
         {
         }
         key(SimDate; "Simulation Date")
+        {
+        }
+    }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "No.", "Calc No.", "Item No.", "Template Code", "Simulation Date", "No. of Scenarios", "Recommended Scenario Code")
+        {
+        }
+        fieldgroup(Brick; "No.", "Calc No.", "Item No.", "Template Code", "Simulation Date", "No. of Scenarios", "Recommended Scenario Code")
         {
         }
     }
