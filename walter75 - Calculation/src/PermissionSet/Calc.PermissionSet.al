@@ -20,6 +20,8 @@ permissionset 90899 "SEW Calc"
         tabledata "SEW Calc Simulation Line" = RMID,
         table "SEW Calc History Entry" = X,
         tabledata "SEW Calc History Entry" = RMID,
+        table "SEW Calc Cue" = X,
+        tabledata "SEW Calc Cue" = RMID,
         // Pages
         page "SEW Calc Templates" = X,
         page "SEW Calc Template Card" = X,
@@ -34,6 +36,8 @@ permissionset 90899 "SEW Calc"
         page "SEW Calc Simulation FactBox" = X,
         page "SEW Calc Cost Breakdown FB" = X,
         page "SEW Calc History List" = X,
+        page "SEW Calc Activities" = X,
+        pageextension "SEW Order Processor RC Ext" = X,
         // Codeunits
         codeunit "SEW Calc Engine" = X,
         codeunit "SEW Calc Formula Parser" = X,

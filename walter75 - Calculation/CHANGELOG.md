@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Phase 5a: Role Center Extension** (#24)
+  - Calc Cue Table (Table 90808) for calculation KPIs and performance metrics
+  - Calc Activities Page (Page 90841) with calculation cues and drill-down functionality
+  - Order Processor Role Center Extension (PageExt 90840) with calculation integration
+  - Quick access actions: New Calculation, Templates, Variables, Calculation Report
+  - Real-time KPIs: Draft, Released, Archived calculations and low margin warnings
+  - Average margin percentage tracking
+  - Color-coded visual feedback for attention areas
+  - Seamless integration with existing Order Processor workflow
 - **Phase 4: Advanced Features** (#13)
   - History Entry Table (Table 90807) for change tracking and audit trail
   - Calc Change Type Enum (Enum 90886) for history categorization
