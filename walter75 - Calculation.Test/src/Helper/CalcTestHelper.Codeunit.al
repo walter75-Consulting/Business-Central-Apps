@@ -300,11 +300,15 @@ codeunit 90970 "SEW Calc Test Helper"
     /// </summary>
     procedure CreateTestCalculation(var SEWCalcHeader: Record "SEW Calc Header")
     var
+        StartOfDay: DateTime;
+        TimestampMs: BigInteger;
         UniqueNo: Text[20];
     begin
         SEWCalcHeader.Init();
         // Use milliseconds since midnight to ensure uniqueness across rapid test execution
-        UniqueNo := 'CALC-TEST-' + Format(CurrentDateTime - CreateDateTime(Today, 0T));
+        StartOfDay := CreateDateTime(Today, 0T);
+        TimestampMs := CurrentDateTime - StartOfDay;
+        UniqueNo := 'T-' + Format(TimestampMs, 0, '<Integer>');
         SEWCalcHeader."No." := CopyStr(UniqueNo, 1, MaxStrLen(SEWCalcHeader."No."));
         SEWCalcHeader.Description := 'Test Calculation';
         SEWCalcHeader."Calculation Date" := WorkDate(); // Set calculation date for variable lookup
