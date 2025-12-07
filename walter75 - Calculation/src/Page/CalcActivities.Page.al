@@ -4,6 +4,7 @@ page 90841 "SEW Calc Activities"
     PageType = CardPart;
     SourceTable = "SEW Calc Cue";
     RefreshOnActivate = true;
+    ApplicationArea = All;
 
     layout
     {
@@ -15,9 +16,6 @@ page 90841 "SEW Calc Activities"
 
                 field("Draft Count"; Rec."Draft Count")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Draft';
-                    ToolTip = 'Specifies the number of draft calculations';
                     DrillDownPageId = "SEW Calc Headers";
 
                     trigger OnDrillDown()
@@ -31,9 +29,6 @@ page 90841 "SEW Calc Activities"
 
                 field("Released Count"; Rec."Released Count")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Released';
-                    ToolTip = 'Specifies the number of released calculations';
                     DrillDownPageId = "SEW Calc Headers";
 
                     trigger OnDrillDown()
@@ -47,9 +42,6 @@ page 90841 "SEW Calc Activities"
 
                 field("Archived Count"; Rec."Archived Count")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Archived';
-                    ToolTip = 'Specifies the number of archived calculations';
                     DrillDownPageId = "SEW Calc Headers";
 
                     trigger OnDrillDown()
@@ -63,9 +55,6 @@ page 90841 "SEW Calc Activities"
 
                 field("Warning Count"; Rec."Warning Count")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Low Margin Warnings';
-                    ToolTip = 'Specifies the number of calculations with margin below 15%';
                     Style = Unfavorable;
                     StyleExpr = Rec."Warning Count" > 0;
                     DrillDownPageId = "SEW Calc Headers";
@@ -87,9 +76,6 @@ page 90841 "SEW Calc Activities"
 
                 field("Average Margin %"; Rec."Average Margin %")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Avg. Margin %';
-                    ToolTip = 'Specifies the average margin percentage of released calculations';
                     Style = Favorable;
                     StyleExpr = Rec."Average Margin %" >= 15;
                     DecimalPlaces = 2 : 2;
@@ -104,7 +90,7 @@ page 90841 "SEW Calc Activities"
         if not Rec.Get() then begin
             Rec.Init();
             Rec."Primary Key" := '';
-            Rec.Insert();
+            Rec.Insert(true);
         end;
     end;
 

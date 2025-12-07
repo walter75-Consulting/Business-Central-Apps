@@ -2,7 +2,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
 {
     layout
     {
-        addlast(RoleCenter)
+        addlast(rolecenter)
         {
             part(SEWCalcActivities; "SEW Calc Activities")
             {
@@ -14,19 +14,19 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
 
     actions
     {
-        addlast(Sections)
+        addlast(sections)
         {
             group(SEWCalculation)
             {
                 Caption = 'Calculation';
                 Image = Calculator;
-                ToolTip = 'Access calculation features and tools';
+                ToolTip = 'Access calculation features and tools.';
 
                 action(SEWNewCalculation)
                 {
                     ApplicationArea = All;
                     Caption = 'New Calculation';
-                    ToolTip = 'Create a new calculation';
+                    ToolTip = 'Create a new calculation.';
                     Image = New;
                     RunObject = page "SEW Calc Card";
                     RunPageMode = Create;
@@ -36,7 +36,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                 {
                     ApplicationArea = All;
                     Caption = 'Calculations';
-                    ToolTip = 'View all calculations';
+                    ToolTip = 'View all calculations.';
                     Image = List;
                     RunObject = page "SEW Calc Headers";
                 }
@@ -45,7 +45,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                 {
                     ApplicationArea = All;
                     Caption = 'Templates';
-                    ToolTip = 'Manage calculation templates';
+                    ToolTip = 'Manage calculation templates.';
                     Image = Template;
                     RunObject = page "SEW Calc Templates";
                 }
@@ -54,7 +54,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                 {
                     ApplicationArea = All;
                     Caption = 'Variables';
-                    ToolTip = 'Manage calculation variables';
+                    ToolTip = 'Manage calculation variables.';
                     Image = VariableList;
                     RunObject = page "SEW Calc Variables";
                 }
@@ -63,32 +63,32 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                 {
                     ApplicationArea = All;
                     Caption = 'Calculation Report';
-                    ToolTip = 'Run calculation reports';
+                    ToolTip = 'Run calculation reports.';
                     Image = Report;
                     RunObject = page "SEW Calc Headers";
                 }
             }
         }
 
-        addlast(Embedding)
+        addlast(embedding)
         {
             action(SEWCalculationsEmbedded)
             {
                 ApplicationArea = All;
                 Caption = 'Calculations';
-                ToolTip = 'View and manage calculations';
+                ToolTip = 'View and manage calculations.';
                 Image = Calculator;
                 RunObject = page "SEW Calc Headers";
             }
         }
 
-        addlast(Creation)
+        addlast(creation)
         {
             action(SEWNewCalcCreation)
             {
                 ApplicationArea = All;
                 Caption = 'Calculation';
-                ToolTip = 'Create a new calculation';
+                ToolTip = 'Create a new calculation.';
                 Image = Calculator;
                 RunObject = page "SEW Calc Card";
                 RunPageMode = Create;

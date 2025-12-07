@@ -43,7 +43,7 @@ codeunit 90852 "SEW Calc Price Management"
     /// <param name="CapacityNo">The capacity number.</param>
     /// <param name="PriceSource">The price source to use.</param>
     /// <returns>The capacity cost.</returns>
-    procedure GetCapacityCost(CapacityType: Option "Work Center","Machine Center"; CapacityNo: Code[20]; PriceSource: Enum "SEW Calc Price Source"): Decimal
+    procedure GetCapacityCost(CapacityType: Enum "Capacity Type"; CapacityNo: Code[20]; PriceSource: Enum "SEW Calc Price Source"): Decimal
     var
         WorkCenter: Record "Work Center";
         MachineCenter: Record "Machine Center";
@@ -167,9 +167,9 @@ codeunit 90852 "SEW Calc Price Management"
 
                 case RoutingLine.Type of
                     RoutingLine.Type::"Work Center":
-                        LineCost := GetCapacityCost(0, RoutingLine."No.", PriceSource) * (SetupTime + RunTime) / 60;
+                        LineCost := GetCapacityCost("Capacity Type"::"Work Center", RoutingLine."No.", PriceSource) * (SetupTime + RunTime) / 60;
                     RoutingLine.Type::"Machine Center":
-                        LineCost := GetCapacityCost(1, RoutingLine."No.", PriceSource) * (SetupTime + RunTime) / 60;
+                        LineCost := GetCapacityCost("Capacity Type"::"Machine Center", RoutingLine."No.", PriceSource) * (SetupTime + RunTime) / 60;
                 end;
 
                 TotalCost += LineCost;
