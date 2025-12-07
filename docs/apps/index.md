@@ -8,7 +8,7 @@ title: Apps Overview
   <p class="hero-tagline">Complete overview of all walter75 extensions</p>
   <div class="badge-container">
     <span class="badge">11+ Apps</span>
-<span class="badge">BC 27.0</span>
+    <span class="badge">BC 27.0</span>
     <span class="badge">Cloud Ready</span>
   </div>
 </div>
