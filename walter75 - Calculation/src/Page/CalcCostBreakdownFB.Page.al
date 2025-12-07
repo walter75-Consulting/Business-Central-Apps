@@ -167,14 +167,15 @@ page 90836 "SEW Calc Cost Breakdown FB"
             MarginStatusText := '✓ Above Target';
             MarginStatusStyle := 'Favorable';
             MarginStyle := 'Favorable';
-        end else if Rec."SEW Calculated Margin %" >= 15.0 then begin
-            MarginStatusText := '⚠ Below Target';
-            MarginStatusStyle := 'Attention';
-            MarginStyle := 'Attention';
-        end else begin
-            MarginStatusText := '⚠ Critical';
-            MarginStatusStyle := 'Unfavorable';
-            MarginStyle := 'Unfavorable';
-        end;
+        end else
+            if Rec."SEW Calculated Margin %" >= 15.0 then begin
+                MarginStatusText := '⚠ Below Target';
+                MarginStatusStyle := 'Attention';
+                MarginStyle := 'Attention';
+            end else begin
+                MarginStatusText := '⚠ Critical';
+                MarginStatusStyle := 'Unfavorable';
+                MarginStyle := 'Unfavorable';
+            end;
     end;
 }

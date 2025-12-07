@@ -6,7 +6,6 @@ codeunit 90852 "SEW Calc Price Management"
     procedure GetItemPrice(ItemNo: Code[20]; PriceSource: Enum "SEW Calc Price Source"): Decimal
     var
         Item: Record Item;
-        PurchasePrice: Decimal;
     begin
         if ItemNo = '' then
             exit(0);
@@ -79,8 +78,8 @@ codeunit 90852 "SEW Calc Price Management"
     /// </summary>
     procedure GetBOMCost(ProductionBOMNo: Code[20]; ProductionBOMVersion: Code[20]; Quantity: Decimal; PriceSource: Enum "SEW Calc Price Source"): Decimal
     var
-        ProdBOMLine: Record "Production BOM Line";
-        ProdBOMHeader: Record "Production BOM Header";
+        ProductionBOMLine: Record "Production BOM Line";
+        ProductionBOMHeader: Record "Production BOM Header";
         TotalCost: Decimal;
         LineCost: Decimal;
         QuantityPer: Decimal;
@@ -88,26 +87,26 @@ codeunit 90852 "SEW Calc Price Management"
         if ProductionBOMNo = '' then
             exit(0);
 
-        if not ProdBOMHeader.Get(ProductionBOMNo) then
+        if not ProductionBOMHeader.Get(ProductionBOMNo) then
             exit(0);
 
         TotalCost := 0;
 
-        ProdBOMLine.SetRange("Production BOM No.", ProductionBOMNo);
+        ProductionBOMLine.SetRange("Production BOM No.", ProductionBOMNo);
         if ProductionBOMVersion <> '' then
-            ProdBOMLine.SetRange("Version Code", ProductionBOMVersion);
+            ProductionBOMLine.SetRange("Version Code", ProductionBOMVersion);
 
-        if ProdBOMLine.FindSet() then
+        if ProductionBOMLine.FindSet() then
             repeat
-                if ProdBOMLine.Type = ProdBOMLine.Type::Item then begin
-                    QuantityPer := ProdBOMLine."Quantity per";
+                if ProductionBOMLine.Type = ProductionBOMLine.Type::Item then begin
+                    QuantityPer := ProductionBOMLine."Quantity per";
                     if QuantityPer = 0 then
                         QuantityPer := 1;
 
-                    LineCost := GetItemPrice(ProdBOMLine."No.", PriceSource) * QuantityPer * Quantity;
+                    LineCost := GetItemPrice(ProductionBOMLine."No.", PriceSource) * QuantityPer * Quantity;
                     TotalCost += LineCost;
                 end;
-            until ProdBOMLine.Next() = 0;
+            until ProductionBOMLine.Next() = 0;
 
         exit(TotalCost);
     end;

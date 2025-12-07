@@ -14,43 +14,43 @@ codeunit 90857 "SEW Calc Post-Calculation"
 
     procedure CreatePostCalc(ProdOrderNo: Code[20]): Code[20]
     var
-        ProdOrder: Record "Production Order";
-        PreCalcHeader: Record "SEW Calc Header";
-        PostCalcHeader: Record "SEW Calc Header";
-        CalcHistoryEntry: Record "SEW Calc History Entry";
+        ProductionOrder: Record "Production Order";
+        SEWCalcHeaderPre: Record "SEW Calc Header";
+        SEWCalcHeaderPost: Record "SEW Calc Header";
+        SEWCalcHistoryEntry: Record "SEW Calc History Entry";
         NewCalcNo: Code[20];
     begin
         // Validate production order
-        if not ProdOrder.Get(ProdOrder.Status::Finished, ProdOrderNo) then
+        if not ProductionOrder.Get(ProductionOrder.Status::Finished, ProdOrderNo) then
             Error(ProdOrderNotFinishedErr, ProdOrderNo);
 
-        if ProdOrder."SEW Calc No." = '' then
+        if ProductionOrder."SEW Calc No." = '' then
             Error(NoLinkedCalcErr, ProdOrderNo);
 
         // Get pre-calculation
-        if not PreCalcHeader.Get(ProdOrder."SEW Calc No.") then
-            Error('Pre-calculation %1 not found', ProdOrder."SEW Calc No.");
+        if not SEWCalcHeaderPre.Get(ProductionOrder."SEW Calc No.") then
+            Error('Pre-calculation %1 not found', ProductionOrder."SEW Calc No.");
 
         // Create post-calculation header
-        NewCalcNo := GetNextPostCalcNo(ProdOrder."SEW Calc No.");
-        PostCalcHeader.Init();
-        PostCalcHeader."No." := NewCalcNo;
-        PostCalcHeader.Validate("Item No.", PreCalcHeader."Item No.");
-        PostCalcHeader."Template Code" := PreCalcHeader."Template Code";
-        PostCalcHeader."Lot Size" := PreCalcHeader."Lot Size";
-        PostCalcHeader.Status := PostCalcHeader.Status::Released;
-        PostCalcHeader.Insert(true);
+        NewCalcNo := GetNextPostCalcNo(ProductionOrder."SEW Calc No.");
+        SEWCalcHeaderPost.Init();
+        SEWCalcHeaderPost."No." := NewCalcNo;
+        SEWCalcHeaderPost.Validate("Item No.", SEWCalcHeaderPre."Item No.");
+        SEWCalcHeaderPost."Template Code" := SEWCalcHeaderPre."Template Code";
+        SEWCalcHeaderPost."Lot Size" := SEWCalcHeaderPre."Lot Size";
+        SEWCalcHeaderPost.Status := SEWCalcHeaderPost.Status::Released;
+        SEWCalcHeaderPost.Insert(true);
 
         // Copy lines and update with actual costs
-        CopyLinesWithActuals(PreCalcHeader, PostCalcHeader, ProdOrderNo);
+        CopyLinesWithActuals(SEWCalcHeaderPre, SEWCalcHeaderPost, ProdOrderNo);
 
         // Log history entry
-        CalcHistoryEntry.Init();
-        CalcHistoryEntry."Calculation No." := PostCalcHeader."No.";
-        CalcHistoryEntry."Change Type" := CalcHistoryEntry."Change Type"::Created;
-        CalcHistoryEntry."Field Name" := 'Post-Calculation';
-        CalcHistoryEntry."New Value" := 'Created from Production Order ' + ProdOrderNo;
-        CalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Calculation No." := SEWCalcHeaderPost."No.";
+        SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Created;
+        SEWCalcHistoryEntry."Field Name" := 'Post-Calculation';
+        SEWCalcHistoryEntry."New Value" := 'Created from Production Order ' + ProdOrderNo;
+        SEWCalcHistoryEntry.Insert(true);
 
         if GuiAllowed() then
             Message(PostCalcCreatedMsg, NewCalcNo, ProdOrderNo);
@@ -110,25 +110,25 @@ codeunit 90857 "SEW Calc Post-Calculation"
 
     procedure CompareWithPreCalc(PostCalcNo: Code[20]; PreCalcNo: Code[20]): Text
     var
-        PreCalcHeader: Record "SEW Calc Header";
-        PostCalcHeader: Record "SEW Calc Header";
+        SEWCalcHeaderPre: Record "SEW Calc Header";
+        SEWCalcHeaderPost: Record "SEW Calc Header";
         Report: Text;
         MaterialVar: Decimal;
         LaborVar: Decimal;
         OverheadVar: Decimal;
         TotalVar: Decimal;
     begin
-        if not PreCalcHeader.Get(PreCalcNo) then
+        if not SEWCalcHeaderPre.Get(PreCalcNo) then
             Error('Pre-calculation %1 not found', PreCalcNo);
 
-        if not PostCalcHeader.Get(PostCalcNo) then
+        if not SEWCalcHeaderPost.Get(PostCalcNo) then
             Error('Post-calculation %1 not found', PostCalcNo);
 
         // Total Cost fields are regular fields, not FlowFields
-        MaterialVar := PostCalcHeader."Total Material Cost" - PreCalcHeader."Total Material Cost";
-        LaborVar := PostCalcHeader."Total Labor Cost" - PreCalcHeader."Total Labor Cost";
-        OverheadVar := PostCalcHeader."Total Overhead Cost" - PreCalcHeader."Total Overhead Cost";
-        TotalVar := PostCalcHeader."Total Cost" - PreCalcHeader."Total Cost";
+        MaterialVar := SEWCalcHeaderPost."Total Material Cost" - SEWCalcHeaderPre."Total Material Cost";
+        LaborVar := SEWCalcHeaderPost."Total Labor Cost" - SEWCalcHeaderPre."Total Labor Cost";
+        OverheadVar := SEWCalcHeaderPost."Total Overhead Cost" - SEWCalcHeaderPre."Total Overhead Cost";
+        TotalVar := SEWCalcHeaderPost."Total Cost" - SEWCalcHeaderPre."Total Cost";
 
         Report := 'Cost Comparison Report\';
         Report += '========================\';
@@ -137,23 +137,23 @@ codeunit 90857 "SEW Calc Post-Calculation"
         Report += 'Post-Calculation: ' + PostCalcNo + '\';
         Report += '\';
         Report += 'Material Cost:\';
-        Report += '  Planned: ' + Format(PreCalcHeader."Total Material Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
-        Report += '  Actual:  ' + Format(PostCalcHeader."Total Material Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Planned: ' + Format(SEWCalcHeaderPre."Total Material Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Actual:  ' + Format(SEWCalcHeaderPost."Total Material Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
         Report += '  Variance: ' + Format(MaterialVar, 0, '<Precision,2:5><Standard Format,0>') + '\';
         Report += '\';
         Report += 'Labor Cost:\';
-        Report += '  Planned: ' + Format(PreCalcHeader."Total Labor Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
-        Report += '  Actual:  ' + Format(PostCalcHeader."Total Labor Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Planned: ' + Format(SEWCalcHeaderPre."Total Labor Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Actual:  ' + Format(SEWCalcHeaderPost."Total Labor Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
         Report += '  Variance: ' + Format(LaborVar, 0, '<Precision,2:5><Standard Format,0>') + '\';
         Report += '\';
         Report += 'Overhead Cost:\';
-        Report += '  Planned: ' + Format(PreCalcHeader."Total Overhead Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
-        Report += '  Actual:  ' + Format(PostCalcHeader."Total Overhead Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Planned: ' + Format(SEWCalcHeaderPre."Total Overhead Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Actual:  ' + Format(SEWCalcHeaderPost."Total Overhead Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
         Report += '  Variance: ' + Format(OverheadVar, 0, '<Precision,2:5><Standard Format,0>') + '\';
         Report += '\';
         Report += 'Total Cost:\';
-        Report += '  Planned: ' + Format(PreCalcHeader."Total Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
-        Report += '  Actual:  ' + Format(PostCalcHeader."Total Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Planned: ' + Format(SEWCalcHeaderPre."Total Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
+        Report += '  Actual:  ' + Format(SEWCalcHeaderPost."Total Cost", 0, '<Precision,2:5><Standard Format,0>') + '\';
         Report += '  Variance: ' + Format(TotalVar, 0, '<Precision,2:5><Standard Format,0>');
 
         exit(Report);
@@ -161,7 +161,7 @@ codeunit 90857 "SEW Calc Post-Calculation"
 
     local procedure GetNextPostCalcNo(PreCalcNo: Code[20]): Code[20]
     var
-        CalcHeader: Record "SEW Calc Header";
+        SEWCalcHeader: Record "SEW Calc Header";
         BaseNo: Code[20];
         Counter: Integer;
         NewNo: Code[20];
@@ -177,15 +177,15 @@ codeunit 90857 "SEW Calc Post-Calculation"
                 NewNo := BaseNo + Format(Counter);
 
             Counter += 1;
-        until not CalcHeader.Get(NewNo);
+        until not SEWCalcHeader.Get(NewNo);
 
         exit(NewNo);
     end;
 
-    local procedure CopyLinesWithActuals(var PreCalcHeader: Record "SEW Calc Header"; var PostCalcHeader: Record "SEW Calc Header"; ProdOrderNo: Code[20])
+    local procedure CopyLinesWithActuals(var SEWCalcHeaderPre: Record "SEW Calc Header"; var SEWCalcHeaderPost: Record "SEW Calc Header"; ProdOrderNo: Code[20])
     var
-        PreCalcLine: Record "SEW Calc Line";
-        PostCalcLine: Record "SEW Calc Line";
+        SEWCalcLinePre: Record "SEW Calc Line";
+        SEWCalcLinePost: Record "SEW Calc Line";
         ActualMaterial: Decimal;
         ActualLabor: Decimal;
         ActualOverhead: Decimal;
@@ -196,24 +196,24 @@ codeunit 90857 "SEW Calc Post-Calculation"
         ActualOverhead := GetActualOverhead(ProdOrderNo);
 
         // Copy lines from pre-calculation
-        PreCalcLine.SetRange("Calc No.", PreCalcHeader."No.");
-        if PreCalcLine.FindSet() then
+        SEWCalcLinePre.SetRange("Calc No.", SEWCalcHeaderPre."No.");
+        if SEWCalcLinePre.FindSet() then
             repeat
-                PostCalcLine.Init();
-                PostCalcLine.TransferFields(PreCalcLine);
-                PostCalcLine."Calc No." := PostCalcHeader."No.";
+                SEWCalcLinePost.Init();
+                SEWCalcLinePost.TransferFields(SEWCalcLinePre);
+                SEWCalcLinePost."Calc No." := SEWCalcHeaderPost."No.";
 
                 // Update with actual values based on line type
-                case PreCalcLine.Type of
-                    PreCalcLine.Type::Material:
-                        PostCalcLine."Base Value" := ActualMaterial;
-                    PreCalcLine.Type::Labor:
-                        PostCalcLine."Base Value" := ActualLabor;
-                    PreCalcLine.Type::Overhead:
-                        PostCalcLine."Base Value" := ActualOverhead;
+                case SEWCalcLinePre.Type of
+                    SEWCalcLinePre.Type::Material:
+                        SEWCalcLinePost."Base Value" := ActualMaterial;
+                    SEWCalcLinePre.Type::Labor:
+                        SEWCalcLinePost."Base Value" := ActualLabor;
+                    SEWCalcLinePre.Type::Overhead:
+                        SEWCalcLinePost."Base Value" := ActualOverhead;
                 end;
 
-                PostCalcLine.Insert(true);
-            until PreCalcLine.Next() = 0;
+                SEWCalcLinePost.Insert(true);
+            until SEWCalcLinePre.Next() = 0;
     end;
 }

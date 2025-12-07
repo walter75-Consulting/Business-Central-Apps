@@ -74,10 +74,9 @@ codeunit 90853 "SEW Calc Template Management"
         CalcTemplateLine.SetRange("Template Code", TemplateCode);
         if CalcTemplateLine.FindSet() then
             repeat
-                if CalcTemplateLine.Formula <> '' then begin
+                if CalcTemplateLine.Formula <> '' then
                     if not FormulaParser.TestFormula(CalcTemplateLine.Formula) then
                         exit(false);
-                end;
             until CalcTemplateLine.Next() = 0;
 
         exit(true);

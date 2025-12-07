@@ -49,9 +49,9 @@ codeunit 90855 "SEW Calc Integration Mgt."
 
     procedure CreateCalculationForLine(var SalesLineRec: Record "Sales Line"; SalesHeaderRec: Record "Sales Header")
     var
-        CalcHeaderRec: Record "SEW Calc Header";
-        CalcEngineCodeunit: Codeunit "SEW Calc Engine";
-        TemplateManagementCodeunit: Codeunit "SEW Calc Template Management";
+        SEWCalcHeader: Record "SEW Calc Header";
+        SEWCalcEngine: Codeunit "SEW Calc Engine";
+        SEWCalcTemplateManagement: Codeunit "SEW Calc Template Management";
     begin
         if SalesLineRec."SEW Calc No." <> '' then
             exit;
@@ -59,37 +59,37 @@ codeunit 90855 "SEW Calc Integration Mgt."
         if SalesHeaderRec."SEW Default Calc Template" = '' then
             exit;
 
-        CalcHeaderRec.Init();
-        CalcHeaderRec."No." := '';
-        CalcHeaderRec.Insert(true);
+        SEWCalcHeader.Init();
+        SEWCalcHeader."No." := '';
+        SEWCalcHeader.Insert(true);
 
-        CalcHeaderRec.Validate("Template Code", SalesHeaderRec."SEW Default Calc Template");
-        CalcHeaderRec.Validate("Item No.", SalesLineRec."No.");
-        CalcHeaderRec.Validate("Lot Size", SalesLineRec.Quantity);
-        CalcHeaderRec.Modify(true);
+        SEWCalcHeader.Validate("Template Code", SalesHeaderRec."SEW Default Calc Template");
+        SEWCalcHeader.Validate("Item No.", SalesLineRec."No.");
+        SEWCalcHeader.Validate("Lot Size", SalesLineRec.Quantity);
+        SEWCalcHeader.Modify(true);
 
-        TemplateManagementCodeunit.CopyTemplateToCalc(CalcHeaderRec, true);
-        CalcEngineCodeunit.Calculate(CalcHeaderRec, true);
+        SEWCalcTemplateManagement.CopyTemplateToCalc(SEWCalcHeader, true);
+        SEWCalcEngine.Calculate(SEWCalcHeader, true);
 
-        UpdateSalesLineFromCalc(SalesLineRec, CalcHeaderRec);
+        UpdateSalesLineFromCalc(SalesLineRec, SEWCalcHeader);
     end;
 
-    procedure UpdateSalesLineFromCalc(var SalesLineRec: Record "Sales Line"; CalcHeaderRec: Record "SEW Calc Header")
+    procedure UpdateSalesLineFromCalc(var SalesLineRec: Record "Sales Line"; SEWCalcHeader: Record "SEW Calc Header")
     var
-        SalesSetupRec: Record "Sales & Receivables Setup";
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
         TargetMarginPct: Decimal;
     begin
-        SalesLineRec."SEW Calc No." := CalcHeaderRec."No.";
-        SalesLineRec."SEW Calculated Cost" := CalcHeaderRec."Total Cost";
+        SalesLineRec."SEW Calc No." := SEWCalcHeader."No.";
+        SalesLineRec."SEW Calculated Cost" := SEWCalcHeader."Total Cost";
         // Cost fields are standard fields, not FlowFields - no CalcFields needed
 
-        if SalesSetupRec.Get() then
+        if SalesReceivablesSetup.Get() then
             TargetMarginPct := 25.0
         else
             TargetMarginPct := 25.0;
 
-        if CalcHeaderRec."Total Cost" <> 0 then begin
-            SalesLineRec."SEW Target Price" := CalcHeaderRec."Total Cost" * (1 + (TargetMarginPct / 100));
+        if SEWCalcHeader."Total Cost" <> 0 then begin
+            SalesLineRec."SEW Target Price" := SEWCalcHeader."Total Cost" * (1 + (TargetMarginPct / 100));
             SalesLineRec."Unit Price" := SalesLineRec."SEW Target Price";
         end;
 
@@ -117,9 +117,8 @@ codeunit 90855 "SEW Calc Integration Mgt."
     procedure CalculateSalesLinePrice(var SalesLineRec: Record "Sales Line")
     var
         SalesHeaderRec: Record "Sales Header";
-        CalcHeaderRec: Record "SEW Calc Header";
-        CalcEngineCodeunit: Codeunit "SEW Calc Engine";
-        TemplateManagementCodeunit: Codeunit "SEW Calc Template Management";
+        SEWCalcHeader: Record "SEW Calc Header";
+        SEWCalcEngine: Codeunit "SEW Calc Engine";
         TargetMarginPct: Decimal;
     begin
         TargetMarginPct := 25.0;
@@ -127,10 +126,10 @@ codeunit 90855 "SEW Calc Integration Mgt."
             exit;
 
         if SalesLineRec."SEW Calc No." <> '' then begin
-            if CalcHeaderRec.Get(SalesLineRec."SEW Calc No.") then begin
-                CalcEngineCodeunit.Calculate(CalcHeaderRec, true);
-                SalesLineRec."SEW Target Price" := CalcHeaderRec."Total Cost" * (1 + (TargetMarginPct / 100));
-                UpdateSalesLineFromCalc(SalesLineRec, CalcHeaderRec);
+            if SEWCalcHeader.Get(SalesLineRec."SEW Calc No.") then begin
+                SEWCalcEngine.Calculate(SEWCalcHeader, true);
+                SalesLineRec."SEW Target Price" := SEWCalcHeader."Total Cost" * (1 + (TargetMarginPct / 100));
+                UpdateSalesLineFromCalc(SalesLineRec, SEWCalcHeader);
             end;
         end else
             CreateCalculationForLine(SalesLineRec, SalesHeaderRec);

@@ -5,7 +5,7 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// Supports basic math operators: +, -, *, /, ()
     /// Replaces variables before evaluation.
     /// </summary>
-    procedure EvaluateFormula(FormulaText: Text; var CalcHeader: Record "SEW Calc Header"): Decimal
+    procedure EvaluateFormula(FormulaText: Text; var SEWCalcHeader: Record "SEW Calc Header"): Decimal
     var
         ProcessedFormula: Text;
         Result: Decimal;
@@ -14,7 +14,7 @@ codeunit 90851 "SEW Calc Formula Parser"
             exit(0);
 
         // Step 1: Replace all variables with their values
-        ProcessedFormula := ReplaceVariables(FormulaText, CalcHeader);
+        ProcessedFormula := ReplaceVariables(FormulaText, SEWCalcHeader);
 
         // Step 2: Validate the formula
         ValidateFormula(ProcessedFormula);
@@ -30,11 +30,11 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// System variables: MATERIAL, LABOR, OVERHEAD, TOTALCOST
     /// Custom variables: VAR001, VAR002, etc.
     /// </summary>
-    local procedure ReplaceVariables(FormulaText: Text; var CalcHeader: Record "SEW Calc Header"): Text
+    local procedure ReplaceVariables(FormulaText: Text; var SEWCalcHeader: Record "SEW Calc Header"): Text
     var
+        SEWCalcVariable: Record "SEW Calc Variable";
+        SEWCalcTemplateLine: Record "SEW Calc Template Line";
         Result: Text;
-        CalcVariable: Record "SEW Calc Variable";
-        CalcTemplateLine: Record "SEW Calc Template Line";
         VariableValue: Decimal;
         StartPos: Integer;
         EndPos: Integer;
@@ -44,10 +44,10 @@ codeunit 90851 "SEW Calc Formula Parser"
         Result := FormulaText;
 
         // Replace system variables
-        Result := Result.Replace('MATERIAL', Format(CalcHeader."Total Material Cost", 0, 9));
-        Result := Result.Replace('LABOR', Format(CalcHeader."Total Labor Cost", 0, 9));
-        Result := Result.Replace('OVERHEAD', Format(CalcHeader."Total Overhead Cost", 0, 9));
-        Result := Result.Replace('TOTALCOST', Format(CalcHeader."Total Cost", 0, 9));
+        Result := Result.Replace('MATERIAL', Format(SEWCalcHeader."Total Material Cost", 0, 9));
+        Result := Result.Replace('LABOR', Format(SEWCalcHeader."Total Labor Cost", 0, 9));
+        Result := Result.Replace('OVERHEAD', Format(SEWCalcHeader."Total Overhead Cost", 0, 9));
+        Result := Result.Replace('TOTALCOST', Format(SEWCalcHeader."Total Cost", 0, 9));
 
         // Replace variables in {VARNAME} syntax
         while StrPos(Result, '{') > 0 do begin
@@ -56,36 +56,36 @@ codeunit 90851 "SEW Calc Formula Parser"
             if EndPos > 0 then begin
                 VariableCode := CopyStr(Result, StartPos + 1, EndPos - 1);
                 // Find variable - try with date filter first, then fallback to any match
-                CalcVariable.Reset();
-                CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
+                SEWCalcVariable.Reset();
+                SEWCalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
 
                 VariableFound := false;
-                if CalcHeader."Calculation Date" <> 0D then begin
+                if SEWCalcHeader."Calculation Date" <> 0D then begin
                     // First try: Find variables with 0D (always valid) - keep Code filter!
-                    CalcVariable.SetRange("Valid From Date", 0D);
-                    CalcVariable.SetRange("Valid To Date", 0D);
-                    VariableFound := CalcVariable.FindLast();
+                    SEWCalcVariable.SetRange("Valid From Date", 0D);
+                    SEWCalcVariable.SetRange("Valid To Date", 0D);
+                    VariableFound := SEWCalcVariable.FindLast();
 
                     if not VariableFound then begin
                         // Second try: Find variables within date range - restore Code filter
-                        CalcVariable.Reset();
-                        CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
-                        CalcVariable.SetFilter("Valid From Date", '<=%1', CalcHeader."Calculation Date");
-                        CalcVariable.SetFilter("Valid To Date", '%1|>=%2', 0D, CalcHeader."Calculation Date");
-                        VariableFound := CalcVariable.FindLast();
+                        SEWCalcVariable.Reset();
+                        SEWCalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
+                        SEWCalcVariable.SetFilter("Valid From Date", '<=%1', SEWCalcHeader."Calculation Date");
+                        SEWCalcVariable.SetFilter("Valid To Date", '%1|>=%2', 0D, SEWCalcHeader."Calculation Date");
+                        VariableFound := SEWCalcVariable.FindLast();
                     end;
 
                     if not VariableFound then begin
                         // Fallback: try without any date filter - restore Code filter
-                        CalcVariable.Reset();
-                        CalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
-                        VariableFound := CalcVariable.FindLast();
+                        SEWCalcVariable.Reset();
+                        SEWCalcVariable.SetRange(Code, CopyStr(VariableCode, 1, 20));
+                        VariableFound := SEWCalcVariable.FindLast();
                     end;
                 end else
-                    VariableFound := CalcVariable.FindLast();
+                    VariableFound := SEWCalcVariable.FindLast();
 
                 if VariableFound then begin
-                    VariableValue := GetVariableValue(CalcVariable, CalcHeader."Calculation Date");
+                    VariableValue := GetVariableValue(SEWCalcVariable);
                     Result := Result.Replace('{' + VariableCode + '}', Format(VariableValue, 0, 9));
                 end else
                     // Variable not found - replace with 0
@@ -95,36 +95,35 @@ codeunit 90851 "SEW Calc Formula Parser"
         end;
 
         // Replace custom variables from template
-        if CalcHeader."Template Code" <> '' then begin
-            CalcTemplateLine.SetRange("Template Code", CalcHeader."Template Code");
-            CalcTemplateLine.SetFilter("Variable Code", '<>%1', '');
-            if CalcTemplateLine.FindSet() then
+        if SEWCalcHeader."Template Code" <> '' then begin
+            SEWCalcTemplateLine.SetRange("Template Code", SEWCalcHeader."Template Code");
+            SEWCalcTemplateLine.SetFilter("Variable Code", '<>%1', '');
+            if SEWCalcTemplateLine.FindSet() then
                 repeat
-                    if CalcVariable.Get(CalcTemplateLine."Variable Code", 0D) then begin
-                        VariableValue := GetVariableValue(CalcVariable, CalcHeader."Calculation Date");
-                        Result := Result.Replace(CalcVariable.Code, Format(VariableValue, 0, 9));
+                    if SEWCalcVariable.Get(SEWCalcTemplateLine."Variable Code", 0D) then begin
+                        VariableValue := GetVariableValue(SEWCalcVariable);
+                        Result := Result.Replace(SEWCalcVariable.Code, Format(VariableValue, 0, 9));
                     end;
-                until CalcTemplateLine.Next() = 0;
+                until SEWCalcTemplateLine.Next() = 0;
         end;
 
         exit(Result);
     end;
 
     /// <summary>
-    /// Gets the value of a variable for a specific date.
-    /// If the variable has date-specific values, returns the appropriate one.
+    /// Gets the value of a variable.
     /// </summary>
-    local procedure GetVariableValue(var CalcVariable: Record "SEW Calc Variable"; CalculationDate: Date): Decimal
+    local procedure GetVariableValue(var SEWCalcVariable: Record "SEW Calc Variable"): Decimal
     begin
         // For now, return the base value
         // Future enhancement: Date-based variable values
-        case CalcVariable.Type of
-            CalcVariable.Type::Percentage:
-                exit(CalcVariable.Value / 100);
-            CalcVariable.Type::"Absolute Value":
-                exit(CalcVariable.Value);
-            CalcVariable.Type::Factor:
-                exit(CalcVariable.Value);
+        case SEWCalcVariable.Type of
+            SEWCalcVariable.Type::Percentage:
+                exit(SEWCalcVariable.Value / 100);
+            SEWCalcVariable.Type::"Absolute Value":
+                exit(SEWCalcVariable.Value);
+            SEWCalcVariable.Type::Factor:
+                exit(SEWCalcVariable.Value);
             else
                 exit(0);
         end;
@@ -282,8 +281,6 @@ codeunit 90851 "SEW Calc Formula Parser"
     /// Returns true if valid, false otherwise.
     /// </summary>
     procedure TestFormula(FormulaText: Text): Boolean
-    var
-        DummyHeader: Record "SEW Calc Header";
     begin
         if FormulaText = '' then
             exit(true);
