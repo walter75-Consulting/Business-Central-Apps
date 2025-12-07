@@ -85,13 +85,13 @@ page 90837 "SEW Calc Simulation FactBox"
 
     trigger OnOpenPage()
     var
-        SimLine: Record "SEW Calc Simulation Line";
+        SEWCalcSimulationLine: Record "SEW Calc Simulation Line";
     begin
         // Find and display the recommended scenario
-        SimLine.SetRange("Simulation No.", Rec."Simulation No.");
-        SimLine.SetRange("Is Recommended", true);
-        if SimLine.FindFirst() then begin
-            Rec := SimLine;
+        SEWCalcSimulationLine.SetRange("Simulation No.", Rec."Simulation No.");
+        SEWCalcSimulationLine.SetRange("Is Recommended", true);
+        if SEWCalcSimulationLine.FindFirst() then begin
+            Rec := SEWCalcSimulationLine;
             HasRecommendation := true;
         end else
             HasRecommendation := false;

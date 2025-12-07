@@ -137,14 +137,14 @@ page 90836 "SEW Calc Cost Breakdown FB"
 
     local procedure UpdateCostBreakdown()
     var
-        CalcHeader: Record "SEW Calc Header";
+        SEWCalcHeader: Record "SEW Calc Header";
     begin
         CalcExists := Rec."SEW Calc No." <> '';
 
-        if CalcExists and CalcHeader.Get(Rec."SEW Calc No.") then begin
-            MaterialCost := CalcHeader."Total Material Cost";
-            LaborCost := CalcHeader."Total Labor Cost";
-            OverheadCost := CalcHeader."Total Overhead Cost";
+        if CalcExists and SEWCalcHeader.Get(Rec."SEW Calc No.") then begin
+            MaterialCost := SEWCalcHeader."Total Material Cost";
+            LaborCost := SEWCalcHeader."Total Labor Cost";
+            OverheadCost := SEWCalcHeader."Total Overhead Cost";
         end else begin
             MaterialCost := 0;
             LaborCost := 0;

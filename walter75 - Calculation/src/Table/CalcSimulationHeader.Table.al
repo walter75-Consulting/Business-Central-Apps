@@ -9,6 +9,7 @@ table 90805 "SEW Calc Simulation Header"
     {
         field(1; "No."; Code[20])
         {
+            NotBlank = true;
             Caption = 'No.';
             DataClassification = CustomerContent;
             ToolTip = 'Specifies the unique identifier for the simulation';
