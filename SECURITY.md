@@ -2,11 +2,13 @@
 
 ## Reporting Security Issues
 
-walter75 Consulting takes the security of our Business Central extensions seriously. If you believe you have found a security vulnerability in any of our apps, please report it to us responsibly.
+**This is a personal open-source project.** We take security seriously and appreciate responsible disclosure of security vulnerabilities.
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report security vulnerabilities by email to: **info@walter75.de**
+Instead, please use GitHub's private security advisory feature:
+
+**➡️ [Report a Security Vulnerability](https://github.com/walter75-Consulting/Business-Central-Apps/security/advisories/new)**
 
 Please include as much information as possible:
 - The affected app(s) and version(s)

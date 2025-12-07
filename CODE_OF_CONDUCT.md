@@ -26,7 +26,7 @@ Examples of unacceptable behavior:
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project team at info@walter75.de. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening a GitHub Issue (mark it as confidential if needed). This is a personal open-source project - all communication happens through GitHub. All complaints will be reviewed and investigated fairly.
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 

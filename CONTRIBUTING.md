@@ -52,7 +52,7 @@ Please be respectful and constructive in all interactions. We aim to foster an i
 
 ## Questions?
 
-If you have questions about contributing, feel free to open an issue or contact us through our website.
+If you have questions about contributing, feel free to open an issue on GitHub. This is a personal open-source project - please use GitHub Issues/Discussions for all communication.
 
 ## License
 

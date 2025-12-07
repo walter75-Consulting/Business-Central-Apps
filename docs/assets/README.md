@@ -125,5 +125,5 @@ git commit -m "chore: configure Git LFS for large files"
 ---
 
 **Last Updated**: 2025-12-05  
-**Maintainer**: walter75 Consulting  
-**Contact**: info@walter75.de
+**Maintainer**: Sebastian Walter (@walter75) - Personal open-source project  
+**Support**: [GitHub Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues)

@@ -1,4 +1,4 @@
-# Business Central Apps by walter75 Consulting
+# Business Central Apps - Personal Open-Source Project
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Business Central](https://img.shields.io/badge/Business%20Central-27.0-00838F.svg)](https://dynamics.microsoft.com/business-central/)
@@ -101,12 +101,15 @@ For security concerns, please see [SECURITY.md](SECURITY.md).
 
 For support and questions, please see [SUPPORT.md](SUPPORT.md).
 
-## 🌐 About walter75 Consulting
+## 🌐 About This Project
 
-walter75 Consulting specializes in Microsoft Dynamics 365 Business Central solutions, providing custom extensions and consulting services.
+**This is a personal open-source project** by Sebastian Walter (@walter75), not a commercial service or company.
 
-- Website: [www.walter75.de](https://www.walter75.de)
+All extensions are provided under MIT License - free to use, modify, and distribute. Community support is available through GitHub Issues and Discussions.
+
+- Personal Website: [www.walter75.de](https://www.walter75.de)
 - Location: München, Germany
+- **No commercial support or SLA** - community contributions welcome
 
 ## 🙏 Acknowledgments
 

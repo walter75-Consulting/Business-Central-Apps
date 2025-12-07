@@ -1,31 +1,26 @@
 # Support
 
-## How to Get Help
+> **⚠️ Important**: This is a **personal open-source project**, not a commercial service. No professional support, SLA, or guaranteed response times are available.
 
-We're here to help you get the most out of our Business Central extensions!
+## Community Support Only
 
-### 📋 Issues and Bug Reports
+All support is provided by the community on a voluntary, best-effort basis through GitHub:
+
+### 🐛 Report Issues
 
 For bugs, issues, or feature requests:
 1. Check existing [Issues](https://github.com/walter75-Consulting/Business-Central-Apps/issues) to avoid duplicates
 2. Create a new issue using our issue templates
-3. Provide detailed information including:
+3. Provide detailed information:
    - App name and version
    - Business Central version
    - Steps to reproduce
    - Expected vs actual behavior
 
-### 💬 Community Support
+### 💬 Ask Questions
 
-- **GitHub Discussions**: Ask questions and share experiences
-- **GitHub Issues**: Report bugs and request features
-
-### 🏢 Commercial Support
-
-For professional support, consulting, or custom development:
-- **Website**: [www.walter75.de](https://www.walter75.de)
-- **Email**: info@walter75.de
-- **Location**: München, Germany
+- **GitHub Discussions**: [Join the community](https://github.com/walter75-Consulting/Business-Central-Apps/discussions)
+- **GitHub Issues**: For bug reports and feature requests only
 
 ### 📖 Documentation
 
@@ -33,8 +28,19 @@ For professional support, consulting, or custom development:
 - Review `CHANGELOG.md` for version-specific information
 - Check [CONTRIBUTING.md](CONTRIBUTING.md) if you want to contribute
 
-## Support Scope
+### 🤝 Contribute
 
-This is an open-source project maintained by walter75 Consulting. Community support is provided on a best-effort basis through GitHub issues and discussions.
+Want to help improve these extensions?
+- Submit pull requests
+- Report bugs
+- Share your experiences
+- Help other users in Discussions
 
-For guaranteed response times and dedicated support, please contact us for commercial support options.
+## About This Project
+
+This is a personal open-source project by Sebastian Walter (@walter75), provided under MIT License.
+
+- **No commercial support available**
+- **No SLA or guaranteed response times**
+- **Community contributions welcome**
+- **All support through GitHub only**
