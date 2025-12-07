@@ -10,14 +10,14 @@ codeunit 90970 "SEW Calc Test Helper"
     /// </summary>
     procedure InitializeSetup()
     var
-        SalesSetup: Record "Sales & Receivables Setup";
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
         NoSeries: Record "No. Series";
         NoSeriesLine: Record "No. Series Line";
     begin
-        if not SalesSetup.Get() then
-            SalesSetup.Insert(true);
+        if not SalesReceivablesSetup.Get() then
+            SalesReceivablesSetup.Insert(true);
 
-        if SalesSetup."SEW Calc Nos." = '' then begin
+        if SalesReceivablesSetup."SEW Calc Nos." = '' then begin
             // Create Number Series if it doesn't exist
             if not NoSeries.Get('CALC-TEST') then begin
                 NoSeries.Init();
@@ -40,8 +40,8 @@ codeunit 90970 "SEW Calc Test Helper"
             end;
 
             // Set in Sales Setup
-            SalesSetup."SEW Calc Nos." := 'CALC-TEST';
-            SalesSetup.Modify(true);
+            SalesReceivablesSetup."SEW Calc Nos." := 'CALC-TEST';
+            SalesReceivablesSetup.Modify(true);
         end;
     end;
 
@@ -153,29 +153,29 @@ codeunit 90970 "SEW Calc Test Helper"
 
     local procedure GetOrCreateGenProdPostingGroup(): Code[20]
     var
-        GenProdPostingGroup: Record "Gen. Product Posting Group";
+        GenProductPostingGroup: Record "Gen. Product Posting Group";
     begin
-        if GenProdPostingGroup.Get('TEST') then
+        if GenProductPostingGroup.Get('TEST') then
             exit('TEST');
 
-        GenProdPostingGroup.Init();
-        GenProdPostingGroup.Code := 'TEST';
-        GenProdPostingGroup.Description := 'Test Posting Group';
-        GenProdPostingGroup.Insert(true);
+        GenProductPostingGroup.Init();
+        GenProductPostingGroup.Code := 'TEST';
+        GenProductPostingGroup.Description := 'Test Posting Group';
+        GenProductPostingGroup.Insert(true);
         exit('TEST');
     end;
 
     local procedure GetOrCreateInvtPostingGroup(): Code[20]
     var
-        InvtPostingGroup: Record "Inventory Posting Group";
+        InventoryPostingGroup: Record "Inventory Posting Group";
     begin
-        if InvtPostingGroup.Get('TEST') then
+        if InventoryPostingGroup.Get('TEST') then
             exit('TEST');
 
-        InvtPostingGroup.Init();
-        InvtPostingGroup.Code := 'TEST';
-        InvtPostingGroup.Description := 'Test Inventory Posting Group';
-        InvtPostingGroup.Insert(true);
+        InventoryPostingGroup.Init();
+        InventoryPostingGroup.Code := 'TEST';
+        InventoryPostingGroup.Description := 'Test Inventory Posting Group';
+        InventoryPostingGroup.Insert(true);
         exit('TEST');
     end;
 
@@ -310,14 +310,14 @@ codeunit 90970 "SEW Calc Test Helper"
     end;
 
     /// <summary>
-    /// Creates a test calculation header and returns it.
+    /// Creates a test calculation header and returns the number.
     /// </summary>
-    procedure CreateTestCalculation(): Record "SEW Calc Header"
+    procedure CreateTestCalculation(): Code[20]
     var
         SEWCalcHeader: Record "SEW Calc Header";
     begin
         CreateTestCalculation(SEWCalcHeader);
-        exit(SEWCalcHeader);
+        exit(SEWCalcHeader."No.");
     end;
 
     /// <summary>
@@ -325,14 +325,22 @@ codeunit 90970 "SEW Calc Test Helper"
     /// </summary>
     procedure AddBOMLine(CalcNo: Code[20]; Description: Text[50]; TotalCost: Decimal; Quantity: Decimal)
     var
-        CalcHeader: Record "SEW Calc Header";
+        SEWCalcHeader: Record "SEW Calc Header";
     begin
-        if CalcHeader.Get(CalcNo) then begin
-            CalcHeader."Total Material Cost" += TotalCost;
-            CalcHeader."Total Cost" += TotalCost;
-            CalcHeader."Lot Size" := Quantity;
-            CalcHeader.Modify();
+        if SEWCalcHeader.Get(CalcNo) then begin
+            SEWCalcHeader."Total Material Cost" += TotalCost;
+            SEWCalcHeader."Total Cost" += TotalCost;
+            SEWCalcHeader."Lot Size" := Quantity;
+            SEWCalcHeader.Modify();
         end;
+    end;
+
+    /// <summary>
+    /// Simplified BOM line addition with just calc number and cost.
+    /// </summary>
+    procedure AddBOMLine(CalcNo: Code[20]; TotalCost: Decimal)
+    begin
+        AddBOMLine(CalcNo, 'Test BOM Line', TotalCost, 1);
     end;
 
     /// <summary>
@@ -340,13 +348,21 @@ codeunit 90970 "SEW Calc Test Helper"
     /// </summary>
     procedure AddRoutingLine(CalcNo: Code[20]; Description: Text[50]; TotalCost: Decimal; SetupTime: Decimal)
     var
-        CalcHeader: Record "SEW Calc Header";
+        SEWCalcHeader: Record "SEW Calc Header";
     begin
-        if CalcHeader.Get(CalcNo) then begin
-            CalcHeader."Total Labor Cost" += TotalCost;
-            CalcHeader."Total Cost" += TotalCost;
-            CalcHeader.Modify();
+        if SEWCalcHeader.Get(CalcNo) then begin
+            SEWCalcHeader."Total Labor Cost" += TotalCost;
+            SEWCalcHeader."Total Cost" += TotalCost;
+            SEWCalcHeader.Modify();
         end;
+    end;
+
+    /// <summary>
+    /// Simplified Routing line addition with just calc number and cost.
+    /// </summary>
+    procedure AddRoutingLine(CalcNo: Code[20]; TotalCost: Decimal)
+    begin
+        AddRoutingLine(CalcNo, 'Test Routing Line', TotalCost, 0);
     end;
 
     /// <summary>
