@@ -398,14 +398,12 @@ A comprehensive cost calculation and pricing solution for manufacturing companie
   </ul>
 </div>
 
-## 🆘 Support
+---
 
-<div class="info-box">
-  <p>For issues, feature requests, or questions:</p>
-  <ul>
-    <li><a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a></li>
-    <li>Email: support@walter75.de</li>
-  </ul>
+<div class="footer-info">
+  <p><strong>License:</strong> MIT License - see <a href="../../LICENSE">LICENSE</a> file for details</p>
+  <p><strong>Author:</strong> Sebastian Walter (@walter75) | <strong>Support:</strong> <a href="https://github.com/walter75-Consulting/Business-Central-Apps/issues">GitHub Issues</a> | <a href="https://www.walter75.de">walter75.de</a></p>
+  <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Personal open-source project - not a commercial service</p>
 </div>
 
 ---
