@@ -18,10 +18,8 @@ tableextension 90898 "SEW Prod Order Calc Ext" extends "Production Order"
                     exit;
                 end;
 
-                if CalcHeader.Get("SEW Calc No.") then begin
-                    CalcHeader.CalcFields("Total Cost");
+                if CalcHeader.Get("SEW Calc No.") then
                     "SEW Planned Cost" := CalcHeader."Total Cost";
-                end;
             end;
         }
         field(90801; "SEW Planned Cost"; Decimal)

@@ -62,6 +62,9 @@ codeunit 90957 "SEW Calc Simulation Test"
     begin
         // [GIVEN] A calculation with material cost = 100 for lot size 10 (unit cost = 10)
         CalcNo := SEWCalcTestHelper.CreateTestCalculation();
+        SEWCalcHeader.Get(CalcNo);
+        SEWCalcHeader."Lot Size" := 10;
+        SEWCalcHeader.Modify();
         SEWCalcTestHelper.AddBOMLine(CalcNo, 100);
         SEWCalcHeader.Get(CalcNo);
 
@@ -162,9 +165,9 @@ codeunit 90957 "SEW Calc Simulation Test"
         CalcNo: Code[20];
         SimNo: Code[20];
     begin
-        // [GIVEN] A calculation with unit cost = 10
+        // [GIVEN] A calculation with unit cost = 10 (material cost 1000 for lot size 100)
         CalcNo := SEWCalcTestHelper.CreateTestCalculation();
-        SEWCalcTestHelper.AddBOMLine(CalcNo, 10);
+        SEWCalcTestHelper.AddBOMLine(CalcNo, 1000);
         SEWCalcHeader.Get(CalcNo);
 
         // [GIVEN] A simulation with setup cost = 200
@@ -181,7 +184,7 @@ codeunit 90957 "SEW Calc Simulation Test"
         SEWCalcSimulationLine.Modify();
 
         // [THEN] Break-even = Setup Cost / (Price - Variable Cost) = 200 / (20 - 10) = 20
-        LibraryAssert.AreEqual(20, SEWCalcSimulationLine."Break-Even Quantity", 'Break-even quantity should be 20');
+        LibraryAssert.AreEqual(20.0, SEWCalcSimulationLine."Break-Even Quantity", 'Break-even quantity should be 20');
     end;
 
     [Test]

@@ -62,9 +62,13 @@ codeunit 90856 "SEW Calc Production Integ"
 
         OldVariance := ProdOrder."SEW Cost Variance %";
 
-        ProdOrder.CalcFields("SEW Actual Cost to Date");
-        if ProdOrder."SEW Planned Cost" <> 0 then
-            ProdOrder."SEW Cost Variance %" := Round((TotalActual - ProdOrder."SEW Planned Cost") / ProdOrder."SEW Planned Cost" * 100, 0.01);
+        // Calculate variance based on actual vs planned costs
+        if ProdOrder."SEW Planned Cost" <> 0 then begin
+            if TotalActual = 0 then
+                ProdOrder."SEW Cost Variance %" := 0  // No actual costs yet = 0% variance
+            else
+                ProdOrder."SEW Cost Variance %" := Round((TotalActual - ProdOrder."SEW Planned Cost") / ProdOrder."SEW Planned Cost" * 100, 0.01);
+        end;
 
         ProdOrder."SEW Cost Alert" := ProdOrder."SEW Cost Variance %" > ProdOrder."SEW Alert Threshold %";
         ProdOrder.Modify(true);
@@ -96,7 +100,7 @@ codeunit 90856 "SEW Calc Production Integ"
             if not ProdOrder.Get(ProdOrder.Status::"Firm Planned", ProdOrderNo) then
                 exit(false);
 
-        CalcHeader.CalcFields("Total Material Cost", "Total Labor Cost");
+        // Total Cost fields are regular fields, not FlowFields
         PlannedMaterial := CalcHeader."Total Material Cost";
         PlannedLabor := CalcHeader."Total Labor Cost";
 
@@ -199,7 +203,7 @@ codeunit 90856 "SEW Calc Production Integ"
         if ProdOrder."SEW Calc No." = '' then
             Error(NoCalcLinkedErr);
 
-        ProdOrder.CalcFields("SEW Actual Cost to Date");
+        // "SEW Actual Cost to Date" is a regular field, not a FlowField - no CalcFields needed
 
         Report := 'Production Order: ' + ProdOrder."No." + '\';
         Report += 'Planned Cost: ' + Format(ProdOrder."SEW Planned Cost") + '\';

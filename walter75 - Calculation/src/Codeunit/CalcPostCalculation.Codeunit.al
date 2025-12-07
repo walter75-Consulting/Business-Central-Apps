@@ -52,7 +52,8 @@ codeunit 90857 "SEW Calc Post-Calculation"
         CalcHistoryEntry."New Value" := 'Created from Production Order ' + ProdOrderNo;
         CalcHistoryEntry.Insert(true);
 
-        Message(PostCalcCreatedMsg, NewCalcNo, ProdOrderNo);
+        if GuiAllowed() then
+            Message(PostCalcCreatedMsg, NewCalcNo, ProdOrderNo);
         exit(NewCalcNo);
     end;
 
@@ -123,9 +124,7 @@ codeunit 90857 "SEW Calc Post-Calculation"
         if not PostCalcHeader.Get(PostCalcNo) then
             Error('Post-calculation %1 not found', PostCalcNo);
 
-        PreCalcHeader.CalcFields("Total Material Cost", "Total Labor Cost", "Total Overhead Cost", "Total Cost");
-        PostCalcHeader.CalcFields("Total Material Cost", "Total Labor Cost", "Total Overhead Cost", "Total Cost");
-
+        // Total Cost fields are regular fields, not FlowFields
         MaterialVar := PostCalcHeader."Total Material Cost" - PreCalcHeader."Total Material Cost";
         LaborVar := PostCalcHeader."Total Labor Cost" - PreCalcHeader."Total Labor Cost";
         OverheadVar := PostCalcHeader."Total Overhead Cost" - PreCalcHeader."Total Overhead Cost";
@@ -167,7 +166,7 @@ codeunit 90857 "SEW Calc Post-Calculation"
         Counter: Integer;
         NewNo: Code[20];
     begin
-        BaseNo := PreCalcNo + '-POST';
+        BaseNo := CopyStr(PreCalcNo + '-POST', 1, MaxStrLen(BaseNo));
 
         // Find next available post-calc number
         Counter := 1;

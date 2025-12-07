@@ -169,6 +169,7 @@ codeunit 90958 "SEW Calc Phase 4 Tests"
     end;
 
     [Test]
+    [HandlerFunctions('MessageHandler')]
     procedure TestPostCalculationCreation()
     var
         SEWCalcHeader: Record "SEW Calc Header";
@@ -241,6 +242,7 @@ codeunit 90958 "SEW Calc Phase 4 Tests"
     end;
 
     [Test]
+    [HandlerFunctions('MessageHandler')]
     procedure TestVarianceComparisonReport()
     var
         ProductionOrder: Record "Production Order";
@@ -284,21 +286,26 @@ codeunit 90958 "SEW Calc Phase 4 Tests"
         Count: Integer;
         CalcNo: Code[20];
     begin
+        // Clean up any existing test data to avoid Entry No. conflicts
+        SEWCalcTestHelper.CleanupTestData();
+        
         // [GIVEN] Multiple history entries for a calculation
         CalcNo := SEWCalcTestHelper.CreateTestCalculation();
         SEWCalcHeader.Get(CalcNo);
 
-        // [GIVEN] Created entry
+        // [GIVEN] Created entry (use explicit Entry No. to avoid auto-increment conflicts)
         SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Entry No." := 90001;
         SEWCalcHistoryEntry."Calculation No." := CalcNo;
         SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Created;
-        SEWCalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Insert(false);
 
         // [GIVEN] Modified entry
         SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Entry No." := 90002;
         SEWCalcHistoryEntry."Calculation No." := CalcNo;
         SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Modified;
-        SEWCalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Insert(false);
 
         // [WHEN] Filtering by calculation number
         SEWCalcHistoryEntry.SetRange("Calculation No.", CalcNo);
@@ -316,26 +323,32 @@ codeunit 90958 "SEW Calc Phase 4 Tests"
         CalcNo2: Code[20];
         Count: Integer;
     begin
+        // Clean up any existing test data to avoid Entry No. conflicts
+        SEWCalcTestHelper.CleanupTestData();
+        
         // [GIVEN] History entries with different change types
         CalcNo1 := SEWCalcTestHelper.CreateTestCalculation();
         CalcNo2 := SEWCalcTestHelper.CreateTestCalculation();
 
-        // [GIVEN] Created entries
+        // [GIVEN] Created entries (use explicit Entry No. to avoid auto-increment conflicts)
         SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Entry No." := 90003;
         SEWCalcHistoryEntry."Calculation No." := CalcNo1;
         SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Created;
-        SEWCalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Insert(false);
 
         SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Entry No." := 90004;
         SEWCalcHistoryEntry."Calculation No." := CalcNo2;
         SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Created;
-        SEWCalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Insert(false);
 
         // [GIVEN] Modified entry
         SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Entry No." := 90005;
         SEWCalcHistoryEntry."Calculation No." := CalcNo1;
         SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Modified;
-        SEWCalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Insert(false);
 
         // [WHEN] Filtering by Created change type
         SEWCalcHistoryEntry.SetRange("Change Type", SEWCalcHistoryEntry."Change Type"::Created);
@@ -474,5 +487,11 @@ codeunit 90958 "SEW Calc Phase 4 Tests"
         ProductionOrder.Get(ProductionOrder.Status, ProductionOrder."No.");
         LibraryAssert.AreEqual(CalcNo, ProductionOrder."SEW Calc No.", 'Production order should be linked to calculation');
         LibraryAssert.AreEqual(275, ProductionOrder."SEW Planned Cost", 'Planned cost should be 275 (200+75)');
+    end;
+
+    [MessageHandler]
+    procedure MessageHandler(Msg: Text[1024])
+    begin
+        // Handle any messages that appear during test execution
     end;
 }

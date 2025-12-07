@@ -337,10 +337,16 @@ codeunit 90970 "SEW Calc Test Helper"
 
     /// <summary>
     /// Simplified BOM line addition with just calc number and cost.
+    /// Uses the calculation's current lot size for cost calculation.
     /// </summary>
     procedure AddBOMLine(CalcNo: Code[20]; TotalCost: Decimal)
+    var
+        SEWCalcHeader: Record "SEW Calc Header";
     begin
-        AddBOMLine(CalcNo, 'Test BOM Line', TotalCost, 1);
+        if SEWCalcHeader.Get(CalcNo) and (SEWCalcHeader."Lot Size" > 0) then
+            AddBOMLine(CalcNo, 'Test BOM Line', TotalCost, SEWCalcHeader."Lot Size")
+        else
+            AddBOMLine(CalcNo, 'Test BOM Line', TotalCost, 100);
     end;
 
     /// <summary>
@@ -392,7 +398,18 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcVariable: Record "SEW Calc Variable";
         SEWCalcTemplate: Record "SEW Calc Template";
         SEWCalcHeader: Record "SEW Calc Header";
+        SEWCalcHistoryEntry: Record "SEW Calc History Entry";
+        ProductionOrder: Record "Production Order";
     begin
+        // Delete ALL history entries to prevent Entry No. auto-increment conflicts
+        // (not just test entries, as Entry No. is a global sequence)
+        SEWCalcHistoryEntry.DeleteAll(true);
+        Commit();  // Ensure deletion is committed before continuing
+
+        // Delete test production orders
+        ProductionOrder.SetFilter("No.", 'TEST-PROD-*');
+        ProductionOrder.DeleteAll(true);
+
         // Delete test items
         Item.SetFilter("No.", 'TEST-CALC-*|COMP*');
         Item.DeleteAll(true);
