@@ -1,7 +1,23 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/AL-Go-Actions/v8.1/.Modules/settings.schema.json",
   "country": "de",
-  "appFolders": [],
+  "appFolders": [
+    "walter75 - BaseApp Basic",
+    "walter75 - OAuth 2.0",
+    "walter75 - PrintNode",
+    "walter75 - Sendcloud",
+    "walter75 - Packages",
+    "walter75 - Calculation",
+    "walter75 - BDE Terminal",
+    "walter75 - Color Master",
+    "walter75 - Contact Relations",
+    "walter75 - Freight Prices",
+    "walter75 - XML Import"
+  ],
   "testFolders": [],
-  "bcptTestFolders": []
+  "bcptTestFolders": [],
+  "doNotRunTests": true,
+  "installTestFramework": false,
+  "installTestLibraries": false,
+  "installTestApps": []
 }

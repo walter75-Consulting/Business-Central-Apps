@@ -1,6 +1,11 @@
 codeunit 90956 "SEW Calc Sales Integ. Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "Sales Header" = RMID,
+                  tabledata "Sales Line" = RMID,
+                  tabledata "Item" = RMID;
     TestPermissions = Disabled;
 
     var
@@ -107,7 +112,7 @@ codeunit 90956 "SEW Calc Sales Integ. Test"
         SalesLineRec: Record "Sales Line";
         ItemRec: Record Item;
         SEWCalcTemplateRec: Record "SEW Calc Template";
-        SEWCalcIntegMgmtCU: Codeunit "SEW Calc Integration Mgt.";
+        SEWCalcIntegrationMgt: Codeunit "SEW Calc Integration Mgt.";
     begin
         // [GIVEN] Setup is initialized with number series
         SEWCalcTestHelper.InitializeSetup();
@@ -134,7 +139,7 @@ codeunit 90956 "SEW Calc Sales Integ. Test"
         SalesLineRec.Insert(true);
 
         // [WHEN] Calculating sales line price
-        SEWCalcIntegMgmtCU.CalculateSalesLinePrice(SalesLineRec);
+        SEWCalcIntegrationMgt.CalculateSalesLinePrice(SalesLineRec);
 
         // [THEN] Calculation should be created and linked
         SalesLineRec.Get(SalesLineRec."Document Type", SalesLineRec."Document No.", SalesLineRec."Line No.");
@@ -192,7 +197,7 @@ codeunit 90956 "SEW Calc Sales Integ. Test"
         SalesLineRec: Record "Sales Line";
         ItemRec: Record Item;
         SEWCalcHeaderRec: Record "SEW Calc Header";
-        SEWCalcIntegMgmtCU: Codeunit "SEW Calc Integration Mgt.";
+        SEWCalcIntegrationMgt: Codeunit "SEW Calc Integration Mgt.";
         IsValid: Boolean;
     begin
         // [GIVEN] A calculation with cost 100
@@ -217,7 +222,7 @@ codeunit 90956 "SEW Calc Sales Integ. Test"
         SalesLineRec.Modify();
 
         // [WHEN] Validating margin
-        IsValid := SEWCalcIntegMgmtCU.ValidateMargin(SalesLineRec);
+        IsValid := SEWCalcIntegrationMgt.ValidateMargin(SalesLineRec);
 
         // [THEN] Margin should be valid (above 15 percent minimum)
         SEWTestAssert.IsTrue(IsValid, 'Margin should be valid');
@@ -230,7 +235,7 @@ codeunit 90956 "SEW Calc Sales Integ. Test"
         SalesLineRec: Record "Sales Line";
         ItemRec: Record Item;
         SEWCalcHeaderRec: Record "SEW Calc Header";
-        SEWCalcIntegMgmtCU: Codeunit "SEW Calc Integration Mgt.";
+        SEWCalcIntegrationMgt: Codeunit "SEW Calc Integration Mgt.";
         IsValid: Boolean;
     begin
         // [GIVEN] A calculation with cost 100
@@ -255,7 +260,7 @@ codeunit 90956 "SEW Calc Sales Integ. Test"
         SalesLineRec.Modify();
 
         // [WHEN] Validating margin
-        IsValid := SEWCalcIntegMgmtCU.ValidateMargin(SalesLineRec);
+        IsValid := SEWCalcIntegrationMgt.ValidateMargin(SalesLineRec);
 
         // [THEN] Margin should be invalid (below 15 percent minimum)
         SEWTestAssert.IsFalse(IsValid, 'Margin should be invalid');

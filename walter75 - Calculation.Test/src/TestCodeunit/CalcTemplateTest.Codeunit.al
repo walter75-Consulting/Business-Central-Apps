@@ -1,6 +1,10 @@
 codeunit 90953 "SEW Calc Template Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Template" = RMID,
+                  tabledata "SEW Calc Template Line" = RMID,
+                  tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID;
 
     var
         SEWTestAssert: Codeunit "SEW Test Assert";

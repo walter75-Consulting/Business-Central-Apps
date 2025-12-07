@@ -1,6 +1,9 @@
 codeunit 90950 "SEW Calc Formula Parser Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "SEW Calc Variable" = RMID;
 
     /// <summary>
     /// Test codeunit for SEW Calc Formula Parser.

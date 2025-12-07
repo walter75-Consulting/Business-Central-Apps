@@ -1,6 +1,12 @@
 codeunit 90952 "SEW Calc BOM Routing Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "Item" = RMID,
+                  tabledata "BOM Component" = RMID,
+                  tabledata "Routing Header" = RMID,
+                  tabledata "Routing Line" = RMID;
 
     var
         SEWTestAssert: Codeunit "SEW Test Assert";
