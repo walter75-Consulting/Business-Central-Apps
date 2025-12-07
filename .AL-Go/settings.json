@@ -19,5 +19,8 @@
   ],
   "bcptTestFolders": [],
   "installTestFramework": true,
-  "installTestLibraries": true
+  "installTestLibraries": true,
+  "installTestApps": [
+    "Tests-TestLibraries"
+  ]
 }
