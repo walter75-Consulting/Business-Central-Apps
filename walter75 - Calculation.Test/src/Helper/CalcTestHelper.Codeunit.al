@@ -333,7 +333,7 @@ codeunit 90970 "SEW Calc Test Helper"
         SEWCalcHeader."Calculation Date" := WorkDate(); // Set calculation date for variable lookup
         SEWCalcHeader."Lot Size" := 100; // Default lot size for tests
         SEWCalcHeader.Status := SEWCalcHeader.Status::Draft;
-        SEWCalcHeader.Insert(true);
+        SEWCalcHeader.Insert(false); // Use false to skip validation - test data doesn't need No. Series validation
     end;
 
     /// <summary>
