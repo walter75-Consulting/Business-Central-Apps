@@ -288,7 +288,7 @@ codeunit 90958 "SEW Calc Phase 4 Tests"
     begin
         // Clean up any existing test data to avoid Entry No. conflicts
         SEWCalcTestHelper.CleanupTestData();
-        
+
         // [GIVEN] Multiple history entries for a calculation
         CalcNo := SEWCalcTestHelper.CreateTestCalculation();
         SEWCalcHeader.Get(CalcNo);
@@ -325,7 +325,7 @@ codeunit 90958 "SEW Calc Phase 4 Tests"
     begin
         // Clean up any existing test data to avoid Entry No. conflicts
         SEWCalcTestHelper.CleanupTestData();
-        
+
         // [GIVEN] History entries with different change types
         CalcNo1 := SEWCalcTestHelper.CreateTestCalculation();
         CalcNo2 := SEWCalcTestHelper.CreateTestCalculation();
