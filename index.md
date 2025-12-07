@@ -97,6 +97,18 @@ title: Home
   </div>
 
   <div class="feature-card">
+    <h3>🧮 Calculation</h3>
+    <p style="color: #999; font-size: 0.9em; margin: 5px 0;">🔢 90800-90899</p>
+    <p>Advanced product cost calculation and pricing engine with formula support.</p>
+    <div class="badge-container" style="justify-content: flex-start; margin: 15px 0;">
+      <span class="badge" style="font-size: 0.75em;">Manufacturing</span>
+      <span class="badge" style="font-size: 0.75em;">Costing</span>
+      <span class="badge" style="font-size: 0.75em;">Pricing</span>
+    </div>
+    <a href="docs/apps/calculation.html" class="btn" style="width: 100%; text-align: center; padding: 10px;">Learn More →</a>
+  </div>
+
+  <div class="feature-card">
     <h3>🏭 BDE Terminal</h3>
     <p style="color: #999; font-size: 0.9em; margin: 5px 0;">🔢 90600-90699</p>
     <p>Manufacturing data entry terminals with custom button controls for shop floor.</p>
