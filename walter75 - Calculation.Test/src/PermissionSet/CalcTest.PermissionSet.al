@@ -33,10 +33,6 @@ permissionset 90999 "SEW CALC TEST"
         tabledata "SEW Calc Simulation Line" = RMID,
         table "SEW Calc History Entry" = X,
         tabledata "SEW Calc History Entry" = RMID,
-        table "SEW Post-Calc Header" = X,
-        tabledata "SEW Post-Calc Header" = RMID,
-        table "SEW Post-Calc Line" = X,
-        tabledata "SEW Post-Calc Line" = RMID,
         // Standard BC Tables needed for integration tests
         table "Item" = X,
         tabledata "Item" = RMID,
