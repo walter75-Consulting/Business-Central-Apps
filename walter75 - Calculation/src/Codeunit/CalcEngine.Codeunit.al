@@ -1,24 +1,32 @@
 codeunit 90850 "SEW Calc Engine"
 {
+    Permissions = tabledata "SEW Calc Header" = rm,
+                  tabledata "SEW Calc Line" = rm,
+                  tabledata "SEW Calc Template" = r,
+                  tabledata Item = rm;
+
     /// <summary>
     /// Main calculation procedure. Executes the full calculation workflow.
     /// 1. Gets BOM/Routing costs
     /// 2. Evaluates all formulas
     /// 3. Updates totals
     /// </summary>
-    procedure Calculate(var CalcHeader: Record "SEW Calc Header")
+    /// <param name="SEWCalcHeader">The calculation header record to process.</param>
+    procedure Calculate(var SEWCalcHeader: Record "SEW Calc Header")
     begin
-        Calculate(CalcHeader, false);
+        Calculate(SEWCalcHeader, false);
     end;
 
     /// <summary>
-    /// Main calculation procedure with option to skip UI messages.
+    /// Main calculation procedure with option to skip messages.
     /// </summary>
-    procedure Calculate(var CalcHeader: Record "SEW Calc Header"; SkipMessages: Boolean)
+    /// <param name="SEWCalcHeader">The calculation header record to process.</param>
+    /// <param name="SkipMessages">If true, suppresses user messages during calculation.</param>
+    procedure Calculate(var SEWCalcHeader: Record "SEW Calc Header"; SkipMessages: Boolean)
     var
-        CalcLineRec: Record "SEW Calc Line";
-        CalcTemplateRec: Record "SEW Calc Template";
-        FormulaParserCU: Codeunit "SEW Calc Formula Parser";
+        SEWCalcLine: Record "SEW Calc Line";
+        SEWCalcTemplate: Record "SEW Calc Template";
+        SEWCalcFormulaParser: Codeunit "SEW Calc Formula Parser";
         CalculationStartedMsg: Label 'Calculation started...', Comment = 'DE="Kalkulation gestartet..."';
         CalculationCompletedMsg: Label 'Calculation completed. Total Cost: %1', Comment = 'DE="Kalkulation abgeschlossen. Gesamtkosten: %1"';
     begin
@@ -26,87 +34,92 @@ codeunit 90850 "SEW Calc Engine"
             Message(CalculationStartedMsg);
 
         // Step 1: Get BOM and Routing costs if template specifies
-        if CalcHeader."Template Code" <> '' then
-            if CalcTemplateRec.Get(CalcHeader."Template Code") then begin
-                if CalcTemplateRec."Include Material" then
-                    GetBOMCost(CalcHeader, CalcTemplateRec."Price Source Item");
+        if SEWCalcHeader."Template Code" <> '' then
+            if SEWCalcTemplate.Get(SEWCalcHeader."Template Code") then begin
+                if SEWCalcTemplate."Include Material" then
+                    GetBOMCost(SEWCalcHeader, SEWCalcTemplate."Price Source Item");
 
-                if CalcTemplateRec."Include Labor" then
-                    GetRoutingCost(CalcHeader, CalcTemplateRec."Price Source Capacity");
+                if SEWCalcTemplate."Include Labor" then
+                    GetRoutingCost(SEWCalcHeader, SEWCalcTemplate."Price Source Capacity");
 
-                if CalcTemplateRec."Include Overhead" then
-                    ApplySurcharges(CalcHeader);
+                if SEWCalcTemplate."Include Overhead" then
+                    ApplySurcharges(SEWCalcHeader);
             end;
 
         // Step 2: Evaluate all formulas in calculation lines
-        CalcLineRec.SetRange("Calc No.", CalcHeader."No.");
-        CalcLineRec.SetCurrentKey("Calc No.", "Line No.");
-        if CalcLineRec.FindSet() then
+        SEWCalcLine.SetRange("Calc No.", SEWCalcHeader."No.");
+        SEWCalcLine.SetCurrentKey("Calc No.", "Line No.");
+        if SEWCalcLine.FindSet() then
             repeat
-                if CalcLineRec.Formula <> '' then begin
-                    CalcLineRec.Amount := FormulaParserCU.EvaluateFormula(CalcLineRec.Formula, CalcHeader);
-                    CalcLineRec.Modify(true);
+                if SEWCalcLine.Formula <> '' then begin
+                    SEWCalcLine.Amount := SEWCalcFormulaParser.EvaluateFormula(SEWCalcLine.Formula, SEWCalcHeader);
+                    SEWCalcLine.Modify(true);
                 end;
-            until CalcLineRec.Next() = 0;
+            until SEWCalcLine.Next() = 0;
 
         // Step 3: Update totals
-        UpdateTotals(CalcHeader);
+        UpdateTotals(SEWCalcHeader);
 
         if not SkipMessages then
-            Message(CalculationCompletedMsg, CalcHeader."Total Cost");
+            Message(CalculationCompletedMsg, SEWCalcHeader."Total Cost");
     end;
 
     /// <summary>
     /// Retrieves material costs from Production BOM.
     /// Updates the Total Material Cost in the header.
     /// </summary>
-    procedure GetBOMCost(var CalcHeader: Record "SEW Calc Header"; PriceSource: Enum "SEW Calc Price Source")
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="PriceSource">The price source to use for material costs.</param>
+    procedure GetBOMCost(var SEWCalcHeader: Record "SEW Calc Header"; PriceSource: Enum "SEW Calc Price Source")
     var
-        PriceManagement: Codeunit "SEW Calc Price Management";
+        SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
         MaterialCost: Decimal;
     begin
-        if CalcHeader."Production BOM No." = '' then
+        if SEWCalcHeader."Production BOM No." = '' then
             exit;
 
-        MaterialCost := PriceManagement.GetBOMCost(
-            CalcHeader."Production BOM No.",
-            CalcHeader."Production BOM Version",
-            CalcHeader."Lot Size",
+        MaterialCost := SEWCalcPriceManagement.GetBOMCost(
+            SEWCalcHeader."Production BOM No.",
+            SEWCalcHeader."Production BOM Version",
+            SEWCalcHeader."Lot Size",
             PriceSource);
 
-        CalcHeader."Total Material Cost" := MaterialCost;
-        CalcHeader.Modify(true);
+        SEWCalcHeader."Total Material Cost" := MaterialCost;
+        SEWCalcHeader.Modify(true);
     end;
 
     /// <summary>
     /// Retrieves labor costs from Routing.
     /// Updates the Total Labor Cost in the header.
     /// </summary>
-    procedure GetRoutingCost(var CalcHeader: Record "SEW Calc Header"; PriceSource: Enum "SEW Calc Price Source")
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    /// <param name="PriceSource">The price source to use for labor costs.</param>
+    procedure GetRoutingCost(var SEWCalcHeader: Record "SEW Calc Header"; PriceSource: Enum "SEW Calc Price Source")
     var
-        PriceManagement: Codeunit "SEW Calc Price Management";
+        SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
         LaborCost: Decimal;
     begin
-        if CalcHeader."Routing No." = '' then
+        if SEWCalcHeader."Routing No." = '' then
             exit;
 
-        LaborCost := PriceManagement.GetRoutingCost(
-            CalcHeader."Routing No.",
-            CalcHeader."Routing Version",
-            CalcHeader."Lot Size",
+        LaborCost := SEWCalcPriceManagement.GetRoutingCost(
+            SEWCalcHeader."Routing No.",
+            SEWCalcHeader."Routing Version",
+            SEWCalcHeader."Lot Size",
             PriceSource);
 
-        CalcHeader."Total Labor Cost" := LaborCost;
-        CalcHeader.Modify(true);
+        SEWCalcHeader."Total Labor Cost" := LaborCost;
+        SEWCalcHeader.Modify(true);
     end;
 
     /// <summary>
     /// Applies overhead surcharges based on material and labor costs.
     /// This is a placeholder - actual overhead logic will be enhanced in Phase 2.
     /// </summary>
-    procedure ApplySurcharges(var CalcHeader: Record "SEW Calc Header")
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    procedure ApplySurcharges(var SEWCalcHeader: Record "SEW Calc Header")
     var
-        PriceManagement: Codeunit "SEW Calc Price Management";
+        SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
         BaseAmount: Decimal;
         OverheadCost: Decimal;
         OverheadPercent: Decimal;
@@ -115,11 +128,11 @@ codeunit 90850 "SEW Calc Engine"
         // Future: This should come from variables or template settings
         OverheadPercent := 10;
 
-        BaseAmount := CalcHeader."Total Material Cost" + CalcHeader."Total Labor Cost";
-        OverheadCost := PriceManagement.CalculateOverhead(BaseAmount, OverheadPercent);
+        BaseAmount := SEWCalcHeader."Total Material Cost" + SEWCalcHeader."Total Labor Cost";
+        OverheadCost := SEWCalcPriceManagement.CalculateOverhead(BaseAmount, OverheadPercent);
 
-        CalcHeader."Total Overhead Cost" := OverheadCost;
-        CalcHeader.Modify(true);
+        SEWCalcHeader."Total Overhead Cost" := OverheadCost;
+        SEWCalcHeader.Modify(true);
     end;
 
     /// <summary>
@@ -127,61 +140,65 @@ codeunit 90850 "SEW Calc Engine"
     /// Sums up Material, Labor, and Overhead costs.
     /// Calculates margin if target sales price is set.
     /// </summary>
-    procedure UpdateTotals(var CalcHeader: Record "SEW Calc Header")
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    procedure UpdateTotals(var SEWCalcHeader: Record "SEW Calc Header")
     var
-        PriceManagement: Codeunit "SEW Calc Price Management";
+        SEWCalcPriceManagement: Codeunit "SEW Calc Price Management";
     begin
         // Calculate total cost
-        CalcHeader."Total Cost" :=
-            CalcHeader."Total Material Cost" +
-            CalcHeader."Total Labor Cost" +
-            CalcHeader."Total Overhead Cost";
+        SEWCalcHeader."Total Cost" :=
+            SEWCalcHeader."Total Material Cost" +
+            SEWCalcHeader."Total Labor Cost" +
+            SEWCalcHeader."Total Overhead Cost";
 
         // Calculate margin if target sales price is set
-        if CalcHeader."Target Sales Price" <> 0 then
-            CalcHeader."Margin %" := PriceManagement.CalculateMargin(
-                CalcHeader."Total Cost",
-                CalcHeader."Target Sales Price");
+        if SEWCalcHeader."Target Sales Price" <> 0 then
+            SEWCalcHeader."Margin %" := SEWCalcPriceManagement.CalculateMargin(
+                SEWCalcHeader."Total Cost",
+                SEWCalcHeader."Target Sales Price");
 
-        CalcHeader.Modify(true);
+        SEWCalcHeader.Modify(true);
     end;
 
     /// <summary>
     /// Calculates from template - main entry point for template-based calculations.
     /// Creates calculation lines from template and executes calculation.
     /// </summary>
-    procedure CalculateFromTemplate(var CalcHeader: Record "SEW Calc Header")
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    procedure CalculateFromTemplate(var SEWCalcHeader: Record "SEW Calc Header")
     var
-        TemplateManagement: Codeunit "SEW Calc Template Management";
+        SEWCalcTemplateManagement: Codeunit "SEW Calc Template Management";
         NoTemplateErr: Label 'No template code specified', Comment = 'DE="Kein Vorlagencode angegeben"';
     begin
-        if CalcHeader."Template Code" = '' then
+        if SEWCalcHeader."Template Code" = '' then
             Error(NoTemplateErr);
 
         // Copy template lines to calculation (skip UI for automated testing)
-        TemplateManagement.CopyTemplateToCalc(CalcHeader, true);
+        SEWCalcTemplateManagement.CopyTemplateToCalc(SEWCalcHeader, true);
 
         // Execute calculation (skip messages for automated testing)
-        Calculate(CalcHeader, true);
+        Calculate(SEWCalcHeader, true);
     end;
 
     /// <summary>
     /// Validates a calculation before release.
     /// Checks for required data and valid totals.
     /// </summary>
-    procedure ValidateCalculation(var CalcHeader: Record "SEW Calc Header"): Boolean
+    /// <param name="SEWCalcHeader">The calculation header record to validate.</param>
+    /// <returns>True if validation passes.</returns>
+    procedure ValidateCalculation(var SEWCalcHeader: Record "SEW Calc Header"): Boolean
     var
-        CalcLine: Record "SEW Calc Line";
+        SEWCalcLine: Record "SEW Calc Line";
         NoLinesErr: Label 'Cannot release calculation without lines', Comment = 'DE="Kalkulation ohne Zeilen kann nicht freigegeben werden"';
         NoItemErr: Label 'Item No. must be specified', Comment = 'DE="Artikelnummer muss angegeben werden"';
     begin
         // Check if item is specified
-        if CalcHeader."Item No." = '' then
+        if SEWCalcHeader."Item No." = '' then
             Error(NoItemErr);
 
         // Check if lines exist
-        CalcLine.SetRange("Calc No.", CalcHeader."No.");
-        if CalcLine.IsEmpty() then
+        SEWCalcLine.SetRange("Calc No.", SEWCalcHeader."No.");
+        if SEWCalcLine.IsEmpty() then
             Error(NoLinesErr);
 
         exit(true);
@@ -191,23 +208,25 @@ codeunit 90850 "SEW Calc Engine"
     /// Transfers calculation results to the Item card.
     /// Updates Unit Cost and Last Direct Cost on the item.
     /// </summary>
-    procedure TransferToItem(var CalcHeader: Record "SEW Calc Header")
+    /// <param name="SEWCalcHeader">The calculation header record.</param>
+    procedure TransferToItem(var SEWCalcHeader: Record "SEW Calc Header")
     var
         Item: Record Item;
+        ConfirmManagement: Codeunit "Confirm Management";
         TransferQst: Label 'Do you want to transfer the calculation results to Item %1?\Total Cost: %2', Comment = 'DE="Möchten Sie die Kalkulationsergebnisse auf Artikel %1 übertragen?\Gesamtkosten: %2"';
         TransferredMsg: Label 'Calculation results transferred to Item %1', Comment = 'DE="Kalkulationsergebnisse auf Artikel %1 übertragen"';
     begin
-        if CalcHeader."Item No." = '' then
+        if SEWCalcHeader."Item No." = '' then
             exit;
 
-        if not Item.Get(CalcHeader."Item No.") then
+        if not Item.Get(SEWCalcHeader."Item No.") then
             exit;
 
-        if not Confirm(StrSubstNo(TransferQst, Item."No.", CalcHeader."Total Cost"), false) then
+        if not ConfirmManagement.GetResponseOrDefault(StrSubstNo(TransferQst, Item."No.", SEWCalcHeader."Total Cost"), false) then
             exit;
 
-        Item."Unit Cost" := CalcHeader."Total Cost";
-        Item."Last Direct Cost" := CalcHeader."Total Cost";
+        Item."Unit Cost" := SEWCalcHeader."Total Cost";
+        Item."Last Direct Cost" := SEWCalcHeader."Total Cost";
         Item.Modify(true);
 
         Message(TransferredMsg, Item."No.");

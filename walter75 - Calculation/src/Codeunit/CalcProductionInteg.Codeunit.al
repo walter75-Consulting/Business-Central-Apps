@@ -9,6 +9,8 @@ codeunit 90856 "SEW Calc Production Integ"
     var
         AlertMsg: Label 'Production Order %1: Actual costs (%2) exceed planned costs (%3) by %4%', Comment = 'DE="Fertigungsauftrag %1: Istkosten (%2) überschreiten Plankosten (%3) um %4%"';
         NoCalcLinkedErr: Label 'No calculation is linked to this production order', Comment = 'DE="Diesem Fertigungsauftrag ist keine Kalkulation zugeordnet"';
+        CalcNotFoundErr: Label 'Calculation %1 not found', Comment = 'DE="Kalkulation %1 nicht gefunden"';
+        ProdOrderNotFoundErr: Label 'Production Order %1 not found', Comment = 'DE="Fertigungsauftrag %1 nicht gefunden"';
 
     [EventSubscriber(ObjectType::Table, Database::"Capacity Ledger Entry", OnAfterInsertEvent, '', false, false)]
     local procedure OnCapacityLedgerEntryInsert(var Rec: Record "Capacity Ledger Entry")
@@ -46,63 +48,62 @@ codeunit 90856 "SEW Calc Production Integ"
         UpdateActualCosts(ProdOrder);
     end;
 
-    procedure UpdateActualCosts(var ProdOrder: Record "Production Order")
+    procedure UpdateActualCosts(var ProductionOrder: Record "Production Order")
     var
         MaterialCost: Decimal;
         LaborCost: Decimal;
         TotalActual: Decimal;
         OldVariance: Decimal;
     begin
-        if ProdOrder."SEW Calc No." = '' then
+        if ProductionOrder."SEW Calc No." = '' then
             exit;
 
-        MaterialCost := GetActualMaterialCost(ProdOrder."No.");
-        LaborCost := GetActualLaborCost(ProdOrder."No.");
+        MaterialCost := GetActualMaterialCost(ProductionOrder."No.");
+        LaborCost := GetActualLaborCost(ProductionOrder."No.");
         TotalActual := MaterialCost + LaborCost;
 
-        OldVariance := ProdOrder."SEW Cost Variance %";
+        OldVariance := ProductionOrder."SEW Cost Variance %";
 
         // Calculate variance based on actual vs planned costs
-        if ProdOrder."SEW Planned Cost" <> 0 then begin
+        if ProductionOrder."SEW Planned Cost" <> 0 then
             if TotalActual = 0 then
-                ProdOrder."SEW Cost Variance %" := 0  // No actual costs yet = 0% variance
+                ProductionOrder."SEW Cost Variance %" := 0  // No actual costs yet = 0% variance
             else
-                ProdOrder."SEW Cost Variance %" := Round((TotalActual - ProdOrder."SEW Planned Cost") / ProdOrder."SEW Planned Cost" * 100, 0.01);
-        end;
+                ProductionOrder."SEW Cost Variance %" := Round((TotalActual - ProductionOrder."SEW Planned Cost") / ProductionOrder."SEW Planned Cost" * 100, 0.01);
 
-        ProdOrder."SEW Cost Alert" := ProdOrder."SEW Cost Variance %" > ProdOrder."SEW Alert Threshold %";
-        ProdOrder.Modify(true);
+        ProductionOrder."SEW Cost Alert" := ProductionOrder."SEW Cost Variance %" > ProductionOrder."SEW Alert Threshold %";
+        ProductionOrder.Modify(true);
 
         // Log history entry if variance crosses threshold
-        if (OldVariance <= ProdOrder."SEW Alert Threshold %") and
-           (ProdOrder."SEW Cost Variance %" > ProdOrder."SEW Alert Threshold %")
+        if (OldVariance <= ProductionOrder."SEW Alert Threshold %") and
+           (ProductionOrder."SEW Cost Variance %" > ProductionOrder."SEW Alert Threshold %")
         then
-            LogCostAlert(ProdOrder);
+            LogCostAlert(ProductionOrder);
 
         // Show notification if alert is triggered
-        if ProdOrder."SEW Cost Alert" then
-            ShowCostAlert(ProdOrder, TotalActual);
+        if ProductionOrder."SEW Cost Alert" then
+            ShowCostAlert(ProductionOrder, TotalActual);
     end;
 
     procedure CompareTargetVsActual(CalcNo: Code[20]; ProdOrderNo: Code[20]): Boolean
     var
-        CalcHeader: Record "SEW Calc Header";
-        ProdOrder: Record "Production Order";
+        SEWCalcHeader: Record "SEW Calc Header";
+        ProductionOrder: Record "Production Order";
         ActualMaterial: Decimal;
         ActualLabor: Decimal;
         PlannedMaterial: Decimal;
         PlannedLabor: Decimal;
     begin
-        if not CalcHeader.Get(CalcNo) then
+        if not SEWCalcHeader.Get(CalcNo) then
             exit(false);
 
-        if not ProdOrder.Get(ProdOrder.Status::Released, ProdOrderNo) then
-            if not ProdOrder.Get(ProdOrder.Status::"Firm Planned", ProdOrderNo) then
+        if not ProductionOrder.Get(ProductionOrder.Status::Released, ProdOrderNo) then
+            if not ProductionOrder.Get(ProductionOrder.Status::"Firm Planned", ProdOrderNo) then
                 exit(false);
 
         // Total Cost fields are regular fields, not FlowFields
-        PlannedMaterial := CalcHeader."Total Material Cost";
-        PlannedLabor := CalcHeader."Total Labor Cost";
+        PlannedMaterial := SEWCalcHeader."Total Material Cost";
+        PlannedLabor := SEWCalcHeader."Total Labor Cost";
 
         ActualMaterial := GetActualMaterialCost(ProdOrderNo);
         ActualLabor := GetActualLaborCost(ProdOrderNo);
@@ -145,70 +146,70 @@ codeunit 90856 "SEW Calc Production Integ"
         exit(TotalCost);
     end;
 
-    local procedure LogCostAlert(ProdOrder: Record "Production Order")
+    local procedure LogCostAlert(ProductionOrder: Record "Production Order")
     var
-        CalcHistoryEntry: Record "SEW Calc History Entry";
+        SEWCalcHistoryEntry: Record "SEW Calc History Entry";
     begin
-        CalcHistoryEntry.Init();
-        CalcHistoryEntry."Calculation No." := ProdOrder."SEW Calc No.";
-        CalcHistoryEntry."Change Type" := CalcHistoryEntry."Change Type"::Modified;
-        CalcHistoryEntry."Field Name" := 'Cost Variance Alert';
-        CalcHistoryEntry."Old Value" := Format(false);
-        CalcHistoryEntry."New Value" := Format(true);
-        CalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Calculation No." := ProductionOrder."SEW Calc No.";
+        SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Modified;
+        SEWCalcHistoryEntry."Field Name" := 'Cost Variance Alert';
+        SEWCalcHistoryEntry."Old Value" := Format(false);
+        SEWCalcHistoryEntry."New Value" := Format(true);
+        SEWCalcHistoryEntry.Insert(true);
     end;
 
-    local procedure ShowCostAlert(ProdOrder: Record "Production Order"; ActualCost: Decimal)
+    local procedure ShowCostAlert(ProductionOrder: Record "Production Order"; ActualCost: Decimal)
     var
         AlertNotification: Notification;
     begin
         AlertNotification.Message := StrSubstNo(AlertMsg,
-            ProdOrder."No.",
+            ProductionOrder."No.",
             Format(ActualCost, 0, '<Precision,2:5><Standard Format,0>'),
-            Format(ProdOrder."SEW Planned Cost", 0, '<Precision,2:5><Standard Format,0>'),
-            Format(ProdOrder."SEW Cost Variance %", 0, '<Precision,0:2><Standard Format,0>'));
+            Format(ProductionOrder."SEW Planned Cost", 0, '<Precision,2:5><Standard Format,0>'),
+            Format(ProductionOrder."SEW Cost Variance %", 0, '<Precision,0:2><Standard Format,0>'));
         AlertNotification.Scope := NotificationScope::LocalScope;
         AlertNotification.Send();
     end;
 
-    procedure LinkCalculationToProduction(CalcNo: Code[20]; var ProdOrder: Record "Production Order")
+    procedure LinkCalculationToProduction(CalcNo: Code[20]; var ProductionOrder: Record "Production Order")
     var
-        CalcHeader: Record "SEW Calc Header";
-        CalcHistoryEntry: Record "SEW Calc History Entry";
+        SEWCalcHeader: Record "SEW Calc Header";
+        SEWCalcHistoryEntry: Record "SEW Calc History Entry";
     begin
-        if not CalcHeader.Get(CalcNo) then
-            Error('Calculation %1 not found', CalcNo);
+        if not SEWCalcHeader.Get(CalcNo) then
+            Error(CalcNotFoundErr, CalcNo);
 
-        ProdOrder.Validate("SEW Calc No.", CalcNo);
-        ProdOrder.Modify(true);
+        ProductionOrder.Validate("SEW Calc No.", CalcNo);
+        ProductionOrder.Modify(true);
 
         // Log history
-        CalcHistoryEntry.Init();
-        CalcHistoryEntry."Calculation No." := CalcNo;
-        CalcHistoryEntry."Change Type" := CalcHistoryEntry."Change Type"::Modified;
-        CalcHistoryEntry."Field Name" := 'Production Order Link';
-        CalcHistoryEntry."New Value" := ProdOrder."No.";
-        CalcHistoryEntry.Insert(true);
+        SEWCalcHistoryEntry.Init();
+        SEWCalcHistoryEntry."Calculation No." := CalcNo;
+        SEWCalcHistoryEntry."Change Type" := SEWCalcHistoryEntry."Change Type"::Modified;
+        SEWCalcHistoryEntry."Field Name" := 'Production Order Link';
+        SEWCalcHistoryEntry."New Value" := ProductionOrder."No.";
+        SEWCalcHistoryEntry.Insert(true);
     end;
 
     procedure GetVarianceReport(ProdOrderNo: Code[20]): Text
     var
-        ProdOrder: Record "Production Order";
+        ProductionOrder: Record "Production Order";
         Report: Text;
     begin
-        if not ProdOrder.Get(ProdOrder.Status::Released, ProdOrderNo) then
-            if not ProdOrder.Get(ProdOrder.Status::"Firm Planned", ProdOrderNo) then
-                Error('Production Order %1 not found', ProdOrderNo);
+        if not ProductionOrder.Get(ProductionOrder.Status::Released, ProdOrderNo) then
+            if not ProductionOrder.Get(ProductionOrder.Status::"Firm Planned", ProdOrderNo) then
+                Error(ProdOrderNotFoundErr, ProdOrderNo);
 
-        if ProdOrder."SEW Calc No." = '' then
+        if ProductionOrder."SEW Calc No." = '' then
             Error(NoCalcLinkedErr);
 
         // "SEW Actual Cost to Date" is a regular field, not a FlowField - no CalcFields needed
 
-        Report := 'Production Order: ' + ProdOrder."No." + '\';
-        Report += 'Planned Cost: ' + Format(ProdOrder."SEW Planned Cost") + '\';
-        Report += 'Actual Cost: ' + Format(ProdOrder."SEW Actual Cost to Date") + '\';
-        Report += 'Variance: ' + Format(ProdOrder."SEW Cost Variance %") + '%';
+        Report := 'Production Order: ' + ProductionOrder."No." + '\';
+        Report += 'Planned Cost: ' + Format(ProductionOrder."SEW Planned Cost") + '\';
+        Report += 'Actual Cost: ' + Format(ProductionOrder."SEW Actual Cost to Date") + '\';
+        Report += 'Variance: ' + Format(ProductionOrder."SEW Cost Variance %") + '%';
 
         exit(Report);
     end;

@@ -4,7 +4,7 @@ enum 90882 "SEW Calc Variable Base"
 
     value(0; " ")
     {
-        Caption = 'Empty';
+        Caption = ' ', Locked = true;
     }
     value(1; Material)
     {

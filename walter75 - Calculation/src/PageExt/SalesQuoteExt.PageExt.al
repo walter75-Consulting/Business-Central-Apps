@@ -1,4 +1,4 @@
-pageextension 90897 "SEW Sales Quote Ext" extends "Sales Quote"
+﻿pageextension 90897 "SEW Sales Quote Ext" extends "Sales Quote"
 {
     layout
     {
@@ -11,13 +11,11 @@ pageextension 90897 "SEW Sales Quote Ext" extends "Sales Quote"
                 field("SEW Default Calc Template"; Rec."SEW Default Calc Template")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the default calculation template to use for all lines in this quote';
                 }
 
                 field("SEW Auto Calculate"; Rec."SEW Auto Calculate")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies whether calculations should be created automatically when adding items to lines';
                 }
             }
         }
@@ -36,7 +34,7 @@ pageextension 90897 "SEW Sales Quote Ext" extends "Sales Quote"
                 {
                     ApplicationArea = All;
                     Caption = 'Calculate Line';
-                    ToolTip = 'Create or update calculation for the current line';
+                    ToolTip = 'Create or update calculation for the current line.';
                     Image = Calculate;
                     Promoted = true;
                     PromotedCategory = Process;
@@ -57,7 +55,7 @@ pageextension 90897 "SEW Sales Quote Ext" extends "Sales Quote"
                 {
                     ApplicationArea = All;
                     Caption = 'Calculate All Lines';
-                    ToolTip = 'Create or update calculations for all item lines in this quote';
+                    ToolTip = 'Create or update calculations for all item lines in this quote.';
                     Image = CalculateLines;
                     Promoted = true;
                     PromotedCategory = Process;
@@ -90,7 +88,7 @@ pageextension 90897 "SEW Sales Quote Ext" extends "Sales Quote"
                 {
                     ApplicationArea = All;
                     Caption = 'Open Calculation';
-                    ToolTip = 'Open the calculation card for the current line';
+                    ToolTip = 'Open the calculation card for the current line.';
                     Image = Card;
                     Promoted = true;
                     PromotedCategory = Process;

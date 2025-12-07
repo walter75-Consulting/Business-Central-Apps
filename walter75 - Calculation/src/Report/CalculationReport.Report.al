@@ -5,6 +5,8 @@ report 90885 "SEW Calculation Report"
     RDLCLayout = './src/Report/SEWCalculationReport.rdl';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
+    Permissions = tabledata "SEW Calc Header" = r,
+                  tabledata "SEW Calc Line" = r;
 
     dataset
     {
@@ -142,17 +144,17 @@ report 90885 "SEW Calculation Report"
         DateLabel = 'Date';
         TemplateLabel = 'Template';
         LotSizeLabel = 'Lot Size';
-        
+
         CostBreakdownLabel = 'Cost Breakdown';
         MaterialCostLabel = 'Material Cost';
         LaborCostLabel = 'Labor Cost';
         OverheadCostLabel = 'Overhead Cost';
         TotalCostLabel = 'Total Cost';
-        
+
         PricingLabel = 'Pricing';
         TargetPriceLabel = 'Target Sales Price';
         MarginLabel = 'Margin %';
-        
+
         CalculationLinesLabel = 'Calculation Lines';
         LineDescLabel = 'Description';
         FormulaLabel = 'Formula';

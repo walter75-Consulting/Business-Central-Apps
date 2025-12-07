@@ -1,4 +1,4 @@
-page 90821 "SEW Calc Template Card"
+﻿page 90821 "SEW Calc Template Card"
 {
     Caption = 'Calculation Template Card';
     PageType = Card;
@@ -16,23 +16,15 @@ page 90821 "SEW Calc Template Card"
 
                 field("Code"; Rec.Code)
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the unique code for the calculation template.';
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the description of the calculation template.';
                 }
                 field("Description 2"; Rec."Description 2")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies additional description for the calculation template.';
                 }
                 field(Status; Rec.Status)
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the status of the template.';
                 }
             }
 
@@ -43,34 +35,23 @@ page 90821 "SEW Calc Template Card"
 
                 field("Price Source Item"; Rec."Price Source Item")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the price source for material costs.';
                 }
                 field("Price Source Capacity"; Rec."Price Source Capacity")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the price source for capacity costs.';
                 }
                 field("Include Material"; Rec."Include Material")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies whether to include material costs from BOM.';
                 }
                 field("Include Labor"; Rec."Include Labor")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies whether to include labor costs from Routing.';
                 }
                 field("Include Overhead"; Rec."Include Overhead")
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies whether to include overhead costs.';
                 }
             }
 
             part(Lines; "SEW Calc Template Lines")
             {
-                ApplicationArea = All;
                 Caption = 'Template Lines';
                 SubPageLink = "Template Code" = field(Code);
                 Editable = Rec.Status = Rec.Status::Draft;
@@ -87,10 +68,8 @@ page 90821 "SEW Calc Template Card"
             {
                 ApplicationArea = All;
                 Caption = 'Release';
-                ToolTip = 'Release the template to make it available for calculations';
+                ToolTip = 'Release the template to make it available for calculations.';
                 Image = ReleaseDoc;
-                Promoted = true;
-                PromotedCategory = Process;
 
                 trigger OnAction()
                 begin
@@ -105,10 +84,8 @@ page 90821 "SEW Calc Template Card"
             {
                 ApplicationArea = All;
                 Caption = 'Reopen';
-                ToolTip = 'Reopen the template for editing';
+                ToolTip = 'Reopen the template for editing.';
                 Image = ReOpen;
-                Promoted = true;
-                PromotedCategory = Process;
 
                 trigger OnAction()
                 begin
@@ -117,6 +94,21 @@ page 90821 "SEW Calc Template Card"
                     CurrPage.Update(false);
                     Message('Template has been reopened.');
                 end;
+            }
+        }
+
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+
+                actionref(ReleaseTemplate_Promoted; ReleaseTemplate)
+                {
+                }
+                actionref(ReopenTemplate_Promoted; ReopenTemplate)
+                {
+                }
             }
         }
     }

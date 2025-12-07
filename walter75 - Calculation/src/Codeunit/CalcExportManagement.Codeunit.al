@@ -13,6 +13,9 @@ codeunit 90858 "SEW Calc Export Management"
         TemplateFileNameTxt: Label 'Template_%1.xlsx', Comment = 'DE="Vorlage_%1.xlsx"';
         ExportSuccessMsg: Label 'Excel file exported successfully', Comment = 'DE="Excel-Datei erfolgreich exportiert"';
         NoLinesErr: Label 'No lines to export for %1', Comment = 'DE="Keine Zeilen zum Exportieren für %1"';
+        CalcNotFoundErr: Label 'Calculation %1 not found', Comment = 'DE="Kalkulation %1 nicht gefunden"';
+        SimulationNotFoundErr: Label 'Simulation %1 not found', Comment = 'DE="Simulation %1 nicht gefunden"';
+        TemplateNotFoundErr: Label 'Template %1 not found', Comment = 'DE="Vorlage %1 nicht gefunden"';
 
     procedure ExportCalculationToExcel(CalcNo: Code[20])
     var
@@ -23,13 +26,13 @@ codeunit 90858 "SEW Calc Export Management"
         RowNo: Integer;
     begin
         if not SEWCalcHeader.Get(CalcNo) then
-            Error('Calculation %1 not found', CalcNo);
+            Error(CalcNotFoundErr, CalcNo);
 
         SEWCalcLine.SetRange("Calc No.", CalcNo);
         if not SEWCalcLine.FindSet() then
             Error(NoLinesErr, CalcNo);
 
-        TempExcelBuffer.DeleteAll();
+        TempExcelBuffer.DeleteAll(false);
         RowNo := 1;
 
         // Add header information
@@ -76,24 +79,24 @@ codeunit 90858 "SEW Calc Export Management"
 
     procedure ExportSimulationToExcel(SimulationNo: Code[20])
     var
-        SEWSimHeader: Record "SEW Calc Simulation Header";
-        SEWSimLine: Record "SEW Calc Simulation Line";
+        SEWCalcSimulationHeader: Record "SEW Calc Simulation Header";
+        SEWCalcSimulationLine: Record "SEW Calc Simulation Line";
         TempExcelBuffer: Record "Excel Buffer" temporary;
         FileName: Text;
         RowNo: Integer;
     begin
-        if not SEWSimHeader.Get(SimulationNo) then
-            Error('Simulation %1 not found', SimulationNo);
+        if not SEWCalcSimulationHeader.Get(SimulationNo) then
+            Error(SimulationNotFoundErr, SimulationNo);
 
-        SEWSimLine.SetRange("Simulation No.", SimulationNo);
-        if not SEWSimLine.FindSet() then
+        SEWCalcSimulationLine.SetRange("Simulation No.", SimulationNo);
+        if not SEWCalcSimulationLine.FindSet() then
             Error(NoLinesErr, SimulationNo);
 
-        TempExcelBuffer.DeleteAll();
+        TempExcelBuffer.DeleteAll(false);
         RowNo := 1;
 
         // Add simulation header
-        AddSimulationExcelHeader(TempExcelBuffer, RowNo, SEWSimHeader);
+        AddSimulationExcelHeader(TempExcelBuffer, RowNo, SEWCalcSimulationHeader);
         RowNo += 4;
 
         // Add column headers
@@ -111,16 +114,16 @@ codeunit 90858 "SEW Calc Export Management"
         // Add scenario lines
         repeat
             TempExcelBuffer.NewRow();
-            TempExcelBuffer.AddColumn(SEWSimLine."Scenario Code", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
-            TempExcelBuffer.AddColumn(Format(SEWSimLine."Lot Size"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-            TempExcelBuffer.AddColumn(Format(SEWSimLine."Unit Cost"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-            TempExcelBuffer.AddColumn(Format(SEWSimLine."Suggested Sales Price"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-            TempExcelBuffer.AddColumn(Format(SEWSimLine."Margin %"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-            TempExcelBuffer.AddColumn(Format(SEWSimLine."Break-Even Quantity"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-            TempExcelBuffer.AddColumn(Format(SEWSimLine."Recommendation Score"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-            TempExcelBuffer.AddColumn(Format(SEWSimLine."Is Recommended"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+            TempExcelBuffer.AddColumn(SEWCalcSimulationLine."Scenario Code", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+            TempExcelBuffer.AddColumn(Format(SEWCalcSimulationLine."Lot Size"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+            TempExcelBuffer.AddColumn(Format(SEWCalcSimulationLine."Unit Cost"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+            TempExcelBuffer.AddColumn(Format(SEWCalcSimulationLine."Suggested Sales Price"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+            TempExcelBuffer.AddColumn(Format(SEWCalcSimulationLine."Margin %"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+            TempExcelBuffer.AddColumn(Format(SEWCalcSimulationLine."Break-Even Quantity"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+            TempExcelBuffer.AddColumn(Format(SEWCalcSimulationLine."Recommendation Score"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+            TempExcelBuffer.AddColumn(Format(SEWCalcSimulationLine."Is Recommended"), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
             RowNo += 1;
-        until SEWSimLine.Next() = 0;
+        until SEWCalcSimulationLine.Next() = 0;
 
         // Export file
         FileName := StrSubstNo(SimulationFileNameTxt, SimulationNo);
@@ -135,19 +138,19 @@ codeunit 90858 "SEW Calc Export Management"
     procedure ExportTemplateToExcel(TemplateCode: Code[20])
     var
         SEWCalcTemplate: Record "SEW Calc Template";
-        SEWTemplateLine: Record "SEW Calc Template Line";
+        SEWCalcTemplateLine: Record "SEW Calc Template Line";
         TempExcelBuffer: Record "Excel Buffer" temporary;
         FileName: Text;
         RowNo: Integer;
     begin
         if not SEWCalcTemplate.Get(TemplateCode) then
-            Error('Template %1 not found', TemplateCode);
+            Error(TemplateNotFoundErr, TemplateCode);
 
-        SEWTemplateLine.SetRange("Template Code", TemplateCode);
-        if not SEWTemplateLine.FindSet() then
+        SEWCalcTemplateLine.SetRange("Template Code", TemplateCode);
+        if not SEWCalcTemplateLine.FindSet() then
             Error(NoLinesErr, TemplateCode);
 
-        TempExcelBuffer.DeleteAll();
+        TempExcelBuffer.DeleteAll(false);
         RowNo := 1;
 
         // Add template header
@@ -165,12 +168,12 @@ codeunit 90858 "SEW Calc Export Management"
         // Add template lines
         repeat
             TempExcelBuffer.NewRow();
-            TempExcelBuffer.AddColumn(Format(SEWTemplateLine."Line No."), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-            TempExcelBuffer.AddColumn(Format(SEWTemplateLine.Type), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
-            TempExcelBuffer.AddColumn(SEWTemplateLine.Description, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
-            TempExcelBuffer.AddColumn(SEWTemplateLine.Formula, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+            TempExcelBuffer.AddColumn(Format(SEWCalcTemplateLine."Line No."), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+            TempExcelBuffer.AddColumn(Format(SEWCalcTemplateLine.Type), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+            TempExcelBuffer.AddColumn(SEWCalcTemplateLine.Description, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+            TempExcelBuffer.AddColumn(SEWCalcTemplateLine.Formula, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
             RowNo += 1;
-        until SEWTemplateLine.Next() = 0;
+        until SEWCalcTemplateLine.Next() = 0;
 
         // Export file
         FileName := StrSubstNo(TemplateFileNameTxt, TemplateCode);
@@ -199,7 +202,7 @@ codeunit 90858 "SEW Calc Export Management"
         RowNo += 1;
     end;
 
-    local procedure AddSimulationExcelHeader(var TempExcelBuffer: Record "Excel Buffer" temporary; var RowNo: Integer; SEWSimHeader: Record "SEW Calc Simulation Header")
+    local procedure AddSimulationExcelHeader(var TempExcelBuffer: Record "Excel Buffer" temporary; var RowNo: Integer; SEWCalcSimulationHeader: Record "SEW Calc Simulation Header")
     begin
         TempExcelBuffer.NewRow();
         TempExcelBuffer.AddColumn('Lot Size Simulation', false, '', true, false, false, '', TempExcelBuffer."Cell Type"::Text);
@@ -207,12 +210,12 @@ codeunit 90858 "SEW Calc Export Management"
 
         TempExcelBuffer.NewRow();
         TempExcelBuffer.AddColumn('Simulation No.:', false, '', true, false, false, '', TempExcelBuffer."Cell Type"::Text);
-        TempExcelBuffer.AddColumn(SEWSimHeader."No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(SEWCalcSimulationHeader."No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
         RowNo += 1;
 
         TempExcelBuffer.NewRow();
         TempExcelBuffer.AddColumn('Calculation:', false, '', true, false, false, '', TempExcelBuffer."Cell Type"::Text);
-        TempExcelBuffer.AddColumn(SEWSimHeader."Calc No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(SEWCalcSimulationHeader."Calc No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
         RowNo += 1;
     end;
 
@@ -273,15 +276,15 @@ codeunit 90858 "SEW Calc Export Management"
 
     local procedure GetTotalCostByType(CalcNo: Code[20]; LineType: Integer): Decimal
     var
-        CalcLine: Record "SEW Calc Line";
+        SEWCalcLine: Record "SEW Calc Line";
         Total: Decimal;
     begin
-        CalcLine.SetRange("Calc No.", CalcNo);
-        CalcLine.SetRange(Type, LineType);
-        if CalcLine.FindSet() then
+        SEWCalcLine.SetRange("Calc No.", CalcNo);
+        SEWCalcLine.SetRange(Type, LineType);
+        if SEWCalcLine.FindSet() then
             repeat
-                Total += CalcLine."Calculated Value";
-            until CalcLine.Next() = 0;
+                Total += SEWCalcLine."Calculated Value";
+            until SEWCalcLine.Next() = 0;
         exit(Total);
     end;
 }

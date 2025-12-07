@@ -7,12 +7,10 @@ pageextension 90896 "SEW Item Card Calc Ext" extends "Item Card"
             field("SEW Default Template Code"; Rec."SEW Default Template Code")
             {
                 ApplicationArea = All;
-                ToolTip = 'Specifies the default calculation template for this item.';
             }
             field("SEW Last Calc No."; Rec."SEW Last Calc No.")
             {
                 ApplicationArea = All;
-                ToolTip = 'Specifies the most recent calculation for this item.';
 
                 trigger OnDrillDown()
                 var
@@ -54,15 +52,15 @@ pageextension 90896 "SEW Item Card Calc Ext" extends "Item Card"
                         CalcHeader.Insert(true);
                         CalcHeader."Item No." := Rec."No.";
                         CalcHeader.Validate("Item No.");
-                        
+
                         if Rec."SEW Default Template Code" <> '' then
                             CalcHeader."Template Code" := Rec."SEW Default Template Code";
-                        
+
                         CalcHeader.Modify(true);
-                        
+
                         Rec."SEW Last Calc No." := CalcHeader."No.";
                         Rec.Modify(true);
-                        
+
                         Page.Run(Page::"SEW Calc Card", CalcHeader);
                     end;
                 }

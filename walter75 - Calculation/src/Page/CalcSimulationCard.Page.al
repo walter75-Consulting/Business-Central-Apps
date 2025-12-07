@@ -1,4 +1,4 @@
-page 90833 "SEW Calc Simulation Card"
+﻿page 90833 "SEW Calc Simulation Card"
 {
     PageType = Card;
     ApplicationArea = All;
@@ -6,6 +6,8 @@ page 90833 "SEW Calc Simulation Card"
     Caption = 'Lot Size Simulation';
     UsageCategory = None;
     Extensible = true;
+    Permissions = tabledata "SEW Calc Header" = r,
+                  tabledata "SEW Calc Simulation Line" = rm;
 
     layout
     {
@@ -17,16 +19,10 @@ page 90833 "SEW Calc Simulation Card"
 
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Simulation No.';
-                    ToolTip = 'Specifies the simulation number';
                     Editable = false;
                 }
                 field("Calc No."; Rec."Calc No.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Calculation No.';
-                    ToolTip = 'Specifies the calculation this simulation is based on';
 
                     trigger OnValidate()
                     begin
@@ -35,22 +31,13 @@ page 90833 "SEW Calc Simulation Card"
                 }
                 field("Item No."; Rec."Item No.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Item No.';
-                    ToolTip = 'Specifies the item number';
                     Editable = false;
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Description';
-                    ToolTip = 'Specifies the description';
                 }
                 field("Simulation Date"; Rec."Simulation Date")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Simulation Date';
-                    ToolTip = 'Specifies when this simulation was created';
                     Editable = false;
                 }
             }
@@ -60,15 +47,9 @@ page 90833 "SEW Calc Simulation Card"
 
                 field("Target Sales Price"; Rec."Target Sales Price")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Target Sales Price';
-                    ToolTip = 'Specifies the target sales price to aim for. Leave blank to use target margin instead.';
                 }
                 field("Target Margin %"; Rec."Target Margin %")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Target Margin %';
-                    ToolTip = 'Specifies the target margin percentage. Used if Target Sales Price is blank.';
                 }
             }
             group(Results)
@@ -77,17 +58,11 @@ page 90833 "SEW Calc Simulation Card"
 
                 field("No. of Scenarios"; Rec."No. of Scenarios")
                 {
-                    ApplicationArea = All;
-                    Caption = 'No. of Scenarios';
-                    ToolTip = 'Specifies the number of scenarios in this simulation';
                     Editable = false;
                     Style = Strong;
                 }
                 field("Recommended Scenario Code"; Rec."Recommended Scenario Code")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Recommended Scenario';
-                    ToolTip = 'Specifies the recommended scenario code based on the optimization algorithm';
                     Editable = false;
                     Style = Favorable;
                     StyleExpr = Rec."Recommended Scenario Code" <> '';
@@ -95,7 +70,6 @@ page 90833 "SEW Calc Simulation Card"
             }
             part(SimulationLines; "SEW Calc Simulation Subform")
             {
-                ApplicationArea = All;
                 SubPageLink = "Simulation No." = field("No.");
                 UpdatePropagation = Both;
             }
@@ -110,11 +84,9 @@ page 90833 "SEW Calc Simulation Card"
             {
                 ApplicationArea = All;
                 Caption = 'Generate Scenarios';
-                ToolTip = 'Generate simulation scenarios with different lot sizes';
+                ToolTip = 'Generate simulation scenarios with different lot sizes.';
                 Image = CreateDocument;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
+
 
                 trigger OnAction()
                 var
@@ -122,7 +94,7 @@ page 90833 "SEW Calc Simulation Card"
                     LotSizes: List of [Decimal];
                 begin
                     if Rec."Calc No." = '' then
-                        Error('Please select a calculation first');
+                        Error(SelectCalcFirstErr);
 
                     // Generate default scenarios: Small (10), Medium (50), Large (100), X-Large (500), XX-Large (1000)
                     LotSizes.Add(10);
@@ -140,10 +112,8 @@ page 90833 "SEW Calc Simulation Card"
             {
                 ApplicationArea = All;
                 Caption = 'Recalculate All';
-                ToolTip = 'Recalculate all scenarios and update recommendations';
+                ToolTip = 'Recalculate all scenarios and update recommendations.';
                 Image = CalculateCalendar;
-                Promoted = true;
-                PromotedCategory = Process;
 
                 trigger OnAction()
                 var
@@ -152,7 +122,7 @@ page 90833 "SEW Calc Simulation Card"
                     SimMgt: Codeunit "SEW Calc Simulation Mgt.";
                 begin
                     if not CalcHeader.Get(Rec."Calc No.") then
-                        Error('Calculation %1 not found', Rec."Calc No.");
+                        Error(CalcNotFoundErr, Rec."Calc No.");
 
                     SimLine.SetRange("Simulation No.", Rec."No.");
                     if SimLine.FindSet(true) then
@@ -170,10 +140,8 @@ page 90833 "SEW Calc Simulation Card"
             {
                 ApplicationArea = All;
                 Caption = 'Open Calculation';
-                ToolTip = 'Open the source calculation card';
+                ToolTip = 'Open the source calculation card.';
                 Image = Card;
-                Promoted = true;
-                PromotedCategory = Category4;
 
                 trigger OnAction()
                 var
@@ -187,5 +155,32 @@ page 90833 "SEW Calc Simulation Card"
                 end;
             }
         }
+
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+
+                actionref(GenerateScenarios_Promoted; GenerateScenarios)
+                {
+                }
+                actionref(RecalculateAll_Promoted; RecalculateAll)
+                {
+                }
+            }
+            group(Category_Category4)
+            {
+                Caption = 'Navigate';
+
+                actionref(OpenCalculation_Promoted; OpenCalculation)
+                {
+                }
+            }
+        }
     }
+
+    var
+        SelectCalcFirstErr: Label 'Please select a calculation first', Comment = 'DE="Bitte wählen Sie zuerst eine Kalkulation"';
+        CalcNotFoundErr: Label 'Calculation %1 not found', Comment = 'DE="Kalkulation %1 nicht gefunden"';
 }

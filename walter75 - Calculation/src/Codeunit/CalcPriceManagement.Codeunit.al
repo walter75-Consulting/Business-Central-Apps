@@ -1,12 +1,22 @@
 codeunit 90852 "SEW Calc Price Management"
 {
+    Permissions = tabledata Item = r,
+                  tabledata "Work Center" = r,
+                  tabledata "Machine Center" = r,
+                  tabledata "Production BOM Header" = r,
+                  tabledata "Production BOM Line" = r,
+                  tabledata "Routing Header" = r,
+                  tabledata "Routing Line" = r;
+
     /// <summary>
     /// Gets the purchase price for an item based on the price source setting.
     /// </summary>
+    /// <param name="ItemNo">The item number.</param>
+    /// <param name="PriceSource">The price source to use.</param>
+    /// <returns>The item price.</returns>
     procedure GetItemPrice(ItemNo: Code[20]; PriceSource: Enum "SEW Calc Price Source"): Decimal
     var
         Item: Record Item;
-        PurchasePrice: Decimal;
     begin
         if ItemNo = '' then
             exit(0);
@@ -29,6 +39,10 @@ codeunit 90852 "SEW Calc Price Management"
     /// <summary>
     /// Gets the capacity cost for a work center or machine center.
     /// </summary>
+    /// <param name="CapacityType">The type of capacity (Work Center or Machine Center).</param>
+    /// <param name="CapacityNo">The capacity number.</param>
+    /// <param name="PriceSource">The price source to use.</param>
+    /// <returns>The capacity cost.</returns>
     procedure GetCapacityCost(CapacityType: Option "Work Center","Machine Center"; CapacityNo: Code[20]; PriceSource: Enum "SEW Calc Price Source"): Decimal
     var
         WorkCenter: Record "Work Center";
@@ -77,10 +91,15 @@ codeunit 90852 "SEW Calc Price Management"
     /// <summary>
     /// Calculates the total material cost from a Production BOM.
     /// </summary>
+    /// <param name="ProductionBOMNo">The production BOM number.</param>
+    /// <param name="ProductionBOMVersion">The production BOM version.</param>
+    /// <param name="Quantity">The quantity to calculate for.</param>
+    /// <param name="PriceSource">The price source to use.</param>
+    /// <returns>The total BOM cost.</returns>
     procedure GetBOMCost(ProductionBOMNo: Code[20]; ProductionBOMVersion: Code[20]; Quantity: Decimal; PriceSource: Enum "SEW Calc Price Source"): Decimal
     var
-        ProdBOMLine: Record "Production BOM Line";
-        ProdBOMHeader: Record "Production BOM Header";
+        ProductionBOMLine: Record "Production BOM Line";
+        ProductionBOMHeader: Record "Production BOM Header";
         TotalCost: Decimal;
         LineCost: Decimal;
         QuantityPer: Decimal;
@@ -88,26 +107,26 @@ codeunit 90852 "SEW Calc Price Management"
         if ProductionBOMNo = '' then
             exit(0);
 
-        if not ProdBOMHeader.Get(ProductionBOMNo) then
+        if not ProductionBOMHeader.Get(ProductionBOMNo) then
             exit(0);
 
         TotalCost := 0;
 
-        ProdBOMLine.SetRange("Production BOM No.", ProductionBOMNo);
+        ProductionBOMLine.SetRange("Production BOM No.", ProductionBOMNo);
         if ProductionBOMVersion <> '' then
-            ProdBOMLine.SetRange("Version Code", ProductionBOMVersion);
+            ProductionBOMLine.SetRange("Version Code", ProductionBOMVersion);
 
-        if ProdBOMLine.FindSet() then
+        if ProductionBOMLine.FindSet() then
             repeat
-                if ProdBOMLine.Type = ProdBOMLine.Type::Item then begin
-                    QuantityPer := ProdBOMLine."Quantity per";
+                if ProductionBOMLine.Type = ProductionBOMLine.Type::Item then begin
+                    QuantityPer := ProductionBOMLine."Quantity per";
                     if QuantityPer = 0 then
                         QuantityPer := 1;
 
-                    LineCost := GetItemPrice(ProdBOMLine."No.", PriceSource) * QuantityPer * Quantity;
+                    LineCost := GetItemPrice(ProductionBOMLine."No.", PriceSource) * QuantityPer * Quantity;
                     TotalCost += LineCost;
                 end;
-            until ProdBOMLine.Next() = 0;
+            until ProductionBOMLine.Next() = 0;
 
         exit(TotalCost);
     end;
@@ -115,6 +134,11 @@ codeunit 90852 "SEW Calc Price Management"
     /// <summary>
     /// Calculates the total labor cost from a Routing.
     /// </summary>
+    /// <param name="RoutingNo">The routing number.</param>
+    /// <param name="RoutingVersion">The routing version.</param>
+    /// <param name="Quantity">The quantity to calculate for.</param>
+    /// <param name="PriceSource">The price source to use.</param>
+    /// <returns>The total routing cost.</returns>
     procedure GetRoutingCost(RoutingNo: Code[20]; RoutingVersion: Code[20]; Quantity: Decimal; PriceSource: Enum "SEW Calc Price Source"): Decimal
     var
         RoutingLine: Record "Routing Line";
@@ -157,6 +181,9 @@ codeunit 90852 "SEW Calc Price Management"
     /// <summary>
     /// Calculates overhead costs based on a base value and percentage.
     /// </summary>
+    /// <param name="BaseAmount">The base amount to calculate overhead on.</param>
+    /// <param name="OverheadPercent">The overhead percentage.</param>
+    /// <returns>The calculated overhead cost.</returns>
     procedure CalculateOverhead(BaseAmount: Decimal; OverheadPercent: Decimal): Decimal
     begin
         exit(BaseAmount * OverheadPercent / 100);
@@ -165,6 +192,9 @@ codeunit 90852 "SEW Calc Price Management"
     /// <summary>
     /// Calculates the target sales price based on cost and margin percentage.
     /// </summary>
+    /// <param name="TotalCost">The total cost.</param>
+    /// <param name="MarginPercent">The desired margin percentage.</param>
+    /// <returns>The calculated target price.</returns>
     procedure CalculateTargetPrice(TotalCost: Decimal; MarginPercent: Decimal): Decimal
     begin
         if MarginPercent >= 100 then
@@ -176,6 +206,9 @@ codeunit 90852 "SEW Calc Price Management"
     /// <summary>
     /// Calculates the margin percentage from cost and sales price.
     /// </summary>
+    /// <param name="TotalCost">The total cost.</param>
+    /// <param name="SalesPrice">The sales price.</param>
+    /// <returns>The margin percentage.</returns>
     procedure CalculateMargin(TotalCost: Decimal; SalesPrice: Decimal): Decimal
     begin
         if SalesPrice = 0 then
