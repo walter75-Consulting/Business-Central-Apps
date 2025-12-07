@@ -4,6 +4,25 @@ codeunit 90970 "SEW Calc Test Helper"
     /// Helper codeunit for creating test data and providing common utilities for calculation tests.
     /// All test data is created with TEST prefix for easy identification and cleanup.
     /// </summary>
+    
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "SEW Calc Variable" = RMID,
+                  tabledata "SEW Calc Template" = RMID,
+                  tabledata "SEW Calc Template Line" = RMID,
+                  tabledata "SEW Calc Simulation Header" = RMID,
+                  tabledata "SEW Calc Simulation Line" = RMID,
+                  tabledata "SEW Calc History Entry" = RMID,
+                  tabledata "Item" = RMID,
+                  tabledata "BOM Component" = RMID,
+                  tabledata "Routing Header" = RMID,
+                  tabledata "Routing Line" = RMID,
+                  tabledata "Sales Header" = RMID,
+                  tabledata "Sales Line" = RMID,
+                  tabledata "Production Order" = RMID,
+                  tabledata "Sales & Receivables Setup" = RMID,
+                  tabledata "No. Series" = RMID,
+                  tabledata "No. Series Line" = RMID;
 
     /// <summary>
     /// Initializes test environment by setting up required configuration.
