@@ -38,7 +38,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                     Caption = 'Calculations';
                     ToolTip = 'View all calculations';
                     Image = List;
-                    RunObject = page "SEW Calc List";
+                    RunObject = page "SEW Calc Headers";
                 }
 
                 action(SEWTemplates)
@@ -47,7 +47,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                     Caption = 'Templates';
                     ToolTip = 'Manage calculation templates';
                     Image = Template;
-                    RunObject = page "SEW Calc Template List";
+                    RunObject = page "SEW Calc Templates";
                 }
 
                 action(SEWVariables)
@@ -56,7 +56,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                     Caption = 'Variables';
                     ToolTip = 'Manage calculation variables';
                     Image = VariableList;
-                    RunObject = page "SEW Calc Variable List";
+                    RunObject = page "SEW Calc Variables";
                 }
 
                 action(SEWCalculationReport)
@@ -70,7 +70,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                     var
                         CalcHeader: Record "SEW Calc Header";
                     begin
-                        Page.Run(Page::"SEW Calc List", CalcHeader);
+                        Page.Run(Page::"SEW Calc Headers", CalcHeader);
                     end;
                 }
             }
@@ -84,7 +84,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                 Caption = 'Calculations';
                 ToolTip = 'View and manage calculations';
                 Image = Calculator;
-                RunObject = page "SEW Calc List";
+                RunObject = page "SEW Calc Headers";
             }
         }
 

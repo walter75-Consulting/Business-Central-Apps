@@ -18,14 +18,14 @@ page 90841 "SEW Calc Activities"
                     ApplicationArea = All;
                     Caption = 'Draft';
                     ToolTip = 'Specifies the number of draft calculations';
-                    DrillDownPageId = "SEW Calc List";
+                    DrillDownPageId = "SEW Calc Headers";
 
                     trigger OnDrillDown()
                     var
                         CalcHeader: Record "SEW Calc Header";
                     begin
                         CalcHeader.SetRange(Status, CalcHeader.Status::Draft);
-                        Page.Run(Page::"SEW Calc List", CalcHeader);
+                        Page.Run(Page::"SEW Calc Headers", CalcHeader);
                     end;
                 }
 
@@ -34,14 +34,14 @@ page 90841 "SEW Calc Activities"
                     ApplicationArea = All;
                     Caption = 'Released';
                     ToolTip = 'Specifies the number of released calculations';
-                    DrillDownPageId = "SEW Calc List";
+                    DrillDownPageId = "SEW Calc Headers";
 
                     trigger OnDrillDown()
                     var
                         CalcHeader: Record "SEW Calc Header";
                     begin
                         CalcHeader.SetRange(Status, CalcHeader.Status::Released);
-                        Page.Run(Page::"SEW Calc List", CalcHeader);
+                        Page.Run(Page::"SEW Calc Headers", CalcHeader);
                     end;
                 }
 
@@ -50,14 +50,14 @@ page 90841 "SEW Calc Activities"
                     ApplicationArea = All;
                     Caption = 'Archived';
                     ToolTip = 'Specifies the number of archived calculations';
-                    DrillDownPageId = "SEW Calc List";
+                    DrillDownPageId = "SEW Calc Headers";
 
                     trigger OnDrillDown()
                     var
                         CalcHeader: Record "SEW Calc Header";
                     begin
                         CalcHeader.SetRange(Status, CalcHeader.Status::Archived);
-                        Page.Run(Page::"SEW Calc List", CalcHeader);
+                        Page.Run(Page::"SEW Calc Headers", CalcHeader);
                     end;
                 }
 
@@ -68,7 +68,7 @@ page 90841 "SEW Calc Activities"
                     ToolTip = 'Specifies the number of calculations with margin below 15%';
                     Style = Unfavorable;
                     StyleExpr = Rec."Warning Count" > 0;
-                    DrillDownPageId = "SEW Calc List";
+                    DrillDownPageId = "SEW Calc Headers";
 
                     trigger OnDrillDown()
                     var
@@ -76,7 +76,7 @@ page 90841 "SEW Calc Activities"
                     begin
                         CalcHeader.SetFilter(Status, '%1|%2', CalcHeader.Status::Draft, CalcHeader.Status::Released);
                         CalcHeader.SetFilter("Margin %", '< 15');
-                        Page.Run(Page::"SEW Calc List", CalcHeader);
+                        Page.Run(Page::"SEW Calc Headers", CalcHeader);
                     end;
                 }
             }
