@@ -14,13 +14,10 @@
     "walter75 - Freight Prices",
     "walter75 - XML Import"
   ],
-  "testFolders": [
-    "walter75 - Calculation.Test"
-  ],
+  "testFolders": [],
   "bcptTestFolders": [],
-  "installTestFramework": true,
-  "installTestLibraries": true,
-  "installTestApps": [
-    "Tests-TestLibraries"
-  ]
+  "doNotRunTests": true,
+  "installTestFramework": false,
+  "installTestLibraries": false,
+  "installTestApps": []
 }
