@@ -21,6 +21,7 @@ author:
 # Include subdirectories for rendering
 include:
   - docs/
+  - docs/apps/
 
 # Exclude app build artifacts and source code
 exclude:
