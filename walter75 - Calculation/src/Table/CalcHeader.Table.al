@@ -195,6 +195,10 @@
         key(ItemNo; "Item No.", "Calculation Date")
         {
         }
+        key(StatusMargin; Status)
+        {
+            SumIndexFields = "Margin %";
+        }
     }
 
     fieldgroups

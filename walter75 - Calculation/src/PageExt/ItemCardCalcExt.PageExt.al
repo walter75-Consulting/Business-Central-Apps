@@ -16,10 +16,9 @@ pageextension 90896 "SEW Item Card Calc Ext" extends "Item Card"
                 var
                     CalcHeader: Record "SEW Calc Header";
                 begin
-                    if Rec."SEW Last Calc No." <> '' then begin
-                        CalcHeader.Get(Rec."SEW Last Calc No.");
-                        Page.Run(Page::"SEW Calc Card", CalcHeader);
-                    end;
+                    if Rec."SEW Last Calc No." <> '' then
+                        if CalcHeader.Get(Rec."SEW Last Calc No.") then
+                            Page.Run(Page::"SEW Calc Card", CalcHeader);
                 end;
             }
         }
@@ -87,10 +86,9 @@ pageextension 90896 "SEW Item Card Calc Ext" extends "Item Card"
                     var
                         CalcHeader: Record "SEW Calc Header";
                     begin
-                        if Rec."SEW Last Calc No." <> '' then begin
-                            CalcHeader.Get(Rec."SEW Last Calc No.");
-                            Page.Run(Page::"SEW Calc Card", CalcHeader);
-                        end;
+                        if Rec."SEW Last Calc No." <> '' then
+                            if CalcHeader.Get(Rec."SEW Last Calc No.") then
+                                Page.Run(Page::"SEW Calc Card", CalcHeader);
                     end;
                 }
             }
