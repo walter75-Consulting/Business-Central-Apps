@@ -2,6 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/microsoft/AL-Go-Actions/v8.1/.Modules/settings.schema.json",
   "country": "de",
   "appFolders": [],
-  "testFolders": [],
-  "bcptTestFolders": []
+  "testFolders": [
+    "walter75 - Calculation.Test"
+  ],
+  "bcptTestFolders": [],
+  "installTestFramework": true,
+  "installTestLibraries": true
 }
