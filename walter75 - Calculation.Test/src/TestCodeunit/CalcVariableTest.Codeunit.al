@@ -1,6 +1,7 @@
 codeunit 90951 "SEW Calc Variable Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Variable" = RMID;
 
     /// <summary>
     /// Test codeunit for SEW Calc Variable system.

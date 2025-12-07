@@ -1,6 +1,11 @@
 codeunit 90958 "SEW Calc Phase 4 Tests"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "SEW Calc History Entry" = RMID,
+                  tabledata "Production Order" = RMID,
+                  tabledata "Item" = RMID;
     TestPermissions = Disabled;
 
     var

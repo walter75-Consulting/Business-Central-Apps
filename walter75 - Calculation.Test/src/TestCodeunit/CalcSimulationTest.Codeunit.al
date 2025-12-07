@@ -1,6 +1,10 @@
 codeunit 90957 "SEW Calc Simulation Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "SEW Calc Simulation Header" = RMID,
+                  tabledata "SEW Calc Simulation Line" = RMID;
     TestPermissions = Disabled;
 
     var

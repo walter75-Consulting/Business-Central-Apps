@@ -1,6 +1,9 @@
 codeunit 90954 "SEW Calc Engine Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "SEW Calc Variable" = RMID;
 
     /// <summary>
     /// Test codeunit for SEW Calc Engine.

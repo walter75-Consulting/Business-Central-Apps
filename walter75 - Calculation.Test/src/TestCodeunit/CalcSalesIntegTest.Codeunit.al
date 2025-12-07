@@ -1,6 +1,11 @@
 codeunit 90956 "SEW Calc Sales Integ. Test"
 {
     Subtype = Test;
+    Permissions = tabledata "SEW Calc Header" = RMID,
+                  tabledata "SEW Calc Line" = RMID,
+                  tabledata "Sales Header" = RMID,
+                  tabledata "Sales Line" = RMID,
+                  tabledata "Item" = RMID;
     TestPermissions = Disabled;
 
     var
