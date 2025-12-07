@@ -65,13 +65,7 @@ pageextension 90840 "SEW Order Processor RC Ext" extends "Order Processor Role C
                     Caption = 'Calculation Report';
                     ToolTip = 'Run calculation reports';
                     Image = Report;
-                    
-                    trigger OnAction()
-                    var
-                        CalcHeader: Record "SEW Calc Header";
-                    begin
-                        Page.Run(Page::"SEW Calc Headers", CalcHeader);
-                    end;
+                    RunObject = page "SEW Calc Headers";
                 }
             }
         }
