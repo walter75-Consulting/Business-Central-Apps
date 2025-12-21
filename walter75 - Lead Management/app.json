@@ -1,0 +1,39 @@
+{
+  "id": "f8c9e5a3-2b14-4d67-9f3e-1a8c7b5d6e4f",
+  "name": "walter75 - Lead Management",
+  "version": "1.0.0.0",
+  "publisher": "walter75 - München",
+  "brief": "CRM Lead Management for Business Central",
+  "description": "Contact-centric lead management with qualification workflow, scoring, and conversion to opportunities. Includes lead capture, deduplication, GDPR consent management, and BC Contact/Opportunity integration.",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+  "logo": ".ressources/images/bc-logo.png",
+  "screenshots": [],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "resourceFolders": [
+    ".ressources"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith",
+    "GenerateCaptions",
+    "TranslationFile"
+  ],
+  "idRanges": [
+    {
+      "from": 91700,
+      "to": 91799
+    }
+  ],
+  "dependencies": [  ]
+}

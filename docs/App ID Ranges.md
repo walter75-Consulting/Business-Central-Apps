@@ -9,6 +9,7 @@
 | walter75 - Contact Relations | 91300–91399     |
 | walter75 - Freight Prices    | 91400–91499     |
 | walter75 - Color Master      | 91600–91699     |
+| walter75 - Lead Management   | 91700–91799     |
 | walter75 - PrintNode         | 92700–92799     |
 | walter75 - SendCloud         | 95700–95799     |
 | walter75 - XML Import        | 60500–60799     |

@@ -7,7 +7,7 @@ title: Apps Overview
   <h1>📱 Business Central Apps</h1>
   <p class="hero-tagline">Complete overview of all walter75 extensions</p>
   <div class="badge-container">
-    <span class="badge">11+ Apps</span>
+    <span class="badge">12+ Apps</span>
     <span class="badge">BC 27.0</span>
     <span class="badge">Cloud Ready</span>
   </div>
@@ -100,6 +100,14 @@ title: Apps Overview
 ## 💼 Business Features
 
 <div class="feature-grid">
+  <div class="feature-card">
+    <h3>🎯 <a href="lead-management.html">Lead Management</a></h3>
+    <p>Complete CRM lead management with AI scoring, routing, and team collaboration</p>
+    <p style="font-size: 0.85em; color: #666;"><strong>ID Range:</strong> 91700-91799</p>
+    <p style="font-size: 0.85em; color: #666;"><strong>Dependencies:</strong> BaseApp Basic</p>
+    <a href="lead-management.html" class="btn" style="margin-top: 10px;">View Details →</a>
+  </div>
+
   <div class="feature-card">
     <h3>🧮 <a href="calculation.html">Calculation</a></h3>
     <p>Advanced product cost calculation and pricing engine with formula support</p>
