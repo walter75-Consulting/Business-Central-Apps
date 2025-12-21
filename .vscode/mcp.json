@@ -1,0 +1,30 @@
+{
+  "servers": {
+    "al-symbols-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "al-mcp-server"
+      ],
+      "env": {
+        "AL_PACKAGES_PATH": "${workspaceFolder}\\.alpackages"
+      }
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "al": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "al-mcp-server"
+      ]
+    }
+  }
+}
