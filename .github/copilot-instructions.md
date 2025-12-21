@@ -396,7 +396,47 @@ tableextension 91401 "SEW Sales Header Ext" extends "Sales Header"
 - **Data Classification required** - CustomerContent, EndUserIdentifiableInformation, etc.
 - **ToolTip mandatory** - every field must have ToolTip property (in English)
 
+## GitHub Copilot Tools Available
+
+This workspace includes specialized Copilot agents and workflows to assist with BC development.
+
+### 🤖 Specialist Agents (Switch Modes)
+Available specialist modes for different development tasks:
+
+- **al-architect** - Solution architecture and design assistance. Use for planning new features, evaluating design patterns, and making architectural decisions
+- **al-developer** - Tactical implementation focus. Use for hands-on coding, implementing designed solutions
+- **al-debugger** - Deep troubleshooting and diagnostics. Use for investigating issues, analyzing runtime problems
+- **al-tester** - Testing strategy and quality assurance. Use for test planning, test implementation guidance
+
+**How to use:** In Copilot Chat, type `Switch to al-architect mode` (or other mode name) to activate specialized context.
+
+### 🎯 Agentic Workflows (Task Automation)
+Available workflows for common development tasks:
+
+- `@workspace use al-build` - Build and deployment workflows
+- `@workspace use al-events` - Event subscriber/publisher implementation assistance
+- `@workspace use al-permissions` - Permission set generation from objects
+- `@workspace use al-translate` - XLF translation file management (de-DE)
+- `@workspace use al-diagnose` - Runtime debugging and configuration troubleshooting
+
+**How to use:** In Copilot Chat, type `@workspace use [workflow-name]` to invoke the workflow.
+
+### 📋 Auto-Applied Instructions
+The following instruction files are automatically loaded based on file context (via `applyTo` patterns):
+
+- **al-guidelines.instructions.md** - Master hub for all coding rules
+- **al-code-style.instructions.md** - Code structure and formatting
+- **al-naming-conventions.instructions.md** - Naming patterns
+- **al-performance.instructions.md** - Optimization best practices
+- **al-error-handling.instructions.md** - Error patterns and telemetry
+- **al-events.instructions.md** - Event-driven development
+- **al-testing.instructions.md** - Testing guidelines
+
+These files are automatically included when working with `.al` files - no need to reference them explicitly.
+
 ## Documentation
 - App-specific docs: Check individual app folders (e.g., `walter75 - Packages/USER_DOCUMENTATION.md`)
 - AL-Go docs: https://aka.ms/AL-Go
 - BC AL language: https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/
+- GitHub Copilot Collection: See [al-development.md](.github/docs/al-development.md) for full framework documentation
+- Workspace Setup: See [WORKSPACE_SETUP.md](.github/docs/WORKSPACE_SETUP.md) for onboarding guide

@@ -1,0 +1,21 @@
+# Files to exclude from AL-Go updates
+# Prevents AL-Go from overwriting your custom files
+
+# Custom documentation
+docs/
+WORKSPACE_SETUP.md
+COPILOT_OPTIMIZATION_SUMMARY.md
+
+# GitHub Copilot toolkit
+copilot-instructions.md
+agents/
+instructions/
+prompts/
+al-development.md
+
+# Custom GitHub configuration
+FUNDING.yml
+labeler.yml
+pull_request_template.md
+ISSUE_TEMPLATE/
+DISCUSSION_TEMPLATE/
