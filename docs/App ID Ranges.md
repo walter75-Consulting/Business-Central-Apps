@@ -3,6 +3,7 @@
 | App Name                     | ID Range        |
 |------------------------------|-----------------|
 | walter75 - BaseApp Basic     | 80000–80099     |
+| walter75 - Report Extensions | 80100–80199     |
 | walter75 - OAuth 2.0         | 90000–90099     |
 | walter75 - BDE Terminal      | 90600–90699     |
 | walter75 - Packages          | 90700–90799     |
