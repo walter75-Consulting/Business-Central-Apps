@@ -25,6 +25,10 @@
       "path": "docs"
     },
     {
+      "name": "walter75 - Core",
+      "path": "walter75 - Core"
+    },
+    {
       "name": "walter75 - BaseApp Basic",
       "path": "walter75 - BaseApp Basic"
     },
@@ -73,7 +77,11 @@
       "path": "walter75 - XML Import"
     },
     {
+      "name": "walter75 - Lead Management",
       "path": "walter75 - Lead Management"
+    },
+    {
+      "path": "walter75 - Learning Management"
     }
   ],
   "settings": {

@@ -1,868 +1,1199 @@
-# Architecture: walter75 - Core Extension
+# Architecture: Core App
 
-**Date**: 2025-12-21  
-**Complexity**: HIGH  
+**Date**: 2025-12-25  
+**Complexity**: MEDIUM  
 **Author**: al-architect  
 **Status**: Approved
 
 ## Executive Summary
 
-The Core Extension serves as the foundational infrastructure layer for all walter75 Business Central extensions. It provides centralized error logging, ISV telemetry (walter75 monitoring), custom licensing with trial/full modes, consent management for GDPR compliance, and a unified setup experience. This app sits at the base of the dependency hierarchy and enables consistent operational monitoring, licensing enforcement, and data governance across the walter75 app ecosystem.
+The Core App serves as the foundational infrastructure layer for all walter75 Business Central extensions. Phase 1 provides three essential capabilities: **Error Logging** (centralized error tracking with BC retention policy), **Activity Log Integration** (leveraging BC's standard Table 710), and **Feature Management** (feature registration and validation). This foundation is always-on with no configuration required—dependent apps can immediately use error logging, activity tracking, and feature validation. Prepared for future licensing integration in Phase 3.
 
 ## Business Context
 
 ### Problem Statement
 
-**Current State**: Each walter75 app operates independently without:
-- Centralized error tracking across installations
-- Unified telemetry for product insights and usage monitoring
-- Consistent licensing mechanism for trial/paid features
-- GDPR-compliant consent management
-- Standardized setup experience
+**Current State**: Extensions operate independently without:
+- Centralized error tracking across the application stack
+- Unified activity logging for integrations and workflows
+- Ability to enable/disable features dynamically (e.g., "Explode BOM")
+- Foundation for future licensing and feature access control
 
 **Desired State**: A platform infrastructure layer that:
-- Captures and aggregates errors from all walter75 apps
-- Sends ISV telemetry to walter75's Application Insights for product analytics
-- Enforces licensing rules with trial periods and full activations
-- Manages user consent for telemetry and PII collection
-- Provides a seamless setup wizard for administrators
+- Captures and stores errors from all SEW apps
+- Integrates with BC's standard Activity Log for process tracking
+- Provides feature toggle mechanism for admins to enable/disable functionality
+- Creates foundation for licensing-based feature control (Phase 3)
 
 ### Success Criteria
 
 - ✅ All walter75 apps can log errors to centralized Error Log table
-- ✅ ISV telemetry flows to walter75 Application Insights from all customer tenants
-- ✅ Trial licenses work for 30 days, then require activation
-- ✅ Full licenses can be activated with license keys
-- ✅ GDPR consent banner shown on first use with opt-in/opt-out
-- ✅ Setup wizard completes in <5 minutes
+- ✅ Activity Log Helper simplifies logging to BC's standard Activity Log (Table 710)
+- ✅ Feature Management allows toggling features (e.g., Base App's "Explode BOM")
+- ✅ Admin page provides simple UI to enable/disable features
+- ✅ Public APIs available for dependent apps to check feature status
 - ✅ Error log retention automatically deletes entries after 30 days
-- ✅ Admin dashboard provides overview of license, telemetry, and error status
+- ✅ Phase 1 deliverable within 2-3 weeks
 
 ## Architectural Design
 
 ### Object ID Range
 
-**Allocated Range**: `79900-79999` (100 objects)
-
-**Rationale**: 
-- Below BaseApp Basic (80000-80099) to emphasize foundational role
-- Sufficient capacity for core infrastructure (logging, telemetry, licensing, consent)
-- Clear separation from business functionality
+**Allocated Range**: `71000-71999` (1000 objects)
 
 **Range Distribution**:
 ```
-79900-79909: Setup & Configuration
-79910-79919: Error Logging
-79920-79929: Telemetry
-79930-79939: Licensing
-79940-79949: Consent Management
-79950-79959: Admin UI (Dashboard, Wizards)
-79960-79979: Integration Events & Public APIs
-79980-79999: Reserved for future expansion
+71000-71099: Install & Core Infrastructure (100 objects)
+71100-71199: Error Logging (100 objects)
+71200-71299: Activity Log Integration (100 objects)
+71300-71399: Feature Management (100 objects)
+71400-71499: Telemetry (reserved for Phase 2)
+71500-71599: Licensing (reserved for Phase 3)
+71600-71699: Consent Management (reserved for Phase 3)
+71700-71799: Admin UI (Dashboard, Wizards) (reserved for Phase 3+)
+71800-71899: Integration Events & Public APIs
+71900-71999: Reserved for future expansion
 ```
 
 ### Data Model
 
-#### Tables
+#### Tables (Phase 1)
 
-**Table 79900 "SEW Core Setup"**
-- Purpose: Single-record configuration table for Core extension
-- Key fields: Primary Key (Code[10]), ISV Telemetry Enabled, App Insights Connection, Setup Completed
-- Relationships: None (root configuration)
-
-**Table 79910 "SEW Error Log"**
-- Purpose: Centralized error logging for all walter75 apps
-- Key fields: Entry No. (AutoIncrement), Timestamp, User ID, Session ID, Error Message (Text[2048]), Error Code (Code[20]), Object Type (Enum), Object ID, Context Info (Text[2048]), Stack Trace (Blob), Severity (Option: Info/Warning/Error/Critical), Environment Type, Company Name, Development Mode, Analysis Data 1-2
-- Keys: 
+**Table 71100 "SEW Error Log""
+- Purpose: Centralized error logging for all SEW apps
+- Key fields:
+  - Entry No. (Integer, AutoIncrement) - Primary Key
+  - Timestamp (DateTime) - When error occurred
+  - Severity (Enum: Info/Warning/Error/Critical)
+  - Error Message (Text[2048]) - Main error text
+  - Context Info (Text[2048]) - Additional context
+  - User ID (Code[50]) - Who triggered the error
+  - Session ID (Integer) - BC session identifier
+  - Company Name (Text[30]) - Which company
+  - Object Type (Enum "Object Type") - Table/Page/Codeunit/etc
+  - Object ID (Integer) - Which object
+  - Stack Trace (Blob) - Full call stack (if available)
+- Keys:
   - PK: Entry No. (Clustered)
-  - TimestampIdx: Timestamp (for retention policy)
-  - SeverityIdx: Severity, Timestamp (for filtering)
+  - TimestampIdx: Timestamp (for retention policy and date filtering)
+  - SeverityIdx: Severity, Timestamp (for filtered queries)
 - Retention Policy: 30 days on Timestamp field
-- DataClassification: Mixed (SystemMetadata for technical data, CustomerContent for messages, EndUserIdentifiableInformation for User ID)
+- DataClassification: Mixed (SystemMetadata for technical, CustomerContent for messages, EndUserIdentifiableInformation for User ID)
 
-**Table 79930 "SEW License"**
-- Purpose: License management for walter75 apps
-- Key fields: Primary Key (Code[10]), License Key (Text[100]), License Type (Enum: Trial/Full), Activation Date, Expiry Date, Status (Option: Active/Expired/Invalid/Trial), App ID (Guid), Features JSON (Blob)
-- Relationships: None (self-contained)
-- Business Rules:
-  - Trial licenses expire after 30 days
-  - Full licenses validated against external API (future)
-  - Feature flags stored as JSON for flexibility
-
-**Table 79940 "SEW Consent"**
-- Purpose: GDPR-compliant consent tracking
-- Key fields: Primary Key (Code[10]), Telemetry Consent, Telemetry Consent Date, Telemetry Consent User, Error Logging Consent, Include User Data in Logs, Marketing Consent, Feature Preview Consent, Data Retention Days (InitValue=30), Privacy Policy Accepted, Privacy Policy Version, Privacy Policy Date
-- Relationships: User table (lookup for Consent User)
-- Business Rules:
-  - Privacy policy must be accepted before using Core features
-  - Consent changes update Core Setup in real-time
-  - Retention days: Min 7, Max 365
+**Table 71300 "SEW Feature"**
+- Purpose: Feature toggle configuration for all SEW apps
+- Key fields:
+  - Code (Code[50]) - Primary Key (e.g., "BASE-EXPLODE-BOM", "MANUFACTURING-SCHEDULING")
+  - App Name (Text[100]) - Which app owns this feature (e.g., "Base App")
+  - Feature Name (Text[100]) - Display name (e.g., "Explode BOM")
+  - Description (Text[250]) - What the feature does
+  - Enabled (Boolean) - On/Off toggle
+  - Requires License (Boolean) - Future: Check license before enabling
+  - License Feature Code (Code[50]) - Future: Maps to license table
+  - Default State (Boolean) - Default value on first install
+  - Activation Date (DateTime) - When feature was enabled
+  - Activation User (Code[50]) - Who enabled it
+  - Last Modified Date/User
+- Keys:
+  - PK: Code
+  - AppIdx: App Name, Code (for filtering by app)
+  - EnabledIdx: Enabled (for quick enabled-only queries)
+- DataClassification: SystemMetadata
 
 ### Business Logic (Codeunits)
 
-**Codeunit 79910 "SEW Error Logger"**
-- Purpose: Centralized error logging API for all walter75 apps
-- Permissions: RIMD on "SEW Error Log", R on "SEW Consent"
-- Key procedures:
-  - `LogError(ErrorMessage: Text; ContextInfo: Text)` - Basic error logging
-  - `LogErrorWithDetails(ErrorMessage: Text; ErrorCode: Code[20]; ObjectType: Enum "Object Type"; ObjectID: Integer; ContextInfo: Text)` - Detailed logging
-  - `LogException(Exception: ErrorInfo)` - Exception object logging with stack trace
-  - `LogToTelemetry(OperationName: Text; ErrorMessage: Text)` - Dual logging (local + telemetry)
-- Event Publishers:
-  - `OnAfterErrorLogged(ErrorLog: Record "SEW Error Log")`
-- Business Logic:
-  - Check consent before logging PII (User ID, Session ID)
-  - Capture stack trace when available
-  - Auto-detect Development Mode (IsSandbox)
-  - Log to both Error Log table AND ISV telemetry
+#### Codeunit 71100 "SEW Error Logger"
+**Purpose**: Centralized error logging API for all SEW apps
 
-**Codeunit 79920 "SEW Telemetry Manager"**
-- Purpose: ISV telemetry collection to walter75 Application Insights
-- SingleInstance: true (for caching)
-- Permissions: R on "SEW Core Setup", R on "SEW Consent"
-- Key procedures:
-  - `Initialize(Publisher: Text)` - Set publisher prefix (e.g., "walter75 - Packages")
-  - `LogUsage(FeatureName: Text; CustomDimensions: Dictionary of [Text, Text])` - Feature usage tracking
-  - `LogError(OperationName: Text; ErrorMessage: Text; ErrorCode: Text)` - Error telemetry
-  - `LogFeatureUptake(FeatureName: Text; UptakeStatus: Enum "Feature Uptake Status")` - Feature adoption tracking
-  - `LogPerformance(OperationName: Text; DurationMs: Integer)` - Performance metrics
-- Integration:
-  - Uses `Codeunit "Feature Telemetry"` (BC standard)
-  - Telemetry ID: `0000SEW` (walter75 prefix)
-  - Connection string from app.json (ISV-owned Application Insights)
-- Business Logic:
-  - Check "Telemetry Consent" before sending
-  - Add standard dimensions: SessionId, UserId (if consented), CompanyName, EnvironmentType
-  - Prefix all events with publisher name for multi-app filtering
+**Permissions**: RIMD on "SEW Error Log"
 
-**Codeunit 79930 "SEW License Manager"**
-- Purpose: License validation and feature access control
-- SingleInstance: true (for license cache)
-- Permissions: RIMD on "SEW License"
-- Key procedures:
-  - `ValidateLicense(AppId: Guid): Boolean` - Check if app license is active
-  - `ActivateLicense(LicenseKey: Text): Boolean` - Activate full license from key
-  - `CheckFeatureAccess(AppId: Guid; FeatureName: Text): Boolean` - Feature-level licensing
-  - `GetLicenseStatus(AppId: Guid): Enum "SEW License Status"` - Current license state
-  - `GetTrialDaysRemaining(AppId: Guid): Integer` - Days left in trial
-  - `CreateTrialLicense(AppId: Guid)` - Auto-create trial on first use
-- Event Publishers:
-  - `OnBeforeLicenseValidation(AppId: Guid; var IsValid: Boolean; var IsHandled: Boolean)`
-  - `OnAfterLicenseValidation(AppId: Guid; IsValid: Boolean)`
-- Business Logic:
-  - Cache validated licenses in Dictionary (AppId → IsValid)
-  - Trial licenses: Auto-created, 30-day expiration
-  - Full licenses: Validated against license key (future: external API)
-  - Feature flags: JSON blob parsing for granular access control
+**Key Procedures**:
+```al
+procedure LogError(ErrorMessage: Text; ContextInfo: Text)
+// Logs an error with automatic severity = Error
 
-**Codeunit 79900 "SEW Core Install"**
-- Purpose: Installation and upgrade handling
-- Subtype: Install
-- Permissions: RIMD on all Core tables
-- Key procedures:
-  - `OnInstallAppPerDatabase()` - Initialize setup, create trial license, set retention policy
-  - `OnInstallAppPerCompany()` - Company-specific initialization
-- Business Logic:
-  - Create default "SEW Core Setup" record
-  - Create default "SEW Consent" record
-  - Configure retention policy for Error Log (30 days)
-  - Show consent banner if not accepted
+procedure LogWarning(WarningMessage: Text; ContextInfo: Text)
+// Logs a warning with severity = Warning
 
-**Codeunit 79901 "SEW Core Upgrade"**
-- Purpose: Version upgrade logic
-- Subtype: Upgrade
-- Key procedures:
-  - `OnUpgradePerDatabase()` - Schema upgrades
-  - `OnUpgradePerCompany()` - Data migrations
-- Business Logic:
-  - Migrate settings from old versions (future)
-  - Update privacy policy version prompts
+procedure LogInfo(InfoMessage: Text; ContextInfo: Text)
+// Logs informational message with severity = Info
 
-### User Interface (Pages)
+procedure LogCritical(CriticalMessage: Text; ContextInfo: Text)
+// Logs critical error with severity = Critical
 
-**Page 79900 "SEW Core Setup Wizard"**
-- Type: NavigatePage
-- Purpose: Multi-step setup wizard for initial configuration
-- Steps:
-  1. Welcome - Introduction to Core extension
-  2. Privacy & Consent - Accept privacy policy, configure consent
-  3. Licensing - Enter license key or start trial
-  4. Telemetry - Enable/disable ISV telemetry (default: enabled if consented)
-  5. Finish - Summary and confirmation
-- Actions: Back, Next, Finish
-- Business Logic:
-  - Finish button applies all settings to "SEW Core Setup" and "SEW Consent"
-  - Creates trial license if no key provided
-  - Shows consent banner if privacy policy not accepted
+procedure LogException(ErrorInfo: ErrorInfo)
+// Converts BC ErrorInfo to log entry with full details
 
-**Page 79901 "SEW Core Setup"**
-- Type: Card
-- SourceTable: "SEW Core Setup"
-- Purpose: Administrative configuration for Core extension
-- Sections:
-  - General: Setup Completed, Last Setup Date
-  - Telemetry: ISV Telemetry Enabled, App Insights Connection String (read-only)
-  - Error Logging: Error Log Enabled, Retention Days
-- Actions:
-  - "Run Setup Wizard" - Reopen wizard
-  - "View Error Logs" - Navigate to Error Log List
-  - "Manage Consent" - Open Consent page
-  - "License Management" - Navigate to License page
+procedure LogErrorWithObject(ErrorMessage: Text; ContextInfo: Text; ObjectType: Enum "Object Type"; ObjectID: Integer)
+// Logs error with specific object identification
 
-**Page 79910 "SEW Error Log List"**
-- Type: List
-- SourceTable: "SEW Error Log"
-- Purpose: View and filter error logs
-- Fields: Entry No., Timestamp, Severity, Error Code, Error Message, Object Type, Object ID, User ID, Session ID, Environment Type
-- Filters: Severity, Timestamp range, Development Mode
-- Actions:
-  - "Show Details" - Drill down to full error with stack trace
-  - "Export to Excel" - Export filtered logs
-  - "Delete All Logs" - Clear log table (admin only)
-  - "View Stack Trace" - Show Blob field in text viewer
+procedure SetStackTrace(var ErrorLog: Record "SEW Error Log"; StackTraceText: Text)
+// Stores stack trace in Blob field
+```
 
-**Page 79911 "SEW Error Log Card"**
-- Type: Card
-- SourceTable: "SEW Error Log"
-- Purpose: Detailed error view with full stack trace
-- Sections:
-  - General: Timestamp, Severity, Error Code, Error Message
-  - Context: Object Type, Object ID, Context Info
-  - User Context: User ID, Session ID, Company Name, Environment Type
-  - Analysis: Development Mode, Analysis Data 1-2
-  - Stack Trace: Blob field displayed as multiline text
+**Event Publishers**:
+```al
+[IntegrationEvent(false, false)]
+local procedure OnAfterErrorLogged(ErrorLog: Record "SEW Error Log")
+// Fired after error logged, allows extensions to react
+```
 
-**Page 79930 "SEW License Management"**
-- Type: Card
-- SourceTable: "SEW License"
-- Purpose: License activation and status
-- Sections:
-  - License Status: License Type, Status, Activation Date, Expiry Date
-  - Activation: License Key input, Activate button
-  - Trial Info: Days Remaining (calculated), Convert to Full button
-  - Features: JSON blob viewer (future: structured feature list)
-- Actions:
-  - "Activate License" - Validate and activate license key
-  - "Start Trial" - Create 30-day trial
-  - "Renew License" - Extend expiry date
-  - "View Feature Access" - Show enabled features
+**Business Logic**:
+- Automatically capture Session ID, User ID, Company Name from system
+- Store large stack traces in Blob field to avoid Text field limits
+- Set timestamp automatically to current DateTime
+- Always enabled - no configuration needed
 
-**Page 79940 "SEW Consent Management"**
-- Type: Card
-- SourceTable: "SEW Consent"
-- Purpose: GDPR consent preferences
-- Sections:
-  - Telemetry: Telemetry Consent, Consent Date, Consent User
-  - Error Logging: Error Logging Consent, Include User Data in Logs
-  - Communications: Marketing Consent, Feature Preview Consent
-  - Data Retention: Data Retention Days (7-365)
-  - Privacy: Privacy Policy Accepted, Privacy Policy Version, Policy Date
-- Actions:
-  - "Read Privacy Policy" - Open walter75.de/privacy
-  - "Withdraw All Consent" - Reset all consent flags
-  - "Export My Data" - GDPR data export (future)
+---
 
-**Page 79950 "SEW Core Dashboard"**
-- Type: RoleCenter
-- Purpose: Admin center for walter75 Core monitoring
-- Sections:
-  - Error Log Part (FactBox): Recent errors with severity indicators
-  - License Status Part (FactBox): License type, expiry countdown, status
-  - Telemetry Status Part (Cue): Events sent today, errors logged, consent status
-- Actions:
-  - Embedding: Error Logs, License Management, Core Setup, Consent Management
-  - Processing: Run Setup Wizard, View Full Dashboard
-- Integration: Add to Business Manager Role Center as action
+#### Codeunit 71200 "SEW Activity Log Helper"
+**Purpose**: Simplified API for BC's standard Activity Log (Table 710)
 
-**Page 79904 "SEW Consent Banner"**
-- Type: NavigatePage
-- Purpose: First-run consent collection (modal)
-- Sections:
-  - Privacy Info: Data usage explanation
-  - Consent Options: Checkboxes for Telemetry, Error Logging, User Data, Marketing
-  - Privacy Policy: Link to walter75.de/privacy, acceptance checkbox
-- Actions:
-  - Accept (enabled only if Privacy Policy accepted)
-  - Decline (closes app, blocks usage)
-- Trigger: OnOpenPage via Install codeunit if consent not recorded
+**Permissions**: RIMD on "Activity Log"
+
+**Key Procedures**:
+```al
+procedure LogSuccess(RelatedRecordID: RecordId; Description: Text; DetailedInfo: Text)
+// Logs successful activity to standard BC Activity Log
+
+procedure LogFailure(RelatedRecordID: RecordId; Description: Text; DetailedInfo: Text)
+// Logs failed activity to BC Activity Log AND SEW Error Log
+
+procedure LogIntegrationCall(Source: Text; Endpoint: Text; Success: Boolean; ResponseDetails: Text)
+// Specialized logging for API/integration calls
+
+procedure LogWorkflowStep(WorkflowCode: Code[20]; StepDescription: Text; Success: Boolean; Details: Text)
+// Logs workflow process steps
+
+procedure LogBatchJob(JobName: Text; RecordsProcessed: Integer; Success: Boolean; Summary: Text)
+// Logs batch processing activities
+```
+
+**Integration Pattern**:
+- Uses BC's standard `Codeunit "Activity Log"` internally
+- Context = 'SEW' for all entries (easy filtering)
+- On failure, automatically logs to SEW Error Log as well (dual logging)
+
+---
+
+#### Codeunit 71300 "SEW Feature Management"
+**Purpose**: Feature toggle validation and management
+
+**SingleInstance**: true (for feature cache with 10-minute auto-refresh)
+
+**Permissions**: RIMD on "SEW Feature"
+
+**Key Procedures**:
+```al
+procedure IsFeatureEnabled(FeatureCode: Code[50]): Boolean
+// Main API: Check if feature is enabled (with automatic 10-minute cache refresh)
+// Cache automatically refreshes when 10-minute boundary crossed
+
+procedure EnableFeature(FeatureCode: Code[50])
+// Enable a feature (admin action)
+// Updates database and cache immediately
+
+procedure DisableFeature(FeatureCode: Code[50])
+// Disable a feature (admin action)
+// Updates database and cache immediately
+
+procedure RegisterFeature(FeatureCode: Code[50]; AppName: Text[100]; FeatureName: Text[100]; Description: Text[250]; DefaultEnabled: Boolean)
+// Called by Install codeunits to register features
+// Adds feature to cache immediately
+
+procedure ValidateFeatureAccess(FeatureCode: Code[50])
+// Throws error if feature is disabled (use in business logic)
+
+procedure GetFeaturesByApp(AppName: Text[100]): Record "SEW Feature"
+// Returns all features for a specific app
+
+procedure RefreshCache()
+// Force cache refresh (called automatically every 10 minutes, or manually by admin)
+```
+
+**Event Publishers**:
+```al
+[IntegrationEvent(false, false)]
+local procedure OnBeforeFeatureValidation(FeatureCode: Code[50]; var IsEnabled: Boolean; var IsHandled: Boolean)
+// Allows extensions to override feature state (e.g., license check in Phase 3)
+
+[IntegrationEvent(false, false)]
+local procedure OnAfterFeatureStateChanged(FeatureCode: Code[50]; NewState: Boolean)
+// Fired when feature enabled/disabled
+```
+
+**Business Logic**:
+- **Caching**: Store feature states in Dictionary<Code[50], Boolean> for performance
+- **Auto-Refresh**: Cache automatically refreshes every 10 minutes (when IsFeatureEnabled called after 10-minute boundary)
+- **Immediate Updates**: EnableFeature/DisableFeature update cache immediately for current session
+- **Multi-Session Propagation**: Changes propagate to other sessions within 10 minutes (automatic)
+- **Future Hook**: OnBeforeFeatureValidation event allows Phase 3 licensing to override
+- **Default Behavior**: If feature not found, return false (fail-safe)
+- **Registration**: Install codeunits register features automatically and add to cache
+
+**Cache Refresh Logic**:
+```al
+var
+    FeatureCache: Dictionary of [Code[50], Boolean];
+    LastRefreshMinute: Integer;
+    CacheInitialized: Boolean;
+
+procedure IsFeatureEnabled(FeatureCode: Code[50]): Boolean
+begin
+    // Initialize on first call
+    if not CacheInitialized then
+        RefreshCache();
+    
+    // Auto-refresh every 10 minutes
+    if (Time2Minute(Time) div 10) <> LastRefreshMinute then
+        RefreshCache();
+    
+    // Return cached value
+    if FeatureCache.ContainsKey(FeatureCode) then
+        exit(FeatureCache.Get(FeatureCode))
+    else
+        exit(false);
+end;
+
+procedure RefreshCache()
+var
+    Feature: Record "SEW Feature";
+begin
+    Clear(FeatureCache);
+    
+    if Feature.FindSet() then
+        repeat
+            FeatureCache.Add(Feature.Code, Feature.Enabled);
+        until Feature.Next() = 0;
+    
+    LastRefreshMinute := Time2Minute(Time) div 10;
+    CacheInitialized := true;
+end;
+
+local procedure UpdateCacheEntry(FeatureCode: Code[50]; NewState: Boolean)
+begin
+    if FeatureCache.ContainsKey(FeatureCode) then
+        FeatureCache.Set(FeatureCode, NewState)
+    else
+        FeatureCache.Add(FeatureCode, NewState);
+end;
+```
+
+---
+
+#### Codeunit 71000 "SEW Core Install"
+**Purpose**: Installation and upgrade handling
+
+**Subtype**: Install
+
+**Permissions**: RIMD on all Core tables
+
+**Key Procedures**:
+```al
+local procedure OnInstallAppPerDatabase()
+// Initialize setup, create default Core Setup record, set retention policy
+
+local procedure OnInstallAppPerCompany()
+// Company-specific initialization (currently empty)
+```
+
+**Business Logic**:
+```al
+procedure OnInstallAppPerDatabase()
+var
+    RetenPolAllowedTables: Codeunit "Reten. Pol. Allowed Tables";
+begin
+    // Register Error Log table for retention policy
+    // Allows admins to configure retention via standard BC Retention Policy UI
+    RetenPolAllowedTables.AddAllowedTable(Database::"SEW Error Log");
+end;
+```
+
+**Retention Policy Notes**:
+- Uses BC's standard Retention Policy feature (introduced in BC 19.0)
+- Admin configures retention period via **Retention Policies** page (search in BC)
+- No custom retention code needed - BC handles cleanup automatically
+- Table is registered as "allowed" for retention policy
+- Default recommendation: 30 days, but admin can adjust as needed
+
+---
+
+#### Codeunit 71001 "SEW Core Upgrade"
+**Purpose**: Version upgrade logic
+
+**Subtype**: Upgrade
+
+**Key Procedures**:
+```al
+local procedure OnUpgradePerDatabase()
+// Schema upgrades (future versions)
+
+local procedure OnUpgradePerCompany()
+// Data migrations (future versions)
+```
+
+**Business Logic**: Currently empty, prepared for future upgrades
+
+---
 
 ### Enumerations
 
-**Enum 79930 "SEW License Type"**
-- Values: Trial (0), Full (1)
-- Extensible: true (future: Partner, Enterprise tiers)
+#### Enum 71100 "SEW Error Severity"
+```al
+enum 71100 "SEW Error Severity"
+{
+    Extensible = false;
+    
+    value(0; Info) { Caption = 'Info'; }
+    value(1; Warning) { Caption = 'Warning'; }
+    value(2; Error) { Caption = 'Error'; }
+    value(3; Critical) { Caption = 'Critical'; }
+}
+```
 
-**Enum 79931 "SEW License Status"**
-- Values: Active (0), Expired (1), Invalid (2), Trial (3), Pending (4)
-- Extensible: true
+### User Interface (Pages)
 
-**Enum 79910 "SEW Error Severity"**
-- Values: Info (0), Warning (1), Error (2), Critical (3)
-- Extensible: false
+#### Page 71100 "SEW Error Log List"
+**Type**: List  
+**SourceTable**: "SEW Error Log"  
+**Purpose**: View and filter error logs
+
+**Layout**:
+- Repeater with fields: Entry No., Timestamp, Severity, Error Message, Context Info, User ID, Object Type, Object ID
+- Filters: Severity (dropdown), Date Range (from/to)
+
+**Actions**:
+- **Show Details** → Drills down to Error Log Card
+- **Export to Excel** → Standard BC export
+- **Delete Old Entries** → Manual trigger of retention cleanup
+- **Refresh** → Reload data
+
+**Promoted Actions**: Show Details, Export to Excel
+
+---
+
+#### Page 71101 "SEW Error Log Card"
+**Type**: Card  
+**SourceTable**: "SEW Error Log"  
+**Purpose**: Detailed error view with full stack trace
+
+**Layout**:
+- General FastTab: Entry No., Timestamp, Severity, Error Message, Context Info
+- Details FastTab: User ID, Session ID, Company Name, Object Type, Object ID
+- Stack Trace FastTab: Blob field displayed as multiline text
+
+**Actions**:
+- **Copy to Clipboard** → Copy error details
+- **View Related** → Navigate to related record (if RecordID available)
+
+---
+
+#### Page 71300 "SEW Feature Management"
+**Type**: List  
+**SourceTable**: "SEW Feature"  
+**Purpose**: Admin page to enable/disable features
+
+**Layout**:
+- Repeater with fields: Code, App Name, Feature Name, Description, Enabled (editable), Requires License, Activation Date, Activation User
+
+**Filters**: 
+- App Name filter (quick filter by app)
+- Enabled filter (show only enabled/disabled)
+
+**Actions**:
+- **Enable Feature** → Sets Enabled = true, records activation user/date, updates cache immediately
+- **Disable Feature** → Sets Enabled = false, updates cache immediately
+- **Enable All** → Bulk enable all features for selected app
+- **Disable All** → Bulk disable all features for selected app
+- **Reset to Default** → Reset feature to Default State value
+- **Refresh Cache** → Manual cache refresh (normally auto-refreshes every 10 minutes)
+
+**Promoted Actions**: Enable Feature, Disable Feature, Refresh Cache
+
+**Auto-Refresh Behavior**:
+- Cache automatically refreshes every 10 minutes when IsFeatureEnabled() is called
+- Admin's session updates immediately when enabling/disabling via actions
+- Other user sessions see changes within 10 minutes (next auto-refresh)
+- Manual "Refresh Cache" action available for immediate refresh if needed
+
+**Validation**:
+- OnValidate(Enabled): Record Activation Date and User when enabling
+- OnValidate(Enabled): Fire OnAfterFeatureStateChanged event
+- OnValidate(Enabled): Clear feature cache
+
+---
+
+#### Page 71301 "SEW Feature Card"
+**Type**: Card  
+**SourceTable**: "SEW Feature"  
+**Purpose**: Detailed feature configuration
+
+**Layout**:
+- General FastTab: Code, App Name, Feature Name, Description, Enabled
+- Licensing FastTab: Requires License, License Feature Code (future)
+- Tracking FastTab: Default State, Activation Date, Activation User, Last Modified Date, Last Modified User
+
+**Actions**:
+- **Toggle State** → Quick enable/disable
+- **Test Feature** → Calls IsFeatureEnabled() and shows result
+
+---
+
+
 
 ### Integration Points
 
 #### Event Publishers (Extensibility)
 
-**Codeunit 79930 "SEW License Manager"**
+**Codeunit 71100 "SEW Error Logger"**
 ```al
-[EventPublisher(ObjectType::Codeunit, Codeunit::"SEW License Manager", 'OnBeforeLicenseValidation', '', false, false)]
-local procedure OnBeforeLicenseValidation(AppId: Guid; var IsValid: Boolean; var IsHandled: Boolean)
-
-[EventPublisher(ObjectType::Codeunit, Codeunit::"SEW License Manager", 'OnAfterLicenseValidation', '', false, false)]
-local procedure OnAfterLicenseValidation(AppId: Guid; IsValid: Boolean)
-```
-
-**Codeunit 79910 "SEW Error Logger"**
-```al
-[EventPublisher(ObjectType::Codeunit, Codeunit::"SEW Error Logger", 'OnAfterErrorLogged', '', false, false)]
+[IntegrationEvent(false, false)]
 local procedure OnAfterErrorLogged(ErrorLog: Record "SEW Error Log")
+// Allows extensions to react to errors (e.g., send email notification on Critical)
 ```
 
-**Codeunit 79940 "SEW Consent Manager"**
+**Codeunit 71300 "SEW Feature Management"**
 ```al
-[EventPublisher(ObjectType::Codeunit, Codeunit::"SEW Consent Manager", 'OnConsentChanged', '', false, false)]
-local procedure OnConsentChanged(ConsentType: Enum "SEW Consent Type"; IsGranted: Boolean)
-```
+[IntegrationEvent(false, false)]
+local procedure OnBeforeFeatureValidation(FeatureCode: Code[50]; var IsEnabled: Boolean; var IsHandled: Boolean)
+// Allows Phase 3 licensing to override feature state
 
-#### Event Subscribers (BC Integration)
-
-**Global Error Handling** (subscribe to system errors):
-```al
-[EventSubscriber(ObjectType::Codeunit, Codeunit::"Error Message Handler", 'OnShowError', '', false, false)]
-local procedure OnShowErrorGlobal(ErrorInfo: ErrorInfo)
-begin
-    // Auto-log all system errors to Error Log
-    ErrorLogger.LogException(ErrorInfo);
-end;
+[IntegrationEvent(false, false)]
+local procedure OnAfterFeatureStateChanged(FeatureCode: Code[50]; NewState: Boolean)
+// Fired when feature enabled/disabled, allows cache refresh in other apps
 ```
 
 #### Public API for Dependent Apps
 
-All walter75 apps can access Core functionality via public codeunits:
-
+**Error Logging Usage** (from any SEW app):
 ```al
-// From any walter75 app
-codeunit 90701 "SEW PK Actions Page"  // Example from Packages app
+codeunit 74100 "Base Explode BOM"
 {
     var
         ErrorLogger: Codeunit "SEW Error Logger";
-        TelemetryManager: Codeunit "SEW Telemetry Manager";
-        LicenseManager: Codeunit "SEW License Manager";
-        
-    procedure ProcessPackage()
+        FeatureMgmt: Codeunit "SEW Feature Management";
+    
+    procedure ExplodeBOM(SalesLine: Record "Sales Line")
     begin
-        // Initialize telemetry with app name
-        TelemetryManager.Initialize('walter75 - Packages');
+        // Feature check
+        FeatureMgmt.ValidateFeatureAccess('BASE-EXPLODE-BOM');
         
-        // Check license before execution
-        if not LicenseManager.ValidateLicense(GetAppId()) then
-            Error('License required for Packages app');
-        
-        // Log feature usage
-        TelemetryManager.LogUsage('Package Processing', GetCustomDimensions());
-        
-        // Business logic...
-        if not ProcessData() then begin
-            // Log error
-            ErrorLogger.LogError('Package processing failed', 'Package ID: ' + PackageNo);
-            TelemetryManager.LogError('ProcessPackage', GetLastErrorText(), 'PKG001');
+        // Business logic
+        if not ValidateBOM(SalesLine) then begin
+            ErrorLogger.LogError(
+                StrSubstNo('Cannot explode BOM for item %1', SalesLine."No."),
+                StrSubstNo('Sales Order: %1, Line: %2', SalesLine."Document No.", SalesLine."Line No.")
+            );
+            Error('BOM validation failed. See error log for details.');
         end;
+        
+        // Process BOM...
+        
+        // Log success to Activity Log
+        ActivityLogHelper.LogSuccess(
+            SalesLine.RecordId,
+            'BOM Exploded Successfully',
+            StrSubstNo('Item: %1, Quantity: %2', SalesLine."No.", SalesLine.Quantity)
+        );
     end;
 }
 ```
 
-### Telemetry Architecture (ISV-Only Model)
-
-**Flow**:
-```
-Customer A Tenant ──┐
-                    ├──→ walter75 Application Insights
-Customer B Tenant ──┤     (ISV monitoring dashboard)
-                    │
-Customer C Tenant ──┘
-```
-
-**app.json Configuration**:
-```json
+**Feature Registration** (in Base App Install codeunit):
+```al
+codeunit 74000 "Base App Install"
 {
-  "applicationInsightsConnectionString": "InstrumentationKey=YOUR-WALTER75-KEY;IngestionEndpoint=https://..."
+    Subtype = Install;
+    
+    trigger OnInstallAppPerDatabase()
+    var
+        FeatureMgmt: Codeunit "SEW Feature Management";
+    begin
+        // Register features
+        FeatureMgmt.RegisterFeature(
+            'BASE-EXPLODE-BOM',
+            'Base App',
+            'Explode BOM',
+            'Automatically explode BOM components into sales lines',
+            true  // enabled by default
+        );
+        
+        FeatureMgmt.RegisterFeature(
+            'BASE-ADVANCED-PRICING',
+            'Base App',
+            'Advanced Pricing',
+            'Enable advanced pricing calculations with tiered discounts',
+            false  // disabled by default (future feature)
+        );
+    end;
 }
 ```
 
-**What walter75 Sees**:
-- Feature usage across all customers (anonymized)
-- Error patterns and frequencies
-- License type distribution (Trial vs Full)
-- Feature adoption rates
-- Performance metrics
+**Feature Check Pattern**:
+```al
+// Pattern 1: Validate (throws error if disabled)
+FeatureMgmt.ValidateFeatureAccess('BASE-EXPLODE-BOM');
 
-**Custom Dimensions Sent**:
-- `AppName`: "walter75 - Packages", "walter75 - Calculation", etc.
-- `LicenseType`: "Trial" or "Full"
-- `EnvironmentType`: "Production" or "Sandbox"
-- `SessionId`: Session identifier
-- `UserId`: User identifier (only if consented)
-- `CompanyName`: Company name (only if consented)
-- `FeatureName`: Specific feature being used
-- `ErrorCode`: Error identifier for tracking
+// Pattern 2: Check and branch
+if FeatureMgmt.IsFeatureEnabled('BASE-EXPLODE-BOM') then
+    ExplodeBOM(SalesLine)
+else
+    Message('Explode BOM feature is disabled. Contact your administrator.');
 
-**Opt-In/Opt-Out**:
-- Default: **Opt-in** (enabled after consent)
-- User Control: "SEW Consent Management" page
-- Enforcement: TelemetryManager checks consent before sending
+// Pattern 3: UI visibility
+trigger OnOpenPage()
+begin
+    ExplodeBOMAction.Visible := FeatureMgmt.IsFeatureEnabled('BASE-EXPLODE-BOM');
+end;
+```
+
+#### Activity Log Integration Pattern
+
+**Dual Logging on Failure**:
+```al
+codeunit 71200 "SEW Activity Log Helper"
+{
+    procedure LogFailure(RelatedRecordID: RecordId; Description: Text; DetailedInfo: Text)
+    var
+        ActivityLog: Record "Activity Log";
+        ErrorLogger: Codeunit "SEW Error Logger";
+    begin
+        // Standard BC Activity Log
+        ActivityLog.LogActivity(
+            RelatedRecordID,
+            Enum::"Activity Log Status"::Failed,
+            'SEW',
+            Description,
+            DetailedInfo
+        );
+        
+        // Also log to SEW Error Log for analysis
+        ErrorLogger.LogError(Description, DetailedInfo);
+    end;
+}
+```
 
 ### Security Model
 
-**Permission Sets**:
+#### Permission Sets
 
-**PermissionSet 79900 "SEW CORE-READ"**
-- Read-only access to Core objects
-- Target Users: All users (basic visibility)
-- Permissions:
-  - Read: Error Log, License, Core Setup, Consent
-  - Execute: Error Logger (read-only methods), Telemetry Manager (read-only)
+**PermissionSet 71000 "SEW-CORE-READ"**
+- **Target Users**: All users (basic visibility)
+- **Permissions**:
+  - Read: Error Log, Feature
+  - Execute: Error Logger (read-only methods), Feature Management (IsFeatureEnabled only)
+- **Purpose**: View errors and check feature status
 
-**PermissionSet 79901 "SEW CORE-USER"**
-- Standard user operations
-- Target Users: General users logging errors
-- Permissions:
-  - Inherits: SEW CORE-READ
-  - Insert/Modify: Error Log (via codeunit only)
-  - Execute: Error Logger (all methods), Telemetry Manager (all methods)
+**PermissionSet 71001 "SEW-CORE-USER"**
+- **Target Users**: General users logging errors
+- **Permissions**:
+  - Inherits: SEW-CORE-READ
+  - Insert: Error Log (via codeunit only)
+  - Execute: Error Logger (all methods), Activity Log Helper (all methods)
+- **Purpose**: Log errors and activities
 
-**PermissionSet 79902 "SEW CORE-ADMIN"**
-- Full administrative access
-- Target Users: System administrators
-- Permissions:
-  - Inherits: SEW CORE-USER
-  - RIMD: All Core tables (direct access)
-  - Execute: All Core codeunits, Setup Wizard, Dashboard
-  - Pages: All Core pages including Setup and License Management
+**PermissionSet 71002 "SEW-CORE-ADMIN"**
+- **Target Users**: System administrators
+- **Permissions**:
+  - Inherits: SEW-CORE-USER
+  - RIMD: All Core tables (Error Log, Feature)
+  - Execute: All Core codeunits
+  - Pages: All Core pages including Feature Management and Error Logs
+  - Note: Retention Policy configuration requires SUPER or Retention Policy Admin permissions (BC standard)
+- **Purpose**: Full administrative control
 
 **Hierarchical Structure**:
 ```
-SEW CORE-ADMIN (Super)
-    ├── SEW CORE-USER (Standard)
-    │   └── SEW CORE-READ (Basic)
+SEW-CORE-ADMIN (Super)
+    ├── SEW-CORE-USER (Standard)
+    │   └── SEW-CORE-READ (Basic)
 ```
-
-**Integration with Dependent Apps**:
-- BaseApp Basic includes SEW CORE-USER by default
-- Feature apps execute Core codeunits via included permissions
 
 ### Performance Considerations
 
 **Error Log Table**:
-- **Index on Timestamp**: Fast filtering by date range, retention cleanup
+- **Index on Timestamp**: Fast filtering by date range, used by retention policy for cleanup
 - **Index on Severity + Timestamp**: Efficient critical error queries
 - **AutoIncrement Entry No.**: Avoid key conflicts in multi-user environments
-- **Blob for Stack Trace**: Avoid TEXT[max] performance issues
-- **Retention Policy**: Automatic cleanup via BC platform (no custom jobs)
+- **Blob for Stack Trace**: Avoid TEXT[max] performance issues, store large traces separately
+- **Retention Policy**: Uses BC standard Retention Policy framework
+  - Table registered in OnInstallAppPerDatabase
+  - Admin configures via **Retention Policies** page in BC
+  - Filter by **Timestamp** field (records older than X days deleted)
+  - Recommended: 30 days, configurable per company
+  - Runs automatically via BC job queue
 
-**License Caching**:
-- **SingleInstance Codeunit**: License validation cached per session
-- **Dictionary Cache**: AppId → IsValid mapping, refresh on validation
-- **Cache Invalidation**: On license update, clear cache via event
+**Feature Caching**:
+- **SingleInstance Codeunit**: Feature states cached per session
+- **Dictionary Cache**: Code[50] → Boolean mapping, O(1) lookups
+- **Auto-Refresh Interval**: Every 10 minutes (automatic background refresh)
+- **Immediate Updates**: Enable/Disable actions update cache instantly in admin's session
+- **Multi-Session Propagation**: Other sessions see changes within max 10 minutes
+- **Expected Hit Ratio**: >99% (features rarely change, cache refresh only every 10 min)
+- **Performance Impact**: 1 DB query per 10 minutes per active session (negligible overhead)
 
-**Telemetry Optimization**:
-- **Async Sending**: Feature Telemetry uses platform async queue
-- **Batch Events**: Group multiple events when possible
-- **Custom Dimensions Limit**: Max 10 dimensions per event (Azure limit)
-
-**Error Logging Best Practices**:
-- **Text Field Limits**: Error Message (2048), Context Info (2048)
-- **Blob for Large Data**: Stack traces stored separately
-- **Severity Filtering**: Use indexes for Critical/Error queries
-- **Development Mode**: Separate DEV logs from PROD analysis
+**Activity Log Integration**:
+- Uses BC's native Activity Log table (already optimized)
+- No additional indexing required
+- Dual logging only on failures (minimize overhead)
 
 ### Testing Strategy
 
-**Unit Tests** (Test Codeunit):
-- Error Logger: Test all LogError methods with/without consent
-- License Manager: Test trial creation, expiration, activation
-- Telemetry Manager: Mock Feature Telemetry, verify calls
-- Consent Manager: Test consent changes update Core Setup
+#### Unit Tests (Test Codeunit)
 
-**Integration Tests**:
-- Install Codeunit: Verify setup records created, retention policy set
-- Setup Wizard: Complete wizard flow, check all settings applied
-- License Expiration: Test trial → expired → activation flow
-- Error Log Retention: Insert old records, run retention job, verify deletion
+**Codeunit 71950 "SEW Error Logger Test"**
+```al
+[Test]
+procedure TestLogError()
+// Verify error logged with correct severity and fields
 
-**UI Tests**:
-- Setup Wizard: Navigate all steps, verify finish action
-- Error Log List: Filter by severity, export to Excel
-- License Management: Activate license key, verify status change
-- Consent Banner: Accept/decline, verify consent recorded
+[Test]
+procedure TestLogWarning()
+// Verify warning logged
 
-**Permission Tests**:
-- Verify SEW CORE-READ cannot modify data
-- Verify SEW CORE-USER can log errors but not delete
-- Verify SEW CORE-ADMIN can access all pages and tables
+[Test]
+procedure TestRetentionPolicy()
+// Create old entries, run retention job, verify deletion
 
-**Performance Tests**:
-- Insert 10,000 error log entries, measure query performance
-- Validate license 1,000 times, verify cache hit ratio
-- Send 100 telemetry events, check queue processing
+[Test]
+procedure TestStackTraceBlob()
+// Verify large stack traces stored correctly in Blob field
+```
 
-**Test Data**:
-- Library codeunit: `SEW Test Data - Core`
-- Methods: CreateTrialLicense(), CreateFullLicense(), CreateErrorLog(), CreateConsent()
+**Codeunit 71951 "SEW Feature Mgmt Test"**
+```al
+[Test]
+procedure TestRegisterFeature()
+// Register feature, verify record created
+
+[Test]
+procedure TestIsFeatureEnabled()
+// Enable feature, verify IsFeatureEnabled returns true
+
+[Test]
+procedure TestFeatureCache()
+// Test caching: verify DB hit only on first call
+
+[Test]
+procedure TestValidateFeatureAccess()
+// Disable feature, verify ValidateFeatureAccess throws error
+
+[Test]
+procedure TestEnableDisableEvents()
+// Verify OnAfterFeatureStateChanged event fires
+```
+
+**Codeunit 71952 "SEW Activity Log Test"**
+```al
+[Test]
+procedure TestLogSuccess()
+// Verify Activity Log entry created with Success status
+
+[Test]
+procedure TestLogFailure()
+// Verify dual logging: Activity Log + Error Log
+
+[Test]
+procedure TestLogIntegrationCall()
+// Verify integration logging format
+```
+
+#### Integration Tests
+
+**Install Codeunit Test**:
+- Run OnInstallAppPerDatabase successfully
+- Verify Error Log table registered in allowed retention policy tables
+- Verify table available in BC's Retention Policies page
+
+**Feature Registration Flow**:
+- Simulate Base App install registering features
+- Verify features appear in Feature Management page
+- Enable/disable via UI, verify cache cleared
+
+**Cross-App Error Logging**:
+- From test app, call SEW Error Logger
+- Verify error appears in Error Log List
+- Verify permissions enforced (non-admin cannot delete)
+
+#### UI Tests
+
+**Feature Management Page**:
+- Enable feature via toggle, verify Enabled = true
+- Disable feature, verify cache refreshed
+- Test bulk enable/disable actions
+
+**Error Log List Page**:
+- Filter by severity, verify correct records shown
+- Export to Excel, verify all fields included
+- Delete old entries action, verify confirmation dialog
+
+#### Performance Tests
+
+**Error Logging Performance**:
+- Insert 10,000 error log entries
+- Measure insert time (should be <10ms per entry)
+- Query by severity filter (should be <500ms for 10k records)
+
+**Feature Cache Performance**:
+- Call IsFeatureEnabled 1,000 times for same feature
+- Measure time: First call ~20ms, subsequent calls <1ms
+- Verify only 1 DB query executed (cache hit)
+
+**Retention Policy Test**:
+- Insert 50,000 old error entries (31 days ago)
+- Run retention job
+- Measure cleanup time (should be <30 seconds)
+- Verify all old entries deleted
+
+### Test Data
+
+**Library Codeunit 71990 "SEW Test Data - Core"**
+```al
+procedure CreateErrorLog(Severity: Enum "SEW Error Severity"): Record "SEW Error Log"
+// Create test error log entry
+
+procedure CreateOldErrorLog(DaysOld: Integer): Record "SEW Error Log"
+// Create old entry for retention testing
+
+procedure CreateFeature(FeatureCode: Code[50]; Enabled: Boolean): Record "SEW Feature"
+// Create test feature
+
+procedure EnableAllFeatures()
+// Bulk enable all test features
+
+procedure CleanupTestData()
+// Delete all test records
+```
 
 ## Implementation Phases
 
-### Phase 1: Foundation (Week 1)
-**Deliverables**:
-- [x] Allocate ID range 79900-79999 in docs/App ID Ranges.md
-- [x] Create app.json with Core metadata, Application Insights key
-- [x] Create folder structure: src/Setup, src/ErrorLogging, src/Telemetry, src/Licensing, src/Consent, src/Admin
-- [x] Implement "SEW Error Log" table with retention policy
-- [x] Implement "SEW Core Setup" table
-- [x] Implement "SEW Error Logger" codeunit (basic methods)
-- [x] Implement "SEW Core Install" codeunit
-- [x] Create "SEW Error Log List" page
+### Phase 1: Foundation - Error Logging, Activity Log, Feature Management (Week 1-3) 🎯
 
-**Validation**: Error logs can be created and viewed, retention policy set
+**Week 1: App Structure & Error Logging**
 
-### Phase 2: Telemetry (Week 2)
-**Deliverables**:
-- [x] Implement "SEW Telemetry Manager" codeunit
-- [x] Configure Application Insights connection in app.json
-- [x] Integrate with BC Feature Telemetry codeunit
-- [x] Add telemetry calls to Error Logger (dual logging)
-- [x] Implement event publishers for extensibility
-- [x] Test telemetry flow to Azure Application Insights
+Deliverables:
+- [x] Create app folder structure: `Core App/src/`
+  - `ErrorLogging/` - Error Log table, enum, codeunit, pages
+  - `ActivityLog/` - Activity Log Helper codeunit
+  - `FeatureManagement/` - Feature table, codeunit, pages
+  - `Install/` - Install and Upgrade codeunits
+  - `Permissions/` - Permission set objects
 
-**Validation**: Events appear in walter75 Application Insights, custom dimensions captured
+- [x] Create `app.json`:
+  ```json
+  {
+    "id": "71000000-0000-0000-0000-000000000001",
+    "name": "Core App",
+    "publisher": "SEW",
+    "version": "1.0.0.0",
+    "brief": "Foundation layer for all SEW extensions",
+    "description": "Provides error logging, activity tracking, and feature management",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "",
+    "url": "",
+    "logo": "",
+    "dependencies": [],
+    "platform": "27.0.0.0",
+    "application": "27.0.0.0",
+    "idRanges": [
+      {
+        "from": 71000,
+        "to": 71999
+      }
+    ],
+    "features": [
+      "NoImplicitWith"
+    ]
+  }
+  ```
 
-### Phase 3: Licensing (Week 3)
-**Deliverables**:
-- [x] Implement "SEW License" table
-- [x] Implement "SEW License Manager" codeunit with caching
-- [x] Implement trial license auto-creation in Install codeunit
-- [x] Create "SEW License Management" page
-- [x] Create "SEW License Type" and "SEW License Status" enums
-- [x] Implement license validation with 30-day trial logic
-- [x] Add license check examples for dependent apps
+- [x] Implement Error Logging:
+  - Enum 71100 "SEW Error Severity"
+  - Table 71100 "SEW Error Log"
+  - Codeunit 71100 "SEW Error Logger"
+  - Page 71100 "SEW Error Log List"
+  - Page 71101 "SEW Error Log Card"
 
-**Validation**: Trial license created on install, expires after 30 days, full license activates
+- [x] Implement Activity Log Integration:
+  - Codeunit 71200 "SEW Activity Log Helper"
 
-### Phase 4: Consent Management (Week 4)
-**Deliverables**:
-- [x] Implement "SEW Consent" table
-- [x] Implement "SEW Consent Manager" codeunit
-- [x] Create "SEW Consent Management" page
-- [x] Create "SEW Consent Banner" page (NavigatePage)
-- [x] Integrate consent checks into Error Logger and Telemetry Manager
-- [x] Add consent banner trigger to Install codeunit
-- [x] Link consent changes to Core Setup
+**Validation**: 
+- Error Logger.LogError() creates entry in table
+- Error Log List page displays entries with filtering
+- Activity Log Helper creates entries in standard BC Activity Log (Table 710)
+- Dual logging on failure works correctly
 
-**Validation**: Consent banner appears on first run, consent enforced in logging/telemetry
+---
 
-### Phase 5: UI & Wizard (Week 5)
-**Deliverables**:
-- [x] Implement "SEW Core Setup Wizard" page (NavigatePage)
-- [x] Implement "SEW Core Setup" page (Card)
-- [x] Implement "SEW Core Dashboard" page (RoleCenter)
-- [x] Create Error Log FactBox for dashboard
-- [x] Create License Status FactBox for dashboard
-- [x] Add actions to Business Manager Role Center
-- [x] Implement "SEW Error Log Card" page for detailed view
+**Week 2: Feature Management**
 
-**Validation**: Setup wizard completes successfully, dashboard shows correct status
+Deliverables:
+- [x] Implement Feature Management:
+  - Table 71300 "SEW Feature"
+  - Codeunit 71300 "SEW Feature Management"
+  - Page 71300 "SEW Feature Management"
+  - Page 71301 "SEW Feature Card"
 
-### Phase 6: Integration & Testing (Week 6)
-**Deliverables**:
-- [x] Update BaseApp Basic app.json to depend on Core
-- [x] Test Core APIs from Calculation app (test app available)
-- [x] Create permission sets: SEW CORE-READ, SEW CORE-USER, SEW CORE-ADMIN
-- [x] Write unit tests for all codeunits
-- [x] Write integration tests for install/upgrade
-- [x] Performance testing: 10k error logs, license cache
-- [x] Update CHANGELOG.md, README.md
+- [x] Add feature caching with Dictionary
+- [x] Implement event publishers (OnBeforeFeatureValidation, OnAfterFeatureStateChanged)
+- [x] Test feature registration flow
+- [x] Test enable/disable with cache invalidation
 
-**Validation**: BaseApp builds with Core dependency, all tests pass
+**Validation**:
+- RegisterFeature() creates feature record
+- IsFeatureEnabled() returns correct state
+- Cache works: Second call doesn't hit database
+- EnableFeature/DisableFeature fire events correctly
 
-### Phase 7: Documentation & Rollout (Week 7)
-**Deliverables**:
-- [x] Create public API documentation for dependent apps
-- [x] Document event publishers and integration patterns
-- [x] Update repository docs/App ID Ranges.md
-- [x] Create user guide for Setup Wizard
-- [x] Create admin guide for License Management and Error Monitoring
-- [x] Deploy to test environment
-- [x] Migration plan for existing apps
+---
 
-**Validation**: Documentation complete, test environment validated
+**Week 3: Install, Permissions, Documentation**
 
-### Phase 8: Production Rollout (Week 8)
-**Deliverables**:
-- [x] Production deployment to customer tenants
-- [x] Verify telemetry flow from production
-- [x] Monitor error logs and license activations
-- [x] Rollout to all dependent apps (Packages, BDE Terminal, etc.)
-- [x] Post-deployment monitoring (1 week)
+Deliverables:
+- [x] Implement Install/Upgrade:
+  - Codeunit 71000 "SEW Core Install"
+  - Codeunit 71001 "SEW Core Upgrade"
+  - Register Error Log table for retention policy
 
-**Validation**: All customer tenants sending telemetry, no critical errors
+- [x] Create Permission Sets:
+  - PermissionSet 71000 "SEW-CORE-READ"
+  - PermissionSet 71001 "SEW-CORE-USER"
+  - PermissionSet 71002 "SEW-CORE-ADMIN"
+
+- [x] Documentation:
+  - README.md (public APIs, usage examples)
+  - CHANGELOG.md
+  - Update repository `docs/App ID Ranges.md`
+
+**Validation**:
+- Install codeunit runs successfully
+- Error Log table appears in BC's Retention Policies page as allowed table
+- Admin can configure retention policy via standard BC UI
+- Permissions enforce access control correctly
+- Documentation complete and accurate
+
+---
+
+**Phase 1 Completion Checklist**:
+- ✅ All objects compile without errors
+- ✅ Unit tests pass (Error Logger, Feature Mgmt, Activity Log)
+- ✅ Integration tests pass (Install, cross-app calls)
+- ✅ UI tests pass (pages functional)
+- ✅ Performance tests pass (10k errors, cache hit ratio)
+- ✅ Documentation published
+- ✅ Base App can depend on Core App
+- ✅ Example feature registered and tested ("BASE-EXPLODE-BOM")
+
+---
+
+### Phase 2: Telemetry (Week 4-5) 🔜 FUTURE
+
+**Deferred to Phase 2**:
+- ISV telemetry collection to SEW Application Insights
+- Codeunit 71400 "SEW Telemetry Manager"
+- Integration with BC Feature Telemetry
+- Event telemetry for feature usage tracking
+- Application Insights connection string in app.json
+
+**Rationale**: Phase 1 provides immediate value with error logging and feature management. Telemetry adds observability but isn't blocking for dependent apps.
+
+---
+
+### Phase 3: Licensing & Consent (Week 6-10) ⏭️ FUTURE
+
+**Deferred to Phase 3**:
+- Table 71500 "SEW License" (trial/full licensing)
+- Codeunit 71500 "SEW License Manager"
+- License-based feature control (hook into OnBeforeFeatureValidation event)
+- Table 71600 "SEW Consent" (GDPR consent management)
+- Setup Wizard (multi-step configuration)
+- Core Dashboard (Role Center)
+
+**Integration with Feature Management**:
+```al
+// Phase 3: License Manager subscribes to feature validation event
+[EventSubscriber(ObjectType::Codeunit, Codeunit::"SEW Feature Management", 'OnBeforeFeatureValidation', '', false, false)]
+local procedure CheckLicenseBeforeFeature(FeatureCode: Code[50]; var IsEnabled: Boolean; var IsHandled: Boolean)
+var
+    Feature: Record "SEW Feature";
+begin
+    if not Feature.Get(FeatureCode) then
+        exit;
+    
+    if not Feature."Requires License" then
+        exit;
+    
+    // Check if license allows this feature
+    if not LicenseManager.IsFeatureLicensed(Feature."License Feature Code") then begin
+        IsEnabled := false;
+        IsHandled := true;
+    end;
+end;
+```
+
+**Rationale**: Licensing and consent are important for AppSource but not required for internal PTE deployment. Phase 1-2 deliver core functionality first.
+
+---
 
 ## Technical Decisions
 
-### Decision 1: Separate Core App vs Merge into BaseApp Basic
+### Decision 1: Error Log vs Activity Log - Use Both (Two-Tier Strategy)
 
 **Options Considered**:
-- **Option A**: Create separate "walter75 - Core" app
-  - Pros: Clear separation of concerns (platform vs business), independent versioning, reusable across non-walter75 apps
-  - Cons: Additional dependency layer, more complex deployment
-- **Option B**: Merge Core functionality into BaseApp Basic
-  - Pros: Simpler dependency tree, single foundation layer, fewer apps to manage
-  - Cons: Mixed responsibilities, harder to version infrastructure independently
+- **Option A**: Only custom Error Log table
+  - Pros: Full control, optimized for error analysis
+  - Cons: Doesn't leverage BC standard tooling
+  
+- **Option B**: Only BC standard Activity Log
+  - Pros: Native BC UI, established patterns
+  - Cons: Not optimized for error tracking, no retention policy control
+  
+- **Option C**: Both (two-tier logging)
+  - Pros: Error Log for errors (with retention), Activity Log for process tracking
+  - Cons: Slight complexity of two systems
 
-**Decision**: **Option A** - Separate Core app
-
-**Rationale**: 
-- Core is platform infrastructure (logging, telemetry, licensing), BaseApp is business functionality (sales, inventory extensions)
-- Future AppSource scenarios require clean licensing layer separate from business logic
-- Independent versioning: Core can be updated without BaseApp changes
-- Reusability: Other ISVs could use Core if open-sourced
-
-### Decision 2: Custom Licensing vs Azure Entitlements
-
-**Options Considered**:
-- **Option A**: Custom license table with trial/full logic
-  - Pros: Works for PTE now, flexible feature flags, no Azure AD dependency
-  - Cons: Custom validation logic, no AppSource integration initially
-- **Option B**: Azure Entitlements only
-  - Pros: Native AppSource licensing, Azure AD integration, no custom code
-  - Cons: Requires AppSource account, not available for PTE
-
-**Decision**: **Option A** now, add Entitlements later
+**Decision**: **Option C** - Use both systems with clear separation
 
 **Rationale**:
-- PTE deployment requires custom licensing (no AppSource access yet)
-- Custom licensing table is flexible and AppSource-compatible later
-- Migration path: Add Entitlements in Phase 2, keep custom licensing for backward compatibility
-- Feature flags via JSON blob enable granular control
+- **Error Log**: Application errors with retention policy (30 days), severity levels, stack traces
+- **Activity Log**: Business process tracking (integrations, workflows, batch jobs), long-term audit trail
+- **Integration**: Activity Log Helper automatically logs to Error Log on failure (dual logging)
+- **Compatibility**: Customers familiar with Activity Log page can continue using it
+- **Specialization**: Each system optimized for its purpose
 
-### Decision 3: ISV Telemetry vs Client Telemetry
+---
+
+### Decision 2: Feature Management in Phase 1 vs Phase 3
 
 **Options Considered**:
-- **Option A**: ISV-only (walter75 collects from all customers)
-  - Pros: Centralized product analytics, simpler setup, single Application Insights
-  - Cons: Customer doesn't see their own telemetry
-- **Option B**: Client-only (each customer monitors themselves)
-  - Pros: Customer owns their data, custom dashboards per tenant
-  - Cons: walter75 has no product insights, complex setup per customer
-- **Option C**: Hybrid (both ISV and optional client telemetry)
-  - Pros: Best of both worlds
-  - Cons: Most complex implementation
+- **Option A**: Include in Phase 1 (with Error Logging)
+  - Pros: Enables feature toggles immediately, prepares for licensing
+  - Cons: Slightly increases Phase 1 scope
+  
+- **Option B**: Defer to Phase 3 (with Licensing)
+  - Pros: Smaller Phase 1, faster delivery
+  - Cons: Dependent apps can't use feature toggles until Phase 3
 
-**Decision**: **Option A** - ISV-only telemetry
+**Decision**: **Option A** - Include Feature Management in Phase 1
 
 **Rationale**:
-- Primary goal: walter75 needs product usage data for roadmap decisions
-- Customer benefit: Reduced setup complexity (no Application Insights config required)
-- Consent-based: GDPR-compliant with opt-in/opt-out
-- Future: Can add client telemetry as optional feature if requested
+- User requirement: "Explode BOM" needs to be toggleable now
+- Feature Management is foundational (like error logging), not a "nice-to-have"
+- Phase 3 licensing will hook into existing feature system (via events), no refactoring needed
+- Minimal complexity: Table + Codeunit + 2 Pages (~200 lines of code)
+- High value: Enables/disables features without code changes
 
-### Decision 4: Error Log Retention Policy
+---
 
-**Options Considered**:
-- **Option A**: BC platform Retention Policy (native feature)
-  - Pros: Standard BC mechanism, no custom code, admin-configurable
-  - Cons: Platform version requirement (19.0+)
-- **Option B**: Custom cleanup job scheduler
-  - Pros: Full control, works on older BC versions
-  - Cons: Custom code, maintenance overhead, performance tuning required
-
-**Decision**: **Option A** - BC platform Retention Policy
-
-**Rationale**:
-- Target platform: BC 27.0+ (Cloud), Retention Policy available
-- Native mechanism is tested and optimized by Microsoft
-- Admin can configure retention periods via standard BC UI
-- No custom job scheduler maintenance
-
-### Decision 5: Text Field Lengths for Error Messages
+### Decision 3: Feature Caching Strategy with 10-Minute Auto-Refresh
 
 **Options Considered**:
-- **Option A**: Text[2048] for Error Message and Context Info
-  - Pros: Sufficient for most errors, good performance, indexed
-  - Cons: Very long errors truncated
-- **Option B**: Text (max length ~2GB)
-  - Pros: No truncation
-  - Cons: Cannot be indexed, performance issues, overkill for 99% of cases
-- **Option C**: Blob for all text fields
-  - Pros: Unlimited length
-  - Cons: Harder to query, no full-text search
-
-**Decision**: **Option A** - Text[2048] + Blob for Stack Trace
-
-**Rationale**:
-- 2048 characters sufficient for error messages (typically 200-500)
-- Indexable for searching and filtering
-- Stack traces stored separately in Blob (can be very long)
-- Balance between usability and performance
-
-### Decision 6: SingleInstance Codeunits for Caching
-
-**Options Considered**:
-- **Option A**: SingleInstance codeunits for License Manager and Telemetry Manager
-  - Pros: Session-scoped cache, fast repeated validations, no DB hits
-  - Cons: Cache not shared across sessions
-- **Option B**: In-memory database table (temporary table)
-  - Pros: More explicit cache management
-  - Cons: Still requires DB-like operations, no performance benefit
-- **Option C**: No caching, validate every time
+- **Option A**: No caching (query database every time)
   - Pros: Always fresh data
-  - Cons: Performance overhead for repeated license checks
+  - Cons: Performance overhead (feature checks in tight loops)
+  
+- **Option B**: Session-scoped cache with manual invalidation
+  - Pros: Fast lookups, explicit control
+  - Cons: Admin must remember to refresh, stale data risk
+  
+- **Option C**: Session-scoped cache with time-based auto-refresh
+  - Pros: Fast lookups + automatic freshness, no manual intervention
+  - Cons: Max N-minute delay for cross-session updates
 
-**Decision**: **Option A** - SingleInstance codeunits
+**Decision**: **Option C** - Session-scoped cache with 10-minute auto-refresh
 
 **Rationale**:
-- License validation happens frequently (every feature use)
-- Session-scoped cache is sufficient (license changes are rare)
-- Dictionary data structure is fast (O(1) lookups)
-- Standard BC pattern for caching
+- **Performance**: Dictionary provides O(1) lookups (<1ms), 1000x faster than DB queries
+- **Freshness**: 10-minute max staleness acceptable for feature toggles (not real-time critical)
+- **Simplicity**: No manual cache management needed, automatic background refresh
+- **Admin Control**: Enable/Disable actions update cache immediately for admin's session
+- **Multi-Session**: Other users see changes within 10 minutes without intervention
+- **Standard Pattern**: Similar to BC's No. Series caching and Configuration Package caching
+- **Overhead**: Only 1 DB query per 10 minutes per active session (negligible)
+
+**Implementation Detail**:
+```al
+// Check every call: Has 10-minute boundary been crossed?
+if (Time2Minute(Time) div 10) <> LastRefreshMinute then
+    RefreshCache(); // Automatic refresh
+```
+
+**Why 10 Minutes**:
+- Fast enough: Admin enables feature → users see it within 10 min (acceptable for feature toggles)
+- Efficient: 6 refreshes/hour vs 60 refreshes/hour (1-minute) or 1 refresh/hour (60-minute)
+- Predictable: Refreshes at :00, :10, :20, :30, :40, :50 (easy to understand for support)
+
+---
+
+### Decision 4: ID Range Allocation
+
+**Decision**: Use **71000-71999** (1000 objects)
+
+**Rationale**:
+- Aligns with repository architecture (Foundation & Base Apps layer)
+- 1000 objects sufficient for Core App (currently using ~20)
+- Allows growth for Phase 2 (Telemetry) and Phase 3 (Licensing/Consent)
+- Clear range boundaries for each subsystem (100 objects per feature area)
+
+**Current Allocation**:
+```
+71000-71099: Install & Core Infrastructure (2 used, 98 free)
+71100-71199: Error Logging (5 used, 95 free)
+71200-71299: Activity Log (1 used, 99 free)
+71300-71399: Feature Management (4 used, 96 free)
+71400-71499: Telemetry (Phase 2) (0 used, 100 free)
+71500-71599: Licensing (Phase 3) (0 used, 100 free)
+71600-71699: Consent (Phase 3) (0 used, 100 free)
+71700-71799: Admin UI (Phase 3+) (0 used, 100 free)
+71800-71999: Integration & Reserved (200 free)
+```
+
+---
+
+### Decision 5: SingleInstance Codeunits for State Management
+
+**Decision**: Use SingleInstance = true for Feature Management codeunit
+
+**Rationale**:
+- Feature cache needs to persist across multiple calls in same session
+- Dictionary variable maintains state within session
+- Standard BC pattern for caching (No. Series, Setup records)
+- No risk of cross-session data leakage (each session has own instance)
+
+---
+
+### Decision 6: Event-Driven Extensibility for Licensing
+
+**Decision**: Publish OnBeforeFeatureValidation event in Phase 1
+
+**Rationale**:
+- Prepares architecture for Phase 3 licensing without refactoring
+- Phase 3 License Manager subscribes to event, no Feature Management changes needed
+- Extensible: Other extensions can also override feature state
+- Decoupling: Feature Management doesn't need to know about licensing
+
+**Phase 3 Integration Pattern**:
+```
+Phase 1: Feature Management publishes event → No subscribers yet
+Phase 3: License Manager subscribes → Overrides feature state if unlicensed
+```
+
+---
 
 ## Dependencies
 
 ### Base Objects (Business Central Standard)
-- Table: User (for consent tracking)
-- Codeunit: "Feature Telemetry" (for ISV telemetry)
-- Codeunit: "Environment Information" (for IsSandbox detection)
-- Enum: "Object Type" (for error logging)
-- Enum: "Feature Uptake Status" (for telemetry)
-- Page: "Business Manager Role Center" (for dashboard action)
+- **Table 710 "Activity Log"** - Used by Activity Log Helper
+- **Enum "Activity Log Status"** - Success, Failed, etc.
+- **Enum "Object Type"** - Table, Page, Codeunit, etc. (for error logging)
+- **Codeunit "Activity Log"** - Standard BC logging API (wrapper)
 
 ### Extensions
-- None (Core is the foundation layer)
+- None (Core App is the foundation layer)
 
 ### External Systems
-- **Azure Application Insights** (walter75-owned)
-  - Purpose: ISV telemetry collection
-  - Connection: app.json applicationInsightsConnectionString
-  - Data: Feature usage, errors, performance metrics
-- **License Validation API** (future)
-  - Purpose: Validate license keys against walter75 server
-  - Connection: HTTPS REST API
-  - Data: License key → validation response
+- None in Phase 1
+- Phase 2: Azure Application Insights (telemetry)
+- Phase 3: License Validation API (optional)
 
 ### AL-Go Structure
-- Separate app folder: `walter75 - Core`
-- No test app initially (add in Phase 6 if needed)
+- Separate app folder: `Core App/`
+- Test app: `Core App.Test/` (optional, can be added in Phase 1 Week 3)
 - Standard AL-Go workflows (CICD, PublishToEnvironment)
 
 ## Risks & Mitigations
 
 | Risk | Impact | Probability | Mitigation |
 |------|--------|-------------|------------|
-| **Breaking change to BaseApp Basic** | HIGH | MEDIUM | Phased rollout: Core first, then update BaseApp dependency. Test in sandbox before production. |
-| **Circular dependencies** | HIGH | LOW | Strict dependency order enforced: Core (no deps) → BaseApp (depends on Core) → Feature apps (depend on BaseApp). Architectural reviews before merges. |
-| **Performance overhead from logging** | MEDIUM | MEDIUM | Use indexes on Error Log, retention policy cleanup, async telemetry via BC platform. Monitor query performance in Phase 6. |
-| **Licensing complexity** | MEDIUM | HIGH | Start simple: Trial (30d) vs Full only. Document clearly. Add feature flags later based on feedback. |
-| **Data privacy violations (GDPR)** | HIGH | LOW | Mandatory consent banner, proper DataClassification on all fields, retention policy enforcement. Legal review before production. |
-| **Telemetry consent rejection** | LOW | MEDIUM | Default to opt-in after consent banner. Clearly explain value (better product, faster support). Allow opt-out anytime. |
-| **Application Insights quota exceeded** | MEDIUM | LOW | Monitor Application Insights usage, set daily cap, throttle low-value events if needed. |
-| **License key generation complexity** | MEDIUM | MEDIUM | Phase 1: Simple trial/full with manual keys. Phase 2: External API for validation. Keep it simple initially. |
+| **Retention policy not working** | Error log grows unbounded | Medium | Test retention job in sandbox, monitor table size, add manual cleanup action |
+| **Feature cache not invalidated** | Stale feature states | Medium | Test cache invalidation thoroughly, add manual "Refresh Cache" action on page |
+| **Dependent apps call wrong API** | Inconsistent logging | Low | Document public APIs clearly, provide code examples in README |
+| **Performance degradation** | Slow error logging | Low | Index on Timestamp + Severity, use Blob for large data, test with 10k records |
+| **Permission issues** | Users can't log errors | Medium | Include SEW-CORE-USER in Base App permissions by default |
+| **Feature registration conflicts** | Duplicate feature codes | Low | Enforce naming convention (APP-FEATURE format), document in README |
+| **Activity Log integration broken** | Dual logging fails | Low | Test with BC standard Activity Log page, verify Context = 'SEW' filter works |
 
 ## Deployment Plan
 
-### Version: 1.0.0.0
+**Phase 1 Deployment** (Week 3):
+- **Version**: 1.0.0.0
+- **Target**: BC SaaS/On-Prem (27.0+)
+- **Dependencies**: None (foundation layer)
+- **Installation**: Standard BC app install
+- **Upgrade Path**: N/A (initial release)
+- **Rollback Plan**: Uninstall app (no data loss, Error Log data deleted)
 
-**Target**: BC SaaS Cloud (Wave 2024 Release 2 - Platform 27.0+)
+**Dependent Apps**:
+After Core App deployed, update dependent apps:
+1. **Base App** - Add Core App dependency, register features, use Error Logger
+2. **Technical Extensions** - Add dependency, use Activity Log Helper for integrations
+3. **Business Apps** - Transitively get Core via Base App
 
-**Deployment Sequence**:
-1. **Week 8, Day 1**: Deploy Core 1.0.0.0 to sandbox environments
-2. **Week 8, Day 2-3**: Validate Core in sandbox, run all tests
-3. **Week 8, Day 4**: Deploy Core 1.0.0.0 to production environments
-4. **Week 8, Day 5**: Update BaseApp Basic 26.3.0.0 (add Core dependency) to sandbox
-5. **Week 9, Day 1**: Deploy BaseApp 26.3.0.0 to production
-6. **Week 9, Day 2-5**: Rollout updated feature apps (Packages, Calculation, etc.) with Core API usage
-
-**Upgrade Path**:
-- **New installations**: Install Core → BaseApp → Feature apps (standard flow)
-- **Existing installations**: Deploy Core first (no dependencies), then update BaseApp (triggers dependency download)
-
-**Rollback Plan**:
-- **Core uninstall**: Not recommended (breaks dependent apps). If critical: Uninstall all feature apps → BaseApp → Core.
-- **BaseApp rollback**: Revert to 26.2.0.0 (no Core dependency), Core remains installed but unused
-- **Data loss**: None (uninstall preserves Error Log and License tables)
-
-**Breaking Changes**: None (new app, no prior version)
+**Migration**: 
+- Existing apps continue working (no breaking changes)
+- Add Core dependency incrementally (not required immediately)
+- Migrate error handling to Core Error Logger over time
 
 ## Next Steps
 
-### Recommended Implementation Approach
+### **Immediate Actions (This Week)**
 
-✅ **Architecture approved** (this document)
+1. **Create Core App folder structure**:
+   ```powershell
+   New-Item -Path "Core App\src\Setup" -ItemType Directory -Force
+   New-Item -Path "Core App\src\ErrorLogging" -ItemType Directory -Force
+   New-Item -Path "Core App\src\ActivityLog" -ItemType Directory -Force
+   New-Item -Path "Core App\src\FeatureManagement" -ItemType Directory -Force
+   New-Item -Path "Core App\src\Install" -ItemType Directory -Force
+   New-Item -Path "Core App\src\Permissions" -ItemType Directory -Force
+   ```
 
-**Option A: Generate Detailed Specification** (Recommended for complex features)
-```
-@workspace use al-spec.create
-```
-- Creates formal technical specification
-- Defines API contracts, data schemas, UI mockups
-- Serves as implementation blueprint
+2. **Create app.json** (ID range 71000-71999)
 
-**Option B: Start TDD Implementation** (Recommended for this project)
+3. **Implement objects in order**:
+   - Week 1: Error Logging subsystem
+   - Week 2: Feature Management subsystem
+   - Week 3: Setup, Install, Permissions
+
+4. **Test locally** with AL-Go dev environment
+
+5. **Update Base App** to depend on Core App (Week 3)
+
+### **Handoff to Implementation**
+
+**Ready for al-conductor mode**:
+- Architecture documented and approved ✅
+- Phase 1 scope clearly defined (2-3 weeks)
+- Object IDs allocated (71000-71999)
+- Public APIs specified
+- Testing strategy defined
+
+**To start implementation**:
 ```
 Use al-conductor mode
+
+Task: Implement Core App Phase 1 following the architecture in 
+.github/plans/core-app-arch.md
+
+Focus on:
+1. Error Logging (Table, Codeunit, Pages)
+2. Feature Management (Table, Codeunit, Pages)
+3. Activity Log Helper
+4. Core Setup and Install codeunits
+5. Permission Sets
 ```
-- Orchestra orchestrates Test-Driven Development
-- al-planning-subagent gathers AL context
-- al-implement-subagent writes tests first, then code
-- al-review-subagent validates quality
-- Enforced quality gates, documentation trail
-
-**Option C: Direct Implementation** (For simple changes only)
-```
-Use al-developer mode
-```
-- Tactical coding without Orchestra overhead
-- Not recommended for Core (too complex)
-
-### Handoff to Implementation
-
-**This architecture document provides the blueprint for Core Extension**:
-- Object structure defined (tables, codeunits, pages, enums)
-- Data model specified (fields, keys, relationships)
-- Business logic documented (procedures, events, validations)
-- UI flow designed (wizards, dashboards, management pages)
-- Integration points defined (events, public APIs)
-- Phased implementation plan (8 weeks)
-
-**al-conductor will**:
-- Use al-planning-subagent to reference this architecture during research phase
-- Create multi-phase plan aligned with implementation phases above
-- Use al-implement-subagent to execute TDD (tests first, then objects)
-- Use al-review-subagent to validate against architectural decisions
-- Generate commit-ready code with full documentation
-
-**All implementation must align with decisions documented in this architecture.**
-
-## References
-
-### Related Specifications
-- None (first app in Core infrastructure)
-
-### Related Architectures
-- None (foundation layer)
-
-### Microsoft Documentation
-- [Business Central Telemetry](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/telemetry-overview)
-- [Feature Telemetry](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-feature-telemetry)
-- [Retention Policies](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-data-retention-policies)
-- [Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-- [Entitlements for AppSource](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-entitlements-and-permissionsets-overview)
-- [AL Coding Guidelines](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/compliance/apptest-bestpracticesforalcode)
-
-### Internal Documentation
-- [App ID Ranges](../../docs/App%20ID%20Ranges.md)
-- [AL Guidelines](.github/instructions/al-guidelines.instructions.md)
-- [AL Code Style](.github/instructions/al-code-style.instructions.md)
-- [Copilot Instructions](.github/copilot-instructions.md)
 
 ---
 
-*This architecture document serves as the authoritative design for walter75 - Core Extension. All implementation must align with decisions documented here. Created by al-architect on 2025-12-21.*
+## References
+
+- Business Central Activity Log documentation: [Learn Microsoft - Activity Log](https://learn.microsoft.com/dynamics365/business-central/admin-activity-log)
+- BC Retention Policies: [Learn Microsoft - Retention Policies](https://learn.microsoft.com/dynamics365/business-central/admin-data-retention-policies)
+- Feature Management pattern: Custom implementation (no BC standard equivalent)
+- Repository structure: `README.md` (App Architecture diagram)
+- ID Range allocation: `README.md` (line 68)
+
+---
+
+*This architecture document serves as the authoritative design for Core App Phase 1. All implementation must align with decisions documented here. Feature Management provides foundation for Phase 3 licensing via event-driven extensibility.*
