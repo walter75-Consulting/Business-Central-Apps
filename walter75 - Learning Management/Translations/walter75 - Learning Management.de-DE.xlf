@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="walter75 - Learning Management">
+    <body>
+      <group id="body">
+        <!-- Enums -->
+        <trans-unit id="Enum 91830 - EnumValue 0 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Module</source>
+          <target state="translated">Modul</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Assignment Type - EnumValue Module - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91830 - EnumValue 1 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Path</source>
+          <target state="translated">Lernpfad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Assignment Type - EnumValue Learning Path - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91831 - EnumValue 0 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not Started</source>
+          <target state="translated">Nicht begonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Assignment Status - EnumValue Not Started - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91831 - EnumValue 1 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <target state="translated">In Bearbeitung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Assignment Status - EnumValue In Progress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91831 - EnumValue 2 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed</source>
+          <target state="translated">Abgeschlossen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Assignment Status - EnumValue Completed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91831 - EnumValue 3 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Outdated</source>
+          <target state="translated">Veraltet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Assignment Status - EnumValue Outdated - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91840 - EnumValue 0 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Keine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Proficiency Level - EnumValue None - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91840 - EnumValue 1 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Beginner</source>
+          <target state="translated">Anfänger</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Proficiency Level - EnumValue Beginner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91840 - EnumValue 2 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intermediate</source>
+          <target state="translated">Fortgeschritten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Proficiency Level - EnumValue Intermediate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91840 - EnumValue 3 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="translated">Erweitert</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Proficiency Level - EnumValue Advanced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 91840 - EnumValue 4 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expert</source>
+          <target state="translated">Experte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum SEW Proficiency Level - EnumValue Expert - Property Caption</note>
+        </trans-unit>
+        <!-- Page Captions -->
+        <trans-unit id="Page 91800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Management Setup</source>
+          <target state="translated">Lernmanagement Einrichtung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Learning Mgmt Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 91850 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Modules</source>
+          <target state="translated">Lernmodule</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Learning Module List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 91851 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Module</source>
+          <target state="translated">Lernmodul</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Learning Module Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 91852 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Paths</source>
+          <target state="translated">Lernpfade</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Learning Path List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 91830 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Learning Assignments</source>
+          <target state="translated">Mitarbeiter Lernzuweisungen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Employee Learning Assignments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 91831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>My Learning Assignments</source>
+          <target state="translated">Meine Lernzuweisungen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW My Learning Assignments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 91840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Skill Matrix</source>
+          <target state="translated">Mitarbeiter Kompetenzmatrix</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SEW Employee Skill Matrix - Property Caption</note>
+        </trans-unit>
+        <!-- Permission Set Captions -->
+        <trans-unit id="PermissionSet 91900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Management - Read</source>
+          <target state="translated">Lernmanagement - Lesen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SEW LEARN-READ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 91901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Management - User</source>
+          <target state="translated">Lernmanagement - Benutzer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SEW LEARN-USER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 91902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Management - Manager</source>
+          <target state="translated">Lernmanagement - Manager</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SEW LEARN-MANAGER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 91903 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learning Management - Admin</source>
+          <target state="translated">Lernmanagement - Administrator</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SEW LEARN-ADMIN - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

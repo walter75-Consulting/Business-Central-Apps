@@ -1,0 +1,39 @@
+{
+  "id": "a4b8c2d6-3e14-4f67-8a1b-2c5d9e7f6a3b",
+  "name": "walter75 - Learning Management",
+  "version": "1.0.0.0",
+  "publisher": "walter75 - München",
+  "brief": "Employee Learning & Skills Management for Business Central",
+  "description": "Comprehensive learning management system with Microsoft Learn integration. Features: daily API sync of BC training catalog, employee assignment workflow, completion tracking, content change detection, competency framework with role-based skill matrices, and proficiency level progression (Beginner → Expert).",
+  "contextSensitiveHelpUrl": "https://www.walter75.de",
+  "privacyStatement": "https://www.walter75.de",
+  "EULA": "https://www.walter75.de",
+  "help": "https://www.walter75.de",
+  "url": "https://www.walter75.de",
+  "logo": ".ressources/images/bc-logo.png",
+  "screenshots": [],
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "resourceFolders": [
+    ".ressources"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "16.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith",
+    "GenerateCaptions",
+    "TranslationFile"
+  ],
+  "idRanges": [
+    {
+      "from": 91800,
+      "to": 91899
+    }
+  ],
+  "dependencies": []
+}
